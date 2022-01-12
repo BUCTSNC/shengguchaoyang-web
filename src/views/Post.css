@@ -1,0 +1,145 @@
+iframe {
+    min-height: 30vh;
+}
+
+@media screen and (max-width: 1200px) {
+    #tocBtn {
+        visibility: visible;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #tocBtn {
+        visibility: collapse;
+    }
+}
+
+#content {
+    font-size: 1rem;
+}
+
+#content h1,h2,h3,h4,h5,h6 {
+    margin-top: 32px;
+}
+
+#content h1 {
+    width: 100%;
+    text-align: center;
+}
+
+#content h2 {
+    width: 100%;
+    border-bottom: solid .2rem #1890ff;
+}
+
+#content h3 {
+    padding-left: .5rem;
+    border-left: solid .2rem #722ed1;
+}
+
+#content h4 {
+    padding-left: .5rem;
+    border-left: solid .2rem #eb2f96;
+}
+
+#content h5 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#content h6 {
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+#content p {
+    width: 100%;
+}
+
+#content p img {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    max-width: 100%;
+}
+
+#content iframe {
+    border: none;
+    width: 100%
+}
+
+#content code {
+    margin: 0 .2rem;
+    padding: 0 .3rem;
+    background-color: #f0f0f0;
+}
+
+#content blockquote {
+    background-color: #e6f7ff;
+    border-left: solid .2rem #1890ff;
+    padding: .5rem;
+}
+
+#content pre {
+    padding: 1rem;
+    background-color: #434343;
+    border-left: solid .2rem #13c2c2;
+}
+
+#content pre code {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: #fafafa;
+}
+
+#content table {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: scroll;
+}
+
+#content thead,tbody {
+    width: auto;
+}
+
+#content th {
+    border-bottom: solid .15rem #262626;
+}
+
+#content th,td {
+    padding: .5rem;
+}
+
+#content tr:nth-last-child(2n) {
+    background-color: #ffffff;
+}
+
+
+#content tr:nth-last-child(2n+1) {
+    background-color: #dadada;
+}
+
+.tocItem {
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 100ms;
+}
+
+.tocItem:hover, .activeTocItem {
+    background-color: #fff1f0;
+    border-left: solid .2rem #f5222d;
+}
+
+.inactiveTocItem {
+    border-left: solid .2rem transparent;
+}
+
+.imageNotes {
+    display: inline-block;
+    font-size: .9rem;
+    width: 100%;
+    text-align: center;
+    color: #595959;
+}

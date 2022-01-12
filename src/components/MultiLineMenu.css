@@ -1,0 +1,22 @@
+.menuItem {
+    cursor: pointer;
+    transition-property: color background-color;
+    transition-duration: 400ms;
+    background-color: #f0f0f0;
+    color: #0050b3;
+    text-align: center;
+    width: 100%;
+    padding: .5rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+}
+
+.menuItem:hover {
+    background-color: #096dd9;
+    color: white;
+}
+
+.activedItem {
+    color: #FFFFFF;
+    background-color: #0050b3;
+}

@@ -1,0 +1,14 @@
+#pageHeader {
+  background-color: #0050b3;
+  color: white;
+  width: 100vw;
+  min-height: auto;
+}
+
+#majorTitle {
+  font-size: 2.5rem;
+}
+
+#subTitle {
+  font-size: 1.5rem;
+}
