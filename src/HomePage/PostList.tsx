@@ -15,19 +15,21 @@ export default function PostList(props: {
             position: "relative",
             zIndex: 100,
             margin: "auto", maxWidth: 320,
+            fontSize:'16pt',
+            fontWeight:550,
             display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center",
-            height: 32, color: White, backgroundColor: firstColor, padding: "4px 32px", boxShadow: "0 0 8px rgba(0,0,0,0.4)"
+            height: '5vh', color: White, backgroundColor: firstColor, padding: "4px 32px", boxShadow: "0 0 8px rgba(0,0,0,0.4)"
         }}>
             {icon}
             <div>{title}</div>
         </div>
         <div style={{
             zIndex: 99, position: "relative", top: -16, backgroundColor: secondColor,
-            display: "grid", gridTemplateColumns: "repeat(3, 30%)", gridTemplateRows: "repeat(3, 92px)", gridGap: 32, padding: 32, justifyContent: "center"
+            display: "grid", gridTemplateColumns: "repeat(3, 30%)", gridTemplateRows: "repeat(3, 10vh)", gridGap: 32, padding: 32, justifyContent: "center"
         }}>
             {
                 postList.map(post => <div key={post.path} style={{display: "grid", gridTemplateRows: "repeat(10, 10%)", gridTemplateColumns: "repeat(10, 10%)"}} onClick={() => history.push(`post/${post.path}`)} >
-                    <div style={{ gridColumn: "1/10", gridRow: "1/10", backgroundColor: White, padding: 8, display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
+                    <div style={{ gridColumn: "1/10", gridRow: "1/10", backgroundColor:'white', padding: 8, display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
                         <div style={{ fontSize: "1.2rem" }}><strong>{post.title}</strong></div>
                         <div>{post.intro}</div>
                     </div>

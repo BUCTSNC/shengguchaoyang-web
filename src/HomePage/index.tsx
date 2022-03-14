@@ -6,6 +6,7 @@ import Container from "../components/Container";
 import Links from "./Links";
 import Navigation from "./Navigation";
 import PostList from "./PostList";
+import "./homePage.css";
 
 export const HomePage = () => {
     const tree = useContext(CateTree);

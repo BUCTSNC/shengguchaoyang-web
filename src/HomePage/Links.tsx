@@ -13,9 +13,13 @@ const useStyles = createUseStyles({
     },
     tab: {
         backgroundColor: LightBlue2,
-        borderRadius: 8,
-        fontSize: "1.2rem",
-        margin: "0 4px", padding: "8px 16px",
+        borderRadius: 16,
+        fontSize: "1.8rem",
+        fontWeight:550,
+        textAlign:'center',
+        width:'12.5vw',
+        margin: "0 4px", padding: "8px 16px"
+        // marginTop:'16px'
     },
     tabBox: {
         borderRight: ["solid", "2px", LightBlue2],
@@ -25,8 +29,18 @@ const useStyles = createUseStyles({
         },
         "&:nth-last-child(1)": {
             borderRight: ["solid", "2px", "transparent"]
+        },
+        padding:'0 24px'
+
+    },
+    linkItem: {
+        "&:hover": {
+            boxShadow: "16px 16px 30px rgba(0,0,0,0.8)",
+            transform: 'translate(-10px, -10px)'
         }
     }
+    
+
 });
 
 interface Link { linkType: string, department: string, url: string; }
@@ -35,7 +49,7 @@ interface GroupedLinks {
 }
 export default function Links() {
     const colors = [LightOrange, LightBlue2, StrawBerry, DeepPurpleBlue];
-    const { tab, tabActived, tabDisactived, tabBox } = useStyles();
+    const { tab, tabActived, tabDisactived, tabBox, linkItem } = useStyles();
     const [page, setPage] = useState("");
     const [linkTypes, setLinkTypes] = useState([] as string[]);
     const [groupedLinks, setLinks] = useState({} as GroupedLinks);
@@ -52,7 +66,8 @@ export default function Links() {
             });
     }, []);
     return <div style={{ paddingTop: 16 }}>
-        <div style={{ width: "100%", textAlign: "center", fontSize: "2rem", marginBottom: 0, backgroundColor: White }}><i>校内网站导航</i></div>
+        <div style={{backgroundColor:'#F4FFF4',margin:'16px 0'}}>
+        <div style={{ width: "100%", textAlign: "center", fontWeight:550,letterSpacing:'2rem',fontSize: "2.5rem", marginBottom: 16 }}><i>校内网站导航</i></div>
         <hr style={{ color: LightOrange, margin: 0 }} />
         <div style={{
             display: "flex",
@@ -61,6 +76,7 @@ export default function Links() {
             justifyContent: "center",
             alignItems: "center",
             padding: 4, // backgroundColor: White
+            marginTop:16
         }}>
             {linkTypes.map(linkType => {
                 return <div key={linkType} className={tabBox}><div
@@ -70,6 +86,7 @@ export default function Links() {
                 </div></div>;
             })}
         </div>
+        </div>
         <div style={{display: "flex", justifyContent: "center"}}>
         <div style={{
             textAlign: "center",
@@ -78,9 +95,11 @@ export default function Links() {
         }}>
             {groupedLinks[page]?.map((link, index) => {
                 const offset = Boolean(Math.floor((index) / 4) % 2);
+                
                 return <div key={link.department}>
                     <div
-                        className="links"
+                        // className='links'
+                        className={linkItem}
                         style={{ 
                             color: White, backgroundColor: colors[Math.floor(Math.random() * 4)],
                             marginTop: "16px",
@@ -89,7 +108,7 @@ export default function Links() {
                             padding: 8,
                             height: 48, width: "60%", marginLeft: offset ? "40%" : "0",
                             display: "flex", alignItems: "center", justifyContent: "center",
-                            boxShadow: "0 0 16px rgba(0,0,0,0.4)"
+                            boxShadow: "10px 10px 16px rgba(0,0,0,0.4)"
                         }}
                         onClick={() => window.open(httpUrl(link.url))}
                         color="#69c0ff"
