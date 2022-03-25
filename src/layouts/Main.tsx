@@ -1,10 +1,10 @@
 import React from "react";
 import { Switch, Route, } from "react-router-dom";
 
-import Home from "../views/Home";
-import About from "../views/About";
-import NotFound from "../views/NotFound";
-import Post from "../views/Post";
+import Home from "../HomePage";
+import About from "../AboutPage";
+import NotFound from "../NotFoundPage";
+import Post from "../PostPage";
 
 import "./Main.css";
 

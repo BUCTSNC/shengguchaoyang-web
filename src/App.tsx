@@ -14,9 +14,9 @@ import { Definitions } from 'octa';
 import Navibar from './layouts/Navibar';
 import Bottom from './layouts/Bottom';
 import HomePage from './HomePage';
-import Post from './views/Post';
-import About from './views/About';
-import NotFound from './views/NotFound';
+import Post from './PostPage';
+import About from './AboutPage';
+import NotFound from './NotFoundPage';
 
 export const CateTree = createContext<Definitions.CategoryProps>({ alias: "root", path: ".", childCates: [], childPosts: [] });
 export const SearchViewCtx = createContext((viewable: boolean) => { });
@@ -36,11 +36,10 @@ function App() {
         <SearchViewCtx.Provider value={searchViewSwitch}>
           <Router>
             <Navibar />
-            {/* <Main></Main> */}
             <Route path="/" exact component={HomePage} />
             <Route path="/post/:postUrl*" component={Post} />
             <Route path="/about" exact component={About} />
-            {/* <Route path="/*" component={NotFound} /> */}
+            <Route path="/*" component={NotFound} />
             <SearchBtn onClick={() => searchViewSwitch(true)} />
             <ScrollToTopBtn />
             <Modal
