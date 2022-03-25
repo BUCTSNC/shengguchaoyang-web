@@ -7,7 +7,8 @@ import { createUseStyles } from 'react-jss';
 import Parallelogram from "../components/Parallelogram";
 import Container from "../components/Container";
 import { Search as SearchIcon } from "@icon-park/react";
-import { SearchViewCtx } from "../App";
+import { CateTree, SearchViewCtx } from "../App";
+import { climbTree } from "octa/lib/ClimbTree";
 
 const useStyles = createUseStyles({
     "categoryOuter": {
@@ -72,13 +73,9 @@ function HomeLogo() {
 function CategoryBar() {
     const history = useHistory();
     const navigate = (url: string) => history.push(url);
+    const {cates} = climbTree(useContext(CateTree))
     const { categoryInner, categoryOuter, flexRowCenter, clickable } = useStyles();
-    const categories = [
-        { path: 'school_life', title: '校园生活' },
-        { path: 'service_guide', title: '服务指南' },
-        { path: 'school_buildings', title: '校园风光' },
-        { path: 'learning_resource', title: '学习资源' }
-    ];
+    const categories = cates.filter(cate => !cate.path.includes("/"));
     const CateItem = (props: { path: string, title: string; }) => <Parallelogram angle={30}
         outerProps={{ className: categoryOuter, style: { fontSize: "1rem", color: "white", padding: "4px 16px" } }}
         innerProps={{ className: `${categoryInner} ${clickable}`, onClick: () => navigate(props.path) }}
@@ -87,7 +84,7 @@ function CategoryBar() {
     </Parallelogram>;
     return <div className={flexRowCenter}>
         <CateItem path="/" title="首页" />
-        {categories.map(cate => <CateItem key={cate.path} path={`/cate/${cate.path}`} title={cate.title} />)}
+        {categories.map(cate => <CateItem key={cate.path} path={`/cate/${cate.path}`} title={cate.alias} />)}
     </div>;
 }
 
