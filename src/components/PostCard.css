@@ -1,0 +1,39 @@
+.PostCard {
+    border-radius: 8px;
+    margin: 8px;
+    padding: 8px;
+    box-shadow: 0 0 16px #323232;
+}
+
+.PostCard * {
+    margin: 4px;
+}
+
+.PostCard-Title {
+    border-bottom: 4px solid #323232;
+    margin: 4px;
+}
+
+.PostCard-Category {
+    border-bottom: 1px solid transparent;
+}
+
+.PostCard-Category:hover {
+    border-bottom: 1px solid #2189e3;
+    color: #2189e3;
+}
+
+.TagsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.TagsList-Tag {
+    margin: 8px;
+    padding: 8px;
+    background-color: #232323;
+    color: white;
+}
