@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Modal } from 'antd';
 
@@ -37,11 +37,13 @@ function App() {
         <SearchViewCtx.Provider value={searchViewSwitch}>
           <Router>
             <Navibar />
-            <Route path="/" exact component={HomePage} />
-            <Route path="/post/:postUrl*" component={Post} />
-            <Route path="/cate/:category*" component={CategoryPage} />
-            <Route path="/about" exact component={About} />
-            {/* <Route path="/*" component={NotFound} /> */}
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/post/:postUrl*" component={Post} />
+              <Route path="/cate/:category*" component={CategoryPage} />
+              <Route path="/about" exact component={About} />
+              <Route path="*" component={NotFound} />
+            </Switch>
             <SearchBtn onClick={() => searchViewSwitch(true)} />
             <ScrollToTopBtn />
             <Modal
