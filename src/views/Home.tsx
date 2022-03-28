@@ -101,16 +101,20 @@ function NavigationCards() {
             xxl={16} xl={16}
             lg={24} md={24} sm={24} xs={24}
         >
+            <Area>
             <Area id="校园生活">
                 <CampusLife />
             </Area>
             <Area id="服务指南">
                 <ServiceGuide />
             </Area>
-            <Area id="校园景观">
+            </Area>
+            <Area><Area id="校园景观">
                 <CampusSight />
             </Area>
             <Area id="常用链接">
+            </Area>
+            
                 <Links />
             </Area>
         </Col>
