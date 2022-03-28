@@ -32,7 +32,7 @@ function App() {
     fetch("/posts/tree.json").then(res => res.json() as Promise<Definitions.CategoryProps>).then(setTree);
   }, []);
   return (
-    <div id="App" style={{backgroundColor: 'rgb('}}>
+    <div id="App">
       <CateTree.Provider value={tree}>
         <SearchViewCtx.Provider value={searchViewSwitch}>
           <Router>
