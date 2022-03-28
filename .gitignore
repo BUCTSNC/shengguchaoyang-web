@@ -6,3 +6,4 @@ dist-ssr
 # public
 *.js
 *.log
+node_modules

@@ -8,10 +8,10 @@ export function SearchBtn(props: { onClick: () => any; }) {
             style={{
                 position: "absolute",
                 bottom: "calc(10vh + 6rem)",
-                right: "10vw",
+                right: "6vw",
                 height: "4rem",
                 width: "4rem",
-                backgroundColor: "#0050b3",
+                backgroundColor: "#4470F5",
                 borderRadius: "50%",
                 padding: "1rem",
                 boxShadow: "0 0 2rem #8c8c8c",
