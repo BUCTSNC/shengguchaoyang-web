@@ -39,11 +39,7 @@ export default function Header() {
                                 color: "#2189e3",
                             }
                         }}>
-                        <Image src={Logo} height="5rem" width="4.2rem" />
-                        <div style={{ margin: "0 1rem" }}>
-                            <div style={{ fontSize: "24px" }}>胜古朝阳</div>
-                            <div>学生生活服务指南</div>
-                        </div>
+                        {/* <img src={Logo}  height="100%" /> */}
                     </Parallelogram>
                     <div style={FlexCenterRow}>
                         <NavigationItem title="首页" path="/" first/>
@@ -61,14 +57,12 @@ function NavigationItem (props: { title: string, path: string; first?: boolean }
     const history = useHistory();
     return <Parallelogram angle={30}
         outerProps={{
-            style: {
-                ...(props.first && {borderLeft: "4px solid white"}),
-                borderRight: "4px solid white",
-                fontSize: "1.6rem",
-                padding: "4px 16px",
-                color: "white",
-                ...FlexCenterRow
-            }
+            className: 'navigationItem',
+            // style: {
+            //     ...(props.first && {borderLeft: "4px solid white"}),
+
+            //     ...FlexCenterRow
+            // }
         }}
         innerProps={{
             onClick: () => {console.log("test"); history.push('/other')}

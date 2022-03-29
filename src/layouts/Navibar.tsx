@@ -10,17 +10,19 @@ import { Search as SearchIcon } from "@icon-park/react";
 import { CateTree, SearchViewCtx } from "../App";
 import { size } from "lodash";
 import { climbTree } from "octa/lib/ClimbTree";
+import './NaviBar.css'
 
 const useStyles = createUseStyles({
     "categoryOuter": {//导航栏小项外框
         "&:nth-child(1)": {
-            borderLeft: ["solid", "4px", "white"]
+            borderLeft: ["solid", "0.2vw", "white"]
         },
-        borderRight: ["solid", "4px", "white"]
+        borderRight: ["solid", "0.2vw", "white"]
     },
     "categoryInner": {//导航栏小项内框
         "&:hover": {
-            borderBottom: ["solid", "3px", "white"]
+            borderBottom: ["solid", "3px", "white"],
+            alignItems:'center'
         },
         borderBottom: ["solid", "3pt", "transparent"],
     },
@@ -28,7 +30,7 @@ const useStyles = createUseStyles({
         display: "flex", flexDirection: 'row', justifyContent: "center", alignItems: "center"
     },
     "flexRowAround": {
-        display: "flex", flexDirection: 'row', justifyContent: "space-around", alignItems: "center",height:'4.5vh'
+        display: "flex", flexDirection: 'row', justifyContent: "space-around", alignItems: "center"
     },
     "clickable": {
         cursor: "pointer"
@@ -55,19 +57,15 @@ function HomeLogo() {
     const { flexRowCenter, clickable } = useStyles();
     return <Parallelogram angle={30}
         outerProps={{
-            style: {
-                backgroundColor: White,
-                padding: "4px 16px",
-                margin: "0 16px"
-            },
-            className: `${flexRowCenter} ${clickable}`,
+
+            className: `${flexRowCenter} ${clickable} ${'logoBoxoutProps'}`,
             onClick: () => navigate("/")
         }}
         innerProps={{
             className: flexRowCenter
         }}
     >
-        <Image src={Logo} width='10vw' height={barheight} />
+        <img src={Logo} width='100%' />
         {/* <div style={{ display: 'flex', alignItems: 'center', margin: 4, fontSize: '1.6rem'}}></div> */}
     </Parallelogram>;
 }
@@ -79,12 +77,12 @@ function CategoryBar() {
     const { categoryInner, categoryOuter, flexRowCenter, clickable } = useStyles();
     const categories = cates.filter(cate => !cate.path.includes("/"));
     const CateItem = (props: { path: string, title: string; }) => <Parallelogram angle={30}
-        outerProps={{ className: categoryOuter, style: { fontSize: "13pt",fontWeight:550, width:'8vw',color: "white",height:'3vh',textAlign:'center',padding:'0 2rem'} }}
-        innerProps={{ className: `${categoryInner} ${clickable}`, onClick: () => navigate(props.path) }}
+        outerProps={{ className: `${categoryOuter} ${'navigationItmeOut'}`}}
+        innerProps={{ className: `${categoryInner} ${clickable}`, onClick: () => navigate(props.path)}}
     >
-        {props.title}
+        <div style={{verticalAlign:'center'}}>{props.title}</div>
     </Parallelogram>;
-    return <div className={flexRowCenter}>
+    return <div className={flexRowCenter} style={{alignItems:'center'}}>
         <CateItem path="/" title="首页" />
         {categories.map(cate => <CateItem key={cate.path} path={`/cate/${cate.path}`} title={cate.alias} />)}
     </div>;
@@ -93,10 +91,10 @@ function CategoryBar() {
 function SearchInput() {
     const searchViewSwitch = useContext(SearchViewCtx);
     const { flexRowCenter, clickable } = useStyles();
-    return <div className={flexRowCenter} style={{ borderRadius: 24, overflow: "hidden" }} onClick={() => searchViewSwitch(true)}>
-        <div style={{ width: '8vw', height: '3vh', backgroundColor: "rgba(255, 255, 255,0.2)",display: "flex",alignItems:'center',paddingLeft:30,fontSize:'16px',verticalAlign:'middle',color:'white' }}>点击此处搜索</div>
-        <div style={{ width: '2.5vw', height: '3vh', backgroundColor: "#070FF2", opacity: 1 }} className={`${flexRowCenter} ${clickable}`}>
-            <SearchIcon style={{ fontSize: 24, color: "white" }} />
+    return <div className={flexRowCenter} style={{ borderRadius: '0.9vw', overflow: "hidden" }} onClick={() => searchViewSwitch(true)}>
+        <div className="searchSpace" >点击此处搜索</div>
+        <div className={`${flexRowCenter} ${clickable} ${'searchIconSpace'}`}>
+            <SearchIcon className="searchIcon"/>
         </div>
     </div>;
 }

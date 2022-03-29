@@ -4,37 +4,17 @@ import httpUrl from "../utils/httpUrl";
 import { BackgroundGrey, DeepPurpleBlue, LightBlue2, LightOrange, StrawBerry, White } from "../ColorCard";
 import { createUseStyles } from "react-jss";
 import "./homePage.css";
+import { BackgroundColor } from "@icon-park/react";
 
 const useStyles = createUseStyles({
     tabActived: {
-        color: White
+        color: White,
+        backgroundColor: 'rgba(33,137,227,1)',
     },
     tabDisactived: {
-        color: "rgba(255,255,255,0.6)"
+        color: "rgba(255,255,255,0.4)",
+        backgroundColor:"rgba(33,137,227,0.7)"
     },
-    tab: {
-        backgroundColor: LightBlue2,
-        borderRadius: 16,
-        fontSize: "1.8rem",
-        fontWeight:550,
-        textAlign:'center',
-        width:'12.5vw',
-        // margin: "0 4px", padding: "8px 16px"
-        // marginTop:'16px'
-    },
-    tabBox: {
-        borderRight: ["solid", "2px", LightBlue2],
-        borderLeft: ["solid", "2px", LightBlue2],
-        "&:nth-child(1)": {
-            borderLeft: ["solid", "2px", "transparent"]
-        },
-        "&:nth-last-child(1)": {
-            borderRight: ["solid", "2px", "transparent"]
-        },
-        padding:'0 24px'
-
-    },
-    
 });
 
 interface Link { linkType: string, department: string, url: string; }
@@ -43,10 +23,11 @@ interface GroupedLinks {
 }
 export default function Links() {
     const colors = [LightOrange, LightBlue2, StrawBerry, DeepPurpleBlue];
-    const { tab, tabActived, tabDisactived, tabBox } = useStyles();
+    const { tabActived, tabDisactived } = useStyles();
     const [page, setPage] = useState("");
     const [linkTypes, setLinkTypes] = useState([] as string[]);
     const [groupedLinks, setLinks] = useState({} as GroupedLinks);
+    const tab = ' tab'
     useEffect(() => {
         fetch("/dbs/links.json")
             .then(res => res.json())
@@ -59,23 +40,27 @@ export default function Links() {
                 setLinks(grouped_links);
             });
     }, []);
-    return <div style={{ paddingTop: 16 }}>
-        <div style={{backgroundColor:'#F4FFF4'}}>
-        <div style={{ width: "100%", textAlign: "center", fontWeight:550,letterSpacing:'2rem',fontSize: "2.5rem", marginBottom: 16 }}><i>校内网站导航</i></div>
-        <hr style={{ color: LightOrange, margin: 0 }} />
+    return <div style={{ paddingTop: 24 }}>
+        <div>
+        <div className="indexTitle">校内网站导航</div>
+        {/* <hr style={{ color: LightOrange, margin: 0 }} /> */}
         <div style={{
+        
             display: "flex",
+            // float:'inherit',
             flexWrap: "wrap",
             flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 4, // backgroundColor: White
-            marginTop:16
+            justifyContent: "space-around",
+            alignItems: "stretch",
+            // padding: 4, // backgroundColor: White
+            marginTop:0
+            
+            
         }}>
             {linkTypes.map(linkType => {
-                return <div key={linkType} className={tabBox}><div
+                return <div key={linkType} className='tabBox'><div
                     onClick={() => setPage(linkType)}
-                    className={`${page === linkType ? tabActived : tabDisactived} ${tab}`}>
+                    className={`${page === linkType ? tabActived : tabDisactived}${tab}`}>
                     {linkType}
                 </div></div>;
             })}

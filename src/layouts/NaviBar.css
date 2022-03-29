@@ -1,0 +1,40 @@
+.logoBoxoutProps{
+    background-color: white;
+    padding: 4px 16px;
+    margin: 0 16px;
+    height: 4.5vh;
+    width: 16.1vh;
+}
+.navigationItmeOut{
+    font-weight: 550;
+    height:3vh ;
+    width: 7.5vw;
+    color: white;
+    text-align: center;
+    padding-top: 0.45vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 1.6vh;
+}
+.searchSpace{
+    width: 8vw;
+    height: 3vh;
+    background-color:rgba(255, 255, 255,0.2) ;
+    padding-left: 1.5vw;
+    font-size: 1.6vh;
+    padding-top: 0.75vh;
+    padding-bottom: 0.75vh;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.searchIconSpace{
+    width: 2.5vw;
+    height: 3vh;
+    background-color:#070FF2;
+    opacity: 1;
+}
+.searchIcon{
+    font-size: 1.8vh;
+    color: white;
+}
