@@ -7,16 +7,17 @@ export function SearchBtn(props: { onClick: () => any; }) {
         <div
             style={{
                 position: "absolute",
-                bottom: "calc(10vh + 6rem)",
+                bottom: "calc(10vh + 4.5rem)",
                 right: "6vw",
-                height: "4rem",
-                width: "4rem",
+                height: "3.2rem",
+                width: "3.2rem",
                 backgroundColor: "#4470F5",
                 borderRadius: "50%",
-                padding: "1rem",
+                padding: "0.5rem",
                 boxShadow: "0 0 2rem #8c8c8c",
                 zIndex: 200,
-                cursor: "pointer"
+                cursor: "pointer",
+                alignContent:"center",
             }}
             onClick={props.onClick}
         >

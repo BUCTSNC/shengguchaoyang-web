@@ -15,6 +15,14 @@
     align-items: center;
     margin-right: 3em;
 }
-/* .wechatQR{
-    margin-right: 8em;
-} */
+.text{
+    font-size: 0.7rem;
+}
+.bottomBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2189e3;
+    color: white;
+}

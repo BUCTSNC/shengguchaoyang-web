@@ -63,7 +63,7 @@ export const CategoryPage = () => {
                             )
                         }
                     </div> */}
-                    <h2>{categoryInfo.alias}</h2>
+                    {/* <h2>{categoryInfo.alias}</h2> */}
                     <div>
                         {
                             categoryInfo.childPosts.map(

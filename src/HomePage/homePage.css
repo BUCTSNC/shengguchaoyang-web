@@ -22,11 +22,11 @@
     color: #707070;
     background-color: #E3e1e1;
     cursor: pointer;
-    font-size: 20px;
-    padding: 12px;
-    height: 40px;
+    font-size: 0.8rem;
+    padding: 8px;
+    height: 2rem;
     border-radius: 4px;
-    margin: 12px;
+    margin: 8px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -36,7 +36,7 @@
     background-color:#2E8EEB;
 }
 .tab{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 550;
     text-align: center;
     width: 100%;
@@ -48,13 +48,13 @@
 }
 .tabBar{
     display: flex;
-    
+
 }
 .indexTitle{
     width: 100%;
     text-align: center;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2rem;
     letter-spacing: 2rem;
     margin-bottom: 16;
 }

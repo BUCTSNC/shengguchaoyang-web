@@ -36,7 +36,9 @@ function App() {
       <CateTree.Provider value={tree}>
         <SearchViewCtx.Provider value={searchViewSwitch}>
           <Router>
+            <div style={{position:"sticky",top:0,zIndex:100}}>
             <Navibar />
+            </div>
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/post/:postUrl*" component={Post} />

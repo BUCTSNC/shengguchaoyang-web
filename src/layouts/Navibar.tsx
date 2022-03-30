@@ -11,6 +11,7 @@ import { CateTree, SearchViewCtx } from "../App";
 import { size } from "lodash";
 import { climbTree } from "octa/lib/ClimbTree";
 import './NaviBar.css'
+import { stringify } from "querystring";
 
 const useStyles = createUseStyles({
     "categoryOuter": {//导航栏小项外框

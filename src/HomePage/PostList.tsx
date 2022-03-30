@@ -32,7 +32,7 @@ export default function PostList(props: {
             {
                 postList.map(post => <div key={post.path} style={{display: "grid", gridTemplateRows: "repeat(10, 10%)",verticalAlign:"top", gridTemplateColumns: "repeat(10, 10%)"}} onClick={() => history.push(`post/${post.path}`)} >
                     <div style={{ gridColumn: "1/10", gridRow: "1/10", backgroundColor:'white', padding: 8, display: "flex", flexDirection: "column", justifyContent: "flex-start",verticalAlign:"top"}}>
-                        <div style={{ fontSize: "1.1rem", display: "inline-block",verticalAlign:"top"}}><strong>{post.title}</strong></div>
+                        <div style={{ fontWeight:550,fontSize: "1rem", display: "inline-block",verticalAlign:"top"}}><strong>{post.title}</strong></div>
                         <div style={{fontSize:"0.7rem",color:"#808080",display:"-webkit-box",textOverflow:'ellipsis',WebkitBoxOrient:"vertical",WebkitLineClamp:2,overflow:"hidden"}}>{post.intro}</div>
                     </div>
                     <div style={{ gridColumn: "8/11", gridRow: "9/11", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center",height:"1.8rem",fontSize:"0.8rem", backgroundColor: LightOrange, textAlign: "center", color: White,boxShadow:"-5px 5px 4px rgba(0,0,0,0.2)" }}>{(tagAttr && tagAttr in post) ? (tagAttr === "lastModified" ? new Date(post[tagAttr]).toLocaleDateString() : post[tagAttr]) : "阅读量：1000"}</div>

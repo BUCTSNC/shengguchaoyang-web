@@ -22,7 +22,8 @@ type CardInfo = {
 export default function Navigation() {//卡片布局
     const colors1 = [LightOrange, LightBlue2];
     const colors2 = [StrawBerry, DeepPurpleBlue];
-    return <div style={{ display: 'flex', justifyContent: 'center', flexDirection: "row", flexWrap: "wrap" }}><div style={{ display: 'flex', flexDirection: "row", justifyContent: 'center', flexWrap: "wrap" }}>
+    return <div style={{ display: 'flex', justifyContent: 'center', flexDirection: "row", flexWrap: "wrap" ,marginTop:'3vh'} }>
+        <div style={{display: 'flex', flexDirection: "row", justifyContent: 'space-around', flexWrap: "wrap" }}>
         {
             colors1.map(color => <Card key={color} color={color} info={{
                 title: "校园生活", items: [
@@ -37,7 +38,7 @@ export default function Navigation() {//卡片布局
 
         }
     </div>
-        <div style={{ display: 'flex', flexDirection: "row", justifyContent: 'center', alignItems: 'center', flexWrap: "wrap" }}>
+        <div style={{  display: 'flex', flexDirection: "row", justifyContent: 'space-around',  flexWrap: "wrap"}}>
             {
                 colors2.map(color => <Card key={color} color={color} info={{
                     title: "校园生活", items: [
@@ -57,9 +58,9 @@ export default function Navigation() {//卡片布局
 
 function Card(props: { info: CardInfo, color: string; }) {//卡片内容
     const { info, color } = props;
-    return <div style={{ textAlign: "center", backgroundColor: color, color: "white", padding: '1vw', margin: '1.5vw' }}>
-        <div style={{ fontSize: "1.5rem", fontWeight: 600 }}>{info.title}</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 50%)" }}>
+    return <div style={{ textAlign: "center", backgroundColor: color, color: "white",padding: '0.8vw', margin: '0.8vw'}}>
+        <div style={{ fontSize: "1.2rem", fontWeight: 600 ,paddingTop:'12px'}}>{info.title}</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 50%)"}}>
             {info.items.map((item, index) => <Link key={index} link={item} />)}
         </div>
     </div>;
