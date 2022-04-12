@@ -10,6 +10,7 @@ export const Area = (props: { id?: string, style?: CSSProperties, cardStyle?: CS
         <div style={{
             backgroundColor: "white",
             height: "100%",
+            paddingBottom:'1.5rem',
             boxShadow: "0 0 .5rem #d9d9d9",
             ...props.cardStyle
         }}>

@@ -14,6 +14,7 @@ import scrollSmoothly from "../utils/smoothScroll";
 import "./Post.css";
 import { CateTree } from "../App";
 import { climbTree } from "../dm/climbTree";
+import { White } from "../ColorCard";
 
 export function Post(props: RouteComponentProps) {
     const cateTree = useContext(CateTree);
@@ -26,12 +27,16 @@ export function Post(props: RouteComponentProps) {
     const [tocModal, setTocModal] = useState(false);
     const [postExist, setPostExist] = useState(true);
     const history = useHistory();
+    const { postUrl: url } = props.match.params as { postUrl: string; };
+    const post = postsMeta.find(post=>post.path===url)
+
 
     useEffect(() => {
         const resizeHandler = () => setWidth(window.innerWidth);
         window.addEventListener("resize", resizeHandler);
         const { postUrl: url } = props.match.params as { postUrl: string; };
         if (postsMeta.find(post => post.path === url)) {
+            
             getMarkdown(url)
                 .then(md => parseMD(md, url))
                 .then(setHtml)
@@ -47,7 +52,7 @@ export function Post(props: RouteComponentProps) {
 
     useEffect(() => {
         if (postExist) {
-            const headings = generateTOC();
+            try{const headings = generateTOC();
             setToc(headings);
             const images = Array.from(document.getElementById("content")?.getElementsByTagName("img") ?? []);
             images.forEach(item => {
@@ -57,10 +62,9 @@ export function Post(props: RouteComponentProps) {
                 images.forEach(item => {
                     item.removeEventListener("click", openPicture);
                 });
-            };
+            };}catch{}
         }
     }, [html, postExist]);
-
     useEffect(() => {
         const { postUrl: url } = props.match.params as { postUrl: string; };
         document.title = (postsMeta.find(post => post.path === url)?.title ?? "内容未找到") + " - 胜古朝阳";
@@ -94,9 +98,10 @@ export function Post(props: RouteComponentProps) {
                 <Area
                     style={{
                         position: "sticky",
-                        top: 0
+                        top: '52px',
+                        width:'90%', 
                     }}
-                    cardStyle={{ padding: "1rem" }}>
+                    >
                     <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} />
                 </Area>
             </Col>
@@ -119,7 +124,8 @@ export function Post(props: RouteComponentProps) {
                         flexDirection: "row",
                         alignItems: "flex-start",
                         cursor: "pointer",
-                        boxShadow: "0 0 1rem #8c8c8c"
+                        boxShadow: "0 0 1rem #8c8c8c",
+                        
                     }}
                 >
                     <div style={{ width: "100%", height: "100%", fontSize: "1.2rem" }}
@@ -128,11 +134,23 @@ export function Post(props: RouteComponentProps) {
                         {toc.find(item => item.id === currentId)?.title ?? "文章目录"}
                     </div>
                 </Area>}
-                <Area cardStyle={{ padding: ".5rem 1rem" }}>
-                    <div
-                        id="content"
-                        dangerouslySetInnerHTML={{ __html: html }}
-                    ></div>
+                
+                <Area cardStyle={{ padding: ".5rem 1rem" ,paddingLeft:'4rem'}}>{post===undefined ? null:
+                                    <>
+                                    <div id={'title'}>{post.title}</div>
+                                    <div id = "tag">
+                                        <div id="lastModified" className="tagItem">{new  Date(post.lastModified).getFullYear()}/{new  Date(post.lastModified).getMonth()}/{new  Date(post.lastModified).getDate()}</div>
+                                        <div id='author' className="tagItem" >编者：{post.authors?.join(' ')}</div>
+                                        <div className="tagItem">校对:{}</div>
+                                    </div>
+                                    <div >阅读量：1000</div>
+                                    <div
+                                        id="content"
+                                        dangerouslySetInnerHTML={{ __html: html }}
+                                    ></div>
+                                    </>
+                }
+
                 </Area>
             </Col>
         </Row>
@@ -188,9 +206,9 @@ function openPicture(e: MouseEvent) {
 function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number; afterScroll?: () => any; }) {
     const { toc, afterScroll = () => null } = props;
     return <>
-        <h2>文章目录</h2>
-        <hr />
-        <div>
+        <h2 className="catalogueTitle">文章目录</h2>
+        {/* <hr /> */}
+        <div >
             {toc.map(heading => {
                 return <div
                     key={heading.id}
