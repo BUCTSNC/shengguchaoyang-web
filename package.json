@@ -8,7 +8,7 @@
     "makeOcta": "tsc ./tools/generateCateTree.ts"
   },
   "dependencies": {
-    "antd": "^4.19.2",
+    "antd": "^4.19.5",
     "browserlist": "^1.0.1",
     "lodash": "^4.17.21",
     "marked": "^4.0.14",

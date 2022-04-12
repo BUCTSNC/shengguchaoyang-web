@@ -37,11 +37,11 @@ const useStyles = createUseStyles({
         cursor: "pointer"
     }
 });
-const barheight = "4.5vh"
+// const barheight = "4.5vh"
 export default function Navibar() {
     
     const { flexRowAround } = useStyles();
-    return <div style={{ background: PurpleBlue, width: '100vw',height: barheight}}>
+    return <div style={{ background: PurpleBlue, width: '100vw',height:48}}>
         <ContainerNG>
             <div className={flexRowAround}>
                 <HomeLogo />
@@ -78,7 +78,7 @@ function CategoryBar() {
     const { categoryInner, categoryOuter, flexRowCenter, clickable } = useStyles();
     const categories = cates.filter(cate => !cate.path.includes("/"));
     const CateItem = (props: { path: string, title: string; }) => <Parallelogram angle={30}
-        outerProps={{ className: `${categoryOuter} ${'navigationItmeOut'}`}}
+        outerProps={{ className: `${categoryOuter} ${'navigationItemOut'}`}}
         innerProps={{ className: `${categoryInner} ${clickable}`, onClick: () => navigate(props.path)}}
     >
         <div style={{verticalAlign:'center'}}>{props.title}</div>
