@@ -2,6 +2,15 @@ import React from "react"
 
 import { Row, Col } from "antd";
 
+export const ContainerNG = (props: {children: JSX.Element | JSX.Element[] | null, width?: `${number}%`}) => {
+    const width = props.width ?? "80%"
+    return <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <div style={{width}}>
+            {props.children}
+        </div>
+    </div>
+}
+
 export default (props: {children: JSX.Element | JSX.Element[], left?: JSX.Element, right?: JSX.Element}) => {
     return (
     <Row>
