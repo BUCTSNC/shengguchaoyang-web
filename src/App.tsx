@@ -39,6 +39,7 @@ function App() {
             <div style={{position:"sticky",top:0,zIndex:100}}>
             <Navibar />
             </div>
+            <div id="main">
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/post/:postUrl*" component={Post} />
@@ -46,6 +47,7 @@ function App() {
               <Route path="/about" exact component={About} />
               <Route path="*" component={NotFound} />
             </Switch>
+            </div>
             <SearchBtn onClick={() => searchViewSwitch(true)} />
             <ScrollToTopBtn />
             <Modal
