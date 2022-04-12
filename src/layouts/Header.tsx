@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import Container from "../components/Container";
+import Container, { ContainerNG } from "../components/Container";
 import Image from "../components/Image";
 import Parallelogram from "../components/Parallelogram";
 
@@ -20,7 +20,7 @@ export default function Header() {
     ];
     return (
         <div onClick={goHome} style={{ backgroundColor: "#4470f5" }}>
-            <Container>
+            <ContainerNG>
                 <div style={FlexCenterRow}>
                     <Parallelogram angle={30}
                         outerProps={{
@@ -48,7 +48,7 @@ export default function Header() {
                         }
                     </div>
                 </div>
-            </Container>
+            </ContainerNG>
         </div>
     );
 }
