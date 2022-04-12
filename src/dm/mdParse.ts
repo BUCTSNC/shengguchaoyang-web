@@ -1,4 +1,4 @@
-import marked from "marked";
+import { marked } from "marked";
 import { compact, flatten } from "lodash";
 import { Definitions } from "octa";
 

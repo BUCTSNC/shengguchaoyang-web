@@ -5,7 +5,7 @@ import Image from "../components/Image";
 import Logo from '../../src/logo/sgcy.jpg';
 import { createUseStyles } from 'react-jss';
 import Parallelogram from "../components/Parallelogram";
-import Container from "../components/Container";
+import Container, { ContainerNG } from "../components/Container";
 import { Search as SearchIcon } from "@icon-park/react";
 import { CateTree, SearchViewCtx } from "../App";
 import { size } from "lodash";
@@ -42,13 +42,13 @@ export default function Navibar() {
     
     const { flexRowAround } = useStyles();
     return <div style={{ background: PurpleBlue, width: '100vw',height: barheight}}>
-        <Container>
+        <ContainerNG>
             <div className={flexRowAround}>
                 <HomeLogo />
                 <CategoryBar />
                 <SearchInput />
             </div>
-        </Container>
+        </ContainerNG>
     </div>;
 }
 
