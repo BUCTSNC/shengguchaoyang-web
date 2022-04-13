@@ -15,7 +15,7 @@ export const PostCard = (props: { post: PostProps; }) => {
     const category = categoryPath && cates.find(cate => cate.path === categoryPath) || null;
     const categoryDisplay = category && traceToRoot(category, cates).map(cate => cate.alias);
     // const headimg = post.headerImage
-    const imgPath = `../../public/posts/${post.path}/${post.headerImage}`
+    const imgPath = `/posts/${post.path}/${post.headerImage}`
     return <div className="PostCard" onClick={() => history.push(`/post/${post.path}`)}>
         <div className="PostCard-text">
             <h2 className="PostCard-Title">{post.title}</h2>
