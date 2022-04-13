@@ -4,13 +4,13 @@ import { RouteComponentProps, useHistory } from "react-router-dom";
 import { Row, Col, Modal } from "antd";
 import { Home, Left } from "@icon-park/react";
 import { Definitions } from "octa";
-
+import {Feedback} from '../components/Feedback';
 import Area from "../components/Area";
 import Container from "../components/Container";
 import { getMarkdown, getUUID } from "../dm/fetchData";
 import { parseMD, TOC } from "../dm/mdParse";
 import scrollSmoothly from "../utils/smoothScroll";
-
+import {Eyes,Time,Calendar} from'@icon-park/react'
 import "./Post.css";
 import { CateTree } from "../App";
 import { climbTree } from "../dm/climbTree";
@@ -91,22 +91,22 @@ export function Post(props: RouteComponentProps) {
     }, [toc]);
 
     return postExist ? <Container>
-        <Row>
-            <Col
-                xxl={6} xl={8} lg={0} md={0} sm={0} xs={0}
+        <Row style={{width:'110%',alignSelf:"center",position:'relative',left:'-3vw'}}>
+            <Col  
+                xxl={5} xl={5} lg={0} md={0} sm={0} xs={0}
             >
                 <Area
                     style={{
                         position: "sticky",
                         top: '52px',
-                        width:'90%', 
+                        width:'100%', 
                     }}
                     >
                     <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} />
                 </Area>
             </Col>
-            <Col
-                xxl={18} xl={16} lg={24} md={24} sm={24} xs={24}
+            <Col span={16}
+                xxl={14} xl={14} lg={20} md={24} sm={24} xs={24}
             >
                 {width > 1200 ? null : <Area
                     id="tocBar"
@@ -139,21 +139,37 @@ export function Post(props: RouteComponentProps) {
                                     <>
                                     <div id={'title'}>{post.title}</div>
                                     <div id = "tag">
-                                        <div id="lastModified" className="tagItem">{new  Date(post.lastModified).getFullYear()}/{new  Date(post.lastModified).getMonth()}/{new  Date(post.lastModified).getDate()}</div>
-                                        <div id='author' className="tagItem" >编者：{post.authors?.join(' ')}</div>
-                                        <div className="tagItem">校对:{}</div>
+                                        <div id="lastModified" className="tagItem"><Calendar></Calendar> {new  Date(post.lastModified).getFullYear()}/{new  Date(post.lastModified).getMonth()}/{new  Date(post.lastModified).getDate()}</div>
+                                        <div className='tagItem'>|</div>
+                                        <div id='author' className="tagItem" >作者：{post.authors?.join(' ')}</div>
+                                        <div className='tagItem'>|</div>
+                                        <div className="tagItem">审核:{}</div>
                                     </div>
-                                    <div >阅读量：1000</div>
+                                    <div id='readCounter'><Eyes></Eyes>  浏览量：1000待修改</div>
                                     <div
                                         id="content"
                                         dangerouslySetInnerHTML={{ __html: html }}
                                     ></div>
+
                                     </>
                 }
+                
 
-                </Area>
+                </Area>   
             </Col>
+            <Col xxl={5} xl={5} lg={0} md={0} sm={0} xs={0}>
+            {width < 1200 ? null :
+                <div style={{
+                    position: "sticky",
+                    top: '52px',
+                    width:'100%', 
+                }}>
+                <Feedback />
+                </div>}
+                
+            </Col> 
         </Row>
+        
         <Modal visible={tocModal} title={null} footer={null} onCancel={() => setTocModal(false)}>
             <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} afterScroll={() => setTocModal(false)} />
         </Modal>

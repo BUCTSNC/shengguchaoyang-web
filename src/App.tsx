@@ -1,12 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import { Modal } from 'antd';
-
 import SearchPad from './components/SearchPad';
 import SearchBtn from './layouts/SearchBtn';
 import ScrollToTopBtn from './layouts/ScrollToTopBtn';
-
 import './App.css';
 import "antd/dist/antd.css";
 import '@icon-park/react/styles/index.css';
@@ -40,6 +37,7 @@ function App() {
             <Navibar />
             </div>
             <div id="main">
+
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/post/:postUrl*" component={Post} />
