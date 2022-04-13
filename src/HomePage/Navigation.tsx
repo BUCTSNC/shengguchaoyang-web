@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const useStyles = createUseStyles({
     linkItem: {
         "&:hover": {
-            boxShadow: "0 0 32px rgba(0,0,0,0.2)",
+            boxShadow: "10px 10px 32px rgba(0,0,0,0.3)",
             cursor: "pointer"
         }
     }
@@ -41,7 +41,7 @@ export default function Navigation() {//卡片布局
         color: LightBlue2,
         title: "学习资源",
         items: [
-            { title: "校园网络学习资源", intro: "数字校园/信息门户", icon: <Audit theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" },
+            { title: "学习资源", intro: "数字校园/信息门户", icon: <Audit theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" },
             { title: "图书资源", intro: "图书馆/检索服务", icon: <Hospital theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" },
             { title: "知网服务", intro: "中国知网", icon: <ShoppingCartOne theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" },
             { title: "自习教室", intro: "教学楼/图书馆/宿舍楼", icon: <Earth theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" },
@@ -98,7 +98,7 @@ function Link(props: { link: LinkInfo; }) {//链接内容
     const history = useHistory();
     return <div style={{ margin: 8, padding: 4, maxWidth: 96 }} className={linkItem} onClick={() => history.push(`/post/${link.src}`)}>
         {link.icon}
-        <div>{link.title}</div>
-        <div>{link.intro}</div>
+        <div style={{fontWeight:550}}>{link.title}</div>
+        <div style={{color:"#FFFFFF90"}}>{link.intro}</div>
     </div>;
 }

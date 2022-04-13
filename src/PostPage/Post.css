@@ -94,15 +94,17 @@ iframe {
 }
 
 #content h3 {
-    /* padding-left: .5rem; */
+    padding-left: .5rem;
+    margin: 1rem 0;
     font-weight: 550;
-    font-size: 1.0rem;
+    font-size: 1.1rem;
     
 }
 
 #content h4 {
-    padding-left: .5rem;
+    padding-left: 2rem;
     /* border-left: solid .2rem #eb2f96; */
+    font-weight: 550;
 }
 
 #content h5 {
