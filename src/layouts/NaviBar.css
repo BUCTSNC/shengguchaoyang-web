@@ -1,9 +1,9 @@
 .logoBoxoutProps{
     background-color: white;
-    padding: 4px 16px;
-    margin: 0 16px;
+    padding: 4px 12px;
+    margin: 0 12px;
     height: 48px;
-    width: 16vh;
+    width: 8.5vw;
 }
 .navigationItemOut{
     font-weight: 550;
@@ -22,10 +22,10 @@
 }
 .searchSpace{
     width: 8vw;
-    height: 3vh;
+    height: 32px;
     background-color:rgba(255, 255, 255,0.2) ;
-    padding-left: 1.5vw;
-    font-size: 1.6vh;
+    padding-left: 24px;
+    font-size: .9rem;
     padding-top: 0.75vh;
     padding-bottom: 0.75vh;
     color: white;
@@ -34,11 +34,11 @@
 }
 .searchIconSpace{
     width: 2.5vw;
-    height: 3vh;
+    height: 32px;
     background-color:#070FF2;
     opacity: 1;
 }
 .searchIcon{
-    font-size: 1.8vh;
+    font-size: 20px;
     color: white;
 }

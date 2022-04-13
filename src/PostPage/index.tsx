@@ -91,14 +91,14 @@ export function Post(props: RouteComponentProps) {
     }, [toc]);
 
     return postExist ? <Container>
-        <Row style={{width:'110%',alignSelf:"center",position:'relative',left:'-3vw'}}>
+        <Row style={{width:'130%',alignSelf:"center",position:'relative',left:'-4vw'}}>
             <Col  
-                xxl={5} xl={5} lg={0} md={0} sm={0} xs={0}
+                xxl={4} xl={4} lg={0} md={0} sm={0} xs={0}
             >
                 <Area
                     style={{
                         position: "sticky",
-                        top: '52px',
+                        top: '56px',
                         width:'100%', 
                     }}
                     >
@@ -139,13 +139,13 @@ export function Post(props: RouteComponentProps) {
                                     <>
                                     <div id={'title'}>{post.title}</div>
                                     <div id = "tag">
-                                        <div id="lastModified" className="tagItem"><Calendar></Calendar> {new  Date(post.lastModified).getFullYear()}/{new  Date(post.lastModified).getMonth()}/{new  Date(post.lastModified).getDate()}</div>
+                                        <div id="lastModified" className="tagItem"><Calendar className="Icon"></Calendar> {new  Date(post.lastModified).getFullYear()}/{new  Date(post.lastModified).getMonth()}/{new  Date(post.lastModified).getDate()}</div>
                                         <div className='tagItem'>|</div>
                                         <div id='author' className="tagItem" >作者：{post.authors?.join(' ')}</div>
                                         <div className='tagItem'>|</div>
                                         <div className="tagItem">审核:{}</div>
                                     </div>
-                                    <div id='readCounter'><Eyes></Eyes>  浏览量：1000待修改</div>
+                                    <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：1000待修改</div>
                                     <div
                                         id="content"
                                         dangerouslySetInnerHTML={{ __html: html }}
@@ -157,11 +157,11 @@ export function Post(props: RouteComponentProps) {
 
                 </Area>   
             </Col>
-            <Col xxl={5} xl={5} lg={0} md={0} sm={0} xs={0}>
+            <Col xxl={4} xl={4} lg={0} md={0} sm={0} xs={0}>
             {width < 1200 ? null :
                 <div style={{
                     position: "sticky",
-                    top: '52px',
+                    top: '56px',
                     width:'100%', 
                 }}>
                 <Feedback />

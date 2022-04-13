@@ -19,7 +19,7 @@ export const PostCard = (props: { post: PostProps; }) => {
     return <div className="PostCard" onClick={() => history.push(`/post/${post.path}`)}>
         <div className="PostCard-text">
             <h2 className="PostCard-Title">{post.title}</h2>
-            {(categoryDisplay && category) ? <p className="PostCard-Category" onClick={() => `/cate/${category.path}`}>{categoryDisplay}</p> : null}
+            {/* {(categoryDisplay && category) ? <p className="PostCard-Category" onClick={() => `/cate/${category.path}`}>{categoryDisplay}</p> : null} */}
             {post.intro ? <p className="PostCard-intro">{post.intro}</p> : null}
             <div className="PostCard-info">
                 <div>1000 阅读</div>

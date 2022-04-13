@@ -77,6 +77,7 @@ export function SearchPad(props: { onRouting: () => void; }) {
                 id="search-bar"
                 placeholder="在此输入关键词"
                 value={userInput}
+                
                 onChange={e => setUserInput(e.target.value)}
             />
         </div>
@@ -88,12 +89,14 @@ export function SearchPad(props: { onRouting: () => void; }) {
                 alignItems: "flex-start",
                 // justifyContent: "space-around"
             }}>
-                {keywordsRecommend.map(keyword => <div key={keyword} style={{
-                    backgroundColor: "#d9d9d9",
+                {keywordsRecommend.map(keyword => <div className='tag' key={keyword} style={{
+                    // backgroundColor: "#d9d9d9",
                     margin: ".2rem",
                     padding: ".2rem",
                     borderRadius: ".2rem",
-                    cursor: "pointer"
+                    cursor: "pointer",
+                    fontSize:'.9rem',
+                    fontWeight:300
                 }} onClick={() => setUserInput(keyword)}>{keyword}</div>)}
             </div> : null
         }

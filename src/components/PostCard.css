@@ -65,7 +65,7 @@
 }
 .PostCard-intro{
     font-size: 0.8rem;
-    font-weight: 550;
+    font-weight: 500;
     color: #707070;
 
 }
@@ -84,14 +84,11 @@
 
 }
 .Head-img{
-    border-radius: 10%;
-    width: 80%;
+    border-radius: 1rem;
+    width: 100%;
     align-self: center;
     vertical-align: center;
     /* height: auto; */
     object-fit: cover;
-    aspect-ratio: 1.5;
-
-    
-    
+    aspect-ratio: 1.5;    
 }

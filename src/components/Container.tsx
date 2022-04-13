@@ -24,9 +24,9 @@ export default (props: {children: JSX.Element | JSX.Element[], left?: JSX.Elemen
         <Col
             xs={24}
             sm={20}
-            lg={16}
-            xl={16}
-            xxl={16}
+            lg={14}
+            xl={14}
+            xxl={14}
         >
             {props.children}
         </Col>
