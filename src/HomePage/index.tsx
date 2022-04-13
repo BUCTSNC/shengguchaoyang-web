@@ -1,6 +1,6 @@
 import { Fire, Rugby, UpdateRotation, Wechat } from "@icon-park/react";
 import { climbTree } from "octa/lib/ClimbTree";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CateTree } from "../App";
 import Container, { ContainerNG } from "../components/Container";
 import Links from "./Links";
@@ -12,6 +12,9 @@ import "./homePage.css";
 export const HomePage = () => {
     const tree = useContext(CateTree);
     const {posts} = climbTree(tree)
+    useEffect(() => {
+        document.title = "首页 - 胜古朝阳";
+    }, []);
     return <div id='homepage-bg' style={{ width: '100vw'}}>
         <div id='homepage'>
         <ContainerNG>

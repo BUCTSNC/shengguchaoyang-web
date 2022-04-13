@@ -23,6 +23,9 @@ export const CategoryPage = () => {
     useEffect(() => {
         setCategory(parseCategory);
     }, [categoryPath, cates]);
+    useEffect(() => {
+        document.title = `${categoryInfo?.alias} - 胜古朝阳`;
+    }, [categoryInfo?.alias]);
     return <ContainerNG>
         <Container right={
             <div style={{top: 52, position: "sticky"}}>
