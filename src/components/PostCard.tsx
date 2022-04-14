@@ -5,6 +5,7 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { CateTree } from "../App";
 import { getSupCategory, traceToRoot } from "../dm/cateParse";
+import { getVisitedCount } from "../dm/hotList";
 import "./PostCard.css"
 
 export const PostCard = (props: { post: PostProps; }) => {
@@ -25,11 +26,11 @@ export const PostCard = (props: { post: PostProps; }) => {
             {/* {(categoryDisplay && category) ? <p className="PostCard-Category" onClick={() => `/cate/${category.path}`}>{categoryDisplay}</p> : null} */}
             {post.intro ? <p className="PostCard-intro">{post.intro}</p> : null}
             <div className="PostCard-info">
-                <div>1000 阅读(待修改)：</div>
+                <div>{getVisitedCount(`post/${post.path}`)} 阅读</div>
                 <div style={{fontWeight:550}}>·</div>
                 <div>{time.getFullYear()}-{time.getMonth()}-{time.getDate()} 更新</div>
             </div>
-            <TagsList tags={post.tags} />
+            {/* <TagsList tags={post.tags} /> */}
         </div>
         <div className="PostCard-img">
             <div className="Head-img-box" >

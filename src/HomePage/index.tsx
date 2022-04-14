@@ -1,12 +1,13 @@
-import { Fire, Rugby, UpdateRotation, Wechat } from "@icon-park/react";
+import { Fire, UpdateRotation } from "@icon-park/react";
 import { climbTree } from "octa/lib/ClimbTree";
 import React, { useContext, useEffect } from "react";
 import { CateTree } from "../App";
-import Container, { ContainerNG } from "../components/Container";
+import { ContainerNG } from "../components/Container";
+import { getVisitedCount } from "../dm/hotList";
+import "./homePage.css";
 import Links from "./Links";
 import Navigation from "./Navigation";
 import PostList from "./PostList";
-import "./homePage.css";
 
 
 export const HomePage = () => {
@@ -21,8 +22,12 @@ export const HomePage = () => {
             <Carousel />
             <Navigation />
             <Links />
-            <PostList firstColor="#ed5c5c" secondColor="#6488f2" title="最近更新" icon={<UpdateRotation theme="outline" size="24" fill="#ddd"/>} postList={posts.sort((a, b) => a.lastModified - b.lastModified).slice(0,9)} tagAttr="lastModified"/>    
-            <PostList firstColor="#ff6348" secondColor="#2591fb" title="浏览榜单" icon={<Fire theme="outline" size="24" fill="#ddd"/>} postList={posts.sort((a, b) => a.lastModified - b.lastModified).slice(0,9)} />    
+            <PostList firstColor="#ed5c5c" secondColor="#6488f2" title="最近更新" icon={<UpdateRotation theme="outline" size="24" fill="#ddd"/>} postList={posts.sort((a, b) => b.lastModified - a.lastModified).slice(0,9)} tagAttr="lastModified"/>    
+            <PostList firstColor="#ff6348" secondColor="#2591fb" title="浏览榜单" icon={<Fire theme="outline" size="24" fill="#ddd"/>} postList={posts.map(post => {
+                return {
+                    ...post, visited: getVisitedCount(`post/${post.path}`)
+                }
+            }).sort((a, b) => b.visited - a.visited).slice(0, 9)} tagAttr="visited" />
         </ContainerNG>
         </div>
     </div>;

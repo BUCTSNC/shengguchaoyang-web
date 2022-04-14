@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useLocation, useParams } from "react-router-dom";
 import { Modal } from 'antd';
 import SearchPad from './components/SearchPad';
 import SearchBtn from './layouts/SearchBtn';
@@ -15,6 +15,7 @@ import Post from './PostPage';
 import About from './AboutPage';
 import NotFound from './NotFoundPage';
 import { CategoryPage } from './CategoryPage';
+import { loadHotList, logVisit } from './dm/hotList';
 
 export const CateTree = createContext<Definitions.CategoryProps>({ alias: "root", path: ".", childCates: [], childPosts: [] });
 export const SearchViewCtx = createContext((viewable: boolean) => { });
@@ -23,21 +24,23 @@ function App() {
   const [tree, setTree] = useState<Definitions.CategoryProps>({
     alias: "root", path: ".", childCates: [], childPosts: []
   });
-  const [searchDB, setSearchDB] = useState<Definitions.FlatPost[]>([]);
+  const location = useLocation();
   const [searchView, searchViewSwitch] = useState(false);
   useEffect(() => {
     fetch("/posts/tree.json").then(res => res.json() as Promise<Definitions.CategoryProps>).then(setTree);
   }, []);
+  useEffect(() => {
+    logVisit(location.pathname);
+    loadHotList();
+  }, [location.pathname])
   return (
     <div id="App">
       <CateTree.Provider value={tree}>
         <SearchViewCtx.Provider value={searchViewSwitch}>
-          <Router>
             <div style={{position:"sticky",top:0,zIndex:100}}>
             <Navibar />
             </div>
             <div id="main">
-
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/post/:postUrl*" component={Post} />
@@ -58,7 +61,6 @@ function App() {
             >
               <SearchPad onRouting={() => searchViewSwitch(false)} />
             </Modal>
-          </Router>
           <Bottom />
         </SearchViewCtx.Provider>
       </CateTree.Provider>
