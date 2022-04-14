@@ -2,7 +2,7 @@ import React, { CSSProperties, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { PurpleBlue, White } from "../ColorCard";
 import Image from "../components/Image";
-import Logo from '../../src/logo/sgcy.jpg';
+import Logo from '../../src/logo/sgcy.png';
 import { createUseStyles } from 'react-jss';
 import Parallelogram from "../components/Parallelogram";
 import Container, { ContainerNG } from "../components/Container";

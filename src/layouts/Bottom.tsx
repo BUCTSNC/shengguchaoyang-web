@@ -16,7 +16,7 @@ export default function Bottom() {
         <div style={{ textAlign: 'center' }}>
             <div>Copyright &copy; {new Date().getFullYear()} SNC All Right Reversed</div>
             <div className='text'>地址：北京市朝阳区北三环东路15号北京化工大学</div>
-            <div className='text'>邮编：100029 联系我们|010-88888888</div>
+            {/* <div className='text'>邮编：100029 联系我们|010-88888888</div> */}
         </div>
         <div className='wechatMap'>
             <div className='wechatIcon'>

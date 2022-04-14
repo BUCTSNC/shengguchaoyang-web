@@ -15,6 +15,7 @@ export const CategoryPage = () => {
     const { category: categoryPath } = useParams<{ category: string; }>();
     const categoriesChain = categoryPath.split("/")
     const { cates } = climbTree(useContext(CateTree));
+    const [width,setWidth] = useState(window.innerWidth)
     const parseCategory = (): Definitions.CategoryProps | undefined => {
         const cate = cates.find(cate => cate.path === categoryPath);
         return cate
@@ -27,8 +28,7 @@ export const CategoryPage = () => {
         document.title = `${categoryInfo?.alias} - 胜古朝阳`;
     }, [categoryInfo?.alias]);
     return <ContainerNG>
-        <Container right={
-            <div style={{top: 52, position: "sticky"}}>
+        <Container right={ width<1200 ? <> </> : <div style={{top: 56, position: "sticky"}}>
                 <Feedback />
             </div>
         }>

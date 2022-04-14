@@ -143,9 +143,10 @@ export function Post(props: RouteComponentProps) {
                                         <div className='tagItem'>|</div>
                                         <div id='author' className="tagItem" >作者：{post.authors?.join(' ')}</div>
                                         <div className='tagItem'>|</div>
-                                        <div className="tagItem">审核:{}</div>
+                                        <div className="tagItem">审核：{post.editors?.join(' ')}</div>
                                     </div>
                                     <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：1000待修改</div>
+                                    <div> </div>
                                     <div
                                         id="content"
                                         dangerouslySetInnerHTML={{ __html: html }}
