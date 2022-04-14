@@ -90,10 +90,17 @@ export function Post(props: RouteComponentProps) {
         };
     }, [toc]);
 
-    return postExist ? <Container>
-        <Row style={{width:'130%',alignSelf:"center",position:'relative',left:'-4vw'}}>
+    return postExist ? <Container right={width < 1200 ? <></> :
+        <div style={{
+            position: "sticky",
+            top: '56px',
+            width:'70%'
+        }}>
+        <Feedback/>
+        </div>}>
+        <Row >
             <Col  
-                xxl={4} xl={4} lg={0} md={0} sm={0} xs={0}
+                xxl={6} xl={6} lg={0} md={0} sm={0} xs={0}
             >
                 <Area
                     style={{
@@ -105,8 +112,8 @@ export function Post(props: RouteComponentProps) {
                     <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} />
                 </Area>
             </Col>
-            <Col span={16}
-                xxl={14} xl={14} lg={20} md={24} sm={24} xs={24}
+            <Col
+                xxl={18} xl={18} lg={20} md={24} sm={24} xs={24}
             >
                 {width > 1200 ? null : <Area
                     id="tocBar"
@@ -114,6 +121,7 @@ export function Post(props: RouteComponentProps) {
                         padding: "0 0 0.5rem",
                         position: "sticky",
                         top: 0, left: 0,
+                        zIndex:100,
                     }}
                     cardStyle={{
                         padding: ".5rem",
@@ -158,17 +166,9 @@ export function Post(props: RouteComponentProps) {
 
                 </Area>   
             </Col>
-            <Col xxl={4} xl={4} lg={0} md={0} sm={0} xs={0}>
-            {width < 1200 ? null :
-                <div style={{
-                    position: "sticky",
-                    top: '56px',
-                    width:'100%', 
-                }}>
-                <Feedback />
-                </div>}
-                
-            </Col> 
+
+            
+
         </Row>
         
         <Modal visible={tocModal} title={null} footer={null} onCancel={() => setTocModal(false)}>

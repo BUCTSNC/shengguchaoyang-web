@@ -3,7 +3,7 @@ import React from "react"
 import { Row, Col } from "antd";
 
 export const ContainerNG = (props: {children: JSX.Element | JSX.Element[] | null, width?: `${number}%`}) => {
-    const width = props.width ?? "80%"
+    const width = props.width ?? "70%"
     return <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
         <div style={{width}}>
             {props.children}
