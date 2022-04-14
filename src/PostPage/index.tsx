@@ -14,7 +14,7 @@ import {Eyes,Time,Calendar} from'@icon-park/react'
 import "./Post.css";
 import { CateTree } from "../App";
 import { climbTree } from "../dm/climbTree";
-import { White } from "../ColorCard";
+import { getVisitedCount } from "../dm/hotList";
 
 export function Post(props: RouteComponentProps) {
     const cateTree = useContext(CateTree);
@@ -153,7 +153,7 @@ export function Post(props: RouteComponentProps) {
                                         <div className='tagItem'>|</div>
                                         <div className="tagItem">审核：{post.editors?.join(' ')}</div>
                                     </div>
-                                    <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：1000待修改</div>
+                                    <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：{getVisitedCount(`post/${post.path}`)}</div>
                                     <div> </div>
                                     <div
                                         id="content"
