@@ -31,7 +31,7 @@ export default function PostList(props: {
             display: "grid", gridTemplateColumns: "repeat(3, 30%)", gridTemplateRows: "repeat(3, 10vh)", gridGap: 32, padding: 32, alignContent:'center',justifyContent: "center"
         }}>
             {
-                postList.map(post => <div key={post.path} style={{display: "grid", gridTemplateRows: "repeat(10, 10%)",verticalAlign:"top", gridTemplateColumns: "repeat(10, 10%)"}} onClick={() => history.push(`post/${post.path}`)} >
+                postList.map(post => <div key={post.path} style={{display: "grid", gridTemplateRows: "repeat(10, 10%)",verticalAlign:"top", gridTemplateColumns: "repeat(10, 10%)",cursor:'pointer'}} onClick={() => history.push(`post/${post.path}`)} >
                     <div style={{ gridColumn: "1/10", gridRow: "1/10", backgroundColor:'white', padding: 8, display: "flex", flexDirection: "column", justifyContent: "flex-start",verticalAlign:"top"}}>
                         <div style={{ fontWeight:550,fontSize: "1rem", display: "inline-block",verticalAlign:"top"}}><strong>{post.title}</strong></div>
                         <div style={{fontSize:"0.7rem",color:"#808080",display:"-webkit-box",textOverflow:'ellipsis',WebkitBoxOrient:"vertical",WebkitLineClamp:2,overflow:"hidden"}}>{post.intro}</div>
