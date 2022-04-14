@@ -15,6 +15,7 @@ import "./Post.css";
 import { CateTree } from "../App";
 import { climbTree } from "../dm/climbTree";
 import { White } from "../ColorCard";
+import { getVisitedCount } from "../dm/hotList";
 
 export function Post(props: RouteComponentProps) {
     const cateTree = useContext(CateTree);
@@ -92,7 +93,7 @@ export function Post(props: RouteComponentProps) {
 
     return postExist ? <Container>
         <Row style={{width:'130%',alignSelf:"center",position:'relative',left:'-4vw'}}>
-            <Col  
+            <Col
                 xxl={4} xl={4} lg={0} md={0} sm={0} xs={0}
             >
                 <Area
@@ -143,9 +144,9 @@ export function Post(props: RouteComponentProps) {
                                         <div className='tagItem'>|</div>
                                         <div id='author' className="tagItem" >作者：{post.authors?.join(' ')}</div>
                                         <div className='tagItem'>|</div>
-                                        <div className="tagItem">审核:{}</div>
+                                        <div className="tagItem">审核:{post.editors?.join(" ")}</div>
                                     </div>
-                                    <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：1000待修改</div>
+                                    <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：{getVisitedCount(`post/${post.path}`)}</div>
                                     <div
                                         id="content"
                                         dangerouslySetInnerHTML={{ __html: html }}
