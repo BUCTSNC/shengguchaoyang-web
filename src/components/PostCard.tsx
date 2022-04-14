@@ -30,7 +30,7 @@ export const PostCard = (props: { post: PostProps; }) => {
                 <div style={{fontWeight:550}}>·</div>
                 <div>{time.getFullYear()}-{time.getMonth()}-{time.getDate()} 更新</div>
             </div>
-            {/* <TagsList tags={post.tags} /> */}
+            <TagsList tags={post.tags} />
         </div>
         <div className="PostCard-img">
             <div className="Head-img-box" >
