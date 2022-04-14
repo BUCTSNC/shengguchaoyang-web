@@ -1,17 +1,14 @@
-import React, { CSSProperties, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { PurpleBlue, White } from "../ColorCard";
-import Image from "../components/Image";
-import Logo from '../../src/logo/sgcy.png';
-import { createUseStyles } from 'react-jss';
-import Parallelogram from "../components/Parallelogram";
-import Container, { ContainerNG } from "../components/Container";
 import { Search as SearchIcon } from "@icon-park/react";
-import { CateTree, SearchViewCtx } from "../App";
-import { size } from "lodash";
 import { climbTree } from "octa/lib/ClimbTree";
-import './NaviBar.css'
-import { stringify  } from "querystring";
+import React, { useContext } from "react";
+import { createUseStyles } from 'react-jss';
+import { useHistory } from "react-router-dom";
+import Logo from '../../src/logo/sgcy.png';
+import { CateTree, SearchViewCtx } from "../App";
+import { PurpleBlue } from "../ColorCard";
+import { ContainerNG } from "../components/Container";
+import Parallelogram from "../components/Parallelogram";
+import './NaviBar.css';
 
 const useStyles = createUseStyles({
     "categoryOuter": {//导航栏小项外框

@@ -1,6 +1,6 @@
+import { Search } from "@icon-park/react";
 import React from "react";
 
-import { Search } from "@icon-park/react";
 
 export function SearchBtn(props: { onClick: () => any; }) {
     return (

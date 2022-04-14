@@ -11,7 +11,7 @@ import scrollToTop from "../utils/scrollToTop";
 
 import "./SearchPad.css";
 import { climbTree } from "../dm/climbTree";
-import { compact, sortBy, uniq } from "lodash";
+import { compact, uniq } from "lodash";
 
 function SearchResult(props: { postMeta: Definitions.PostProps; categories: Definitions.CategoryProps[], closeModal: () => void; }) {
     const history = useHistory();

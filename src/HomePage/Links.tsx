@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { groupBy } from "lodash";
 import httpUrl from "../utils/httpUrl";
-import { BackgroundGrey, DeepPurpleBlue, LightBlue2, LightOrange, StrawBerry, White } from "../ColorCard";
+import { DeepPurpleBlue, LightBlue2, LightOrange, StrawBerry, White } from "../ColorCard";
 import { createUseStyles } from "react-jss";
 import "./homePage.css";
-import { BackgroundColor } from "@icon-park/react";
 
 const useStyles = createUseStyles({
     tabActived: {

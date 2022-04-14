@@ -1,8 +1,8 @@
-import React from "react";
-
 import { Up } from "@icon-park/react";
-
+import React from "react";
 import { scrollToTop } from "../utils/scrollToTop";
+
+
 
 export function ScrollToTopBtn() {
     return (
