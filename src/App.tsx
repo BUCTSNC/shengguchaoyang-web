@@ -1,21 +1,20 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, useLocation, useParams } from "react-router-dom";
-import { Modal } from 'antd';
-import SearchPad from './components/SearchPad';
-import SearchBtn from './layouts/SearchBtn';
-import ScrollToTopBtn from './layouts/ScrollToTopBtn';
-import './App.css';
-import "antd/dist/antd.css";
 import '@icon-park/react/styles/index.css';
+import { Modal } from 'antd';
+import "antd/dist/antd.css";
 import { Definitions } from 'octa';
-import Navibar from './layouts/Navibar';
-import Bottom from './layouts/Bottom';
-import HomePage from './HomePage';
-import Post from './PostPage';
+import React, { createContext, useEffect, useState } from 'react';
+import { Route, Switch, useLocation } from "react-router-dom";
 import About from './AboutPage';
-import NotFound from './NotFoundPage';
+import './App.css';
 import { CategoryPage } from './CategoryPage';
-import { loadHotList, logVisit } from './dm/hotList';
+import SearchPad from './components/SearchPad';
+import HomePage from './HomePage';
+import Bottom from './layouts/Bottom';
+import Navibar from './layouts/Navibar';
+import ScrollToTopBtn from './layouts/ScrollToTopBtn';
+import SearchBtn from './layouts/SearchBtn';
+import NotFound from './NotFoundPage';
+import Post from './PostPage';
 
 export const CateTree = createContext<Definitions.CategoryProps>({ alias: "root", path: ".", childCates: [], childPosts: [] });
 export const SearchViewCtx = createContext((viewable: boolean) => { });
@@ -29,10 +28,6 @@ function App() {
   useEffect(() => {
     fetch("/posts/tree.json").then(res => res.json() as Promise<Definitions.CategoryProps>).then(setTree);
   }, []);
-  useEffect(() => {
-    logVisit(location.pathname);
-    loadHotList();
-  }, [location.pathname])
   return (
     <div id="App">
       <CateTree.Provider value={tree}>

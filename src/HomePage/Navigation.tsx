@@ -1,8 +1,8 @@
+import { Audit, Book, Bookshelf, BuildingFour, Bus, Classroom, DocumentFolder, DoorHandle, Earth, Edit, Hospital, IdCard, Like, Photograph, PokeballOne, Printer, ShoppingCartOne, ShoppingMall, SingleBed, Wifi, Word } from "@icon-park/react";
 import React from "react";
-import { DeepPurpleBlue, LightBlue2, LightOrange, StrawBerry } from "../ColorCard";
 import { createUseStyles } from "react-jss";
-import { Audit, Book, Bookshelf, BuildingFour, Bus, Car, Classroom, DocumentFolder, DoorHandle, Earth, Edit, Heart, Hospital, IdCard, Like, Photograph, PokeballOne, Printer, ShoppingCartOne, ShoppingMall, Signal, SingleBed, UserBusiness, Wifi, Word } from "@icon-park/react";
 import { useHistory } from "react-router-dom";
+import { DeepPurpleBlue, LightBlue2, LightOrange, StrawBerry } from "../ColorCard";
 
 const useStyles = createUseStyles({
     linkItem: {

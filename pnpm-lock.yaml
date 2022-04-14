@@ -24,7 +24,6 @@ specifiers:
   react-router-dom: ^5.2.0
   typescript: ^4.3.2
   vite: ^2.3.7
-  yarn: ^1.22.17
 
 dependencies:
   ajv: 8.11.0
@@ -37,7 +36,6 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-jss: 10.9.0_react@17.0.2
   react-router-dom: 5.3.0_react@17.0.2
-  yarn: 1.22.18
 
 devDependencies:
   '@ant-design/icons': 4.7.0_react-dom@17.0.2+react@17.0.2
@@ -2016,10 +2014,3 @@ packages:
       argparse: 1.0.10
       glob: 7.2.0
     dev: true
-
-  /yarn/1.22.18:
-    resolution: {integrity: sha512-oFffv6Jp2+BTUBItzx1Z0dpikTX+raRdqupfqzeMKnoh7WD6RuPAxcqDkMUy9vafJkrB0YaV708znpuMhEBKGQ==}
-    engines: {node: '>=4.0.0'}
-    hasBin: true
-    requiresBuild: true
-    dev: false

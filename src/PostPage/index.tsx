@@ -1,20 +1,17 @@
+import { Calendar, Eyes, Home, Left } from "@icon-park/react";
+import { Col, Modal, Row } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { RouteComponentProps, useHistory } from "react-router-dom";
-
-import { Row, Col, Modal } from "antd";
-import { Home, Left } from "@icon-park/react";
-import { Definitions } from "octa";
-import {Feedback} from '../components/Feedback';
+import { CateTree } from "../App";
 import Area from "../components/Area";
 import Container from "../components/Container";
-import { getMarkdown, getUUID } from "../dm/fetchData";
+import { Feedback } from '../components/Feedback';
+import { climbTree } from "../dm/climbTree";
+import { getMarkdown } from "../dm/fetchData";
+import { getVisitedCount } from "../dm/hotList";
 import { parseMD, TOC } from "../dm/mdParse";
 import scrollSmoothly from "../utils/smoothScroll";
-import {Eyes,Time,Calendar} from'@icon-park/react'
 import "./Post.css";
-import { CateTree } from "../App";
-import { climbTree } from "../dm/climbTree";
-import { getVisitedCount } from "../dm/hotList";
 
 export function Post(props: RouteComponentProps) {
     const cateTree = useContext(CateTree);

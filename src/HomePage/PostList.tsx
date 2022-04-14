@@ -1,6 +1,4 @@
-import { AlignTextCenter, AlignTextTop, AlignTop, Display, FutureBuildTwo } from "@icon-park/react";
 import { Definitions } from "octa";
-import { FlatPost } from "octa/lib/Definitions";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { LightOrange, White } from "../ColorCard";
