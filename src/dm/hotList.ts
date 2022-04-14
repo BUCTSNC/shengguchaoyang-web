@@ -100,11 +100,5 @@ export function getVisitedCount(url: string) {
     return visitedLog.find(log => log.path === url)?.count ?? 0
 }
 
-export function getMostVisited(filterFn: (log: Visited[number]) => boolean, amount: number) {
-    return visitedLog.filter(filterFn)
-        .sort((a, b) => b.count - a.count)
-        .slice(0, amount)
-}
-
 loadHotList();
 loadNanoId();
