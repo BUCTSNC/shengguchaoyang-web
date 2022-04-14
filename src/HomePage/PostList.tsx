@@ -4,9 +4,10 @@ import { FlatPost } from "octa/lib/Definitions";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { LightOrange, White } from "../ColorCard";
+import { getVisitedCount } from "../dm/hotList";
 
 export default function PostList(props: {
-    firstColor: string, secondColor: string, title: string, icon: JSX.Element, postList: Definitions.PostProps[]; tagAttr?: keyof Definitions.PostProps;
+    firstColor: string, secondColor: string, title: string, icon: JSX.Element, postList: Definitions.PostProps[]; tagAttr: "lastModified" | "visited";
 }
 ) {
     const history = useHistory();
@@ -35,11 +36,15 @@ export default function PostList(props: {
                         <div style={{ fontWeight:550,fontSize: "1rem", display: "inline-block",verticalAlign:"top"}}><strong>{post.title}</strong></div>
                         <div style={{fontSize:"0.7rem",color:"#808080",display:"-webkit-box",textOverflow:'ellipsis',WebkitBoxOrient:"vertical",WebkitLineClamp:2,overflow:"hidden"}}>{post.intro}</div>
                     </div>
-                    <div style={{ gridColumn: "8/11", gridRow: "9/11", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center",height:"1.8rem",fontSize:"0.8rem", backgroundColor: LightOrange, textAlign: "center", color: White,boxShadow:"-5px 5px 4px rgba(0,0,0,0.2)" }}>{(tagAttr && tagAttr in post) ? (tagAttr === "lastModified" ? new Date(post[tagAttr]).toLocaleDateString() : post[tagAttr]) : "阅读量：1000"}</div>
+                    <div style={{ gridColumn: "8/11", gridRow: "9/11", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center",height:"1.8rem",fontSize:"0.8rem", backgroundColor: LightOrange, textAlign: "center", color: White,boxShadow:"-5px 5px 4px rgba(0,0,0,0.2)" }}>{tagAttr === "lastModified" ? DateToString(new Date(post.lastModified)) : `最近访问：${getVisitedCount(`post/${post.path}`)}`}</div>
                 </div>)
                 
             }
         </div>
     </div>
     
+}
+
+function DateToString(date: Date) {
+    return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
 }
