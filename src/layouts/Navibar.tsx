@@ -34,11 +34,11 @@ const useStyles = createUseStyles({
         cursor: "pointer"
     }
 });
-// const barheight = "4.5vh"
+
 export default function Navibar() {
     
     const { flexRowAround } = useStyles();
-    return <div style={{ background: PurpleBlue, width: '100vw',height:48}}>
+    return <div style={{ backgroundColor: PurpleBlue }}>
         <ContainerNG>
             <div className={flexRowAround}>
                 <HomeLogo />
