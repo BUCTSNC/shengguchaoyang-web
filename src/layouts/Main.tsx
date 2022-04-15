@@ -8,14 +8,7 @@ import Post from "../PostPage";
 import "./Main.css"
 
 export function Main() {
-    const history = useHistory();
-    const ref = useRef<HTMLDivElement>(null)
-    history.listen(() => {
-        ref.current?.scrollTo({
-            top: 0
-        })
-    })
-    return <div className="main" ref={ref}>
+    return <div className="main">
         <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/post/:postUrl*" component={Post} />

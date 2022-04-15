@@ -2,25 +2,32 @@ import '@icon-park/react/styles/index.css';
 import { Modal } from 'antd';
 import "antd/dist/antd.css";
 import { Definitions } from 'octa';
-import React, { createContext, useEffect, useState } from 'react';
-import { useLocation } from "react-router-dom";
+import React, { createContext, useEffect, useRef, useState } from 'react';
+import { useHistory, useLocation } from "react-router-dom";
 import './App.css';
 import SearchPad from './components/SearchPad';
 import Bottom from './layouts/Bottom';
 import { Main } from './layouts/Main';
 import Navibar from './layouts/Navibar';
-import ScrollToTopBtn from './layouts/ScrollToTopBtn';
+import ScrollToTopBtn, { scrollToSmoothly } from './layouts/ScrollToTopBtn';
 import SearchBtn from './layouts/SearchBtn';
+import { useBackTop } from './utils/scrollToTop';
 
 export const CateTree = createContext<Definitions.CategoryProps>({ alias: "root", path: ".", childCates: [], childPosts: [] });
 export const SearchViewCtx = createContext((viewable: boolean) => { });
+
+export const ScrollCtx = createContext<HTMLDivElement | null>(null);
 
 function App() {
   const [tree, setTree] = useState<Definitions.CategoryProps>({
     alias: "root", path: ".", childCates: [], childPosts: []
   });
-  const location = useLocation();
+  const viewbox = useRef<HTMLDivElement>(null)
   const [searchView, searchViewSwitch] = useState(false);
+  const location = useLocation()
+  useEffect(() => {
+    scrollToSmoothly(viewbox.current)
+  }, [location.pathname])
   useEffect(() => {
     fetch("/posts/tree.json").then(res => res.json() as Promise<Definitions.CategoryProps>).then(setTree);
   }, []);
@@ -31,12 +38,14 @@ function App() {
           <div className='topbar'>
             <Navibar />
           </div>
-          <div className='viewbox'>
-            <Main />
-            <Bottom />
+          <div className='viewbox' ref={viewbox}>
+            <ScrollCtx.Provider value={viewbox.current}>
+              <Main />
+              <Bottom />
+            </ScrollCtx.Provider>
           </div>
           <SearchBtn onClick={() => searchViewSwitch(true)} />
-          <ScrollToTopBtn />
+          <ScrollToTopBtn target={viewbox} />
           <Modal
             style={{ top: 0 }}
             visible={searchView}

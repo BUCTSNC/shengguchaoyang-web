@@ -1,8 +1,8 @@
 import { Calendar, Eyes, Home, Left } from "@icon-park/react";
 import { Col, Modal, Row } from "antd";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { RouteComponentProps, useHistory } from "react-router-dom";
-import { CateTree } from "../App";
+import { CateTree, ScrollCtx } from "../App";
 import Area from "../components/Area";
 import Container from "../components/Container";
 import { Feedback } from '../components/Feedback';
@@ -10,7 +10,7 @@ import { climbTree } from "../dm/climbTree";
 import { getMarkdown } from "../dm/fetchData";
 import { getVisitedCount } from "../dm/hotList";
 import { parseMD, TOC } from "../dm/mdParse";
-import scrollSmoothly from "../utils/smoothScroll";
+import { scrollToSmoothly } from "../layouts/ScrollToTopBtn";
 import "./Post.css";
 
 export function Post(props: RouteComponentProps) {
@@ -69,25 +69,25 @@ export function Post(props: RouteComponentProps) {
         document.title = (postsMeta.find(post => post.path === url)?.title ?? "内容未找到") + " - 胜古朝阳";
     }, [props.match.params]);
 
-    useEffect(() => {
-        const scrollHandler = () => {
-            const topHeight = document.getElementById("tocBar")?.clientHeight ?? 0;
-            setTopHeight(topHeight);
-            const topHeadingId = toc
-                .map(heading => {
-                    const top = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
-                    return { ...heading, top };
-                })
-                .filter(heading => heading.top <= topHeight + 1)
-                .sort((a, b) => b.top - a.top)[0]?.id;
-            setCurrent(topHeadingId ?? currentId);
-        };
-        const App = document.getElementById("App");
-        App?.addEventListener("scroll", scrollHandler);
-        return () => {
-            App?.removeEventListener("scroll", scrollHandler);
-        };
-    }, [toc]);
+    // useEffect(() => {
+    //     const scrollHandler = () => {
+    //         const topHeight = document.getElementById("tocBar")?.clientHeight ?? 0;
+    //         setTopHeight(topHeight);
+    //         const topHeadingId = toc
+    //             .map(heading => {
+    //                 const top = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
+    //                 return { ...heading, top };
+    //             })
+    //             .filter(heading => heading.top <= topHeight + 1)
+    //             .sort((a, b) => b.top - a.top)[0]?.id;
+    //         setCurrent(topHeadingId ?? currentId);
+    //     };
+    //     const App = document.getElementById("App");
+    //     App?.addEventListener("scroll", scrollHandler);
+    //     return () => {
+    //         App?.removeEventListener("scroll", scrollHandler);
+    //     };
+    // }, [toc]);
 
     return postExist ? <Container right={width < 1200 ? <></> :
         <div style={{
@@ -221,11 +221,13 @@ function openPicture(e: MouseEvent) {
 
 function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number; afterScroll?: () => any; }) {
     const { toc, afterScroll = () => null } = props;
+    const viewboxEle = useContext(ScrollCtx);
     return <>
         <h2 className="catalogueTitle">文章目录</h2>
         {/* <hr /> */}
         <div >
             {toc.map(heading => {
+                const targetTop = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
                 return <div
                     key={heading.id}
                     style={{
@@ -233,7 +235,7 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                     }}
                     onClick={
                         () => {
-                            scrollSmoothly(heading.id, props.topHeight);
+                            scrollToSmoothly(viewboxEle, targetTop);
                             afterScroll();
                         }
                     }
