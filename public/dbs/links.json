@@ -41,11 +41,6 @@
     },
     {
         "linkType": "部门门户",
-        "department": "北京化工大学服务中心",
-        "url": "http://fwzx.buct.edu.cn/"
-    },
-    {
-        "linkType": "部门门户",
         "department": "后勤服务集团",
         "url": "https://houqin.buct.edu.cn/"
     },
