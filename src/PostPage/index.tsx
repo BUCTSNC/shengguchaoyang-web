@@ -227,7 +227,7 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
         {/* <hr /> */}
         <div >
             {toc.map(heading => {
-                const targetTop = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
+
                 return <div
                     key={heading.id}
                     style={{
@@ -235,7 +235,8 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                     }}
                     onClick={
                         () => {
-                            scrollToSmoothly(viewboxEle, targetTop);
+                            const targetTop = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
+                            viewboxEle?.scrollBy({ top: targetTop - 48 - 16, behavior: "smooth" });
                             afterScroll();
                         }
                     }
