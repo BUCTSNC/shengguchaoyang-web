@@ -1,6 +1,6 @@
-import { Calendar, CosmeticBrush, Eyes, Home, Left } from "@icon-park/react";
+import { Calendar, Eyes, Home, Left } from "@icon-park/react";
 import { Col, Modal, Row } from "antd";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
 import { CateTree, ScrollCtx } from "../App";
 import Area from "../components/Area";
@@ -10,7 +10,6 @@ import { climbTree } from "../dm/climbTree";
 import { getMarkdown } from "../dm/fetchData";
 import { getVisitedCount } from "../dm/hotList";
 import { parseMD, TOC } from "../dm/mdParse";
-import { scrollToSmoothly } from "../layouts/ScrollToTopBtn";
 import "./Post.css";
 
 export function Post(props: RouteComponentProps) {
@@ -78,6 +77,14 @@ export function Post(props: RouteComponentProps) {
             try {
                 const headings = generateTOC();
                 setToc(headings);
+                const scrollHandler = () => {
+                    const currentId = headings.map(heading => {
+                        return { id: heading.id, top: document.getElementById(heading.id)?.getBoundingClientRect().top ?? Infinity }
+                    }).sort((a, b) => b.top - a.top)
+                        .filter(value => value.top - 48 - 16 - 1 <= 0)[0]
+                    setCurrent(currentId.id)
+                }
+                viewboxEle?.addEventListener("scroll", scrollHandler)
                 const images = Array.from(document.getElementById("content")?.getElementsByTagName("img") ?? []);
                 images.forEach(item => {
                     item.addEventListener("click", openPicture);
@@ -86,6 +93,7 @@ export function Post(props: RouteComponentProps) {
                     images.forEach(item => {
                         item.removeEventListener("click", openPicture);
                     });
+                    viewboxEle?.removeEventListener("scroll", scrollHandler)
                 };
             } catch { }
         }
@@ -226,27 +234,23 @@ function openPicture(e: MouseEvent) {
 };
 
 function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number; afterScroll?: () => any; }) {
-    const { toc, afterScroll = () => null } = props;
-    const viewboxEle = useContext(ScrollCtx);
+    const { toc } = props;
     const history = useHistory();
     const hashTo = (id: string) => history.push({
         hash: `#${id}`
     })
-    return <>
-        <h2 className="catalogueTitle">文章目录{ }</h2>
-        {/* <hr /> */}
 
+    return <>
+        <h2 className="catalogueTitle">文章目录</h2>
         <div >
             {toc.map(heading => {
-
                 return <div
                     key={heading.id}
                     style={{
                         paddingLeft: `${heading.depth}rem`
                     }}
                     onClick={
-                        () => { scrollToElementById(heading.id, viewboxEle); afterScroll() }
-                        // () => hashTo(heading.id)
+                        () => hashTo(heading.id)
                     }
                     className={`${heading.id === props.currentId ? "activeTocItem" : "inactiveTocItem"} tocItem`}
                 >
@@ -258,17 +262,3 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
         </div>
     </>;
 };
-
-function scrollToElementById(id: string, viewboxEle: HTMLDivElement | null) {
-    const targetEle = document.getElementById(id);
-    const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;
-    let timeout: number;
-    const recursiveSetTimeout = () => setTimeout(() => {
-        clearTimeout(timeout)
-        if (Math.abs(delta()) >= 4) {
-            viewboxEle?.scrollBy({ top: delta() / 2 })
-            timeout = recursiveSetTimeout()
-        }
-    }, delta() / 10)
-    timeout = recursiveSetTimeout()
-}
