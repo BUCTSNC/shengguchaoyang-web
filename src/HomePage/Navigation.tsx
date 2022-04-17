@@ -48,7 +48,6 @@ export default function Navigation() {//卡片布局
             { title: "自习位置", intro: "教学楼/图书馆/宿舍楼", icon: <Classroom theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" },
             { title: "课程网站", intro: "专业课/技能课/科普课", icon: <Earth theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" },
             { title: "学习软件", intro: "外语学习/习惯养成", icon: <Word theme="outline" size="40" fill="#F2F2F2" />, src: "学习资源/XueXiZiYuan" }
-
         ]
     }
     const XYFG: CardInfo = {
@@ -101,7 +100,7 @@ function Link(props: { link: LinkInfo; }) {//链接内容
     const history = useHistory();
     return <div style={{ margin: 8, padding: 4, maxWidth: 96 }} className={linkItem} onClick={() => history.push(`/post/${link.src}`)}>
         {link.icon}
-        <div style={{fontWeight:550}}>{link.title}</div>
-        <div style={{color:"#FFFFFF90"}}>{link.intro}</div>
+        <div style={{ fontWeight: 550 }}>{link.title}</div>
+        <div style={{ color: "#FFFFFF90" }}>{link.intro}</div>
     </div>;
 }
