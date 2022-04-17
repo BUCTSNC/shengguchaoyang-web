@@ -1,7 +1,7 @@
-import { Calendar, Eyes, Home, Left } from "@icon-park/react";
+import { Calendar, CosmeticBrush, Eyes, Home, Left } from "@icon-park/react";
 import { Col, Modal, Row } from "antd";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { RouteComponentProps, useHistory } from "react-router-dom";
+import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
 import { CateTree, ScrollCtx } from "../App";
 import Area from "../components/Area";
 import Container from "../components/Container";
@@ -27,7 +27,29 @@ export function Post(props: RouteComponentProps) {
     const { postUrl: url } = props.match.params as { postUrl: string; };
     const post = postsMeta.find(post => post.path === url)
 
+    const location = useLocation();
+    const viewboxEle = useContext(ScrollCtx)
+    useEffect(() => {
+        console.log(location.hash)
+        let timeout: number;
+        if (location.hash !== "") {
+            const id = decodeURI(location.hash.replace(/^#/, ""));
+            const targetEle = document.getElementById(id);
+            const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;
 
+            const recursiveSetTimeout = () => setTimeout(() => {
+                clearTimeout(timeout)
+                if (Math.abs(delta()) >= 4) {
+                    viewboxEle?.scrollBy({ top: delta(), behavior: "smooth" })
+                    timeout = recursiveSetTimeout()
+                }
+            }, 10)
+            timeout = recursiveSetTimeout()
+        }
+        return () => {
+            clearTimeout(timeout)
+        }
+    }, [location.hash, postExist])
     useEffect(() => {
         const resizeHandler = () => setWidth(window.innerWidth);
         window.addEventListener("resize", resizeHandler);
@@ -68,26 +90,6 @@ export function Post(props: RouteComponentProps) {
         const { postUrl: url } = props.match.params as { postUrl: string; };
         document.title = (postsMeta.find(post => post.path === url)?.title ?? "内容未找到") + " - 胜古朝阳";
     }, [props.match.params]);
-
-    // useEffect(() => {
-    //     const scrollHandler = () => {
-    //         const topHeight = document.getElementById("tocBar")?.clientHeight ?? 0;
-    //         setTopHeight(topHeight);
-    //         const topHeadingId = toc
-    //             .map(heading => {
-    //                 const top = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
-    //                 return { ...heading, top };
-    //             })
-    //             .filter(heading => heading.top <= topHeight + 1)
-    //             .sort((a, b) => b.top - a.top)[0]?.id;
-    //         setCurrent(topHeadingId ?? currentId);
-    //     };
-    //     const App = document.getElementById("App");
-    //     App?.addEventListener("scroll", scrollHandler);
-    //     return () => {
-    //         App?.removeEventListener("scroll", scrollHandler);
-    //     };
-    // }, [toc]);
 
     return postExist ? <Container right={width < 1200 ? <></> :
         <div style={{
@@ -222,6 +224,10 @@ function openPicture(e: MouseEvent) {
 function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number; afterScroll?: () => any; }) {
     const { toc, afterScroll = () => null } = props;
     const viewboxEle = useContext(ScrollCtx);
+    const history = useHistory();
+    const hashTo = (id: string) => history.push({
+        hash: `#${id}`
+    })
     return <>
         <h2 className="catalogueTitle">文章目录</h2>
         {/* <hr /> */}
@@ -234,11 +240,8 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                         paddingLeft: `${heading.depth}rem`
                     }}
                     onClick={
-                        () => {
-                            const targetTop = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
-                            viewboxEle?.scrollBy({ top: targetTop - 48 - 16, behavior: "smooth" });
-                            afterScroll();
-                        }
+                        // () => scrollToElementById(heading.id, viewboxEle, afterScroll)
+                        () => hashTo(heading.id)
                     }
                     className={`${heading.id === props.currentId ? "activeTocItem" : "inactiveTocItem"} tocItem`}
                 >
@@ -248,3 +251,17 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
         </div>
     </>;
 };
+
+function scrollToElementById(id: string, viewboxEle: HTMLDivElement | null) {
+    const targetEle = document.getElementById(id);
+    const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;
+    let timeout: number;
+    const recursiveSetTimeout = () => setTimeout(() => {
+        clearTimeout(timeout)
+        if (Math.abs(delta()) >= 4) {
+            viewboxEle?.scrollBy({ top: delta() / 2 })
+            timeout = recursiveSetTimeout()
+        }
+    }, delta() / 10)
+    timeout = recursiveSetTimeout()
+}
