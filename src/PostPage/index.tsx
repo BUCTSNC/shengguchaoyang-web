@@ -30,20 +30,18 @@ export function Post(props: RouteComponentProps) {
     const location = useLocation();
     const viewboxEle = useContext(ScrollCtx)
     useEffect(() => {
-        console.log(location.hash)
         let timeout: number;
         if (location.hash !== "") {
-            const id = decodeURI(location.hash.replace(/^#/, ""));
-            const targetEle = document.getElementById(id);
-            const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;
-
             const recursiveSetTimeout = () => setTimeout(() => {
                 clearTimeout(timeout)
+                const id = decodeURI(location.hash.replace(/^#/, ""));
+                const targetEle = document.getElementById(id);
+                const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;    
                 if (Math.abs(delta()) >= 4) {
                     viewboxEle?.scrollBy({ top: delta(), behavior: "smooth" })
                     timeout = recursiveSetTimeout()
                 }
-            }, 10)
+            }, 100)
             timeout = recursiveSetTimeout()
         }
         return () => {
