@@ -1,8 +1,8 @@
-export function scrollToTop() {
-    return document.getElementById("App")?.scroll({
-        top: 0,
-        behavior: "smooth"
-    })
-}
+import { useEffect } from "react"
+import { scrollToSmoothly } from "../layouts/ScrollToTopBtn"
 
-export default scrollToTop
+export const useBackTop = (target: HTMLElement | null) => {
+    useEffect(() => {
+        scrollToSmoothly(target, 0)
+    }, [])
+}

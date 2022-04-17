@@ -1,5 +1,4 @@
 .wechatIcon{
-    
     align-items: center;
     justify-content: center;
     padding-right: 1em;
@@ -25,4 +24,5 @@
     align-items: center;
     background-color: #2189e3;
     color: white;
+    height: 72px;
 }

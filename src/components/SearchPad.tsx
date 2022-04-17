@@ -7,7 +7,7 @@ import { Definitions } from "octa";
 import { CateTree } from "../App";
 import { MetaSearchResult, searchByContent, searchByMeta, sortByDate } from "../dm/searchPost";
 import { getSupCategory, traceToRoot } from "../dm/cateParse";
-import scrollToTop from "../utils/scrollToTop";
+// import scrollToTop from "../utils/scrollToTop";
 
 import "./SearchPad.css";
 import { climbTree } from "../dm/climbTree";
@@ -24,7 +24,7 @@ function SearchResult(props: { postMeta: Definitions.PostProps; categories: Defi
     return <div className="result-card" onClick={
         () => {
             props.closeModal();
-            scrollToTop();
+            // scrollToTop();
             goToPost(postMeta.path);
         }
     }>

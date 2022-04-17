@@ -1,7 +1,5 @@
 import React from 'react';
-import { LightBlue, White } from '../ColorCard';
 import SNClogo from "../logo/SNClogo.png"
-import Image from '../components/Image';
 import BUCTlogo from "../logo/BUCTlogo.png"
 import SNCQR from "../logo/SNCQR.jpg"
 import wechat from "../logo/wechat.svg"

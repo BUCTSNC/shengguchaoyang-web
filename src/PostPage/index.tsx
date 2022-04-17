@@ -1,8 +1,8 @@
 import { Calendar, Eyes, Home, Left } from "@icon-park/react";
 import { Col, Modal, Row } from "antd";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { RouteComponentProps, useHistory } from "react-router-dom";
-import { CateTree } from "../App";
+import { CateTree, ScrollCtx } from "../App";
 import Area from "../components/Area";
 import Container from "../components/Container";
 import { Feedback } from '../components/Feedback';
@@ -10,7 +10,7 @@ import { climbTree } from "../dm/climbTree";
 import { getMarkdown } from "../dm/fetchData";
 import { getVisitedCount } from "../dm/hotList";
 import { parseMD, TOC } from "../dm/mdParse";
-import scrollSmoothly from "../utils/smoothScroll";
+import { scrollToSmoothly } from "../layouts/ScrollToTopBtn";
 import "./Post.css";
 
 export function Post(props: RouteComponentProps) {
@@ -25,7 +25,7 @@ export function Post(props: RouteComponentProps) {
     const [postExist, setPostExist] = useState(true);
     const history = useHistory();
     const { postUrl: url } = props.match.params as { postUrl: string; };
-    const post = postsMeta.find(post=>post.path===url)
+    const post = postsMeta.find(post => post.path === url)
 
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export function Post(props: RouteComponentProps) {
         window.addEventListener("resize", resizeHandler);
         const { postUrl: url } = props.match.params as { postUrl: string; };
         if (postsMeta.find(post => post.path === url)) {
-            
+
             getMarkdown(url)
                 .then(md => parseMD(md, url))
                 .then(setHtml)
@@ -49,17 +49,19 @@ export function Post(props: RouteComponentProps) {
 
     useEffect(() => {
         if (postExist) {
-            try{const headings = generateTOC();
-            setToc(headings);
-            const images = Array.from(document.getElementById("content")?.getElementsByTagName("img") ?? []);
-            images.forEach(item => {
-                item.addEventListener("click", openPicture);
-            });
-            return () => {
+            try {
+                const headings = generateTOC();
+                setToc(headings);
+                const images = Array.from(document.getElementById("content")?.getElementsByTagName("img") ?? []);
                 images.forEach(item => {
-                    item.removeEventListener("click", openPicture);
+                    item.addEventListener("click", openPicture);
                 });
-            };}catch{}
+                return () => {
+                    images.forEach(item => {
+                        item.removeEventListener("click", openPicture);
+                    });
+                };
+            } catch { }
         }
     }, [html, postExist]);
     useEffect(() => {
@@ -67,45 +69,45 @@ export function Post(props: RouteComponentProps) {
         document.title = (postsMeta.find(post => post.path === url)?.title ?? "内容未找到") + " - 胜古朝阳";
     }, [props.match.params]);
 
-    useEffect(() => {
-        const scrollHandler = () => {
-            const topHeight = document.getElementById("tocBar")?.clientHeight ?? 0;
-            setTopHeight(topHeight);
-            const topHeadingId = toc
-                .map(heading => {
-                    const top = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
-                    return { ...heading, top };
-                })
-                .filter(heading => heading.top <= topHeight + 1)
-                .sort((a, b) => b.top - a.top)[0]?.id;
-            setCurrent(topHeadingId ?? currentId);
-        };
-        const App = document.getElementById("App");
-        App?.addEventListener("scroll", scrollHandler);
-        return () => {
-            App?.removeEventListener("scroll", scrollHandler);
-        };
-    }, [toc]);
+    // useEffect(() => {
+    //     const scrollHandler = () => {
+    //         const topHeight = document.getElementById("tocBar")?.clientHeight ?? 0;
+    //         setTopHeight(topHeight);
+    //         const topHeadingId = toc
+    //             .map(heading => {
+    //                 const top = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
+    //                 return { ...heading, top };
+    //             })
+    //             .filter(heading => heading.top <= topHeight + 1)
+    //             .sort((a, b) => b.top - a.top)[0]?.id;
+    //         setCurrent(topHeadingId ?? currentId);
+    //     };
+    //     const App = document.getElementById("App");
+    //     App?.addEventListener("scroll", scrollHandler);
+    //     return () => {
+    //         App?.removeEventListener("scroll", scrollHandler);
+    //     };
+    // }, [toc]);
 
     return postExist ? <Container right={width < 1200 ? <></> :
         <div style={{
             position: "sticky",
-            top: '56px',
-            width:'70%'
+            top: '8px',
+            width: '70%'
         }}>
-        <Feedback/>
+            <Feedback />
         </div>}>
         <Row >
-            <Col  
+            <Col
                 xxl={6} xl={6} lg={0} md={0} sm={0} xs={0}
             >
                 <Area
                     style={{
                         position: "sticky",
-                        top: '56px',
-                        width:'100%', 
+                        top: '8px',
+                        width: '100%',
                     }}
-                    >
+                >
                     <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} />
                 </Area>
             </Col>
@@ -118,7 +120,7 @@ export function Post(props: RouteComponentProps) {
                         padding: "0 0 0.5rem",
                         position: "sticky",
                         top: 0, left: 0,
-                        zIndex:100,
+                        zIndex: 100,
                     }}
                     cardStyle={{
                         padding: ".5rem",
@@ -130,7 +132,7 @@ export function Post(props: RouteComponentProps) {
                         alignItems: "flex-start",
                         cursor: "pointer",
                         boxShadow: "0 0 1rem #8c8c8c",
-                        
+
                     }}
                 >
                     <div style={{ width: "100%", height: "100%", fontSize: "1.2rem" }}
@@ -139,35 +141,35 @@ export function Post(props: RouteComponentProps) {
                         {toc.find(item => item.id === currentId)?.title ?? "文章目录"}
                     </div>
                 </Area>}
-                
-                <Area cardStyle={{ padding: ".5rem 1rem" ,paddingLeft:'4rem'}}>{post===undefined ? null:
-                                    <>
-                                    <div id={'title'}>{post.title}</div>
-                                    <div id = "tag">
-                                        <div id="lastModified" className="tagItem"><Calendar className="Icon"></Calendar> {new  Date(post.lastModified).getFullYear()}/{new  Date(post.lastModified).getMonth()}/{new  Date(post.lastModified).getDate()}</div>
-                                        <div className='tagItem'>|</div>
-                                        <div id='author' className="tagItem" >作者：{post.authors?.join(' ')}</div>
-                                        <div className='tagItem'>|</div>
-                                        <div className="tagItem">审核：{post.editors?.join(' ')}</div>
-                                    </div>
-                                    <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：{getVisitedCount(`post/${post.path}`)}</div>
-                                    <div> </div>
-                                    <div
-                                        id="content"
-                                        dangerouslySetInnerHTML={{ __html: html }}
-                                    ></div>
 
-                                    </>
+                <Area cardStyle={{ padding: ".5rem 1rem", paddingLeft: '4rem' }}>{post === undefined ? null :
+                    <>
+                        <div id={'title'}>{post.title}</div>
+                        <div id="tag">
+                            <div id="lastModified" className="tagItem"><Calendar className="Icon"></Calendar> {new Date(post.lastModified).getFullYear()}/{new Date(post.lastModified).getMonth()}/{new Date(post.lastModified).getDate()}</div>
+                            <div className='tagItem'>|</div>
+                            <div id='author' className="tagItem" >作者：{post.authors?.join(' ')}</div>
+                            <div className='tagItem'>|</div>
+                            <div className="tagItem">审核：{post.editors?.join(' ')}</div>
+                        </div>
+                        <div id='readCounter'><Eyes className="Icon"></Eyes>  浏览量：{getVisitedCount(`post/${post.path}`)}</div>
+                        <div> </div>
+                        <div
+                            id="content"
+                            dangerouslySetInnerHTML={{ __html: html }}
+                        ></div>
+
+                    </>
                 }
-                
 
-                </Area>   
+
+                </Area>
             </Col>
 
-            
+
 
         </Row>
-        
+
         <Modal visible={tocModal} title={null} footer={null} onCancel={() => setTocModal(false)}>
             <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} afterScroll={() => setTocModal(false)} />
         </Modal>
@@ -219,11 +221,13 @@ function openPicture(e: MouseEvent) {
 
 function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number; afterScroll?: () => any; }) {
     const { toc, afterScroll = () => null } = props;
+    const viewboxEle = useContext(ScrollCtx);
     return <>
         <h2 className="catalogueTitle">文章目录</h2>
         {/* <hr /> */}
         <div >
             {toc.map(heading => {
+
                 return <div
                     key={heading.id}
                     style={{
@@ -231,7 +235,8 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                     }}
                     onClick={
                         () => {
-                            scrollSmoothly(heading.id, props.topHeight);
+                            const targetTop = document.getElementById(heading.id)?.getBoundingClientRect().top ?? 0;
+                            viewboxEle?.scrollBy({ top: targetTop - 48 - 16, behavior: "smooth" });
                             afterScroll();
                         }
                     }

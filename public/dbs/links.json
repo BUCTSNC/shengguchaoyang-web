@@ -40,12 +40,16 @@
         "url": "https://cwc.buct.edu.cn/"
     },
     {
+<<<<<<< HEAD
         "linkType": "部门网站",
         "department": "北京化工大学服务中心",
         "url": "http://fwzx.buct.edu.cn/"
     },
     {
         "linkType": "部门网站",
+=======
+        "linkType": "部门门户",
+>>>>>>> a2749147b1f6c01a0a40f992933ecc1a350d4bb8
         "department": "后勤服务集团",
         "url": "https://houqin.buct.edu.cn/"
     },

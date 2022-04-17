@@ -1,10 +1,13 @@
 import { Up } from "@icon-park/react";
 import React from "react";
-import { scrollToTop } from "../utils/scrollToTop";
 
+export function scrollToSmoothly(target: HTMLElement | null, top: number = 0) {
+    target?.scroll({
+        top, behavior: "smooth"
+    })
+}
 
-
-export function ScrollToTopBtn() {
+export function ScrollToTopBtn(props: {target: React.RefObject<HTMLElement | null>}) {
     return (
         <div
             style={{
@@ -20,7 +23,7 @@ export function ScrollToTopBtn() {
                 zIndex: 200,
                 cursor: "pointer"
             }}
-            onClick={scrollToTop}
+            onClick={() => scrollToSmoothly(props.target.current)}
         >
             <Up theme="outline" size="100%" fill="#FFF" />
         </div>
