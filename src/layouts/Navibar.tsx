@@ -23,10 +23,7 @@ const useStyles = createUseStyles({
             borderBottom: ["solid", "3px", "white"],
             alignItems: 'center'
         },
-        '&:active': {
-            borderBottom: ["solid", "3px", "white"],
-            alignItems: 'center'
-        },
+
         borderBottom: ["solid", "3pt", "transparent"],
     },
     "activedInner": {
