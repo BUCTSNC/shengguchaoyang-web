@@ -82,7 +82,7 @@ export function Post(props: RouteComponentProps) {
                         return { id: heading.id, top: document.getElementById(heading.id)?.getBoundingClientRect().top ?? Infinity }
                     }).sort((a, b) => b.top - a.top)
                         .filter(value => value.top - 48 - 16 - 1 <= 0)[0]
-                    setCurrent(currentId.id)
+                    if(currentId) setCurrent(currentId.id)
                 }
                 viewboxEle?.addEventListener("scroll", scrollHandler)
                 const images = Array.from(document.getElementById("content")?.getElementsByTagName("img") ?? []);
