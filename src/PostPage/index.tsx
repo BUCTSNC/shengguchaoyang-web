@@ -30,22 +30,28 @@ export function Post(props: RouteComponentProps) {
     const location = useLocation();
     const viewboxEle = useContext(ScrollCtx)
     useEffect(() => {
-        let timeout: number;
+        let interval: number;
+        let failedCount: number = 0;
         if (location.hash !== "") {
-            const recursiveSetTimeout = () => setTimeout(() => {
-                clearTimeout(timeout)
-                const id = decodeURI(location.hash.replace(/^#/, ""));
-                const targetEle = document.getElementById(id);
-                const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;    
-                if (Math.abs(delta()) >= 4) {
-                    viewboxEle?.scrollBy({ top: delta(), behavior: "smooth" })
-                    timeout = recursiveSetTimeout()
+            const id = decodeURI(location.hash.replace(/^#/, ""));
+            let targetEle = document.getElementById(id);
+            interval = setInterval(() => {
+                if (targetEle === null) {
+                    targetEle = document.getElementById(id);
+                    failedCount += 1;
+                    if (failedCount >= 10) clearInterval(interval)
                 }
-            }, 100)
-            timeout = recursiveSetTimeout()
+                failedCount = 0;
+                const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;
+                if (Math.abs(delta()) >= 4) {
+                    viewboxEle?.scrollBy({ top: delta() })
+                } else {
+                    clearInterval(interval)
+                }
+            }, 1)
         }
         return () => {
-            clearTimeout(timeout)
+            clearInterval(interval)
         }
     }, [location.hash, postExist])
     useEffect(() => {
@@ -227,9 +233,9 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
         hash: `#${id}`
     })
     return <>
-        <h2 className="catalogueTitle">文章目录{}</h2>
+        <h2 className="catalogueTitle">文章目录{ }</h2>
         {/* <hr /> */}
-        
+
         <div >
             {toc.map(heading => {
 
@@ -239,7 +245,7 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                         paddingLeft: `${heading.depth}rem`
                     }}
                     onClick={
-                        () => {scrollToElementById(heading.id, viewboxEle);afterScroll()}
+                        () => { scrollToElementById(heading.id, viewboxEle); afterScroll() }
                         // () => hashTo(heading.id)
                     }
                     className={`${heading.id === props.currentId ? "activeTocItem" : "inactiveTocItem"} tocItem`}
