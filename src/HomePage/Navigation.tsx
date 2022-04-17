@@ -53,7 +53,7 @@ export default function Navigation() {//卡片布局
         color: DeepPurpleBlue,
         title: "校园风光",
         items: [
-            { title: "建筑风光", intro: "学习场所/实验中心/生活楼宇", icon: <BuildingFour theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus building" },
+            { title: "建筑风光", intro: "教学楼/实验楼/生活楼宇", icon: <BuildingFour theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus building" },
             { title: "自然风景", intro: "青天白日/落日余晖/夜色弥漫", icon: <Landscape theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus landscape" },
             { title: "校园团宠", intro: "野鸭/天鹅/小猫", icon: <PokeballOne theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus pets" },
         ]
@@ -63,10 +63,10 @@ export default function Navigation() {//卡片布局
         title: "服务指南",
         items: [
             { title: "学业发展", intro: "发展服务岗/学在北化", icon: <Audit theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/AcademicDevelopmentCounseling" },
-            { title: "校园网攻略", intro: "连接方式/常用网址/VPN/缴费", icon: <Wifi theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XYWGL" },
+            { title: "校园网攻略", intro: "常用网址/VPN/缴费", icon: <Wifi theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XYWGL" },
             { title: "设施报修", intro: "苏东吴物业/中航物业", icon: <DoorHandle theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/SSBX" },
             { title: "心理咨询", intro: "咨询地点/预约电话", icon: <Like theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XLZX" },
-            { title: "自助机器", intro: "自助补卡/成绩打印/自助售票/圈存机", icon: <Printer theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/ZZJQ" },
+            { title: "自助机器", intro: "自助补卡/成绩打印/火车票/圈存机", icon: <Printer theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/ZZJQ" },
             { title: "校园卡攻略", intro: "分类/充值/补办/常见问题", icon: <IdCard theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XYKGL" }
         ]
     }

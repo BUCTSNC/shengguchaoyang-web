@@ -8,6 +8,7 @@ import { CateTree, SearchViewCtx } from "../App";
 import { PurpleBlue } from "../ColorCard";
 import { ContainerNG } from "../components/Container";
 import Parallelogram from "../components/Parallelogram";
+
 import './NaviBar.css';
 
 const useStyles = createUseStyles({
@@ -19,6 +20,10 @@ const useStyles = createUseStyles({
     },
     "categoryInner": {//导航栏小项内框
         "&:hover": {
+            borderBottom: ["solid", "3px", "white"],
+            alignItems:'center'
+        },
+        '&:active':{
             borderBottom: ["solid", "3px", "white"],
             alignItems:'center'
         },
@@ -84,6 +89,7 @@ function CategoryBar() {
         <CateItem path="/" title="首页" />
         {categories.map(cate => <CateItem key={cate.path} path={`/cate/${cate.path}`} title={cate.alias} />)}
     </div>;
+    
 }
 
 function SearchInput() {

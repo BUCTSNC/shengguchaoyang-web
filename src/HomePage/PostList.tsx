@@ -10,7 +10,7 @@ export default function PostList(props: {
 ) {
     const history = useHistory();
     const { firstColor, secondColor, icon, title, postList, tagAttr } = props;
-    return <div style={{ width: "100%", marginTop: 64 }}>
+    return <div style={{ width: "100%", marginTop: 32,marginBottom:32 }}>
         <div style={{
             position: "relative",
             zIndex: 100,

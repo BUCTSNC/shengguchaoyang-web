@@ -227,8 +227,9 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
         hash: `#${id}`
     })
     return <>
-        <h2 className="catalogueTitle">文章目录</h2>
+        <h2 className="catalogueTitle">文章目录{}</h2>
         {/* <hr /> */}
+        
         <div >
             {toc.map(heading => {
 
@@ -238,12 +239,14 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                         paddingLeft: `${heading.depth}rem`
                     }}
                     onClick={
-                        // () => scrollToElementById(heading.id, viewboxEle, afterScroll)
-                        () => hashTo(heading.id)
+                        () => {scrollToElementById(heading.id, viewboxEle);afterScroll()}
+                        // () => hashTo(heading.id)
                     }
                     className={`${heading.id === props.currentId ? "activeTocItem" : "inactiveTocItem"} tocItem`}
                 >
                     {heading.title}
+                    {/* {heading.id} */}
+                    {/* {props.currentId} */}
                 </div>;
             })}
         </div>
