@@ -1,11 +1,11 @@
-import React, { Fragment, useRef } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import About from "../AboutPage";
 import { CategoryPage } from "../CategoryPage";
 import HomePage from "../HomePage";
 import NotFound from "../NotFoundPage";
 import Post from "../PostPage";
-import "./Main.css"
+import "./Main.css";
 
 export function Main() {
     return <div className="main">

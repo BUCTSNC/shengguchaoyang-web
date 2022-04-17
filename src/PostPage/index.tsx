@@ -226,6 +226,8 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
     const hashTo = (id: string) => history.push({
         hash: `#${id}`
     })
+
+
     return <>
         <h2 className="catalogueTitle">文章目录{}</h2>
         {/* <hr /> */}
@@ -243,7 +245,7 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                         () => {hashTo(heading.id);}
 
                     }
-                    className={`${heading.id === viewboxEle?.id ? "activeTocItem" : "inactiveTocItem"} tocItem`}
+                    className={`${heading.id === props.currentId ? "activeTocItem" : "inactiveTocItem"} tocItem`}
                 >
                     {heading.title}
 
