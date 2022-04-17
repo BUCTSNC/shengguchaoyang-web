@@ -239,14 +239,14 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
                         paddingLeft: `${heading.depth}rem`
                     }}
                     onClick={
-                        () => {scrollToElementById(heading.id, viewboxEle);afterScroll()}
-                        // () => hashTo(heading.id)
+
+                        () => {hashTo(heading.id);}
+
                     }
-                    className={`${heading.id === props.currentId ? "activeTocItem" : "inactiveTocItem"} tocItem`}
+                    className={`${heading.id === viewboxEle?.id ? "activeTocItem" : "inactiveTocItem"} tocItem`}
                 >
                     {heading.title}
-                    {/* {heading.id} */}
-                    {/* {props.currentId} */}
+
                 </div>;
             })}
         </div>
@@ -255,6 +255,7 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
 
 function scrollToElementById(id: string, viewboxEle: HTMLDivElement | null) {
     const targetEle = document.getElementById(id);
+    console.log(targetEle)
     const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;
     let timeout: number;
     const recursiveSetTimeout = () => setTimeout(() => {

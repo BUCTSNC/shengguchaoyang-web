@@ -28,7 +28,7 @@ export const CategoryPage = () => {
         document.title = `${categoryInfo?.alias} - 胜古朝阳`;
     }, [categoryInfo?.alias]);
     return <ContainerNG>
-        <Container right={ width<1200 ? <> </> : <div style={{top: 56, position: "sticky"}}>
+        <Container right={ width<1200 ? <> </> : <div style={{top:8, position: "sticky"}}>
                 <Feedback />
             </div>
         }>
