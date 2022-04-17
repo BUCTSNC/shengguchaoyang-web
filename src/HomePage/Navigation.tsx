@@ -32,29 +32,29 @@ export default function Navigation() {//卡片布局
             { title: "交通出行", intro: "班车/公交/地铁", icon: <Bus theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/BCYY" },
             { title: "宿舍生活", intro: "会客厅/咖啡机/服务中心", icon: <SingleBed theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/Dormitory_Service" },
             { title: "校园超市", intro: "麦叔的铺子/便利店/购物", icon: <ShoppingCartOne theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/School_Supermarket" },
-            { title: "创享商圈", intro: "理发/桌游/花店", icon: <ShoppingMall theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/Chuangxsq" },
-            { title: "图书服务", intro: "图书馆/检索服务", icon: <Book theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/Library_Service" },
-            { title: "医疗服务", intro: "校医院/后勤楼", icon: <Hospital theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/XYY" }
+            { title: "创享商圈", intro: "大学生创业/业余活动", icon: <ShoppingMall theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/Chuangxsq" },
+            { title: "图书馆", intro: "简介/读者须知/资源检索", icon: <Book theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/Library_Service" },
+            { title: "校医院", intro: "医疗服务/医疗报销", icon: <Hospital theme="outline" size="40" fill="#F2F2F2" />, src: "XYSH/XYY" }
         ]
     }
     const XXZY: CardInfo = {
         color: LightBlue2,
         title: "学习资源",
         items: [
-            { title: "学习资源", intro: "数字校园/信息门户", icon: <Bookshelf theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#数字校园" },
-            { title: "图书资源", intro: "图书馆/检索服务", icon: <DocumentFolder theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#图书馆" },
-            { title: "知网服务", intro: "中国知网", icon: <Edit theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#文献查询" },
-            { title: "自习教室", intro: "教学楼/图书馆/宿舍楼", icon: <Classroom theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#自习位置" },
-            { title: "学习网站", intro: "MOOC/虎课网/哔哩哔哩", icon: <Earth theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#校外学习资源" },
-            { title: "学习软件", intro: "墨墨背单词/专注森林", icon: <Word theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#学习软件" }
+            { title: "校内资源", intro: "学校官网/数字校园", icon: <Bookshelf theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#数字校园" },
+            { title: "图书资源", intro: "图书查询/资源检索", icon: <DocumentFolder theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#图书馆" },
+            // { title: "知网服务", intro: "中国知网", icon: <Edit theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#文献查询" },
+            { title: "自习教位置", intro: "教学楼/图书馆/宿舍楼", icon: <Classroom theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#自习位置" },
+            { title: "课程网站", intro: "专业课/技能课/科普课", icon: <Earth theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#校外学习资源" },
+            { title: "手机软件", intro: "外语学习/习惯养成", icon: <Word theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#学习软件" }
         ]
     }
     const XYFG: CardInfo = {
         color: DeepPurpleBlue,
         title: "校园风光",
         items: [
-            { title: "建筑风光", intro: "教学楼/宿舍楼", icon: <BuildingFour theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus building" },
-            { title: "自然风景", intro: "白昼/傍晚/夜景", icon: <Landscape theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus landscape" },
+            { title: "建筑风光", intro: "学习场所/实验中心/生活楼宇", icon: <BuildingFour theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus building" },
+            { title: "自然风景", intro: "青天白日/落日余晖/夜色弥漫", icon: <Landscape theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus landscape" },
             { title: "校园团宠", intro: "野鸭/天鹅/小猫", icon: <PokeballOne theme="outline" size="40" fill="#F2F2F2" />, src: "XYFG/campus pets" },
         ]
     }
@@ -62,12 +62,12 @@ export default function Navigation() {//卡片布局
         color: StrawBerry,
         title: "服务指南",
         items: [
-            { title: "服务大厅", intro: "学业发展/户籍/征兵", icon: <Audit theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/AcademicDevelopmentCounseling" },
-            { title: "网络服务", intro: "信息中心/校园网", icon: <Wifi theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XYWGL" },
-            { title: "宿舍服务", intro: "物业/设备保修", icon: <DoorHandle theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/SSBX" },
-            { title: "心理服务", intro: "心理健康/心理咨询", icon: <Like theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XLZX" },
-            { title: "自助机器", intro: "成绩打印/自助售票", icon: <Printer theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/ZZJQ" },
-            { title: "校园卡服务", intro: "校园卡充值补办", icon: <IdCard theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XYKGL" }
+            { title: "学业发展", intro: "发展服务岗/学在北化", icon: <Audit theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/AcademicDevelopmentCounseling" },
+            { title: "校园网攻略", intro: "连接方式/常用网址/VPN/缴费", icon: <Wifi theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XYWGL" },
+            { title: "设施报修", intro: "苏东吴物业/中航物业", icon: <DoorHandle theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/SSBX" },
+            { title: "心理咨询", intro: "咨询地点/预约电话", icon: <Like theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XLZX" },
+            { title: "自助机器", intro: "自助补卡/成绩打印/自助售票/圈存机", icon: <Printer theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/ZZJQ" },
+            { title: "校园卡攻略", intro: "分类/充值/补办/常见问题", icon: <IdCard theme="outline" size="40" fill="#F2F2F2" />, src: "FWZN/XYKGL" }
         ]
     }
     return <div style={{ display: 'flex', justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", marginTop: '3vh' }}>
