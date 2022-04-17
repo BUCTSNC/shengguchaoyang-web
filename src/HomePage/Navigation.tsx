@@ -44,7 +44,7 @@ export default function Navigation() {//卡片布局
             { title: "校内资源", intro: "学校官网/数字校园", icon: <Bookshelf theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#数字校园" },
             { title: "图书资源", intro: "图书查询/资源检索", icon: <DocumentFolder theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#图书馆" },
             // { title: "知网服务", intro: "中国知网", icon: <Edit theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#文献查询" },
-            { title: "自习教位置", intro: "教学楼/图书馆/宿舍楼", icon: <Classroom theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#自习位置" },
+            { title: "自习位置", intro: "教学楼/图书馆/宿舍楼", icon: <Classroom theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#自习位置" },
             { title: "课程网站", intro: "专业课/技能课/科普课", icon: <Earth theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#校外学习资源" },
             { title: "手机软件", intro: "外语学习/习惯养成", icon: <Word theme="outline" size="40" fill="#F2F2F2" />, src: "XXZY/XueXiZiYuan#学习软件" }
         ]
