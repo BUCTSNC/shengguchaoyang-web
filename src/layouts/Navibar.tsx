@@ -90,7 +90,7 @@ function SearchInput() {
     const searchViewSwitch = useContext(SearchViewCtx);
     const { flexRowCenter, clickable } = useStyles();
     return <div className={flexRowCenter} style={{ borderRadius: '0.9vw', overflow: "hidden" }} onClick={() => searchViewSwitch(true)}>
-        <div className="searchSpace" >点击此处搜索</div>
+        <div className="searchSpace" >点击搜索</div>
         <div className={`${flexRowCenter} ${clickable} ${'searchIconSpace'}`}>
             <SearchIcon className="searchIcon"/>
         </div>

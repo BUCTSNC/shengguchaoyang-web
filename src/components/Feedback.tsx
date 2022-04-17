@@ -12,8 +12,8 @@ export function Feedback() {
         <img style={{ width: "80%" }} src={QR} />
         </a>
         <a target="_blank" style={{ wordWrap: "break-word", maxWidth: "80%", margin: '0 8',cursor:'pointer'}} href='https://ks.wjx.top/vj/ORxKSZ5.aspx'><b>反馈入口</b></a>
-        <p style={{ paddingLeft:8,paddingRight:8,margin:4,}}>扫描二维码或者点击上方链接，反馈您的问题，我们第一时间进行补充和修改。或者通过邮箱把你的问题发送到</p>
-        <a style={{ wordWrap: "break-word", maxWidth: "80%", margin: 0}} href="mailto:buctsnc@hotmail.com">buctsnc@hotmail.com</a>
-        <p style={{ padding: 8,margin:4}}>让我们补充更多的信息。</p>
+        <p style={{ paddingLeft:8,paddingRight:8,margin:4,}}>扫描或者点击二维码，反馈您的问题，我们第一时间进行补充和修改。或者通过邮箱把你的问题发送到</p>
+        <a style={{ wordWrap: "break-word", maxWidth: "80%", marginBottom:'1rem'}} href="mailto:buctsnc@hotmail.com">buctsnc@hotmail.com</a>
+        {/* <p style={{ padding: 8,margin:4}}>让我们补充更多的信息。</p> */}
     </div>
 }
