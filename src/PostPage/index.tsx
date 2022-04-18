@@ -34,19 +34,21 @@ export function Post(props: RouteComponentProps) {
         if (location.hash !== "") {
             const id = decodeURI(location.hash.replace(/^#/, ""));
             let targetEle = document.getElementById(id);
+            let currentScrollHeight = 0;
             interval = setInterval(() => {
-                if (targetEle === null) {
+                if (targetEle === null || Math.abs(currentScrollHeight - (viewboxEle?.scrollHeight ?? 0)) <= 4) {
                     targetEle = document.getElementById(id);
                     failedCount += 1;
                     if (failedCount >= 10) clearInterval(interval)
                 }
-                failedCount = 0;
+                 else {failedCount = 0;}
                 const delta = () => (targetEle?.getBoundingClientRect().top ?? 0) - 48 - 16;
                 if (Math.abs(delta()) >= 4) {
                     viewboxEle?.scrollBy({ top: delta() })
                 } else {
                     clearInterval(interval)
                 }
+                currentScrollHeight = viewboxEle?.scrollHeight ?? 0;
             }, 1)
         }
         return () => {
