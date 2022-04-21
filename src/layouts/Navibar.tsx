@@ -1,12 +1,15 @@
-import { Search as SearchIcon } from "@icon-park/react";
+import { HamburgerButton, Home, Search as SearchIcon } from "@icon-park/react";
+import { Menu } from "antd";
 import { climbTree } from "octa/lib/ClimbTree";
 import React, { useContext } from "react";
 import { createUseStyles } from 'react-jss';
 import { useHistory, useLocation } from "react-router-dom";
 import Logo from '../../src/logo/sgcy.png';
 import { CateTree, SearchViewCtx } from "../App";
-import { PurpleBlue } from "../ColorCard";
+import { LightBlue, PurpleBlue } from "../ColorCard";
 import { ContainerNG } from "../components/Container";
+import Display from "../components/Display";
+import Image from "../components/Image";
 import Parallelogram from "../components/Parallelogram";
 import './NaviBar.css';
 
@@ -42,7 +45,21 @@ const useStyles = createUseStyles({
 });
 
 export default function Navibar() {
+    return <Display
+        desktop={<NavibarPC />}
+        mobile={<NavibarMobile />}
+    />;
+}
 
+function NavibarMobile() {
+    return <div style={{height: 48, display: "flex", flexDirection: "row", justifyContent: "space-between", backgroundColor: "white"}}>
+        <div style={{height: 48, width: 48}}></div>
+        <img src={Logo} style={{display: "block"}} />
+        <div style={{height: 48, width: 48, display: "flex", alignItems: "center", justifyContent: "center",}}><HamburgerButton size={40} fill={LightBlue} /></div>
+    </div>
+}
+
+function NavibarPC() {
     const { flexRowAround } = useStyles();
     return <div style={{ backgroundColor: PurpleBlue }}>
         <ContainerNG>
@@ -77,11 +94,11 @@ function HomeLogo() {
 function CategoryBar() {
     const history = useHistory();
     const navigate = (url: string) => history.push(url);
-    const { cates } = climbTree(useContext(CateTree))
+    const { cates } = climbTree(useContext(CateTree));
     const { categoryInner, categoryOuter, flexRowCenter, clickable, activedInner } = useStyles();
     const categories = cates.filter(cate => !cate.path.includes("/"));
     const location = useLocation();
-    const CateItem = (props: { path: string, title: string; actived: boolean }) => <Parallelogram angle={30}
+    const CateItem = (props: { path: string, title: string; actived: boolean; }) => <Parallelogram angle={30}
         outerProps={{ className: `${categoryOuter} navigationItemOut` }}
         innerProps={{ className: `${categoryInner} ${props.actived ? activedInner : ""} ${clickable}`, onClick: () => navigate(props.path) }}
     >
