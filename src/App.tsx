@@ -3,7 +3,7 @@ import { Modal } from 'antd';
 import "antd/dist/antd.css";
 import { Definitions } from 'octa';
 import React, { createContext, useEffect, useRef, useState } from 'react';
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import './App.css';
 import SearchPad from './components/SearchPad';
 import Bottom from './layouts/Bottom';
@@ -11,10 +11,9 @@ import { Main } from './layouts/Main';
 import Navibar from './layouts/Navibar';
 import ScrollToTopBtn, { scrollToSmoothly } from './layouts/ScrollToTopBtn';
 import SearchBtn from './layouts/SearchBtn';
-import { useBackTop } from './utils/scrollToTop';
 
 export const CateTree = createContext<Definitions.CategoryProps>({ alias: "root", path: ".", childCates: [], childPosts: [] });
-export const SearchViewCtx = createContext((viewable: boolean) => { });
+export const SearchViewCtx = createContext<(viewable: boolean) => void>(() => { return });
 
 export const ScrollCtx = createContext<HTMLDivElement | null>(null);
 

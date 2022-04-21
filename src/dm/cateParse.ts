@@ -17,5 +17,5 @@ export const getSupCategory = (directory: Definitions.CategoryProps | Definition
     const path = directory.path;
     if (path === "./") return null;
     const supCate = dropRight(path.split("/")).join("/");
-    return Boolean(supCate) ? supCate : "./";
+    return supCate ? supCate : "./";
 };

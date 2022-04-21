@@ -1,19 +1,16 @@
-import { climbTree } from "octa/lib/ClimbTree";
 import { PostProps } from "octa/lib/Definitions";
-import React, { useContext, useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import { CateTree } from "../App";
-import { getSupCategory, traceToRoot } from "../dm/cateParse";
 import { getVisitedCount } from "../dm/hotList";
-import "./PostCard.css"
+import "./PostCard.css";
 
 export const PostCard = (props: { post: PostProps; }) => {
     const { post } = props;
     const history = useHistory();
-    const { cates } = climbTree(useContext(CateTree));
-    const categoryPath = getSupCategory(post);
-    const category = categoryPath && cates.find(cate => cate.path === categoryPath) || null;
-    const categoryDisplay = category && traceToRoot(category, cates).map(cate => cate.alias);
+    // const { cates } = climbTree(useContext(CateTree));
+    // const categoryPath = getSupCategory(post);
+    // const category = categoryPath && cates.find(cate => cate.path === categoryPath) || null;
+    // const categoryDisplay = category && traceToRoot(category, cates).map(cate => cate.alias);
     // const headimg = post.headerImage
     const imgPath = `/posts/${post.path}/${post.headerImage}`
     const time = new Date(post.lastModified)
@@ -51,6 +48,6 @@ export const TagsList = (props: { tags?: string[]; }) => {
     if (tags === undefined) return null;
     // 加入跳转到搜索界面并输入标签作为关键字的函数
     return <div className="TagsList">
-        {tags.map((tag, index) => <div className="TagsList-Tag" key={index} onClick={() => { }}>{tag}</div>)}
+        {tags.map((tag, index) => <div className="TagsList-Tag" key={index} onClick={() => { return }}>{tag}</div>)}
     </div>;
 };

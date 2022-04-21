@@ -18,7 +18,6 @@ export function Post(props: RouteComponentProps) {
     const [html, setHtml] = useState("");
     const [toc, setToc] = useState([] as TOC);
     const [currentId, setCurrent] = useState("");
-    const [topHeight, setTopHeight] = useState(0);
     const [width, setWidth] = useState(window.innerWidth);
     const [tocModal, setTocModal] = useState(false);
     const [postExist, setPostExist] = useState(true);
@@ -30,7 +29,7 @@ export function Post(props: RouteComponentProps) {
     const viewboxEle = useContext(ScrollCtx)
     useEffect(() => {
         let interval: number;
-        let failedCount: number = 0;
+        let failedCount = 0;
         if (location.hash !== "") {
             const id = decodeURI(location.hash.replace(/^#/, ""));
             let targetEle = document.getElementById(id);
@@ -63,7 +62,10 @@ export function Post(props: RouteComponentProps) {
                 .then(md => parseMD(md, url))
                 .then(setHtml)
                 .then(() => setPostExist(true))
-                .catch(err => setPostExist(false));
+                .catch(err => {
+                    setPostExist(false)
+                    console.log(err)
+                });
         } else {
             setPostExist(false);
         }
@@ -82,7 +84,7 @@ export function Post(props: RouteComponentProps) {
                         return { id: heading.id, top: document.getElementById(heading.id)?.getBoundingClientRect().top ?? Infinity }
                     }).sort((a, b) => b.top - a.top)
                         .filter(value => value.top - 48 - 16 - 1 <= 0)[0]
-                    if(currentId) setCurrent(currentId.id)
+                    if (currentId) setCurrent(currentId.id)
                 }
                 viewboxEle?.addEventListener("scroll", scrollHandler)
                 const images = Array.from(document.getElementById("content")?.getElementsByTagName("img") ?? []);
@@ -95,7 +97,9 @@ export function Post(props: RouteComponentProps) {
                     });
                     viewboxEle?.removeEventListener("scroll", scrollHandler)
                 };
-            } catch { }
+            } catch (err) {
+                console.log(err)
+            }
         }
     }, [html, postExist]);
     useEffect(() => {
@@ -122,7 +126,7 @@ export function Post(props: RouteComponentProps) {
                         width: '100%',
                     }}
                 >
-                    <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} />
+                    <TableOfContent toc={toc} currentId={currentId} />
                 </Area>
             </Col>
             <Col
@@ -185,7 +189,7 @@ export function Post(props: RouteComponentProps) {
         </Row>
 
         <Modal visible={tocModal} title={null} footer={null} onCancel={() => setTocModal(false)}>
-            <TableOfContent toc={toc} currentId={currentId} topHeight={topHeight} afterScroll={() => setTocModal(false)} />
+            <TableOfContent toc={toc} currentId={currentId} afterScroll={() => setTocModal(false)} />
         </Modal>
     </Container> :
         <Container>
@@ -217,12 +221,14 @@ export default Post;
 function generateTOC() {
     return Array
         .from(
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             document.getElementById("content")!.children
         )
         .filter(html => html.tagName.match(/^H[1-6]/))
         .map((heading) => {
             const id = heading.id;
             const { innerText: title } = heading as HTMLHeadingElement;
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const depth = Number(heading.tagName.match(/^H([1-6])/)![1]);
             return { id, title, depth };
         });
@@ -231,9 +237,9 @@ function generateTOC() {
 function openPicture(e: MouseEvent) {
     const target = e.target as HTMLImageElement;
     window.open(target.src);
-};
+}
 
-function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number; afterScroll?: () => any; }) {
+function TableOfContent(props: { toc: TOC; currentId: string; afterScroll?: () => any; }) {
     const { toc } = props;
     const history = useHistory();
     const hashTo = (id: string) => history.push({
@@ -260,4 +266,4 @@ function TableOfContent(props: { toc: TOC; currentId: string, topHeight: number;
             })}
         </div>
     </>;
-};
+}

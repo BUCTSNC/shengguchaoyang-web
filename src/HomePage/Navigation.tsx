@@ -1,4 +1,4 @@
-import { Audit, Book, Bookshelf, BuildingFour, Bus, Classroom, DocumentFolder, DoorHandle, Earth, Edit, Hospital, IdCard, Landscape, Like, Photograph, PokeballOne, Printer, ShoppingCartOne, ShoppingMall, SingleBed, Wifi, Word } from "@icon-park/react";
+import { Audit, Book, Bookshelf, BuildingFour, Bus, Classroom, DocumentFolder, DoorHandle, Earth, Hospital, IdCard, Landscape, Like, PokeballOne, Printer, ShoppingCartOne, ShoppingMall, SingleBed, Wifi, Word } from "@icon-park/react";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { useHistory } from "react-router-dom";
@@ -23,8 +23,6 @@ type CardInfo = {
 };
 
 export default function Navigation() {//卡片布局
-    const colors1 = [LightOrange, LightBlue2];
-    const colors2 = [StrawBerry, DeepPurpleBlue];
     const XYSH: CardInfo = {
         color: LightOrange,
         title: "校园生活",

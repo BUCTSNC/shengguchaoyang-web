@@ -1,7 +1,7 @@
 import { Up } from "@icon-park/react";
 import React from "react";
 
-export function scrollToSmoothly(target: HTMLElement | null, top: number = 0) {
+export function scrollToSmoothly(target: HTMLElement | null, top = 0) {
     target?.scroll({
         top, behavior: "smooth"
     })

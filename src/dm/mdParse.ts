@@ -1,5 +1,5 @@
-import { marked } from "marked";
 import { compact, flatten } from "lodash";
+import { marked } from "marked";
 import { Definitions } from "octa";
 
 export type TOC = Array<{ id: string, title: string, depth: number; }>;
@@ -27,6 +27,7 @@ export const imageNotes = (ast: Definitions.AST): Definitions.AST => {
             ];
         }
         if (token.type === "table") return token;
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         if ("tokens" in token) return { ...token, tokens: imageNotes(token["tokens"]!) };
         return token;
     });
@@ -43,6 +44,7 @@ export const htmlClean = (ast: Definitions.AST): Definitions.AST => {
         }
         if (item.type === "table") return item;
         if ("tokens" in item) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const tokens = htmlClean(item.tokens!);
             return { ...item, tokens };
         }
@@ -75,6 +77,7 @@ export const astUrlConvert = (ast: Definitions.AST, postUrl: string): Definition
             };
         }
         if ("tokens" in item) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const tokens = astUrlConvert(item.tokens!, postUrl);
             return {
                 ...item, tokens
@@ -87,10 +90,10 @@ export const astUrlConvert = (ast: Definitions.AST, postUrl: string): Definition
 };
 
 const htmlUrlConvert = (html: string, postUrl: string) => {
-    const newHtml = html.replace(/\ src="(.*)"/g, (str, para1) => {
+    const newHtml = html.replace(/ src="(.*)"/g, (str, para1) => {
         const newStr = str.replace(para1, convertRelativeUrl(para1, postUrl));
         return newStr;
-    }).replace(/\ href="(.*)"/g, (str, para1) => {
+    }).replace(/ href="(.*)"/g, (str, para1) => {
         const newStr = str.replace(para1, convertRelativeUrl(para1, postUrl));
         return newStr;
     });

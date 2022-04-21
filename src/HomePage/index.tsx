@@ -38,19 +38,4 @@ function Carousel() {
     return null;
 }
 
-// 校园生活
-function SchoolLife() {
-    return null;
-}
-
-// 最近更新
-function Latest() {
-    return null;
-}
-
-// 热门榜单
-function MostVisited() {
-    return null;
-}
-
 export default HomePage;

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { groupBy } from "lodash";
-import httpUrl from "../utils/httpUrl";
-import { DeepPurpleBlue, LightBlue2, LightOrange, StrawBerry, White } from "../ColorCard";
+import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
+import { White } from "../ColorCard";
+import httpUrl from "../utils/httpUrl";
 import "./homePage.css";
 
 const useStyles = createUseStyles({
@@ -21,7 +21,6 @@ interface GroupedLinks {
     [groupName: string]: Link[];
 }
 export default function Links() {
-    const colors = [LightOrange, LightBlue2, StrawBerry, DeepPurpleBlue];
     const { tabActived, tabDisactived } = useStyles();
     const [page, setPage] = useState("");
     const [linkTypes, setLinkTypes] = useState([] as string[]);
@@ -67,8 +66,8 @@ export default function Links() {
         </div>
         <div style={{display: "flex", justifyContent: "space-around"}}>
         <div className="linksMap">
-            {groupedLinks[page]?.map((link, index) => {
-                const offset = Boolean(Math.floor((index) / 4) % 2);
+            {groupedLinks[page]?.map((link) => {
+                // const offset = Boolean(Math.floor((index) / 4) % 2);
                 
                 return <div key={link.department}>
                     <div

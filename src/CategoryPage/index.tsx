@@ -15,7 +15,7 @@ export const CategoryPage = () => {
     const { category: categoryPath } = useParams<{ category: string; }>();
     const categoriesChain = categoryPath.split("/")
     const { cates } = climbTree(useContext(CateTree));
-    const [width,setWidth] = useState(window.innerWidth)
+    const [width] = useState(window.innerWidth)
     const parseCategory = (): Definitions.CategoryProps | undefined => {
         const cate = cates.find(cate => cate.path === categoryPath);
         return cate

@@ -1,11 +1,7 @@
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties } from "react";
 import { useHistory } from "react-router-dom";
-
-import Container, { ContainerNG } from "../components/Container";
-import Image from "../components/Image";
+import { ContainerNG } from "../components/Container";
 import Parallelogram from "../components/Parallelogram";
-
-import Logo from "../../src/胜古朝阳logo裁剪.jpg";
 
 const FlexCenterRow: CSSProperties = {display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}
  
@@ -70,4 +66,4 @@ function NavigationItem (props: { title: string, path: string; first?: boolean }
     >
         {props.title}
     </Parallelogram>;
-};
+}
