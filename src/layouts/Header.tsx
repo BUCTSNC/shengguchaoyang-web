@@ -1,14 +1,15 @@
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties } from "react";
 import { useHistory } from "react-router-dom";
-
-import Container, { ContainerNG } from "../components/Container";
-import Image from "../components/Image";
+import { ContainerNG } from "../components/Container";
 import Parallelogram from "../components/Parallelogram";
 
-import Logo from "../../src/胜古朝阳logo裁剪.jpg";
+const FlexCenterRow: CSSProperties = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+};
 
-const FlexCenterRow: CSSProperties = {display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}
- 
 export default function Header() {
     const history = useHistory();
     const goHome = () => history.push("/");
@@ -16,19 +17,20 @@ export default function Header() {
         { title: "校园生活", path: "life" },
         { title: "校园风光", path: "buildings" },
         { title: "服务指南", path: "guide" },
-        { title: "学习资源", path: "resources" }
+        { title: "学习资源", path: "resources" },
     ];
     return (
         <div onClick={goHome} style={{ backgroundColor: "#4470f5" }}>
             <ContainerNG>
                 <div style={FlexCenterRow}>
-                    <Parallelogram angle={30}
+                    <Parallelogram
+                        angle={30}
                         outerProps={{
                             style: {
                                 background: "white",
                                 padding: "4px 16px",
-                                margin: "0px 16px"
-                            }
+                                margin: "0px 16px",
+                            },
                         }}
                         innerProps={{
                             style: {
@@ -37,15 +39,20 @@ export default function Header() {
                                 justifyContent: "center",
                                 cursor: "pointer",
                                 color: "#2189e3",
-                            }
-                        }}>
+                            },
+                        }}
+                    >
                         {/* <img src={Logo}  height="100%" /> */}
                     </Parallelogram>
                     <div style={FlexCenterRow}>
-                        <NavigationItem title="首页" path="/" first/>
-                        {
-                            categories.map(cate => <NavigationItem title={cate.title} path={`c/${cate.path}`} key={cate.path} />)
-                        }
+                        <NavigationItem title="首页" path="/" first />
+                        {categories.map((cate) => (
+                            <NavigationItem
+                                title={cate.title}
+                                path={`c/${cate.path}`}
+                                key={cate.path}
+                            />
+                        ))}
                     </div>
                 </div>
             </ContainerNG>
@@ -53,21 +60,31 @@ export default function Header() {
     );
 }
 
-function NavigationItem (props: { title: string, path: string; first?: boolean }) {
+function NavigationItem(props: {
+    title: string;
+    path: string;
+    first?: boolean;
+}) {
     const history = useHistory();
-    return <Parallelogram angle={30}
-        outerProps={{
-            className: 'navigationItem',
-            // style: {
-            //     ...(props.first && {borderLeft: "4px solid white"}),
+    return (
+        <Parallelogram
+            angle={30}
+            outerProps={{
+                className: "navigationItem",
+                // style: {
+                //     ...(props.first && {borderLeft: "4px solid white"}),
 
-            //     ...FlexCenterRow
-            // }
-        }}
-        innerProps={{
-            onClick: () => {console.log("test"); history.push('/other')}
-        }}
-    >
-        {props.title}
-    </Parallelogram>;
-};
+                //     ...FlexCenterRow
+                // }
+            }}
+            innerProps={{
+                onClick: () => {
+                    console.log("test");
+                    history.push("/other");
+                },
+            }}
+        >
+            {props.title}
+        </Parallelogram>
+    );
+}

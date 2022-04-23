@@ -1,8 +1,8 @@
-import { marked } from "marked";
 import { compact, flatten } from "lodash";
+import { marked } from "marked";
 import { Definitions } from "octa";
 
-export type TOC = Array<{ id: string, title: string, depth: number; }>;
+export type TOC = Array<{ id: string; title: string; depth: number }>;
 
 export const parseMD = (md: string, postUrl: string): string => {
     const ast = marked.lexer(md);
@@ -13,7 +13,7 @@ export const parseMD = (md: string, postUrl: string): string => {
 };
 
 export const imageNotes = (ast: Definitions.AST): Definitions.AST => {
-    const tokens = ast.map(token => {
+    const tokens = ast.map((token) => {
         if (token.type === "image") {
             const content = `<i class="imageNotes">${token.text}</i>`;
             return [
@@ -22,12 +22,14 @@ export const imageNotes = (ast: Definitions.AST): Definitions.AST => {
                     type: "html",
                     raw: content,
                     text: content,
-                    pre: false
-                }
+                    pre: false,
+                },
             ];
         }
         if (token.type === "table") return token;
-        if ("tokens" in token) return { ...token, tokens: imageNotes(token["tokens"]!) };
+        if ("tokens" in token)
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            return { ...token, tokens: imageNotes(token["tokens"]!) };
         return token;
     });
     const imageNoted = flatten(tokens as Definitions.AST) as Definitions.AST;
@@ -36,18 +38,21 @@ export const imageNotes = (ast: Definitions.AST): Definitions.AST => {
 };
 
 export const htmlClean = (ast: Definitions.AST): Definitions.AST => {
-    const tokens = compact(ast.map(item => {
-        if (item.type === "html") {
-            if (item.raw.match(/(<script>|<style>)/)) return null;
+    const tokens = compact(
+        ast.map((item) => {
+            if (item.type === "html") {
+                if (item.raw.match(/(<script>|<style>)/)) return null;
+                return item;
+            }
+            if (item.type === "table") return item;
+            if ("tokens" in item) {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                const tokens = htmlClean(item.tokens!);
+                return { ...item, tokens };
+            }
             return item;
-        }
-        if (item.type === "table") return item;
-        if ("tokens" in item) {
-            const tokens = htmlClean(item.tokens!);
-            return { ...item, tokens };
-        }
-        return item;
-    })) as Definitions.AST;
+        })
+    ) as Definitions.AST;
     tokens.links = ast.links;
     return tokens;
 };
@@ -55,13 +60,16 @@ export const htmlClean = (ast: Definitions.AST): Definitions.AST => {
 const convertRelativeUrl = (url: string, postUrl: string) => {
     const { srcUrl, postPrefix } = {
         srcUrl: url.split("\\").join("/"),
-        postPrefix: postUrl.split("\\").join("/")
+        postPrefix: postUrl.split("\\").join("/"),
     };
     return srcUrl.match(/^\.\//) ? `/posts/${postPrefix}/${srcUrl}` : srcUrl;
 };
 
-export const astUrlConvert = (ast: Definitions.AST, postUrl: string): Definitions.AST => {
-    const tokens = ast.map(item => {
+export const astUrlConvert = (
+    ast: Definitions.AST,
+    postUrl: string
+): Definitions.AST => {
+    const tokens = ast.map((item) => {
         if (item.type === "table") return item;
         if (item.type === "html") {
             const html = item.raw;
@@ -71,13 +79,16 @@ export const astUrlConvert = (ast: Definitions.AST, postUrl: string): Definition
         if ("href" in item) {
             const href = convertRelativeUrl(item.href, postUrl);
             return {
-                ...item, href
+                ...item,
+                href,
             };
         }
         if ("tokens" in item) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const tokens = astUrlConvert(item.tokens!, postUrl);
             return {
-                ...item, tokens
+                ...item,
+                tokens,
             };
         }
         return item;
@@ -87,12 +98,20 @@ export const astUrlConvert = (ast: Definitions.AST, postUrl: string): Definition
 };
 
 const htmlUrlConvert = (html: string, postUrl: string) => {
-    const newHtml = html.replace(/\ src="(.*)"/g, (str, para1) => {
-        const newStr = str.replace(para1, convertRelativeUrl(para1, postUrl));
-        return newStr;
-    }).replace(/\ href="(.*)"/g, (str, para1) => {
-        const newStr = str.replace(para1, convertRelativeUrl(para1, postUrl));
-        return newStr;
-    });
+    const newHtml = html
+        .replace(/ src="(.*)"/g, (str, para1) => {
+            const newStr = str.replace(
+                para1,
+                convertRelativeUrl(para1, postUrl)
+            );
+            return newStr;
+        })
+        .replace(/ href="(.*)"/g, (str, para1) => {
+            const newStr = str.replace(
+                para1,
+                convertRelativeUrl(para1, postUrl)
+            );
+            return newStr;
+        });
     return newHtml;
 };

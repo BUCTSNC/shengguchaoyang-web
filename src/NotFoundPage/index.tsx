@@ -8,21 +8,21 @@ import Area from "../components/Area";
 
 export default function NotFound() {
     useEffect(() => {
-        document.title = "页面未找到 - 胜古朝阳"
-    }, [])
+        document.title = "页面未找到 - 胜古朝阳";
+    }, []);
     const history = useHistory();
     const goHome = () => history.push("/");
-    const btnStyle: CSSProperties = {marginRight: ".5rem"}
+    const btnStyle: CSSProperties = { marginRight: ".5rem" };
     return (
         <Container>
             <Area>
-                <div style={{
-                    padding: "1rem"
-                }}>
+                <div
+                    style={{
+                        padding: "1rem",
+                    }}
+                >
                     <h1>页面走丢啦！</h1>
-                    <p>
-                        无法找到这个页面。
-                    </p>
+                    <p>无法找到这个页面。</p>
                     <Button
                         type="primary"
                         onClick={history.goBack}
@@ -30,11 +30,7 @@ export default function NotFound() {
                     >
                         返回上一个页面
                     </Button>
-                    <Button
-                        type="primary"
-                        onClick={goHome}
-                        style={btnStyle}
-                    >
+                    <Button type="primary" onClick={goHome} style={btnStyle}>
                         返回主页
                     </Button>
                 </div>

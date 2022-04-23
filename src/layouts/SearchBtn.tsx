@@ -1,8 +1,7 @@
 import { Search } from "@icon-park/react";
 import React from "react";
 
-
-export function SearchBtn(props: { onClick: () => any; }) {
+export function SearchBtn(props: { onClick: () => any }) {
     return (
         <div
             style={{
@@ -17,7 +16,7 @@ export function SearchBtn(props: { onClick: () => any; }) {
                 boxShadow: "0 0 2rem #8c8c8c",
                 zIndex: 200,
                 cursor: "pointer",
-                alignContent:"center",
+                alignContent: "center",
             }}
             onClick={props.onClick}
         >

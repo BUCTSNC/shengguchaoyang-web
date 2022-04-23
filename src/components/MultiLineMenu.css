@@ -6,9 +6,9 @@
     color: #0050b3;
     text-align: center;
     width: 100%;
-    padding: .5rem;
+    padding: 0.5rem;
     font-size: 1rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 }
 
 .menuItem:hover {
@@ -17,6 +17,6 @@
 }
 
 .activedItem {
-    color: #FFFFFF;
+    color: #ffffff;
     background-color: #0050b3;
 }

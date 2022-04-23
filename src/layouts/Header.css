@@ -1,29 +1,29 @@
 #pageHeader {
-  background-color: #0050b3;
-  color: white;
-  width: 100vw;
-  min-height: auto;
+    background-color: #0050b3;
+    color: white;
+    width: 100vw;
+    min-height: auto;
 }
 
 #majorTitle {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 #subTitle {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
-.navigationItem{
-  border-right: 1em solid white;
-  font-size: 1.5rem;
-  padding: 4px 16px;
-  color: white;
-}
-@media screen and (max-width:1920px) and (min-width:1080px) {
-  .navigationItem{
-    border-right: 0.8em solid white;
-    font-size: 14px;
+.navigationItem {
+    border-right: 1em solid white;
+    font-size: 1.5rem;
     padding: 4px 16px;
     color: white;
-  }
+}
+@media screen and (max-width: 1920px) and (min-width: 1080px) {
+    .navigationItem {
+        border-right: 0.8em solid white;
+        font-size: 14px;
+        padding: 4px 16px;
+        color: white;
+    }
 }

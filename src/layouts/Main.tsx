@@ -8,13 +8,15 @@ import Post from "../PostPage";
 import "./Main.css";
 
 export function Main() {
-    return <div className="main">
-        <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/post/:postUrl*" component={Post} />
-            <Route path="/cate/:category*" component={CategoryPage} />
-            <Route path="/about" exact component={About} />
-            <Route path="*" component={NotFound} />
-        </Switch>
-    </div>
+    return (
+        <div className="main">
+            <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/post/:postUrl*" component={Post} />
+                <Route path="/cate/:category*" component={CategoryPage} />
+                <Route path="/about" exact component={About} />
+                <Route path="*" component={NotFound} />
+            </Switch>
+        </div>
+    );
 }

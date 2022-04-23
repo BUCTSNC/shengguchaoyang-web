@@ -10,28 +10,28 @@
     height: 2rem;
     border: none;
     margin-bottom: 12px;
-    border-bottom: solid .2rem #bfbfbf;
+    border-bottom: solid 0.2rem #bfbfbf;
     text-align: center;
     outline: none;
     /* color: #f8000050; */
 }
 
-.search-input:focus::placeholder{
-    border-bottom: solid .15rem #1890ff;
+.search-input:focus::placeholder {
+    border-bottom: solid 0.15rem #1890ff;
     color: #e6f4f8;
 }
 
-.search-input :-moz-placeholder{
+.search-input :-moz-placeholder {
     color: #bfbfbf;
 }
-.search-input:-ms-input-placeholder{
+.search-input:-ms-input-placeholder {
     color: #bfbfbf;
 }
-.search-input::-webkit-input-placeholder{
+.search-input::-webkit-input-placeholder {
     color: #bfbfbf;
 }
 
-.tag{
+.tag {
     /* font-size: .5rem; */
     background-color: #bfbfbf80;
     /* margin: .2rem;
@@ -39,26 +39,26 @@
     border-radius: .2rem;
     cursor: pointer; */
 }
-.tag:hover{
-    background-color: #2189E3;
-    color: #FFFFFF;
+.tag:hover {
+    background-color: #2189e3;
+    color: #ffffff;
 }
 .search-type {
     width: 100%;
     font-size: 1.2rem;
-    border-bottom: solid .2rem #bfbfbf;
+    border-bottom: solid 0.2rem #bfbfbf;
 }
 
 .type-container {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 }
 
 .result-card {
-    font-size: .9rem;
+    font-size: 0.9rem;
     cursor: pointer;
-    border-left: solid .2rem #2c64fd94;
-    margin-top: .5rem;
-    padding: .1rem .5rem;
+    border-left: solid 0.2rem #2c64fd94;
+    margin-top: 0.5rem;
+    padding: 0.1rem 0.5rem;
     background-color: #e6f4f8;
 }
 
@@ -77,37 +77,37 @@
 .category-path {
     color: #595959;
     font-style: italic;
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 .post-tags * {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 .post-authors * {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 .search-switcher {
     display: inline-block;
     width: 50%;
     text-align: center;
-    padding: .2rem;
-    margin-top: .5rem;
+    padding: 0.2rem;
+    margin-top: 0.5rem;
 }
 
 .active-full-switcher {
     background-color: #fff7e6;
-    border-bottom: solid .2rem #fa8c16;
+    border-bottom: solid 0.2rem #fa8c16;
 }
 
 .active-meta-switcher {
-    background-color:  #e6fffb;
-    border-bottom: solid .2rem #13c2c2;
+    background-color: #e6fffb;
+    border-bottom: solid 0.2rem #13c2c2;
 }
 
 .inactive-switcher {
     cursor: pointer;
     background-color: transparent;
-    border-bottom: solid .2rem #bfbfbf;
+    border-bottom: solid 0.2rem #bfbfbf;
 }

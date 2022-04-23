@@ -16,11 +16,9 @@
 // };
 
 export const getMarkdown = async (path: string): Promise<string> => {
-    return fetch(`/posts/${path}/index.md`)
-        .then(res => res.text());
+    return fetch(`/posts/${path}/index.md`).then((res) => res.text());
 };
 
 export const getUUID = async (path: string): Promise<string> => {
-    return fetch(`/posts/${path}/.uuid`)
-        .then(res => res.text());
+    return fetch(`/posts/${path}/.uuid`).then((res) => res.text());
 };

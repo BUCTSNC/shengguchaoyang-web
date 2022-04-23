@@ -7,10 +7,15 @@ export type Department = {
     subDepartments?: Department[];
 };
 
-export function searchTel(keyword: string, department: Department): Department[] {
+export function searchTel(
+    keyword: string,
+    department: Department
+): Department[] {
     return compact([
         department.departmentName.match(new RegExp(keyword, "i")) && department,
-        ...(department.subDepartments?.map(dep => searchTel(keyword, dep)).flat()) ?? []
+        ...(department.subDepartments
+            ?.map((dep) => searchTel(keyword, dep))
+            .flat() ?? []),
     ]);
 }
 

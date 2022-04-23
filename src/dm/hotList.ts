@@ -1,34 +1,34 @@
 import Ajv, { JTDSchemaType } from "ajv/dist/jtd";
 const ajv = new Ajv({
-    int32range: false
+    int32range: false,
 });
 
-type Visited = Record<string, number>
+type Visited = Record<string, number>;
 
 const schema: JTDSchemaType<Visited> = {
-    values: {type: "uint32"}
-}
+    values: { type: "uint32" },
+};
 
-const validator = ajv.compile(schema)
+const validator = ajv.compile(schema);
 
 let visitedLog: Visited = {};
 
 export function loadHotList() {
     return fetch("/posts/log.json")
-        .then(res => res.json())
-        .then(json => {
+        .then((res) => res.json())
+        .then((json) => {
             if (validator(json)) return json;
-            throw new Error("Invalid data")
+            throw new Error("Invalid data");
         })
-        .then(visited => {
-            visitedLog = visited
-            return visited
+        .then((visited) => {
+            visitedLog = visited;
+            return visited;
         })
-        .catch(err => {
-            console.log("Can't get visited log.")
-            console.log(JSON.stringify(err))
-            return null
-        })
+        .catch((err) => {
+            console.log("Can't get visited log.");
+            console.log(JSON.stringify(err));
+            return null;
+        });
 }
 
 // type NanoID = {
@@ -88,10 +88,10 @@ export function loadHotList() {
 // }
 
 export function getVisitedCount(url: string) {
-    if(encodeURI(url) in visitedLog) {
-        return visitedLog[url]
+    if (encodeURI(url) in visitedLog) {
+        return visitedLog[url];
     } else {
-        return 0
+        return 0;
     }
 }
 

@@ -1,23 +1,22 @@
-.wechatIcon{
+.wechatIcon {
     align-items: center;
     justify-content: center;
     padding-right: 1em;
     margin-top: 0.8em;
     display: flex;
     flex-direction: column;
-
 }
-.wechatMap{
+.wechatMap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     min-width: 320px;
 }
-.text{
+.text {
     font-size: 0.7rem;
 }
-.bottomBox{
+.bottomBox {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
