@@ -43,3 +43,16 @@
     font-size: 20px;
     color: white;
 }
+
+.activeMenuItem {
+    font-size: 1rem;
+    padding: 8px;
+    margin: 4px;
+    color: #2189e3;
+}
+
+.inactiveMenuItem {
+    font-size: 1rem;
+    padding: 8px;
+    margin: 4px;
+}
