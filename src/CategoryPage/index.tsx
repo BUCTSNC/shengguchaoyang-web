@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { Definitions } from "octa";
 import { climbTree } from "octa/lib/ClimbTree";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { CateTree } from "../App";
 import Container from "../components/Container";
@@ -19,6 +19,23 @@ export const CategoryPage = () => {
         const cate = cates.find((cate) => cate.path === categoryPath);
         return cate;
     };
+    const [size,resize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight
+    })
+    const onResize = useCallback(()=>{
+        resize({
+            width: window.innerWidth,
+            height: window.innerHeight
+
+        })
+    },[])
+    useEffect(()=>{
+        window.addEventListener('resize',onResize)
+        return ()=>{
+            window.removeEventListener('resize',onResize)
+        }
+    },[onResize])
     const [categoryInfo, setCategory] = useState<
         Definitions.CategoryProps | undefined
     >(parseCategory());
@@ -31,7 +48,7 @@ export const CategoryPage = () => {
     return (
         <Container
             right={
-                width < 1200 ? (
+                size.width/size.height < 1 ? (
                     <> </>
                 ) : (
                     <div style={{ top: 8, position: "sticky" }}>

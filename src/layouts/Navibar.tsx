@@ -5,7 +5,7 @@ import { createUseStyles } from "react-jss";
 import { useHistory, useLocation } from "react-router-dom";
 import Logo from "../../src/logo/sgcy.png";
 import { CateTree, SearchViewCtx } from "../App";
-import { LightBlue, PurpleBlue } from "../ColorCard";
+import { LightBlue, PurpleBlue, White } from "../ColorCard";
 import { ContainerNG } from "../components/Container";
 import Display from "../components/Display";
 import Parallelogram from "../components/Parallelogram";
@@ -59,24 +59,14 @@ function NavibarMobile() {
     return (
         <div>
             <div
-                style={{
-                    height: 48,
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    backgroundColor: "white",
-                }}
-                onClick={() => history.push("/")}
+            className="mobileNavibar"
+                
             >
-                <img src={Logo} style={{ display: "block", height: 48 }} />
+                <div className='mobileNavibarLogo' onClick={() => history.push("/")}>
+                <img src={Logo} style={{ display: "block", height: 48}} />
+                </div>
                 <div
-                    style={{
-                        height: 48,
-                        width: 48,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                    }}
+                    className="mobileNavibarcontain"
                     onClick={() => setExpanded(!expanded)}
                 >
                     <HamburgerButton size={40} fill={LightBlue} />
@@ -101,7 +91,7 @@ function BurgerMenu(props: { expanded: boolean; switcher: () => void }) {
                 transition: "max-height 1s ease-in-out",
                 maxHeight: props.expanded ? window.innerHeight : 0,
                 overflow: "hidden",
-                backgroundColor: "white",
+                backgroundColor: White,
             }}
         >
             {categories.map((category) => {

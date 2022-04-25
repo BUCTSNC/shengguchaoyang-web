@@ -9,13 +9,29 @@
 .wechatMap {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    min-width: 320px;
+    /* min-width: 320px; */
+    min-width: 20%
 }
 .text {
     font-size: 0.7rem;
 }
+@media only screen and (max-width:768px) {
+    .bottomBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #2189e3;
+        color: white;
+        flex-wrap: wrap;
+        width: 100vw;
+        padding: 1rem;
+        min-height: 72px;
+    }
+} 
+@media only screen and (min-width:768px){
 .bottomBox {
     display: flex;
     flex-direction: row;
@@ -27,4 +43,5 @@
     width: 100vw;
     padding: 1rem;
     min-height: 72px;
+}
 }

@@ -19,6 +19,7 @@ export function Post(props: RouteComponentProps) {
     const [toc, setToc] = useState([] as TOC);
     const [currentId, setCurrent] = useState("");
     const [width, setWidth] = useState(window.innerWidth);
+    const [height,setHeight] = useState(window.innerHeight)
     const [tocModal, setTocModal] = useState(false);
     const [postExist, setPostExist] = useState(true);
     const history = useHistory();
@@ -62,7 +63,7 @@ export function Post(props: RouteComponentProps) {
         };
     }, [location.hash, postExist]);
     useEffect(() => {
-        const resizeHandler = () => setWidth(window.innerWidth);
+        const resizeHandler = () => (setWidth(window.innerWidth),setHeight(window.innerHeight));
         window.addEventListener("resize", resizeHandler);
         const { postUrl: url } = props.match.params as { postUrl: string };
         if (postsMeta.find((post) => post.path === url)) {
@@ -133,7 +134,7 @@ export function Post(props: RouteComponentProps) {
     return postExist ? (
         <Container
             right={
-                width < 1200 ? (
+                width <1200 ? (
                     <></>
                 ) : (
                     <div
@@ -160,7 +161,7 @@ export function Post(props: RouteComponentProps) {
                         <TableOfContent toc={toc} currentId={currentId} />
                     </Area>
                 </Col>
-                <Col xxl={18} xl={18} lg={20} md={24} sm={24} xs={24}>
+                <Col xxl={18} xl={18} lg={22} md={24} sm={24} xs={24}>
                     {width > 1200 ? null : (
                         <Area
                             id="tocBar"
@@ -202,7 +203,7 @@ export function Post(props: RouteComponentProps) {
                     <Area
                         cardStyle={{
                             padding: ".5rem 1rem",
-                            paddingLeft: "4rem",
+                            paddingLeft: "1.5rem",
                         }}
                     >
                         {post === undefined ? null : (

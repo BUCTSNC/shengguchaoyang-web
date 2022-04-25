@@ -38,5 +38,9 @@
     "octa": "^0.4.6",
     "typescript": "^4.6.3",
     "vite": "^2.3.7"
-  }
+  },
+  "name": "shengguchaoyang_web",
+  "repository": "git@gitee.com:buctsnc/shenggu-chaoyang_web.git",
+  "author": "lianghchan <lianghchan@163.com>",
+  "license": "MIT"
 }

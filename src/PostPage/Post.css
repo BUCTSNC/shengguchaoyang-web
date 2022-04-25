@@ -24,7 +24,7 @@ iframe {
     letter-spacing: 0.4rem;
 }
 #content {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 #content h1,
@@ -42,19 +42,19 @@ h6 {
     font-size: 1rem;
     color: #707070;
     font-weight: 550;
-    padding-right: 64px;
+    /* padding-right: 64px; */
 }
 .tagItem {
     padding: 0.4rem 0.3rem;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 #readCounter {
     text-align: center;
     font-size: 0.8rem;
     color: #707070;
     font-weight: 550;
-    padding-right: 64px;
+    /* padding-right: 64px; */
     margin-bottom: 24px;
 }
 
@@ -62,15 +62,15 @@ h6 {
     width: 100%;
     /* margin: 3rem; */
     margin-top: 1rem;
-    padding-right: 64px;
+    /* padding-right: 64px; */
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 #content h1 {
     width: 100%;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 #content h2 {
@@ -78,9 +78,12 @@ h6 {
     /* border-bottom: solid .2rem #1890ff; */
     font-size: 1.2rem;
     counter-increment: index;
+    margin-left: 1.4rem;
     font-weight: 550;
 }
+
 #content h2:before {
+    
     content: counter(index);
     display: inline-block;
     width: 1.5rem;
@@ -91,9 +94,10 @@ h6 {
     line-height: 1.3rem;
     position: absolute;
     left: 0;
-    margin: 0.25rem;
-    margin-left: 2.4rem;
-    border-radius: 1.6rem;
+    margin: 0.4rem;
+    margin-left: 1.4rem;
+    border-radius: 1.5rem;
+
 }
 
 #content h3 {
