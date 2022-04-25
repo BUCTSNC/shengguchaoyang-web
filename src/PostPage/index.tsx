@@ -5,6 +5,7 @@ import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
 import { CateTree, ScrollCtx } from "../App";
 import Area from "../components/Area";
 import Container from "../components/Container";
+import { useMobileView } from "../components/Display";
 import { Feedback } from "../components/Feedback";
 import { climbTree } from "../dm/climbTree";
 import { getMarkdown } from "../dm/fetchData";
@@ -18,14 +19,12 @@ export function Post(props: RouteComponentProps) {
     const [html, setHtml] = useState("");
     const [toc, setToc] = useState([] as TOC);
     const [currentId, setCurrent] = useState("");
-    const [width, setWidth] = useState(window.innerWidth);
-    const [height,setHeight] = useState(window.innerHeight)
     const [tocModal, setTocModal] = useState(false);
     const [postExist, setPostExist] = useState(true);
     const history = useHistory();
     const { postUrl: url } = props.match.params as { postUrl: string };
     const post = postsMeta.find((post) => post.path === url);
-
+    const mobileView = useMobileView();
     const location = useLocation();
     const viewboxEle = useContext(ScrollCtx);
     useEffect(() => {
@@ -63,8 +62,8 @@ export function Post(props: RouteComponentProps) {
         };
     }, [location.hash, postExist]);
     useEffect(() => {
-        const resizeHandler = () => (setWidth(window.innerWidth),setHeight(window.innerHeight));
-        window.addEventListener("resize", resizeHandler);
+        // const resizeHandler = () => (setWidth(window.innerWidth),setHeight(window.innerHeight));
+        // window.addEventListener("resize", resizeHandler);
         const { postUrl: url } = props.match.params as { postUrl: string };
         if (postsMeta.find((post) => post.path === url)) {
             getMarkdown(url)
@@ -79,7 +78,7 @@ export function Post(props: RouteComponentProps) {
             setPostExist(false);
         }
         return () => {
-            window.removeEventListener("resize", resizeHandler);
+            // window.removeEventListener("resize", resizeHandler);
         };
     }, [props.match.params]);
 
@@ -134,7 +133,7 @@ export function Post(props: RouteComponentProps) {
     return postExist ? (
         <Container
             right={
-                width <1200 ? (
+                mobileView ? (
                     <></>
                 ) : (
                     <div
@@ -162,7 +161,7 @@ export function Post(props: RouteComponentProps) {
                     </Area>
                 </Col>
                 <Col xxl={18} xl={18} lg={22} md={24} sm={24} xs={24}>
-                    {width > 1200 ? null : (
+                    {mobileView ? null : (
                         <Area
                             id="tocBar"
                             style={{

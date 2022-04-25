@@ -14,28 +14,26 @@ export const CategoryPage = () => {
     const { category: categoryPath } = useParams<{ category: string }>();
     const categoriesChain = categoryPath.split("/");
     const { cates } = climbTree(useContext(CateTree));
-    const width = window.innerWidth;
     const parseCategory = (): Definitions.CategoryProps | undefined => {
         const cate = cates.find((cate) => cate.path === categoryPath);
         return cate;
     };
-    const [size,resize] = useState({
+    const [size, resize] = useState({
         width: window.innerWidth,
-        height: window.innerHeight
-    })
-    const onResize = useCallback(()=>{
+        height: window.innerHeight,
+    });
+    const onResize = useCallback(() => {
         resize({
             width: window.innerWidth,
-            height: window.innerHeight
-
-        })
-    },[])
-    useEffect(()=>{
-        window.addEventListener('resize',onResize)
-        return ()=>{
-            window.removeEventListener('resize',onResize)
-        }
-    },[onResize])
+            height: window.innerHeight,
+        });
+    }, []);
+    useEffect(() => {
+        window.addEventListener("resize", onResize);
+        return () => {
+            window.removeEventListener("resize", onResize);
+        };
+    }, [onResize]);
     const [categoryInfo, setCategory] = useState<
         Definitions.CategoryProps | undefined
     >(parseCategory());
@@ -48,7 +46,7 @@ export const CategoryPage = () => {
     return (
         <Container
             right={
-                size.width/size.height < 1 ? (
+                size.width / size.height < 1 ? (
                     <> </>
                 ) : (
                     <div style={{ top: 8, position: "sticky" }}>

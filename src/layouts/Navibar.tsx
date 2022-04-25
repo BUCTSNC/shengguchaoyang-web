@@ -58,12 +58,12 @@ function NavibarMobile() {
     const [expanded, setExpanded] = useState(false);
     return (
         <div>
-            <div
-            className="mobileNavibar"
-                
-            >
-                <div className='mobileNavibarLogo' onClick={() => history.push("/")}>
-                <img src={Logo} style={{ display: "block", height: 48}} />
+            <div className="mobileNavibar">
+                <div
+                    className="mobileNavibarLogo"
+                    onClick={() => history.push("/")}
+                >
+                    <img src={Logo} style={{ display: "block", height: 48 }} />
                 </div>
                 <div
                     className="mobileNavibarcontain"
