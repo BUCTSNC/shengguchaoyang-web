@@ -161,8 +161,7 @@ export function Post(props: RouteComponentProps) {
                     </Area>
                 </Col>
                 <Col xxl={18} xl={18} lg={22} md={24} sm={24} xs={24}>
-                    {mobileView ? null : (
-                        <Area
+                    {mobileView ? (<Area
                             id="tocBar"
                             style={{
                                 padding: "0 0 0.5rem",
@@ -196,8 +195,7 @@ export function Post(props: RouteComponentProps) {
                                 {toc.find((item) => item.id === currentId)
                                     ?.title ?? "文章目录"}
                             </div>
-                        </Area>
-                    )}
+                        </Area>) : null}
 
                     <Area
                         cardStyle={{

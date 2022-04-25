@@ -16,17 +16,22 @@
         "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     overflow: scroll;
+    background-image: url(./logo/backgroundimg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .viewbox {
     max-height: calc(100vh - 48px);
     overflow: scroll;
     scroll-behavior: smooth;
-    background-image: url(./logo/backgroundimg.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-color: rgba(192, 192, 192, 0.64);
 }
+
 .topbar {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.32);
+    position: sticky;
+    top: 0;
+    left: 0;
 }
