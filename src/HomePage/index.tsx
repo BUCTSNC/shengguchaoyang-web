@@ -1,9 +1,8 @@
-import { Fire, UpdateRotation } from "@icon-park/react";
+import { UpdateRotation } from "@icon-park/react";
 import { climbTree } from "octa/lib/ClimbTree";
 import React, { useContext, useEffect } from "react";
 import { CateTree } from "../App";
 import { ContainerNG } from "../components/Container";
-import { getVisitedCount } from "../dm/hotList";
 import "./homePage.css";
 import Links from "./Links";
 import Navigation from "./Navigation";
@@ -16,7 +15,7 @@ export const HomePage = () => {
         document.title = "首页 - 胜古朝阳";
     }, []);
     return (
-        <div id="homepage-bg" style={{ width: "100vw" }}>
+        // <div id="homepage-bg" style={{ width: "100vw" }}>
             <div id="homepage">
                 <ContainerNG>
                     <Carousel />
@@ -38,7 +37,7 @@ export const HomePage = () => {
                             .slice(0, 9)}
                         tagAttr="lastModified"
                     />
-                    <PostList
+                    {/* <PostList
                         firstColor="#ff6348"
                         secondColor="#2591fb"
                         title="浏览榜单"
@@ -55,10 +54,10 @@ export const HomePage = () => {
                             .sort((a, b) => b.visited - a.visited)
                             .slice(0, 9)}
                         tagAttr="visited"
-                    />
+                    /> */}
                 </ContainerNG>
             </div>
-        </div>
+        // </div>
     );
 };
 
