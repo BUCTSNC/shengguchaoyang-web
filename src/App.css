@@ -22,4 +22,8 @@
     max-height: calc(100vh - 48px);
     overflow: scroll;
     scroll-behavior: smooth;
+    background-image: url(./logo/backgroundimg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
