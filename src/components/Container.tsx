@@ -27,15 +27,6 @@ export default (props: {
 }) => {
     return (
         <Row>
-<<<<<<< HEAD
-            <Col xs={0} sm={2} lg={5} xl={5} xxl={5}>
-                {props.left}
-            </Col>
-            <Col xs={24} sm={20} lg={12} xl={12} xxl={12}>
-                {props.children}
-            </Col>
-            <Col xs={0} sm={2} lg={5} xl={5} xxl={5}>
-=======
             <Col xs={0} sm={0} lg={0} xl={4} xxl={4}>
                 {props.left}
             </Col>
@@ -43,7 +34,6 @@ export default (props: {
                 {props.children}
             </Col>
             <Col xs={0} sm={0} lg={0} xl={4} xxl={4}>
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7
                 {props.right}
             </Col>
         </Row>

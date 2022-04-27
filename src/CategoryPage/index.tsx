@@ -14,10 +14,7 @@ export const CategoryPage = () => {
     const { category: categoryPath } = useParams<{ category: string }>();
     const categoriesChain = categoryPath.split("/");
     const { cates } = climbTree(useContext(CateTree));
-<<<<<<< HEAD
     // const width = window.innerWidth;
-=======
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7
     const parseCategory = (): Definitions.CategoryProps | undefined => {
         const cate = cates.find((cate) => cate.path === categoryPath);
         return cate;
@@ -48,15 +45,6 @@ export const CategoryPage = () => {
         document.title = `${categoryInfo?.alias} - 胜古朝阳`;
     }, [categoryInfo?.alias]);
     return (
-<<<<<<< HEAD
-        <Container
-            right={
-                size.width/size.height < 1 ? (
-                    <> </>
-                ) : (
-                    <div style={{ top: 8, position: "sticky" ,width:'70%'}}>
-                        <Feedback />
-=======
         <ContainerNG>
             <Container
                 right={
@@ -95,7 +83,6 @@ export const CategoryPage = () => {
                         <Button type="primary" onClick={history.goBack}>
                             返回上一个页面
                         </Button>
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7
                     </div>
                 ) : (
                     <div className="CategoryPage">

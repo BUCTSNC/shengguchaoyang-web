@@ -64,14 +64,9 @@
     border-top: solid #2189e3 1px;
 }
 
-<<<<<<< HEAD
 .mobileNavibar{
     
     height: 54px;
-=======
-.mobileNavibar {
-    height: 54;
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -97,11 +92,7 @@
     width: 80%;
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
     align-items: center;
     align-content: center;
     padding-left: 1rem;
 }
-=======
-}
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7

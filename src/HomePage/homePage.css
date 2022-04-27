@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 #homepage-bg {
     background: url(../logo/backgroundimg.jpg) no-repeat;
-=======
-/* #homepage-bg {
-    background: url(../logo/backgroundimg.svg) no-repeat;
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7
     background-color: rgba(255, 255, 255, 0.418);
     background-size: cover;
     z-index: -1;

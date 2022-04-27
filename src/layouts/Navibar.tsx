@@ -57,7 +57,6 @@ function NavibarMobile() {
     const history = useHistory();
     const [expanded, setExpanded] = useState(false);
     return (
-<<<<<<< HEAD
     <div className="mobileNavibarBox">
             <div
                 className="mobileNavibar"
@@ -65,15 +64,6 @@ function NavibarMobile() {
             >
                 <div className='mobileNavibarLogo' onClick={() => history.push("/")}>
                     <img src={Logo} style={{ display: "block", height: 40 }} />
-=======
-        <div>
-            <div className="mobileNavibar">
-                <div
-                    className="mobileNavibarLogo"
-                    onClick={() => history.push("/")}
-                >
-                    <img src={Logo} style={{ display: "block", height: 48 }} />
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7
                 </div>
                 <div
                     className="mobileNavibarcontain"

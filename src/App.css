@@ -16,7 +16,7 @@
         "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     overflow: scroll;
-    background-image: url(./logo/backgroundimg.svg);
+    background-image: url(./logo/backgroundimg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -28,13 +28,3 @@
     scroll-behavior: smooth;
     background-color: rgba(192, 192, 192, 0.64);
 }
-<<<<<<< HEAD
-=======
-
-.topbar {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.32);
-    position: sticky;
-    top: 0;
-    left: 0;
-}
->>>>>>> cf60cb99739d21e1228e04720ca79b2d843a10b7
