@@ -27,13 +27,13 @@ export default (props: {
 }) => {
     return (
         <Row>
-            <Col xs={0} sm={2} lg={4} xl={4} xxl={4}>
+            <Col xs={0} sm={2} lg={5} xl={5} xxl={5}>
                 {props.left}
             </Col>
-            <Col xs={24} sm={20} lg={14} xl={14} xxl={14}>
+            <Col xs={24} sm={20} lg={12} xl={12} xxl={12}>
                 {props.children}
             </Col>
-            <Col xs={0} sm={2} lg={4} xl={4} xxl={4}>
+            <Col xs={0} sm={2} lg={5} xl={5} xxl={5}>
                 {props.right}
             </Col>
         </Row>

@@ -14,7 +14,7 @@ export const CategoryPage = () => {
     const { category: categoryPath } = useParams<{ category: string }>();
     const categoriesChain = categoryPath.split("/");
     const { cates } = climbTree(useContext(CateTree));
-    const width = window.innerWidth;
+    // const width = window.innerWidth;
     const parseCategory = (): Definitions.CategoryProps | undefined => {
         const cate = cates.find((cate) => cate.path === categoryPath);
         return cate;
@@ -51,7 +51,7 @@ export const CategoryPage = () => {
                 size.width/size.height < 1 ? (
                     <> </>
                 ) : (
-                    <div style={{ top: 8, position: "sticky" }}>
+                    <div style={{ top: 8, position: "sticky" ,width:'70%'}}>
                         <Feedback />
                     </div>
                 )

@@ -36,6 +36,7 @@
 .searchIconSpace {
     width: 2.5vw;
     height: 32px;
+    
     background-color: #070ff2;
     opacity: 1;
 }
@@ -46,29 +47,38 @@
 
 .activeMenuItem {
     font-size: 1rem;
+    background-color: #E5E5E5;
     padding: 8px;
-    margin: 4px;
+    /* margin-top: 4px; */
     color: #2189e3;
     text-align: center;
-    border-bottom: solid #2189e3 1px;
+    border-top: solid #2189e3 1px;
+    border-left: solid #2189e3 3px;
 }
 
 .inactiveMenuItem {
     font-size: 1rem;
     padding: 8px;
-    margin: 4px;
+    /* margin: 4px; */
     text-align: center;
-    border-bottom: solid #2189e3 1px;
+    border-top: solid #2189e3 1px;
 }
 
 .mobileNavibar{
-    height: 54;
+    
+    height: 54px;
     display: flex;
     flex-direction:row ;
     justify-content: space-between;
+    /* border-bottom: solid #2189e3 1px; */
+    box-shadow: 0 0 1rem #8c8c8c;
     background-color: white;
-    /* border-bottom: solid rgb(182, 177, 177) 1px; */
-    box-shadow: 0 1px 10px rgb(0 21 41 / 8%);
+}
+.mobileNavibarBox{
+    top: 0;
+    position: sticky;
+    z-index: 100;
+    border-bottom: solid rgb(182, 177, 177) 1px;
 }
 .mobileNavibarcontain{
     height: 48;
@@ -76,9 +86,13 @@
     display: flex;
     align-items: center;
     justify-content: right;
+    padding-right: 14px;
 }
 .mobileNavibarLogo{
     width: 80%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    align-content: center;
+    padding-left: 1rem;
 }

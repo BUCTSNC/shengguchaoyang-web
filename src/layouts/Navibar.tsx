@@ -57,25 +57,25 @@ function NavibarMobile() {
     const history = useHistory();
     const [expanded, setExpanded] = useState(false);
     return (
-        <div>
+    <div className="mobileNavibarBox">
             <div
-            className="mobileNavibar"
-                
+                className="mobileNavibar"
+
             >
                 <div className='mobileNavibarLogo' onClick={() => history.push("/")}>
-                <img src={Logo} style={{ display: "block", height: 48}} />
+                    <img src={Logo} style={{ display: "block", height: 40 }} />
                 </div>
                 <div
                     className="mobileNavibarcontain"
                     onClick={() => setExpanded(!expanded)}
                 >
-                    <HamburgerButton size={40} fill={LightBlue} />
+                    <HamburgerButton size={36} fill={LightBlue} />
                 </div>
             </div>
+            
             <BurgerMenu
                 expanded={expanded}
-                switcher={() => setExpanded(!expanded)}
-            />
+                switcher={() => setExpanded(!expanded)} />
         </div>
     );
 }
@@ -88,12 +88,20 @@ function BurgerMenu(props: { expanded: boolean; switcher: () => void }) {
     return (
         <div
             style={{
-                transition: "max-height 1s ease-in-out",
+                transition: "max-height 0.5s ease-in-out",
                 maxHeight: props.expanded ? window.innerHeight : 0,
                 overflow: "hidden",
                 backgroundColor: White,
+                // position:'sticky',
+                // top:54
             }}
         >
+            <div className={
+                
+                            location.pathname === `/`
+                                ? "activeMenuItem"
+                                : "inactiveMenuItem"
+                        } onClick={()=>{props.switcher();history.push(`/`)}}>首页</div>
             {categories.map((category) => {
                 return (
                     <div

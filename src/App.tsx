@@ -46,9 +46,7 @@ function App() {
         <div id="App">
             <CateTree.Provider value={tree}>
                 <SearchViewCtx.Provider value={searchViewSwitch}>
-                    <div className="topbar">
-                        <Navibar />
-                    </div>
+                    <Navibar />
                     <div className="viewbox" ref={viewbox}>
                         <ScrollCtx.Provider value={viewbox.current}>
                             <Main />
