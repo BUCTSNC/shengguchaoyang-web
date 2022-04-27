@@ -83,7 +83,6 @@ h6 {
 }
 
 #content h2:before {
-    
     content: counter(index);
     display: inline-block;
     width: 1.5rem;
@@ -97,7 +96,6 @@ h6 {
     margin: 0.4rem;
     margin-left: 1.4rem;
     border-radius: 1.5rem;
-
 }
 
 #content h3 {

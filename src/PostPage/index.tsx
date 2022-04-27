@@ -4,7 +4,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
 import { CateTree, ScrollCtx } from "../App";
 import Area from "../components/Area";
-import Container from "../components/Container";
+import Container, { ContainerNG } from "../components/Container";
+import { useMobileView } from "../components/Display";
 import { Feedback } from "../components/Feedback";
 import { climbTree } from "../dm/climbTree";
 import { getMarkdown } from "../dm/fetchData";
@@ -18,14 +19,12 @@ export function Post(props: RouteComponentProps) {
     const [html, setHtml] = useState("");
     const [toc, setToc] = useState([] as TOC);
     const [currentId, setCurrent] = useState("");
-    const [width, setWidth] = useState(window.innerWidth);
-    const [height,setHeight] = useState(window.innerHeight)
     const [tocModal, setTocModal] = useState(false);
     const [postExist, setPostExist] = useState(true);
     const history = useHistory();
     const { postUrl: url } = props.match.params as { postUrl: string };
     const post = postsMeta.find((post) => post.path === url);
-
+    const mobileView = useMobileView();
     const location = useLocation();
     const viewboxEle = useContext(ScrollCtx);
     useEffect(() => {
@@ -63,8 +62,8 @@ export function Post(props: RouteComponentProps) {
         };
     }, [location.hash, postExist]);
     useEffect(() => {
-        const resizeHandler = () => (setWidth(window.innerWidth),setHeight(window.innerHeight));
-        window.addEventListener("resize", resizeHandler);
+        // const resizeHandler = () => (setWidth(window.innerWidth),setHeight(window.innerHeight));
+        // window.addEventListener("resize", resizeHandler);
         const { postUrl: url } = props.match.params as { postUrl: string };
         if (postsMeta.find((post) => post.path === url)) {
             getMarkdown(url)
@@ -79,7 +78,7 @@ export function Post(props: RouteComponentProps) {
             setPostExist(false);
         }
         return () => {
-            window.removeEventListener("resize", resizeHandler);
+            // window.removeEventListener("resize", resizeHandler);
         };
     }, [props.match.params]);
 
@@ -131,38 +130,41 @@ export function Post(props: RouteComponentProps) {
                 "内容未找到") + " - 胜古朝阳";
     }, [props.match.params]);
 
-    return postExist ? (
-        <Container
-            right={
-                width <1200 ? (
-                    <></>
-                ) : (
-                    <div
-                        style={{
-                            position: "sticky",
-                            top: "8px",
-                            width: "70%",
-                        }}
-                    >
-                        <Feedback />
-                    </div>
-                )
-            }
-        >
-            <Row>
-                <Col xxl={6} xl={6} lg={0} md={0} sm={0} xs={0}>
-                    <Area
-                        style={{
-                            position: "sticky",
-                            top: "8px",
-                            width: "100%",
-                        }}
-                    >
-                        <TableOfContent toc={toc} currentId={currentId} />
-                    </Area>
-                </Col>
-                <Col xxl={18} xl={18} lg={22} md={24} sm={24} xs={24}>
-                    {width > 1200 ? null : (
+    return (
+        <ContainerNG>
+            {postExist ? (
+                <Container
+                    right={
+                        mobileView ? (
+                            <></>
+                        ) : (
+                            <div
+                                style={{
+                                    position: "sticky",
+                                    top: "8px",
+                                    width: "100%",
+                                }}
+                            >
+                                <Feedback />
+                            </div>
+                        )
+                    }
+                    left={
+                        <Area
+                            style={{
+                                position: "sticky",
+                                top: "8px",
+                                width: "100%",
+                            }}
+                        >
+                            <TableOfContent toc={toc} currentId={currentId} />
+                        </Area>
+                    }
+                >
+                    {/* <Row>
+                <Col xxl={6} xl={6} lg={0} md={0} sm={0} xs={0}></Col>
+                <Col xxl={18} xl={18} lg={22} md={24} sm={24} xs={24}> */}
+                    {mobileView ? (
                         <Area
                             id="tocBar"
                             style={{
@@ -198,6 +200,8 @@ export function Post(props: RouteComponentProps) {
                                     ?.title ?? "文章目录"}
                             </div>
                         </Area>
+                    ) : (
+                        <></>
                     )}
 
                     <Area
@@ -240,65 +244,67 @@ export function Post(props: RouteComponentProps) {
                             </>
                         )}
                     </Area>
-                </Col>
-            </Row>
+                    {/* </Col>
+            </Row> */}
 
-            <Modal
-                visible={tocModal}
-                title={null}
-                footer={null}
-                onCancel={() => setTocModal(false)}
-            >
-                <TableOfContent
-                    toc={toc}
-                    currentId={currentId}
-                    afterScroll={() => setTocModal(false)}
-                />
-            </Modal>
-        </Container>
-    ) : (
-        <Container>
-            <Area cardStyle={{ padding: "1rem" }}>
-                <h1>页面不见啦！</h1>
-                <p>这篇内容可能暂时没有完成，或者它的路径被改变了。</p>
-                <p>你可以尝试以下方法：</p>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "flex-start",
-                    }}
-                >
-                    <div
-                        style={{
-                            backgroundColor: "#f9f0ff",
-                            borderLeft: "solid .2rem #722ed1",
-                            padding: ".2rem .5rem",
-                            cursor: "pointer",
-                            marginRight: "1rem",
-                        }}
-                        onClick={() => history.goBack()}
+                    <Modal
+                        visible={tocModal}
+                        title={null}
+                        footer={null}
+                        onCancel={() => setTocModal(false)}
                     >
-                        <Left theme="outline" color="#000" />
-                        返回上一页
-                    </div>
-                    <div
-                        style={{
-                            backgroundColor: "#f0f5ff",
-                            borderLeft: "solid .2rem #2f54eb",
-                            padding: ".2rem .5rem",
-                            cursor: "pointer",
-                            marginRight: "1rem",
-                        }}
-                        onClick={() => history.push("/")}
-                    >
-                        <Home theme="outline" color="#000" />
-                        返回主页
-                    </div>
-                </div>
-                <div>或者使用右下角的搜索按钮查找需要的内容</div>
-            </Area>
-        </Container>
+                        <TableOfContent
+                            toc={toc}
+                            currentId={currentId}
+                            afterScroll={() => setTocModal(false)}
+                        />
+                    </Modal>
+                </Container>
+            ) : (
+                <Container>
+                    <Area cardStyle={{ padding: "1rem" }}>
+                        <h1>页面不见啦！</h1>
+                        <p>这篇内容可能暂时没有完成，或者它的路径被改变了。</p>
+                        <p>你可以尝试以下方法：</p>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "flex-start",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    backgroundColor: "#f9f0ff",
+                                    borderLeft: "solid .2rem #722ed1",
+                                    padding: ".2rem .5rem",
+                                    cursor: "pointer",
+                                    marginRight: "1rem",
+                                }}
+                                onClick={() => history.goBack()}
+                            >
+                                <Left theme="outline" color="#000" />
+                                返回上一页
+                            </div>
+                            <div
+                                style={{
+                                    backgroundColor: "#f0f5ff",
+                                    borderLeft: "solid .2rem #2f54eb",
+                                    padding: ".2rem .5rem",
+                                    cursor: "pointer",
+                                    marginRight: "1rem",
+                                }}
+                                onClick={() => history.push("/")}
+                            >
+                                <Home theme="outline" color="#000" />
+                                返回主页
+                            </div>
+                        </div>
+                        <div>或者使用右下角的搜索按钮查找需要的内容</div>
+                    </Area>
+                </Container>
+            )}
+        </ContainerNG>
     );
 }
 
