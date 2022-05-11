@@ -34,25 +34,166 @@
     color: White;
     background-color: #2e8eeb;
 }
-.tab {
+/* .tab {
     font-size: 1.2rem;
     font-weight: 550;
     text-align: center;
     width: 100%;
     height: 100%;
     cursor: pointer;
-}
+} */
 .tabBox {
     width: 25%;
 }
 .tabBar {
     display: flex;
 }
-.indexTitle {
-    width: 100%;
-    text-align: center;
-    font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: 2rem;
-    margin-bottom: 16;
+@media screen and (max-width:480px) {
+    .indexTitle{
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 1rem;
+        margin-bottom: 8;
+    }
+    .tab{
+        font-size: 1rem;
+        font-weight: 550;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    .linkItem {
+        color: #707070;
+        background-color: #e3e1e1;
+        cursor: pointer;
+        font-size: 0.6rem;
+        padding: 8px;
+        height: 2rem;
+        border-radius: 4px;
+        margin: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width:768px) and (min-width:480px){
+    .indexTitle{
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 1rem;
+        margin-bottom: 8;
+    }
+    .tab{
+        font-size: 1rem;
+        font-weight: 550;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+@media screen and (max-width:1200px) and (min-width:768px){
+    .indexTitle{
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 1rem;
+        margin-bottom: 8;
+    }
+    .tab{
+        font-size: 1.2rem;
+        font-weight: 550;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+@media screen and (min-width:1200px) {
+    .indexTitle{
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 1rem;
+        margin-bottom: 16;
+    }
+    .tab{
+        font-size: 1.2rem;
+        font-weight: 550;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+/*Mobile*/
+.postMap{
+    background-color: #FFFFFF;
+    padding-top: 64px;
+    padding-bottom: 24px;
+}
+.postTitlebox{
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    align-items: center;
+}
+.postTitle{
+    font-size: 1.2rem;
+    font-weight: 550;
+    margin-left: 4px;
+}
+.postCard{
+    /* border-bottom: solid #707070 0.5px; */
+    border-top: solid #707070 0.5px;
+    margin:0 16px;
+    display: flex; 
+
+}
+.postCard:hover{
+    background-color: #F5F5F5;
+}
+.postRankIcon{
+    width: 16px;
+    height: 16px;
+    margin-top: 12px;
+}
+.postBox{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    width: 95%;
+    cursor: pointer;
+}
+
+.postCateBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:#707070 ;
+    margin-bottom: 4px;
+}
+.postCate{
+    font-weight: 550;
+}
+.postReadCountBox{
+    display: flex;
+    align-items: center;
+}
+.postAticleTitle{
+    font-size: 1.2rem;
+    font-weight: 550;
+    margin-bottom: 12px;
+}
+.lastModified{
+    color: #707070;
+    font-weight: 500;
 }

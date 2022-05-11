@@ -65,7 +65,7 @@
 }
 
 .mobileNavibar{
-    
+
     height: 54px;
     display: flex;
     flex-direction: row;
@@ -75,8 +75,9 @@
     background-color: white;
 }
 .mobileNavibarBox{
-    top: 0;
+   
     position: sticky;
+    top: 0;
     z-index: 100;
     border-bottom: solid rgb(182, 177, 177) 1px;
 }

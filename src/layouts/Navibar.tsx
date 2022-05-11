@@ -92,8 +92,7 @@ function BurgerMenu(props: { expanded: boolean; switcher: () => void }) {
                 maxHeight: props.expanded ? window.innerHeight : 0,
                 overflow: "hidden",
                 backgroundColor: White,
-                // position:'sticky',
-                // top:54
+
             }}
         >
             <div className={

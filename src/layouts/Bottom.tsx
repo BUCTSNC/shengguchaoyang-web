@@ -23,7 +23,7 @@ export default function Bottom() {
             window.removeEventListener("resize", onResize);
         };
     }, [onResize]);
-    console.log(size.height, size.width);
+    // console.log(size.height, size.width);
     return (
         <div className="bottomBox">
             <div

@@ -1,4 +1,4 @@
-import { Calendar, Eyes, Home, Left } from "@icon-park/react";
+import { Back, Calendar, Dvi, Eyes, Home, Left, Return } from "@icon-park/react";
 import { Col, Modal, Row } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
@@ -165,7 +165,30 @@ export function Post(props: RouteComponentProps) {
                 <Col xxl={6} xl={6} lg={0} md={0} sm={0} xs={0}></Col>
                 <Col xxl={18} xl={18} lg={22} md={24} sm={24} xs={24}> */}
                     {mobileView ? (
-                        <Area
+                        <div style={{display:'flex',flexDirection: 'row',justifyContent:"center",
+                            padding: "0 0 0.5rem",
+                            position: "sticky",
+                            top: 0,
+                            left: 0,
+                            zIndex: 100}}>
+                            <div 
+                            style={{
+                            display:'flex',
+                            backgroundColor:'#2189E3',
+                            zIndex: 100,
+                            width:'48px',
+                            height:'auto',
+                            margin: "0 0 0.5rem",
+                            alignItems:"center",
+                            justifyContent:"center",}}
+                            onClick={()=>{
+                                history.push('/')
+                            }}>
+                            <Home
+                            size={24} 
+                            fill='#FFFFFF'></Home>
+                            </div>
+                            <Area
                             id="tocBar"
                             style={{
                                 padding: "0 0 0.5rem",
@@ -173,15 +196,17 @@ export function Post(props: RouteComponentProps) {
                                 top: 0,
                                 left: 0,
                                 zIndex: 100,
+                                width:'80%'
                             }}
                             cardStyle={{
                                 padding: ".5rem",
                                 zIndex: 100,
-                                borderLeft: "solid 1rem #0050B3",
+                                // borderLeft: "solid 1rem #0050B3",
                                 color: "#0050B3",
                                 display: "flex",
                                 flexDirection: "row",
                                 alignItems: "flex-start",
+                                textAlign:'center',
                                 cursor: "pointer",
                                 boxShadow: "0 0 1rem #8c8c8c",
                             }}
@@ -194,12 +219,31 @@ export function Post(props: RouteComponentProps) {
                                 }}
                                 onClick={() => {
                                     setTocModal(true);
-                                }}
+                                } }
                             >
                                 {toc.find((item) => item.id === currentId)
                                     ?.title ?? "文章目录"}
                             </div>
                         </Area>
+                        <div 
+                            style={{
+                            display:'flex',
+                            backgroundColor:'#2189E3',
+                            zIndex: 100,
+                            width:'48px',
+                            height:'auto',
+                            margin: "0 0 0.5rem",
+                            alignItems:"center",
+                            justifyContent:"center"}}
+                            onClick={()=>{
+                                history.goBack()
+                            }}
+                            >
+                            <Return
+                            size={24} 
+                            fill='#FFFFFF'></Return>
+                            </div>
+                        </div>
                     ) : (
                         <></>
                     )}

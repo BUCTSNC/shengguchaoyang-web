@@ -47,11 +47,13 @@ function App() {
             <CateTree.Provider value={tree}>
                 <SearchViewCtx.Provider value={searchViewSwitch}>
                     <Navibar />
+                    <div className="bg-img">
                     <div className="viewbox" ref={viewbox}>
                         <ScrollCtx.Provider value={viewbox.current}>
                             <Main />
                             <Bottom />
                         </ScrollCtx.Provider>
+                    </div>
                     </div>
                     <SearchBtn onClick={() => searchViewSwitch(true)} />
                     <ScrollToTopBtn target={viewbox} />

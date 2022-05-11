@@ -43,14 +43,14 @@ export default (props: {
 function useContainerWidth() {
     function calc(windowWidth: number) {
         if (windowWidth >= 1600) return 0.75 * windowWidth;
-        if (windowWidth <= 576) return 1 * windowWidth;
-        const delta = (windowWidth - 576) / (1600 - 576);
+        if (windowWidth <= 768) return 1 * windowWidth;
+        const delta = (windowWidth - 768) / (1600 - 768);
         return (0.25 * delta + 0.75) * windowWidth;
     }
     const [width, setWidth] = useState(calc(window.innerWidth));
     useEffect(() => {
         const resizer = () => {
-            console.log("resizer called")
+            // console.log("resizer called")
             setWidth(calc(window.innerWidth));
         };
         window.addEventListener("resize", resizer);

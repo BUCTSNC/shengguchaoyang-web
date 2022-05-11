@@ -24,6 +24,7 @@ export const HomePage = () => {
                     <PostList
                         firstColor="#ed5c5c"
                         secondColor="#6488f2"
+                        titleColor="#FF6348"
                         title="最近更新"
                         icon={
                             <UpdateRotation
@@ -31,7 +32,9 @@ export const HomePage = () => {
                                 size="24"
                                 fill="#ddd"
                             />
+                        
                         }
+                        iconpath='/src/logo/refreshIcon'
                         postList={posts
                             .sort((a, b) => b.lastModified - a.lastModified)
                             .slice(0, 9)}
