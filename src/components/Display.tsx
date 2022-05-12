@@ -11,7 +11,7 @@ export function useMobileView() {
         window.addEventListener("resize", handler);
         return () => window.removeEventListener("resize", handler);
     });
-    return mobileMode
+    return mobileMode;
 }
 
 export default function Display(props: {

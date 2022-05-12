@@ -22,7 +22,7 @@ import {
     SingleBed,
     Up,
     Wifi,
-    Word
+    Word,
 } from "@icon-park/react";
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
@@ -31,7 +31,7 @@ import {
     DeepPurpleBlue,
     LightBlue2,
     LightOrange,
-    StrawBerry
+    StrawBerry,
 } from "../ColorCard";
 import Display from "../components/Display";
 
@@ -232,7 +232,7 @@ function NavigationMobile() {
     const [collapse, setCollapse] = useState(true);
     const history = useHistory();
     return (
-        <div style={{marginTop: 8}}>
+        <div style={{ marginTop: 8 }}>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
                 {cards.map((card, index) => {
                     return (
@@ -293,7 +293,9 @@ function NavigationMobile() {
                     {currentCard.items.map((link, index) => (
                         <div
                             style={{
-                                display: "flex", flexDirection: "column", alignItems: "center"
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
                             }}
                             key={index}
                             onClick={() => history.push(`/post/${link.src}`)}
@@ -303,8 +305,15 @@ function NavigationMobile() {
                         </div>
                     ))}
                 </div>
-                <div onClick={() => setCollapse(!collapse)} style={{textAlign: "center"}}>
-                    {collapse ? <Down theme="outline" size="24"/> : <Up theme="outline" size="24"/>}
+                <div
+                    onClick={() => setCollapse(!collapse)}
+                    style={{ textAlign: "center" }}
+                >
+                    {collapse ? (
+                        <Down theme="outline" size="24" />
+                    ) : (
+                        <Up theme="outline" size="24" />
+                    )}
                 </div>
             </div>
         </div>
