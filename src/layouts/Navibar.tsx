@@ -57,12 +57,12 @@ function NavibarMobile() {
     const history = useHistory();
     const [expanded, setExpanded] = useState(false);
     return (
-    <div className="mobileNavibarBox">
-            <div
-                className="mobileNavibar"
-
-            >
-                <div className='mobileNavibarLogo' onClick={() => history.push("/")}>
+        <div className="mobileNavibarBox">
+            <div className="mobileNavibar">
+                <div
+                    className="mobileNavibarLogo"
+                    onClick={() => history.push("/")}
+                >
                     <img src={Logo} style={{ display: "block", height: 40 }} />
                 </div>
                 <div
@@ -72,10 +72,11 @@ function NavibarMobile() {
                     <HamburgerButton size={36} fill={LightBlue} />
                 </div>
             </div>
-            
+
             <BurgerMenu
                 expanded={expanded}
-                switcher={() => setExpanded(!expanded)} />
+                switcher={() => setExpanded(!expanded)}
+            />
         </div>
     );
 }
@@ -92,15 +93,21 @@ function BurgerMenu(props: { expanded: boolean; switcher: () => void }) {
                 maxHeight: props.expanded ? window.innerHeight : 0,
                 overflow: "hidden",
                 backgroundColor: White,
-
             }}
         >
-            <div className={
-                
-                            location.pathname === `/`
-                                ? "activeMenuItem"
-                                : "inactiveMenuItem"
-                        } onClick={()=>{props.switcher();history.push(`/`)}}>首页</div>
+            <div
+                className={
+                    location.pathname === `/`
+                        ? "activeMenuItem"
+                        : "inactiveMenuItem"
+                }
+                onClick={() => {
+                    props.switcher();
+                    history.push(`/`);
+                }}
+            >
+                首页
+            </div>
             {categories.map((category) => {
                 return (
                     <div

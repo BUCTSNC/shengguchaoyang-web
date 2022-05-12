@@ -191,60 +191,60 @@ export function Post(props: RouteComponentProps) {
                             size={24} 
                             fill='#FFFFFF'></Home>
                             </div>
+                           
                             <Area
-                            id="tocBar"
-                            style={{
-                                padding: "0 0 0.5rem",
-                                position: "sticky",
-                                top: 0,
-                                left: 0,
-                                zIndex: 100,
-                                width:'85%'
-                            }}
-                            cardStyle={{
-                                padding: ".5rem",
-                                zIndex: 100,
-                                // borderLeft: "solid 1rem #0050B3",
-                                color: "#0050B3",
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "flex-start",
-                                textAlign:'center',
-                                cursor: "pointer",
-                                boxShadow: "0 0 1rem #8c8c8c",
-                            }}
-                        >
+                                id="tocBar"
+                                style={{
+                                    padding: "0 0 0.5rem",
+                                    position: "sticky",
+                                    top: 0,
+                                    left: 0,
+                                    zIndex: 100,
+                                    width: "80%",
+                                }}
+                                cardStyle={{
+                                    padding: ".5rem",
+                                    zIndex: 100,
+                                    // borderLeft: "solid 1rem #0050B3",
+                                    color: "#0050B3",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "flex-start",
+                                    textAlign: "center",
+                                    cursor: "pointer",
+                                    boxShadow: "0 0 1rem #8c8c8c",
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        fontSize: "1.2rem",
+                                    }}
+                                    onClick={() => {
+                                        setTocModal(true);
+                                    }}
+                                >
+                                    {toc.find((item) => item.id === currentId)
+                                        ?.title ?? "文章目录"}
+                                </div>
+                            </Area>
                             <div
                                 style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    fontSize: "1.2rem",
+                                    display: "flex",
+                                    backgroundColor: "#2189E3",
+                                    zIndex: 100,
+                                    width: "48px",
+                                    height: "auto",
+                                    margin: "0 0 0.5rem",
+                                    alignItems: "center",
+                                    justifyContent: "center",
                                 }}
                                 onClick={() => {
-                                    setTocModal(true);
-                                } }
+                                    history.goBack();
+                                }}
                             >
-                                {toc.find((item) => item.id === currentId)
-                                    ?.title ?? "文章目录"}
-                            </div>
-                        </Area>
-                        <div 
-                            style={{
-                            display:'flex',
-                            backgroundColor:'#2189E3',
-                            zIndex: 100,
-                            width:'48px',
-                            height:'auto',
-                            margin: "0 0 0.5rem",
-                            alignItems:"center",
-                            justifyContent:"center"}}
-                            onClick={()=>{
-                                history.goBack()
-                            }}
-                            >
-                            <Return
-                            size={24} 
-                            fill='#FFFFFF'></Return>
+                                <Return size={24} fill="#FFFFFF"></Return>
                             </div>
                         </div>
                     ) : (

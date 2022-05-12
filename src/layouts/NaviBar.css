@@ -36,7 +36,7 @@
 .searchIconSpace {
     width: 2.5vw;
     height: 32px;
-    
+
     background-color: #070ff2;
     opacity: 1;
 }
@@ -66,8 +66,7 @@
     border-top: solid #2189e3 1px;
 }
 
-.mobileNavibar{
-
+.mobileNavibar {
     height: 54px;
     display: flex;
     flex-direction: row;
@@ -76,8 +75,7 @@
     box-shadow: 0 0 1rem #8c8c8c;
     background-color: white;
 }
-.mobileNavibarBox{
-   
+.mobileNavibarBox {
     position: sticky;
     top: 0;
     z-index: 100;

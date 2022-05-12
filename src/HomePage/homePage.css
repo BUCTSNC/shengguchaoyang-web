@@ -3,8 +3,8 @@
     background-color: rgba(255, 255, 255, 0.418);
     background-size: cover;
     z-index: -1;
-} */
-#homepage {
+}
+*/ #homepage {
     z-index: 100;
     /* background-color: rgba(255, 255, 255, 0.6); */
 }
@@ -48,8 +48,8 @@
 .tabBar {
     display: flex;
 }
-@media screen and (max-width:480px) {
-    .indexTitle{
+@media screen and (max-width: 480px) {
+    .indexTitle {
         width: 100%;
         text-align: center;
         font-weight: 700;
@@ -57,7 +57,7 @@
         letter-spacing: 1rem;
         margin-bottom: 8;
     }
-    .tab{
+    .tab {
         font-size: 1rem;
         font-weight: 550;
         text-align: center;
@@ -79,8 +79,8 @@
         justify-content: space-around;
     }
 }
-@media screen and (max-width:768px) and (min-width:480px){
-    .indexTitle{
+@media screen and (max-width: 768px) and (min-width: 480px) {
+    .indexTitle {
         width: 100%;
         text-align: center;
         font-weight: 700;
@@ -88,7 +88,7 @@
         letter-spacing: 1rem;
         margin-bottom: 8;
     }
-    .tab{
+    .tab {
         font-size: 1rem;
         font-weight: 550;
         text-align: center;
@@ -97,8 +97,8 @@
         cursor: pointer;
     }
 }
-@media screen and (max-width:1200px) and (min-width:768px){
-    .indexTitle{
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    .indexTitle {
         width: 100%;
         text-align: center;
         font-weight: 700;
@@ -106,7 +106,7 @@
         letter-spacing: 1rem;
         margin-bottom: 8;
     }
-    .tab{
+    .tab {
         font-size: 1.2rem;
         font-weight: 550;
         text-align: center;
@@ -115,8 +115,8 @@
         cursor: pointer;
     }
 }
-@media screen and (min-width:1200px) {
-    .indexTitle{
+@media screen and (min-width: 1200px) {
+    .indexTitle {
         width: 100%;
         text-align: center;
         font-weight: 700;
@@ -124,7 +124,7 @@
         letter-spacing: 1rem;
         margin-bottom: 16;
     }
-    .tab{
+    .tab {
         font-size: 1.2rem;
         font-weight: 550;
         text-align: center;
@@ -135,38 +135,37 @@
 }
 
 /*Mobile*/
-.postMap{
-    background-color: #FFFFFF;
+.postMap {
+    background-color: #ffffff;
     padding-top: 64px;
     padding-bottom: 24px;
 }
-.postTitlebox{
+.postTitlebox {
     display: flex;
     justify-content: center;
     height: 3rem;
     align-items: center;
 }
-.postTitle{
+.postTitle {
     font-size: 1.2rem;
     font-weight: 550;
     margin-left: 4px;
 }
-.postCard{
+.postCard {
     /* border-bottom: solid #707070 0.5px; */
     border-top: solid #707070 0.5px;
-    margin:0 16px;
-    display: flex; 
-
+    margin: 0 16px;
+    display: flex;
 }
-.postCard:hover{
-    background-color: #F5F5F5;
+.postCard:hover {
+    background-color: #f5f5f5;
 }
-.postRankIcon{
+.postRankIcon {
     width: 16px;
     height: 16px;
     margin-top: 12px;
 }
-.postBox{
+.postBox {
     display: flex;
     flex-direction: column;
     margin-top: 8px;
@@ -174,26 +173,26 @@
     cursor: pointer;
 }
 
-.postCateBox{
+.postCateBox {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color:#707070 ;
+    color: #707070;
     margin-bottom: 4px;
 }
-.postCate{
+.postCate {
     font-weight: 550;
 }
-.postReadCountBox{
+.postReadCountBox {
     display: flex;
     align-items: center;
 }
-.postAticleTitle{
+.postAticleTitle {
     font-size: 1.2rem;
     font-weight: 550;
     margin-bottom: 12px;
 }
-.lastModified{
+.lastModified {
     color: #707070;
     font-weight: 500;
 }

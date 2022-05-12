@@ -16,31 +16,26 @@ export const HomePage = () => {
     }, []);
     return (
         // <div id="homepage-bg" style={{ width: "100vw" }}>
-            <div id="homepage">
-                <ContainerNG>
-                    <Carousel />
-                    <Navigation />
-                    <Links />
-                    <PostList
-                        firstColor="#ed5c5c"
-                        secondColor="#6488f2"
-                        titleColor="#FF6348"
-                        title="最近更新"
-                        icon={
-                            <UpdateRotation
-                                theme="outline"
-                                size="24"
-                                fill="#ddd"
-                            />
-                        
-                        }
-                        iconpath='/src/logo/refreshIcon'
-                        postList={posts
-                            .sort((a, b) => b.lastModified - a.lastModified)
-                            .slice(0, 9)}
-                        tagAttr="lastModified"
-                    />
-                    {/* <PostList
+        <div id="homepage">
+            <ContainerNG>
+                <Carousel />
+                <Navigation />
+                <Links />
+                <PostList
+                    firstColor="#ed5c5c"
+                    secondColor="#6488f2"
+                    titleColor="#FF6348"
+                    title="最近更新"
+                    icon={
+                        <UpdateRotation theme="outline" size="24" fill="#ddd" />
+                    }
+                    iconpath="/src/logo/refreshIcon"
+                    postList={posts
+                        .sort((a, b) => b.lastModified - a.lastModified)
+                        .slice(0, 9)}
+                    tagAttr="lastModified"
+                />
+                {/* <PostList
                         firstColor="#ff6348"
                         secondColor="#2591fb"
                         title="浏览榜单"
@@ -58,8 +53,8 @@ export const HomePage = () => {
                             .slice(0, 9)}
                         tagAttr="visited"
                     /> */}
-                </ContainerNG>
-            </div>
+            </ContainerNG>
+        </div>
         // </div>
     );
 };

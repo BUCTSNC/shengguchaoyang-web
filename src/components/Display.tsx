@@ -11,7 +11,7 @@ export function useMobileView() {
         window.addEventListener("resize", handler);
         return () => window.removeEventListener("resize", handler);
     });
-    console.log(mobileMode)
+    // console.log(mobileMode)
     return mobileMode
 }
 
