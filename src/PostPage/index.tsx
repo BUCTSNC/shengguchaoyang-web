@@ -1,5 +1,5 @@
-import { Back, Calendar, Dvi, Eyes, Home, Left, Return } from "@icon-park/react";
-import { Col, Modal, Row } from "antd";
+import {  Calendar,  Eyes, Home, Left, Return } from "@icon-park/react";
+import { Modal, } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
 import { CateTree, ScrollCtx } from "../App";
@@ -180,7 +180,10 @@ export function Post(props: RouteComponentProps) {
                             height:'auto',
                             margin: "0 0 0.5rem",
                             alignItems:"center",
-                            justifyContent:"center",}}
+                            justifyContent:"center",
+                            cursor:'pointer',
+                            boxShadow: "0 0 1rem #8c8c8c"
+                        }}
                             onClick={()=>{
                                 history.push('/')
                             }}>
@@ -196,7 +199,7 @@ export function Post(props: RouteComponentProps) {
                                 top: 0,
                                 left: 0,
                                 zIndex: 100,
-                                width:'80%'
+                                width:'85%'
                             }}
                             cardStyle={{
                                 padding: ".5rem",

@@ -2,14 +2,15 @@ import { Button } from "antd";
 import { Definitions } from "octa";
 import { climbTree } from "octa/lib/ClimbTree";
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import { CateTree } from "../App";
 import Container, { ContainerNG } from "../components/Container";
 import { Feedback } from "../components/Feedback";
 import { PostCard } from "../components/PostCard";
 import "./CategoryPage.css";
+import Display from "../components/Display";
 
-export const CategoryPage = () => {
+export function CategoryPage(){
     const history = useHistory();
     const { category: categoryPath } = useParams<{ category: string }>();
     const categoriesChain = categoryPath.split("/");
@@ -45,7 +46,11 @@ export const CategoryPage = () => {
         document.title = `${categoryInfo?.alias} - 胜古朝阳`;
     }, [categoryInfo?.alias]);
     return (
+        <>
+        <Display  desktop={null} mobile={cateNavibarMobile()}/>
+        
         <ContainerNG>
+            
             <Container
                 right={
                     size.width / size.height < 1 ? (
@@ -115,5 +120,46 @@ export const CategoryPage = () => {
                 )}
             </Container>
         </ContainerNG>
+        </>
     );
-};
+}
+function cateNavibarMobile(){
+    const history = useHistory();
+    const {cates} = climbTree(useContext(CateTree))
+    const location = useLocation()
+    const categories = cates.filter((cate) => !cate.path.includes("/"))
+    return (
+        <div 
+        style={{
+            display:'flex',
+            flexDirection:'row',
+            justifyContent:"center",
+            backgroundColor:'#FFFFFF',
+            // borderBottom:"solid #707070 1px",
+            marginBottom:'12px',
+            // paddingBottom:'8px'
+            position:'sticky',
+            top:'0',
+            zIndex:100,
+            boxShadow:'0 0px 12px #707070'
+
+        }}
+        >
+            {categories.map((category)=>{
+                return (
+                
+                    <div
+                    key={category.path}
+                    onClick={()=>{
+                        history.push(`/cate/${category.path}`)
+                    }}
+                    className={location.pathname===`/cate/${category.path}`?"activeCateItem":"inactiveCateItem"}
+                    >{category.alias}<div 
+                    className={location.pathname===`/cate/${category.path}`?"activeCateItemBorder":"inactiveCateItemBorder"}></div></div>
+                )
+            }
+            )}
+        </div>
+    );
+
+}
