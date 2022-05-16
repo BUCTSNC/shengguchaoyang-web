@@ -11,7 +11,8 @@ export function useMobileView() {
         window.addEventListener("resize", handler);
         return () => window.removeEventListener("resize", handler);
     });
-    return mobileMode;
+    // console.log(mobileMode)
+    return mobileMode
 }
 
 export default function Display(props: {
@@ -23,6 +24,7 @@ export default function Display(props: {
         const handler = () => setMobileMode(isMobile());
         window.addEventListener("resize", handler);
         return () => window.removeEventListener("resize", handler);
+        
     });
-    return <>{mobileMode ? props.mobile : props.desktop}</>;
+    return <>{isMobile() ? props.mobile : props.desktop}</>;
 }

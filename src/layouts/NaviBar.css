@@ -47,7 +47,8 @@
 
 .activeMenuItem {
     font-size: 1rem;
-    background-color: #e5e5e5;
+    background-color: #E5E5E5;
+    font-weight: 550;
     padding: 8px;
     /* margin-top: 4px; */
     color: #2189e3;
@@ -58,6 +59,7 @@
 
 .inactiveMenuItem {
     font-size: 1rem;
+    font-weight: 550;
     padding: 8px;
     /* margin: 4px; */
     text-align: center;
