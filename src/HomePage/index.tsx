@@ -1,4 +1,4 @@
-import { UpdateRotation } from "@icon-park/react";
+import { Fire, UpdateRotation } from "@icon-park/react";
 import { Carousel } from "antd";
 import { climbTree } from "octa/lib/ClimbTree";
 import React, { useContext, useEffect } from "react";
@@ -11,6 +11,7 @@ import PostList from "./PostList";
 import SGCY from "../logo/sgcy.png";
 import { useHistory } from "react-router-dom";
 import CaroselCard from "./CarouselCard";
+import { getVisitedCount } from "../dm/hotList";
 
 export const HomePage = () => {
     const tree = useContext(CateTree);
@@ -79,11 +80,13 @@ export const HomePage = () => {
                         .slice(0, 9)}
                     tagAttr="lastModified"
                 />
-                {/* <PostList
+                <PostList
                         firstColor="#ff6348"
+                        titleColor="#FF6348"
                         secondColor="#2591fb"
                         title="浏览榜单"
                         icon={<Fire theme="outline" size="24" fill="#ddd" />}
+                        iconpath="/src/logo/hotIcon"
                         postList={posts
                             .map((post) => {
                                 return {
@@ -96,7 +99,7 @@ export const HomePage = () => {
                             .sort((a, b) => b.visited - a.visited)
                             .slice(0, 9)}
                         tagAttr="visited"
-                    /> */}
+                    />
             </ContainerNG>
         </div>
         // </div>

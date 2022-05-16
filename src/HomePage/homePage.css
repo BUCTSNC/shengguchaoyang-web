@@ -16,6 +16,7 @@
     flex-wrap: wrap;
     padding: 12px;
     background-color: #ffffff;
+    min-width: 100%;
     /* justify-content: space-between; */
 }
 .linkItem {
@@ -138,7 +139,7 @@
 /*Mobile*/
 .postMap {
     background-color: #ffffff;
-    padding-top: 64px;
+    margin-top: 64px;
     padding-bottom: 24px;
 }
 .postTitlebox {
@@ -154,6 +155,12 @@
 }
 .postCard {
     /* border-bottom: solid #707070 0.5px; */
+    border-top: solid #707070 0.5px;
+    margin: 0 16px;
+    display: flex;
+}
+.postCardLast {
+    border-bottom: solid #707070 0.5px;
     border-top: solid #707070 0.5px;
     margin: 0 16px;
     display: flex;

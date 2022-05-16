@@ -8,8 +8,12 @@ import {
     CompassOne,
     DocumentFolder,
     DoorHandle,
+    DoubleDown,
+    DoubleUp,
     Down,
+    DropDownList,
     Earth,
+    FoldUpOne,
     Hospital,
     IdCard,
     Landscape,
@@ -24,6 +28,7 @@ import {
     Wifi,
     Word,
 } from "@icon-park/react";
+import { isLength } from "lodash";
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useHistory } from "react-router-dom";
@@ -228,11 +233,13 @@ const FWZN: CardInfo = {
 
 function NavigationMobile() {
     const cards = [XYSH, XYFG, FWZN, XXZY];
-    const [currentCard, setCurrentCard] = useState<CardInfo>(XXZY);
+    const [currentCard, setCurrentCard] = useState<CardInfo>(XYSH);
     const [collapse, setCollapse] = useState(true);
+    const itemCount = currentCard.items.length
+    console.log(itemCount)
     const history = useHistory();
     return (
-        <div style={{ marginTop: 8 }}>
+        <div style={{ padding:'8px 16px',paddingTop: 64,backgroundColor:'#FFFFFF'}}>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
                 {cards.map((card, index) => {
                     return (
@@ -249,6 +256,11 @@ function NavigationMobile() {
                                       }),
                                 width: "25%",
                                 textAlign: "center",
+                                display:'flex',
+                                flexDirection:"column",
+                                justifyContent:"center",
+                                aspectRatio:'1/1'
+
                             }}
                             onClick={() => setCurrentCard(card)}
                             key={index}
@@ -277,6 +289,7 @@ function NavigationMobile() {
                     paddingBottom: 8,
                     paddingLeft: 8,
                     paddingRight: 8,
+                    borderRadius:'0 0 8px 8px'
                 }}
             >
                 <div
@@ -303,16 +316,16 @@ function NavigationMobile() {
                         </div>
                     ))}
                 </div>
-                <div
+                {itemCount>4 ? <div
                     onClick={() => setCollapse(!collapse)}
                     style={{ textAlign: "center" }}
                 >
-                    {collapse ? (
-                        <Down theme="outline" size="24" />
+                     {collapse ? (
+                        <DoubleDown theme="outline" size={24} />
                     ) : (
-                        <Up theme="outline" size="24" />
+                        <DoubleUp theme="outline" size="24" />
                     )}
-                </div>
+                </div>:null}
             </div>
         </div>
     );

@@ -64,7 +64,7 @@ function App() {
                                   }
                         }
                     >
-                        <div className="viewbox" ref={viewbox}>
+                        <div className={mobileMode?"viewboxMobile":"viewbox"} ref={viewbox}>
                             <ScrollCtx.Provider value={viewbox.current}>
                                 <Main />
                                 <Bottom />

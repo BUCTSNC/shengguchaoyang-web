@@ -178,7 +178,9 @@ function PostListMobile(props: {
             </div>
             {postList.map((post, index) => (
                 <div
-                    className="postCard"
+                    
+                    className={index==8?"postCardLast":'postCard'}
+                    
                     key={index}
                     onClick={() => history.push(`post/${post.path}`)}
                 >
