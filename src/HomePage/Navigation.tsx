@@ -284,13 +284,11 @@ function NavigationMobile() {
                         width: "100%",
                         display: "grid",
                         gridTemplateColumns: "repeat(4, 25%)",
-                        gridTemplateRows: "100%",
-                        gridAutoRows: collapse ? 0 : undefined,
                         rowGap: 8,
                         overflow: "hidden",
                     }}
                 >
-                    {currentCard.items.map((link, index) => (
+                    {(collapse ? currentCard.items.slice(0, 4) : currentCard.items).map((link, index) => (
                         <div
                             style={{
                                 display: "flex",
