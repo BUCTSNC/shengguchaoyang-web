@@ -1,4 +1,5 @@
 import { UpdateRotation } from "@icon-park/react";
+import { Carousel } from "antd";
 import { climbTree } from "octa/lib/ClimbTree";
 import React, { useContext, useEffect } from "react";
 import { CateTree } from "../App";
@@ -7,6 +8,9 @@ import "./homePage.css";
 import Links from "./Links";
 import Navigation from "./Navigation";
 import PostList from "./PostList";
+import SGCY from "../logo/sgcy.png";
+import { useHistory } from "react-router-dom";
+import CaroselCard from "./CarouselCard";
 
 export const HomePage = () => {
     const tree = useContext(CateTree);
@@ -14,11 +18,51 @@ export const HomePage = () => {
     useEffect(() => {
         document.title = "首页 - 胜古朝阳";
     }, []);
+    const history = useHistory();
+    const carouselCards: {
+        backgroundImage?: string;
+        content: JSX.Element | string;
+    }[] = [
+        {
+            // backgroundImage: SGCY,
+            content: (
+                <div onClick={() => history.push("/")}>
+                    <h1>胜古朝阳</h1>
+                </div>
+            ),
+        },
+        {
+            backgroundImage: SGCY,
+            content: (
+                <div onClick={() => history.push("/")}>
+                    <h1>胜古朝阳</h1>
+                </div>
+            ),
+        },
+        {
+            backgroundImage: SGCY,
+            content: (
+                <div onClick={() => history.push("/")}>
+                    <h1>胜古朝阳</h1>
+                </div>
+            ),
+        },
+    ];
     return (
         // <div id="homepage-bg" style={{ width: "100vw" }}>
         <div id="homepage">
             <ContainerNG>
-                <Carousel />
+                <Carousel autoplay>
+                    {carouselCards.map(
+                        ({ backgroundImage, content }, index) => (
+                            <CaroselCard
+                                key={index}
+                                backgroundImage={backgroundImage}
+                                content={content}
+                            />
+                        )
+                    )}
+                </Carousel>
                 <Navigation />
                 <Links />
                 <PostList
@@ -58,10 +102,5 @@ export const HomePage = () => {
         // </div>
     );
 };
-
-// 轮播图
-function Carousel() {
-    return null;
-}
 
 export default HomePage;

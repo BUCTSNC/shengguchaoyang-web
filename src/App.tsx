@@ -5,6 +5,9 @@ import { Definitions } from "octa";
 import React, { createContext, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
+import { BackgroundGrey } from "./ColorCard";
+import { useMobileView } from "./components/Display";
+import BackgroundIMG from "./logo/backgroundimg.webp";
 import SearchPad from "./components/SearchPad";
 import Bottom from "./layouts/Bottom";
 import { Main } from "./layouts/Main";
@@ -33,6 +36,7 @@ function App() {
     });
     const viewbox = useRef<HTMLDivElement>(null);
     const [searchView, searchViewSwitch] = useState(false);
+    const mobileMode = useMobileView();
     const location = useLocation();
     useEffect(() => {
         scrollToSmoothly(viewbox.current);
@@ -47,7 +51,19 @@ function App() {
             <CateTree.Provider value={tree}>
                 <SearchViewCtx.Provider value={searchViewSwitch}>
                     <Navibar />
-                    <div className="bg-img">
+                    <div
+                        style={
+                            mobileMode
+                                ? {
+                                      backgroundColor: BackgroundGrey,
+                                  }
+                                : {
+                                      backgroundImage: `url(${BackgroundIMG})`,
+                                      backgroundPosition: "center",
+                                      backgroundSize: "cover"
+                                  }
+                        }
+                    >
                         <div className="viewbox" ref={viewbox}>
                             <ScrollCtx.Provider value={viewbox.current}>
                                 <Main />
