@@ -70,7 +70,7 @@ export default function Navigation() {
 // 卡片内容
 const XYSH: CardInfo = {
     Icon: (props: { fill: string }) => (
-        <School theme="outline" size="100%" fill={props.fill} />
+        <School theme="outline" size="50%" fill={props.fill} />
     ),
     color: LightOrange,
     title: "校园生活",
@@ -115,7 +115,7 @@ const XYSH: CardInfo = {
 };
 const XXZY: CardInfo = {
     Icon: (props: { fill: string }) => (
-        <DocumentFolder theme="outline" size="100%" fill={props.fill} />
+        <DocumentFolder theme="outline" size="50%" fill={props.fill} />
     ),
     color: LightBlue2,
     title: "学习资源",
@@ -155,7 +155,7 @@ const XXZY: CardInfo = {
 };
 const XYFG: CardInfo = {
     Icon: (props: { fill: string }) => (
-        <Landscape theme="outline" size="100%" fill={props.fill} />
+        <Landscape theme="outline" size="50%" fill={props.fill} />
     ),
     color: DeepPurpleBlue,
     title: "校园风光",
@@ -182,7 +182,7 @@ const XYFG: CardInfo = {
 };
 const FWZN: CardInfo = {
     Icon: (props: { fill: string }) => (
-        <CompassOne theme="outline" size="100%" fill={props.fill} />
+        <CompassOne theme="outline" size="50%" fill={props.fill} />
     ),
     color: StrawBerry,
     title: "服务指南",

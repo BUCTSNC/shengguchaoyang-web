@@ -20,6 +20,9 @@
 .bg-img {
     background-image: url(./logo/backgroundimg.jpg);
 }
+..bgMobile{
+    background-color: #F5F6F7;
+}
 .viewbox {
     background-color: rgba(255, 255, 255, 100);
     background-repeat: no-repeat;

@@ -1,10 +1,11 @@
 /* eslint-disable prefer-const */
 import { Definitions } from "octa";
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { LightOrange, White } from "../ColorCard";
 import { getVisitedCount } from "../dm/hotList";
 import { Eyes, Fire, UpdateRotation } from "@icon-park/react";
+import { useMobileView } from "../components/Display";
 
 export default function PostList(props: {
     titleColor: string;
@@ -16,24 +17,8 @@ export default function PostList(props: {
     postList: Definitions.PostProps[];
     tagAttr: "lastModified" | "visited";
 }) {
-    const [size, resize] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight,
-    });
-    const onResize = useCallback(() => {
-        resize({
-            width: window.innerWidth,
-            height: window.innerHeight,
-        });
-    }, []);
-    useEffect(() => {
-        window.addEventListener("resize", onResize);
-        return () => {
-            window.removeEventListener("resize", onResize);
-        };
-    }, [onResize]);
-
-    return size.width > 768 ? PostListPC(props) : PostListMobile(props);
+    const mobileView = useMobileView()
+    return mobileView ? PostListMobile(props):PostListPC(props);
 }
 
 function PostListPC(props: {

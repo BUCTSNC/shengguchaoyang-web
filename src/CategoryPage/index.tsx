@@ -10,6 +10,7 @@ import { PostCard } from "../components/PostCard";
 import "./CategoryPage.css";
 import Display from "../components/Display";
 
+
 export function CategoryPage(){
     const history = useHistory();
     const { category: categoryPath } = useParams<{ category: string }>();
@@ -45,6 +46,7 @@ export function CategoryPage(){
     useEffect(() => {
         document.title = `${categoryInfo?.alias} - 胜古朝阳`;
     }, [categoryInfo?.alias]);
+    
     return (
         <>
         <Display  desktop={null} mobile={cateNavibarMobile()}/>
