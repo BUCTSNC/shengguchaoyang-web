@@ -1,4 +1,4 @@
-import {  Calendar,  Eyes, Home, Left, Return } from "@icon-park/react";
+import {  Calendar,  Eyes, Home, Left, ListTwo, Return, RowHeight } from "@icon-park/react";
 import { Modal, } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
@@ -132,7 +132,9 @@ export function Post(props: RouteComponentProps) {
 
     return (
         <ContainerNG>
+            {mobileView? <TOCBtn toc={toc} currentId={currentId}/> :<></>}
             {postExist ? (
+                <div id='blankSpace'>
                 <Container
                     right={
                         mobileView ? (
@@ -270,11 +272,11 @@ export function Post(props: RouteComponentProps) {
                                         {new Date(post.lastModified).getMonth()}
                                         /{new Date(post.lastModified).getDate()}
                                     </div>
-                                    <div className="tagItem">|</div>
+                                    <div className="tagBorder"></div>
                                     <div id="author" className="tagItem">
                                         作者：{post.authors?.join(" ")}
                                     </div>
-                                    <div className="tagItem">|</div>
+                                    <div className="tagBorder"></div>
                                     <div className="tagItem">
                                         审核：{post.editors?.join(" ")}
                                     </div>
@@ -307,6 +309,7 @@ export function Post(props: RouteComponentProps) {
                         />
                     </Modal>
                 </Container>
+                </div>
             ) : (
                 <Container>
                     <Area cardStyle={{ padding: "1rem" }}>
@@ -378,9 +381,12 @@ function openPicture(e: MouseEvent) {
 function TableOfContent(props: {
     toc: TOC;
     currentId: string;
+    show?:boolean;
+
     afterScroll?: () => any;
 }) {
     const { toc } = props;
+
     const history = useHistory();
     const hashTo = (id: string) =>
         history.push({
@@ -399,6 +405,7 @@ function TableOfContent(props: {
                                 paddingLeft: `${heading.depth}rem`,
                             }}
                             onClick={() => hashTo(heading.id)}
+                            
                             className={`${
                                 heading.id === props.currentId
                                     ? "activeTocItem"
@@ -412,4 +419,91 @@ function TableOfContent(props: {
             </div>
         </>
     );
+}
+
+function TOCBtn(props:{
+    toc: TOC;
+    currentId: string;
+}){
+    
+    // const toc = props.toc
+    // const currentId =props.currentId
+    const [show,setShow]=useState(false)
+    useEffect(()=>{
+        if(show){
+            const blankSpace = document.getElementById('blankSpace');
+            const handler = ()=>setShow(!show);
+            blankSpace.addEventListener('click',handler);
+            console.log(show)
+            return ()=>blankSpace.removeEventListener('click',handler);
+        }
+    });
+    const { toc } = props;
+    const history = useHistory();
+    const hashTo = (id: string) =>
+        history.push({
+            hash: `#${id}`,
+        });
+
+    return (
+        <>
+        <div style={{
+            transition: "max-Height 1s ease-in-out",
+            position:'absolute',
+            right:"calc(6vw + 3.5rem)",
+            overflow:'hidden',
+            maxHeight: show?window.innerHeight:0,
+            backgroundColor:'#FFFFFF',
+            bottom: "calc(8vh + 4.5*2rem)",
+            zIndex:100,
+            width:'50vw',
+            borderRadius:'16px',
+            boxShadow:'3px 3px 3px #E2E2E2',
+            // paddingBottom:'8px'
+        }}>
+        <h2 className="catalogueTitle">文章目录</h2>
+            <div>
+                {toc.map((heading) => {
+                    return (
+                        <div
+                            key={heading.id}
+                            style={{
+                                paddingLeft: `${heading.depth}rem`,
+                            }}
+                            onClick={() => {hashTo(heading.id);setShow(!show)}}
+                            
+                            className={`${
+                                heading.id === props.currentId
+                                    ? "activeTocItem"
+                                    : "inactiveTocItem"
+                            } tocItem`}
+                        >
+                            {heading.title}
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+        <div
+            style={{
+                
+                position: "absolute",
+                bottom: "calc(10vh + 4.5*2rem)",
+                right: "6vw",
+                height: "3.2rem",
+                width: "3.2rem",
+                backgroundColor: "#4470F5",
+                borderRadius: "50%",
+                padding: "0.4rem",
+                boxShadow: "0 0 2rem #8c8c8c",
+                zIndex: 200,
+                cursor: "pointer",
+            }}
+            onClick={() => setShow(!show)}
+        >
+            <ListTwo theme="outline" size="100%" fill="#FFF" />
+        </div>
+        </>
+    );
+    
 }

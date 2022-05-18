@@ -65,7 +65,7 @@ export const HomePage = () => {
                     )}
                 </Carousel>
                 <Navigation />
-                <Links />
+                
                 <PostList
                     firstColor="#ed5c5c"
                     secondColor="#6488f2"
@@ -100,6 +100,7 @@ export const HomePage = () => {
                             .slice(0, 9)}
                         tagAttr="visited"
                     />
+                    <Links />
             </ContainerNG>
         </div>
         // </div>

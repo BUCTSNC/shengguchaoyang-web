@@ -24,7 +24,7 @@ iframe {
     letter-spacing: 0.4rem;
 }
 #content {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 #content h1,
@@ -38,16 +38,23 @@ h6 {
 #tag {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 1rem;
     color: #707070;
     font-weight: 550;
     /* padding-right: 64px; */
 }
 .tagItem {
-    padding: 0.4rem 0.3rem;
+    padding: 0.4rem 0rem;
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+}
+.tagBorder{
+    position: relative;
+    height: 0.8rem;
+    background-color: #707070;
+    width: 2px;
+    top: .5rem;
 }
 #readCounter {
     text-align: center;
