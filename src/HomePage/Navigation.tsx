@@ -237,7 +237,7 @@ function NavigationMobile() {
         <div
             style={{
                 padding: "8px 16px",
-                paddingTop: 64,
+                marginTop: 16,
                 backgroundColor: "#FFFFFF",
             }}
         >

@@ -472,7 +472,7 @@ function TOCBtn(props: { toc: TOC; currentId: string }) {
                     zIndex: 100,
                     width: "50vw",
                     borderRadius: "16px",
-                    boxShadow: "3px 3px 3px #E2E2E2",
+                    boxShadow: "0 0 32px #969696",
                     // paddingBottom:'8px'
                 }}
             >

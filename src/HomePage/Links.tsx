@@ -43,19 +43,16 @@ export default function Links() {
             });
     }, []);
     return (
-        <div style={{ paddingTop: 64 }}>
+        <div>
             <div>
                 <div className="indexTitle">校内网站导航</div>
-                {/* <hr style={{ color: LightOrange, margin: 0 }} /> */}
                 <div
                     style={{
                         display: "flex",
-                        // float:'inherit',
                         flexWrap: "wrap",
                         flexDirection: "row",
                         justifyContent: "space-around",
                         alignItems: "stretch",
-                        // padding: 4, // backgroundColor: White
                         marginTop: 0,
                     }}
                 >
@@ -83,7 +80,6 @@ export default function Links() {
                         return (
                             <div key={link.department}>
                                 <div
-                                    // className='links'
                                     className="linkItem"
                                     onClick={() =>
                                         window.open(httpUrl(link.url))
