@@ -9,12 +9,7 @@ import {
     DocumentFolder,
     DoorHandle,
     DoubleDown,
-    DoubleUp,
-    Down,
-    DropDownList,
-    Earth,
-    FoldUpOne,
-    Hospital,
+    DoubleUp, Earth, Hospital,
     IdCard,
     Landscape,
     Like,
@@ -23,12 +18,9 @@ import {
     School,
     ShoppingCartOne,
     ShoppingMall,
-    SingleBed,
-    Up,
-    Wifi,
-    Word,
+    SingleBed, Wifi,
+    Word
 } from "@icon-park/react";
-import { isLength } from "lodash";
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useHistory } from "react-router-dom";
@@ -36,7 +28,7 @@ import {
     DeepPurpleBlue,
     LightBlue2,
     LightOrange,
-    StrawBerry,
+    StrawBerry
 } from "../ColorCard";
 import Display from "../components/Display";
 

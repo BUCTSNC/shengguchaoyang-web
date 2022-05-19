@@ -74,7 +74,7 @@ export const HomePage = () => {
                     icon={
                         <UpdateRotation theme="outline" size="24" fill="#ddd" />
                     }
-                    iconpath="/src/logo/refreshIcon"
+                    iconpath="/refreshIcon"
                     postList={posts
                         .sort((a, b) => b.lastModified - a.lastModified)
                         .slice(0, 9)}
@@ -86,7 +86,7 @@ export const HomePage = () => {
                         secondColor="#2591fb"
                         title="浏览榜单"
                         icon={<Fire theme="outline" size="24" fill="#ddd" />}
-                        iconpath="/src/logo/hotIcon"
+                        iconpath="/hotIcon"
                         postList={posts
                             .map((post) => {
                                 return {
