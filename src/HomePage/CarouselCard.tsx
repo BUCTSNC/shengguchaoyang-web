@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useMobileView } from "../components/Display";
 
 export default function CaroselCard(props: {
@@ -6,6 +6,23 @@ export default function CaroselCard(props: {
     content: JSX.Element | string;
 }) {
     const mobileMode = useMobileView();
+    const ref = useRef<HTMLDivElement>(null);
+    if (ref.current) {
+        ref.current.style.height = `${ref.current.clientWidth / 2}px`;
+    }
+    useEffect(() => {
+        const resizer = () => {
+            setTimeout(() => {
+                if (ref.current) {
+                    ref.current.style.height = `${
+                        ref.current.clientWidth / 2
+                    }px`;
+                }
+            }, 1000);
+        };
+        window.addEventListener("resize", resizer);
+        return () => window.removeEventListener("resize", resizer);
+    }, []);
     return (
         <div
             style={{
@@ -16,6 +33,7 @@ export default function CaroselCard(props: {
             }}
         >
             <div
+                ref={ref}
                 style={{
                     backgroundImage: props.backgroundImage
                         ? `url(${props.backgroundImage})`
@@ -24,9 +42,9 @@ export default function CaroselCard(props: {
                     backgroundSize: "cover",
                     width: "100%",
                     backgroundColor: "grey",
-                    aspectRatio: "2/1",
+                    // aspectRatio: "2/1",
                     overflow: "hidden",
-                    maxWidth: "1300px",
+                    // maxWidth: "1300px",
                 }}
             >
                 {props.content}

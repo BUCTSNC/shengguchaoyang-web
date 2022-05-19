@@ -53,7 +53,7 @@ export const HomePage = () => {
         // <div id="homepage-bg" style={{ width: "100vw" }}>
         <div id="homepage">
             <ContainerNG>
-                <Carousel autoplay>
+                <div style={{padding: "0 10%"}}><Carousel autoplay>
                     {carouselCards.map(
                         ({ backgroundImage, content }, index) => (
                             <CaroselCard
@@ -63,7 +63,7 @@ export const HomePage = () => {
                             />
                         )
                     )}
-                </Carousel>
+                </Carousel></div>
                 <Navigation />
 
                 <PostList

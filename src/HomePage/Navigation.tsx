@@ -260,7 +260,7 @@ function NavigationMobile() {
                                 display: "flex",
                                 flexDirection: "column",
                                 justifyContent: "center",
-                                aspectRatio: "1/1",
+                                padding: "16px 0",
                             }}
                             onClick={() => setCurrentCard(card)}
                             key={index}
