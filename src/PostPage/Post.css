@@ -49,12 +49,12 @@ h6 {
     text-align: center;
     font-size: 0.8rem;
 }
-.tagBorder{
+.tagBorder {
     position: relative;
     height: 0.8rem;
     background-color: #707070;
     width: 2px;
-    top: .5rem;
+    top: 0.5rem;
 }
 #readCounter {
     text-align: center;

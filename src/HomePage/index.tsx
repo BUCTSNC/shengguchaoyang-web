@@ -65,7 +65,7 @@ export const HomePage = () => {
                     )}
                 </Carousel>
                 <Navigation />
-                
+
                 <PostList
                     firstColor="#ed5c5c"
                     secondColor="#6488f2"
@@ -81,26 +81,24 @@ export const HomePage = () => {
                     tagAttr="lastModified"
                 />
                 <PostList
-                        firstColor="#ff6348"
-                        titleColor="#FF6348"
-                        secondColor="#2591fb"
-                        title="浏览榜单"
-                        icon={<Fire theme="outline" size="24" fill="#ddd" />}
-                        iconpath="/hotIcon"
-                        postList={posts
-                            .map((post) => {
-                                return {
-                                    ...post,
-                                    visited: getVisitedCount(
-                                        `post/${post.path}`
-                                    ),
-                                };
-                            })
-                            .sort((a, b) => b.visited - a.visited)
-                            .slice(0, 9)}
-                        tagAttr="visited"
-                    />
-                    <Links />
+                    firstColor="#ff6348"
+                    titleColor="#FF6348"
+                    secondColor="#2591fb"
+                    title="浏览榜单"
+                    icon={<Fire theme="outline" size="24" fill="#ddd" />}
+                    iconpath="/hotIcon"
+                    postList={posts
+                        .map((post) => {
+                            return {
+                                ...post,
+                                visited: getVisitedCount(`post/${post.path}`),
+                            };
+                        })
+                        .sort((a, b) => b.visited - a.visited)
+                        .slice(0, 9)}
+                    tagAttr="visited"
+                />
+                <Links />
             </ContainerNG>
         </div>
         // </div>

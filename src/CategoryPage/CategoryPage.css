@@ -1,20 +1,19 @@
 /* .CategoryPage {
     min-height: 100vh;
 } */
-.activeCateItem{
-    width:  25%;
+.activeCateItem {
+    width: 25%;
     height: 36px;
-    color: #2189E3;
+    color: #2189e3;
     cursor: pointer;
     font-size: 18px;
     font-weight: 550;
     text-align: center;
     background-color: #70707020;
-
 }
 
-.inactiveCateItem{
-    width:  25%;
+.inactiveCateItem {
+    width: 25%;
     height: 36px;
     top: auto;
     color: #707070;
@@ -22,12 +21,10 @@
     font-size: 18px;
     font-weight: 550;
     text-align: center;
-    
-
 }
-.activeCateItemBorder{
+.activeCateItemBorder {
     width: 20%;
-    border-bottom: #2189E3 solid 3px;
+    border-bottom: #2189e3 solid 3px;
     position: relative;
     left: 40%;
 }

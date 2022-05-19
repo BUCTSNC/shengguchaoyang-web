@@ -1,5 +1,5 @@
-import {  Calendar,  Eyes, Home, Left, ListTwo, Return, RowHeight } from "@icon-park/react";
-import { Modal, } from "antd";
+import { Calendar, Eyes, Home, Left, ListTwo, Return } from "@icon-park/react";
+import { Modal } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { RouteComponentProps, useHistory, useLocation } from "react-router-dom";
 import { CateTree, ScrollCtx } from "../App";
@@ -132,183 +132,202 @@ export function Post(props: RouteComponentProps) {
 
     return (
         <ContainerNG>
-            {mobileView? <TOCBtn toc={toc} currentId={currentId}/> :<></>}
+            {mobileView ? <TOCBtn toc={toc} currentId={currentId} /> : <></>}
             {postExist ? (
-                <div id='blankSpace'>
-                <Container
-                    right={
-                        mobileView ? (
-                            <></>
-                        ) : (
-                            <div
+                <div id="blankSpace">
+                    <Container
+                        right={
+                            mobileView ? (
+                                <></>
+                            ) : (
+                                <div
+                                    style={{
+                                        position: "sticky",
+                                        top: "8px",
+                                        width: "100%",
+                                    }}
+                                >
+                                    <Feedback />
+                                </div>
+                            )
+                        }
+                        left={
+                            <Area
                                 style={{
                                     position: "sticky",
                                     top: "8px",
                                     width: "100%",
                                 }}
                             >
-                                <Feedback />
-                            </div>
-                        )
-                    }
-                    left={
-                        <Area
-                            style={{
-                                position: "sticky",
-                                top: "8px",
-                                width: "100%",
-                            }}
-                        >
-                            <TableOfContent toc={toc} currentId={currentId} />
-                        </Area>
-                    }
-                >
-                    {/* <Row>
+                                <TableOfContent
+                                    toc={toc}
+                                    currentId={currentId}
+                                />
+                            </Area>
+                        }
+                    >
+                        {/* <Row>
                 <Col xxl={6} xl={6} lg={0} md={0} sm={0} xs={0}></Col>
                 <Col xxl={18} xl={18} lg={22} md={24} sm={24} xs={24}> */}
-                    {mobileView ? (
-                        <div style={{display:'flex',flexDirection: 'row',justifyContent:"center",
-                            padding: "0 0 0.5rem",
-                            position: "sticky",
-                            top: 0,
-                            left: 0,
-                            zIndex: 100}}>
-                            <div 
-                            style={{
-                            display:'flex',
-                            backgroundColor:'#2189E3',
-                            zIndex: 100,
-                            width:'48px',
-                            height:'auto',
-                            margin: "0 0 0.5rem",
-                            alignItems:"center",
-                            justifyContent:"center",
-                            cursor:'pointer',
-                            boxShadow: "0 0 1rem #8c8c8c"
-                        }}
-                            onClick={()=>{
-                                history.push('/')
-                            }}>
-                            <Home
-                            size={24} 
-                            fill='#FFFFFF'></Home>
-                            </div>
-                           
-                            <Area
-                                id="tocBar"
+                        {mobileView ? (
+                            <div
                                 style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    justifyContent: "center",
                                     padding: "0 0 0.5rem",
                                     position: "sticky",
                                     top: 0,
                                     left: 0,
                                     zIndex: 100,
-                                    width: "80%",
-                                }}
-                                cardStyle={{
-                                    padding: ".5rem",
-                                    zIndex: 100,
-                                    // borderLeft: "solid 1rem #0050B3",
-                                    color: "#0050B3",
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    alignItems: "flex-start",
-                                    textAlign: "center",
-                                    cursor: "pointer",
-                                    boxShadow: "0 0 1rem #8c8c8c",
                                 }}
                             >
                                 <div
                                     style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        fontSize: "1.2rem",
+                                        display: "flex",
+                                        backgroundColor: "#2189E3",
+                                        zIndex: 100,
+                                        width: "48px",
+                                        height: "auto",
+                                        margin: "0 0 0.5rem",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        cursor: "pointer",
+                                        boxShadow: "0 0 1rem #8c8c8c",
                                     }}
                                     onClick={() => {
-                                        setTocModal(true);
+                                        history.push("/");
                                     }}
                                 >
-                                    {toc.find((item) => item.id === currentId)
-                                        ?.title ?? "文章目录"}
+                                    <Home size={24} fill="#FFFFFF"></Home>
                                 </div>
-                            </Area>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    backgroundColor: "#2189E3",
-                                    zIndex: 100,
-                                    width: "48px",
-                                    height: "auto",
-                                    margin: "0 0 0.5rem",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }}
-                                onClick={() => {
-                                    history.goBack();
-                                }}
-                            >
-                                <Return size={24} fill="#FFFFFF"></Return>
-                            </div>
-                        </div>
-                    ) : (
-                        <></>
-                    )}
 
-                    <Area
-                        cardStyle={{
-                            padding: ".5rem 1rem",
-                            paddingLeft: "1.5rem",
-                        }}
-                    >
-                        {post === undefined ? null : (
-                            <>
-                                <div id={"title"}>{post.title}</div>
-                                <div id="tag">
-                                    <div id="lastModified" className="tagItem">
-                                        <Calendar className="Icon"></Calendar>{" "}
-                                        {new Date(
-                                            post.lastModified
-                                        ).getFullYear()}
-                                        /
-                                        {new Date(post.lastModified).getMonth()}
-                                        /{new Date(post.lastModified).getDate()}
+                                <Area
+                                    id="tocBar"
+                                    style={{
+                                        padding: "0 0 0.5rem",
+                                        position: "sticky",
+                                        top: 0,
+                                        left: 0,
+                                        zIndex: 100,
+                                        width: "80%",
+                                    }}
+                                    cardStyle={{
+                                        padding: ".5rem",
+                                        zIndex: 100,
+                                        // borderLeft: "solid 1rem #0050B3",
+                                        color: "#0050B3",
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        alignItems: "flex-start",
+                                        textAlign: "center",
+                                        cursor: "pointer",
+                                        boxShadow: "0 0 1rem #8c8c8c",
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            fontSize: "1.2rem",
+                                        }}
+                                        onClick={() => {
+                                            setTocModal(true);
+                                        }}
+                                    >
+                                        {toc.find(
+                                            (item) => item.id === currentId
+                                        )?.title ?? "文章目录"}
                                     </div>
-                                    <div className="tagBorder"></div>
-                                    <div id="author" className="tagItem">
-                                        作者：{post.authors?.join(" ")}
-                                    </div>
-                                    <div className="tagBorder"></div>
-                                    <div className="tagItem">
-                                        审核：{post.editors?.join(" ")}
-                                    </div>
-                                </div>
-                                <div id="readCounter">
-                                    <Eyes className="Icon"></Eyes> 浏览量：
-                                    {getVisitedCount(`post/${post.path}`)}
-                                </div>
-                                <div> </div>
+                                </Area>
                                 <div
-                                    id="content"
-                                    dangerouslySetInnerHTML={{ __html: html }}
-                                ></div>
-                            </>
+                                    style={{
+                                        display: "flex",
+                                        backgroundColor: "#2189E3",
+                                        zIndex: 100,
+                                        width: "48px",
+                                        height: "auto",
+                                        margin: "0 0 0.5rem",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                    }}
+                                    onClick={() => {
+                                        history.goBack();
+                                    }}
+                                >
+                                    <Return size={24} fill="#FFFFFF"></Return>
+                                </div>
+                            </div>
+                        ) : (
+                            <></>
                         )}
-                    </Area>
-                    {/* </Col>
+
+                        <Area
+                            cardStyle={{
+                                padding: ".5rem 1rem",
+                                paddingLeft: "1.5rem",
+                            }}
+                        >
+                            {post === undefined ? null : (
+                                <>
+                                    <div id={"title"}>{post.title}</div>
+                                    <div id="tag">
+                                        <div
+                                            id="lastModified"
+                                            className="tagItem"
+                                        >
+                                            <Calendar className="Icon"></Calendar>{" "}
+                                            {new Date(
+                                                post.lastModified
+                                            ).getFullYear()}
+                                            /
+                                            {new Date(
+                                                post.lastModified
+                                            ).getMonth()}
+                                            /
+                                            {new Date(
+                                                post.lastModified
+                                            ).getDate()}
+                                        </div>
+                                        <div className="tagBorder"></div>
+                                        <div id="author" className="tagItem">
+                                            作者：{post.authors?.join(" ")}
+                                        </div>
+                                        <div className="tagBorder"></div>
+                                        <div className="tagItem">
+                                            审核：{post.editors?.join(" ")}
+                                        </div>
+                                    </div>
+                                    <div id="readCounter">
+                                        <Eyes className="Icon"></Eyes> 浏览量：
+                                        {getVisitedCount(`post/${post.path}`)}
+                                    </div>
+                                    <div> </div>
+                                    <div
+                                        id="content"
+                                        dangerouslySetInnerHTML={{
+                                            __html: html,
+                                        }}
+                                    ></div>
+                                </>
+                            )}
+                        </Area>
+                        {/* </Col>
             </Row> */}
 
-                    <Modal
-                        visible={tocModal}
-                        title={null}
-                        footer={null}
-                        onCancel={() => setTocModal(false)}
-                    >
-                        <TableOfContent
-                            toc={toc}
-                            currentId={currentId}
-                            afterScroll={() => setTocModal(false)}
-                        />
-                    </Modal>
-                </Container>
+                        <Modal
+                            visible={tocModal}
+                            title={null}
+                            footer={null}
+                            onCancel={() => setTocModal(false)}
+                        >
+                            <TableOfContent
+                                toc={toc}
+                                currentId={currentId}
+                                afterScroll={() => setTocModal(false)}
+                            />
+                        </Modal>
+                    </Container>
                 </div>
             ) : (
                 <Container>
@@ -381,7 +400,7 @@ function openPicture(e: MouseEvent) {
 function TableOfContent(props: {
     toc: TOC;
     currentId: string;
-    show?:boolean;
+    show?: boolean;
 
     afterScroll?: () => any;
 }) {
@@ -405,7 +424,6 @@ function TableOfContent(props: {
                                 paddingLeft: `${heading.depth}rem`,
                             }}
                             onClick={() => hashTo(heading.id)}
-                            
                             className={`${
                                 heading.id === props.currentId
                                     ? "activeTocItem"
@@ -421,21 +439,16 @@ function TableOfContent(props: {
     );
 }
 
-function TOCBtn(props:{
-    toc: TOC;
-    currentId: string;
-}){
-    
+function TOCBtn(props: { toc: TOC; currentId: string }) {
     // const toc = props.toc
     // const currentId =props.currentId
-    const [show,setShow]=useState(false)
-    useEffect(()=>{
-        if(show){
-            const blankSpace = document.getElementById('blankSpace');
-            const handler = ()=>setShow(!show);
-            blankSpace.addEventListener('click',handler);
-            console.log(show)
-            return ()=>blankSpace.removeEventListener('click',handler);
+    const [show, setShow] = useState(false);
+    useEffect(() => {
+        if (show) {
+            const blankSpace = document.getElementById("blankSpace");
+            const handler = () => setShow(!show);
+            blankSpace?.addEventListener("click", handler);
+            return () => blankSpace?.removeEventListener("click", handler);
         }
     });
     const { toc } = props;
@@ -447,63 +460,65 @@ function TOCBtn(props:{
 
     return (
         <>
-        <div style={{
-            transition: "max-Height 1s ease-in-out",
-            position:'absolute',
-            right:"calc(6vw + 3.5rem)",
-            overflow:'hidden',
-            maxHeight: show?window.innerHeight:0,
-            backgroundColor:'#FFFFFF',
-            bottom: "calc(8vh + 4.5*2rem)",
-            zIndex:100,
-            width:'50vw',
-            borderRadius:'16px',
-            boxShadow:'3px 3px 3px #E2E2E2',
-            // paddingBottom:'8px'
-        }}>
-        <h2 className="catalogueTitle">文章目录</h2>
-            <div>
-                {toc.map((heading) => {
-                    return (
-                        <div
-                            key={heading.id}
-                            style={{
-                                paddingLeft: `${heading.depth}rem`,
-                            }}
-                            onClick={() => {hashTo(heading.id);setShow(!show)}}
-                            
-                            className={`${
-                                heading.id === props.currentId
-                                    ? "activeTocItem"
-                                    : "inactiveTocItem"
-                            } tocItem`}
-                        >
-                            {heading.title}
-                        </div>
-                    );
-                })}
+            <div
+                style={{
+                    transition: "max-Height 1s ease-in-out",
+                    position: "absolute",
+                    right: "calc(6vw + 3.5rem)",
+                    overflow: "hidden",
+                    maxHeight: show ? window.innerHeight : 0,
+                    backgroundColor: "#FFFFFF",
+                    bottom: "calc(8vh + 4.5*2rem)",
+                    zIndex: 100,
+                    width: "50vw",
+                    borderRadius: "16px",
+                    boxShadow: "3px 3px 3px #E2E2E2",
+                    // paddingBottom:'8px'
+                }}
+            >
+                <h2 className="catalogueTitle">文章目录</h2>
+                <div>
+                    {toc.map((heading) => {
+                        return (
+                            <div
+                                key={heading.id}
+                                style={{
+                                    paddingLeft: `${heading.depth}rem`,
+                                }}
+                                onClick={() => {
+                                    hashTo(heading.id);
+                                    setShow(!show);
+                                }}
+                                className={`${
+                                    heading.id === props.currentId
+                                        ? "activeTocItem"
+                                        : "inactiveTocItem"
+                                } tocItem`}
+                            >
+                                {heading.title}
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
-        </div>
-        <div
-            style={{
-                
-                position: "absolute",
-                bottom: "calc(10vh + 4.5*2rem)",
-                right: "6vw",
-                height: "3.2rem",
-                width: "3.2rem",
-                backgroundColor: "#4470F5",
-                borderRadius: "50%",
-                padding: "0.4rem",
-                boxShadow: "0 0 2rem #8c8c8c",
-                zIndex: 200,
-                cursor: "pointer",
-            }}
-            onClick={() => setShow(!show)}
-        >
-            <ListTwo theme="outline" size="100%" fill="#FFF" />
-        </div>
+            <div
+                style={{
+                    position: "absolute",
+                    bottom: "calc(10vh + 4.5*2rem)",
+                    right: "6vw",
+                    height: "3.2rem",
+                    width: "3.2rem",
+                    backgroundColor: "#4470F5",
+                    borderRadius: "50%",
+                    padding: "0.4rem",
+                    boxShadow: "0 0 2rem #8c8c8c",
+                    zIndex: 200,
+                    cursor: "pointer",
+                }}
+                onClick={() => setShow(!show)}
+            >
+                <ListTwo theme="outline" size="100%" fill="#FFF" />
+            </div>
         </>
     );
-    
 }

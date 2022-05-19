@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { ContainerNG } from "./Container";
 
 export function isMobile(): boolean {
     // console.log(window.innerWidth <= window.innerHeight)
@@ -14,7 +13,7 @@ export function useMobileView() {
         return () => window.removeEventListener("resize", handler);
     });
     // console.log(mobileMode)
-    return mobileMode
+    return mobileMode;
 }
 
 export default function Display(props: {
@@ -24,4 +23,3 @@ export default function Display(props: {
     const mobileMode = useMobileView();
     return <>{mobileMode ? props.mobile : props.desktop}</>;
 }
-

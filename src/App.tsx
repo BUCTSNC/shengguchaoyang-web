@@ -60,11 +60,14 @@ function App() {
                                 : {
                                       backgroundImage: `url(${BackgroundIMG})`,
                                       backgroundPosition: "center",
-                                      backgroundSize: "cover"
+                                      backgroundSize: "cover",
                                   }
                         }
                     >
-                        <div className={mobileMode?"viewboxMobile":"viewbox"} ref={viewbox}>
+                        <div
+                            className={mobileMode ? "viewboxMobile" : "viewbox"}
+                            ref={viewbox}
+                        >
                             <ScrollCtx.Provider value={viewbox.current}>
                                 <Main />
                                 <Bottom />
