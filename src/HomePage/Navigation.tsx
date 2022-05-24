@@ -239,7 +239,7 @@ function NavigationMobile() {
     console.log(itemCount)
     const history = useHistory();
     return (
-        <div style={{ padding:'8px 16px',paddingTop: 64,backgroundColor:'#FFFFFF'}}>
+        <div style={{ padding:'8px 16px',paddingTop: 32,backgroundColor:'#FFFFFF'}}>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
                 {cards.map((card, index) => {
                     return (

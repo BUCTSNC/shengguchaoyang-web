@@ -433,9 +433,9 @@ function TOCBtn(props:{
         if(show){
             const blankSpace = document.getElementById('blankSpace');
             const handler = ()=>setShow(!show);
-            blankSpace.addEventListener('click',handler);
-            console.log(show)
-            return ()=>blankSpace.removeEventListener('click',handler);
+            if(blankSpace){
+                blankSpace.addEventListener('click',handler);
+                return ()=>blankSpace.removeEventListener('click',handler);}
         }
     });
     const { toc } = props;
@@ -452,11 +452,11 @@ function TOCBtn(props:{
             position:'absolute',
             right:"calc(6vw + 3.5rem)",
             overflow:'hidden',
-            maxHeight: show?window.innerHeight:0,
+            maxHeight: show?window.innerHeight*0.75:0,
             backgroundColor:'#FFFFFF',
             bottom: "calc(8vh + 4.5*2rem)",
-            zIndex:100,
-            width:'50vw',
+            zIndex:101,
+            width:'60vw',
             borderRadius:'16px',
             boxShadow:'3px 3px 3px #E2E2E2',
             // paddingBottom:'8px'

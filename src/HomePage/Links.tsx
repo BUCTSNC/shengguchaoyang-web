@@ -43,7 +43,7 @@ export default function Links() {
             });
     }, []);
     return (
-        <div style={{ paddingTop: 64 }}>
+        <div style={{ paddingTop: 24 }}>
             <div>
                 <div className="indexTitle">校内网站导航</div>
                 {/* <hr style={{ color: LightOrange, margin: 0 }} /> */}
