@@ -17,8 +17,8 @@ export default function PostList(props: {
     postList: Definitions.PostProps[];
     tagAttr: "lastModified" | "visited";
 }) {
-    const mobileView = useMobileView()
-    return mobileView ? PostListMobile(props):PostListPC(props);
+    const mobileView = useMobileView();
+    return mobileView ? PostListMobile(props) : PostListPC(props);
 }
 
 function PostListPC(props: {
@@ -178,9 +178,7 @@ function PostListMobile(props: {
             </div>
             {postList.map((post, index) => (
                 <div
-                    
-                    className={index==8?"postCardLast":'postCard'}
-                    
+                    className={index == 8 ? "postCardLast" : "postCard"}
                     key={index}
                     onClick={() => history.push(`post/${post.path}`)}
                 >

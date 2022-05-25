@@ -53,7 +53,7 @@ export const HomePage = () => {
         // <div id="homepage-bg" style={{ width: "100vw" }}>
         <div id="homepage">
             <ContainerNG>
-                <Carousel autoplay>
+                <div style={{padding: "0 10%"}}><Carousel autoplay>
                     {carouselCards.map(
                         ({ backgroundImage, content }, index) => (
                             <CaroselCard
@@ -63,9 +63,9 @@ export const HomePage = () => {
                             />
                         )
                     )}
-                </Carousel>
+                </Carousel></div>
                 <Navigation />
-                
+
                 <PostList
                     firstColor="#ed5c5c"
                     secondColor="#6488f2"
@@ -74,33 +74,31 @@ export const HomePage = () => {
                     icon={
                         <UpdateRotation theme="outline" size="24" fill="#ddd" />
                     }
-                    iconpath="/src/logo/refreshIcon"
+                    iconpath="/refreshIcon"
                     postList={posts
                         .sort((a, b) => b.lastModified - a.lastModified)
                         .slice(0, 9)}
                     tagAttr="lastModified"
                 />
                 <PostList
-                        firstColor="#ff6348"
-                        titleColor="#FF6348"
-                        secondColor="#2591fb"
-                        title="浏览榜单"
-                        icon={<Fire theme="outline" size="24" fill="#ddd" />}
-                        iconpath="/src/logo/hotIcon"
-                        postList={posts
-                            .map((post) => {
-                                return {
-                                    ...post,
-                                    visited: getVisitedCount(
-                                        `post/${post.path}`
-                                    ),
-                                };
-                            })
-                            .sort((a, b) => b.visited - a.visited)
-                            .slice(0, 9)}
-                        tagAttr="visited"
-                    />
-                    <Links />
+                    firstColor="#ff6348"
+                    titleColor="#FF6348"
+                    secondColor="#2591fb"
+                    title="浏览榜单"
+                    icon={<Fire theme="outline" size="24" fill="#ddd" />}
+                    iconpath="/hotIcon"
+                    postList={posts
+                        .map((post) => {
+                            return {
+                                ...post,
+                                visited: getVisitedCount(`post/${post.path}`),
+                            };
+                        })
+                        .sort((a, b) => b.visited - a.visited)
+                        .slice(0, 9)}
+                    tagAttr="visited"
+                />
+                <Links />
             </ContainerNG>
         </div>
         // </div>
