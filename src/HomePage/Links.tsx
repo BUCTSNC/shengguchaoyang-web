@@ -1,3 +1,4 @@
+import { Earth } from "@icon-park/react";
 import { groupBy } from "lodash";
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
@@ -43,9 +44,12 @@ export default function Links() {
             });
     }, []);
     return (
-        <div style={{ paddingTop: 24 }}>
-            <div>
+        <div style={{ marginBottom:24 ,backgroundColor:'white',borderRadius:'16px'}}>
+            <div >
+                <div style={{display:'flex',justifyContent:"center",alignItems:"center"}}>
+                <Earth theme="outline" size="24" fill="#000"></Earth>
                 <div className="indexTitle">校内网站导航</div>
+                </div>
                 <div
                     style={{
                         display: "flex",
