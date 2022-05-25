@@ -8,10 +8,13 @@ import "./homePage.css";
 import Links from "./Links";
 import Navigation from "./Navigation";
 import PostList from "./PostList";
-import SGCY from "../logo/sgcy.png";
+import YHSY from "/carouseImg/Yhsy.jpg";
+import internetWeek from "/carouseImg/internetWork.jpg";
+import JXL from "/carouseImg/JXUl.png";
 import { useHistory } from "react-router-dom";
 import CaroselCard from "./CarouselCard";
 import { getVisitedCount } from "../dm/hotList";
+import httpUrl from "../utils/httpUrl";
 
 export const HomePage = () => {
     const tree = useContext(CateTree);
@@ -25,26 +28,27 @@ export const HomePage = () => {
         content: JSX.Element | string;
     }[] = [
         {
-            // backgroundImage: SGCY,
+            backgroundImage: JXL,
             content: (
-                <div onClick={() => history.push("/")}>
-                    <h1>胜古朝阳</h1>
+                <div onClick={() => history.push("/")} style={{width:'100%',height:'100%'}}>
+                    {/* <h1>胜古朝阳</h1> */}
                 </div>
             ),
         },
         {
-            backgroundImage: SGCY,
+            backgroundImage: YHSY,
             content: (
-                <div onClick={() => history.push("/")}>
-                    <h1>胜古朝阳</h1>
+                <div onClick={() => window.open(httpUrl('http://2022.yhsy.buctsnc.cn/'))} style={{width:'100%',height:'100%'}}>
+                    {/* <h1>胜古朝阳</h1> */}
                 </div>
             ),
+
         },
         {
-            backgroundImage: SGCY,
+            backgroundImage: internetWeek,
             content: (
-                <div onClick={() => history.push("/")}>
-                    <h1>胜古朝阳</h1>
+                <div onClick={() => history.push("/")} style={{width:'100%',height:'100%'}}>
+                    {/* <h1>胜古朝阳</h1> */}
                 </div>
             ),
         },
@@ -55,7 +59,7 @@ export const HomePage = () => {
             <ContainerNG>
                 <div style={{padding: "0 10%"}}><Carousel autoplay>
                     {carouselCards.map(
-                        ({ backgroundImage, content }, index) => (
+                        ({ backgroundImage, content}, index) => (
                             <CaroselCard
                                 key={index}
                                 backgroundImage={backgroundImage}

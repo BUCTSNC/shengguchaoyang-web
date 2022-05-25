@@ -31,6 +31,7 @@ export default function CaroselCard(props: {
                 display: "flex",
                 justifyContent: "center",
             }}
+            
         >
             <div
                 ref={ref}
