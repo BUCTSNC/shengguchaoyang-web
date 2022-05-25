@@ -30,7 +30,7 @@ export const HomePage = () => {
         {
             backgroundImage: JXL,
             content: (
-                <div onClick={() => history.push("/")} style={{width:'100%',height:'100%'}}>
+                <div onClick={() => history.push("/")} style={{width:'100%',height:'100%',cursor:'pointer'}}>
                     {/* <h1>胜古朝阳</h1> */}
                 </div>
             ),
