@@ -43,7 +43,7 @@ export default function Links() {
             });
     }, []);
     return (
-        <div>
+        <div style={{ paddingTop: 24 }}>
             <div>
                 <div className="indexTitle">校内网站导航</div>
                 <div
