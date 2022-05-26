@@ -88,8 +88,8 @@ export function loadHotList() {
 // }
 
 export function getVisitedCount(url: string) {
-    if (encodeURI(url) in visitedLog) {
-        return visitedLog[url];
+    if (decodeURI(url).replace("post/", "") in visitedLog) {
+        return visitedLog[decodeURI(url).replace("post/", "")];
     } else {
         return 0;
     }
