@@ -26,34 +26,35 @@ export default function Bottom() {
     // console.log(size.height, size.width);
     return (
         <div className="bottomBox">
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    flexWrap: "wrap",
-                    minWidth: "40%",
-                    justifyContent: "center",
-                }}
-            >
-                <div style={{ margin: "0 1em" }}>
-                    <img src={BUCTlogo} width="150em" />
+            <div className="bottomContentBox">
+                <div className="bottomLeftLogos"
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                        minWidth: "40%",
+                        justifyContent: "center",
+                    }}
+                >
+                    <div style={{ margin: "0 1em" }}>
+                        <img src={BUCTlogo} width="150em" />
+                    </div>
+                    <div style={{ margin: "0 1em" }}>
+                        <img src={SNClogo} width="150em" />
+                    </div>
                 </div>
-                <div style={{ margin: "0 1em" }}>
-                    <img src={SNClogo} width="150em" />
+                <div className="bottomMediumText" style={{ textAlign: "center", minWidth: "40%" }}>
+                    <div>
+                        Copyright &copy; {new Date().getFullYear()} SNC All Right
+                        Reversed
+                    </div>
+                    <div className="text">
+                        地址：北京市朝阳区北三环东路15号北京化工大学
+                    </div>
+                    {/* <div className='text'>邮编：100029 联系我们|010-88888888</div> */}
                 </div>
-            </div>
-            <div style={{ textAlign: "center", minWidth: "40%" }}>
-                <div>
-                    Copyright &copy; {new Date().getFullYear()} SNC All Right
-                    Reversed
-                </div>
-                <div className="text">
-                    地址：北京市朝阳区北三环东路15号北京化工大学
-                </div>
-                {/* <div className='text'>邮编：100029 联系我们|010-88888888</div> */}
-            </div>
-            {size.height / size.width >= 1 ? null : (
+                {size.height / size.width >= 1 ? null : (
                 <div className="wechatMap">
                     <div className="wechatIcon">
                         <img src={wechat} height="25rem"></img>
@@ -64,7 +65,9 @@ export default function Bottom() {
                         <img src={SNCQR} height="60rem" width="60rem"></img>
                     </div>
                 </div>
-            )}
+                )}
+            </div>
+            
         </div>
     );
 }
