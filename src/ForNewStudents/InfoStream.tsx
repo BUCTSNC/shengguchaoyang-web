@@ -7,7 +7,7 @@ import { getVisitedCount } from "../dm/hotList";
 export default function InfoStream() {
     const cateTree = useContext(CateTree);
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const list = cateTree.childCates.find(cate => cate.alias === "我是新生")!.childPosts
+    const list = cateTree.childCates.find(cate => cate.alias === "我是新生")?.childPosts??[]
     return (
         <div id="info-stream">
             {list.map((post, index) => (
