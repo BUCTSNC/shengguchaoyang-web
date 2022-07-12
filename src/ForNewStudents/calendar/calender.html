@@ -11,8 +11,8 @@
         .cldFrame {
             position: relative;
             width: 440px;
-            height: 420px;
-            margin: 50px auto;
+            margin-bottom: 50px ;
+            margin-left: 50px;
 
             background-color: rgba(255, 255, 255, 0);
 
@@ -22,28 +22,33 @@
             margin: 10px;
             position: absolute;
             width: 420px;
-            height: 420px;
             background-color: rgba(255, 255, 255, 0);
         }
 
         #top {
             position: relative;
-            height: 60px;
+            height: 40px;
             text-align: center;
             line-height: 60px;
         }
-
+        .curDate {
+            width: 30px;
+            height: 40px;
+            border-radius: 100%;
+            background-color: rgba(255, 163, 75, 1);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
         #topDate {
             font-size: 30px;
         }
 
         .curDate {
-            color: red;
+            color: rgba(239, 239, 239, 1);
             font-weight: bold;
         }
 
         .table {
-            height: 420px;
             background-color: rgba(255, 255, 255, 0);
         }
 
@@ -52,21 +57,23 @@
         }
 
         td {
-            height: 60px;
+            height: 40px;
             width: 60px;
             text-align: center;
             font-family: Simsun;
-            font-size: 20px;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px dashed #ddd;
+            font-size: 16px;
+            background-image: linear-gradient(to right, #ccc 0%, #ccc 50%, transparent 50%);
+            background-size: 20px 1px;
+            background-repeat: repeat-x;
             padding: 5px 15px;
+            color: rgba(239, 239, 239, 1);
         }
 
         #left,
         #right {
             position: absolute;
             width: 60px;
-            height: 60px;
+            height: 40px;
         }
 
         #left {
@@ -98,6 +105,13 @@
             background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%);
             background-blend-mode: normal;
             mix-blend-mode: normal;
+            border-radius: 10px
+        }
+
+        .time {
+            width: 300px;
+            height: 100px;
+            margin-top: 5px;
         }
 
         .studytime {
@@ -166,8 +180,43 @@
         }
 
         .weather {
-            margin-left: 300px;
-            margin-top: -66px;
+            border: 1em dashed ;
+            border-width:thin medium thick 10px;
+            border-radius: 15%;
+            color:aliceblue;
+            border-width:5px;
+            width: 287px;
+            height: 168px;
+            margin-top: -95px;
+            margin-left: 250px;
+        }
+        .now-condition{
+            width:120px;
+            height:21px;
+            color: aliceblue;
+        }
+        .position{
+            margin-left: 20px;
+            width:120px;
+            height:21px;
+            color: aliceblue;
+        }
+        .temperature{
+            width:93px;
+            height: 46px;
+            color: aliceblue;
+            margin-left: 90px;
+        }
+        .sky-condition{
+            color: aliceblue;
+            margin-left: 90px;
+            width:39px;
+            height: 16px;
+        }
+        .fly{
+            width: 87px;
+            height: 16px;
+            color: aliceblue;
         }
     </style>
 
@@ -175,27 +224,46 @@
 
 <body>
     <div class="underside">
-        <span class="studytime">
-            <span class="semester">
-                第3学期
-            </span><br>
-            <span class="week">
-                第1教学周
-            </span><br>
-            <span class="timespan">
-                <span class="left-Booktitle"> &lt&lt </span>
-                <span class="datatime">2022年7月1日</span>
-                <span class="right-Booktitle">>></span>
+        <div class="time">
+            <span class="studytime">
+                <span class="semester">
+                    第3学期
+                </span><br>
+                <span class="week">
+                    第1教学周
+                </span><br>
+                <span class="timespan">
+                    <span class="left-Booktitle"> &lt&lt </span>
+                    <span class="datatime">2022年7月1日</span>
+                    <span class="right-Booktitle">>></span>
+                </span>
             </span>
-        </span>
-
+        </div>
+        <div class="weather">
+            <span class="now-condition">
+                18:00当前天气情况
+            </span>
+            <span class="position">
+                北京市昌平区
+            </span><br>
+            <span class="temperature">
+                25℃
+            </span><br>
+            <span class="sky-condition">多云 </span><br>
+            <span class="fly">
+                南风: 3-4级
+            </span class="atmospheric-pressure">
+            <span>大气压: 101.1</span><br>
+            <span class="humidity">
+                相对湿度: 30%
+            </span>
+            <span clas="PM2.5">
+                PM2.5:61 优
+            </span>
+        </div>
         <!--setInterval实时显示时间-->
-    
-        <iframe class="weather"  name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=7" style="border:solid 1px #7ec8ea"
-          width="220" height="90" frameborder="0" marginwidth="70" marginheight="0" scrolling="no">
-        </iframe>
 
-        <div  class="cldFrame">
+        <div class="cldFrame">
             <div class="cldBody">
                 <table class="table">
                     <thead>
