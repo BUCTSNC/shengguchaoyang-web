@@ -237,6 +237,7 @@ td {
 
 .react-calendar__month-view__days {
     width: 100%;
+    color: rgba(239, 239, 239, 1);
     height: auto;
 }
 
@@ -252,6 +253,7 @@ td {
     color: rgba(239, 239, 239, 1);
     padding: 1.125em;
 }
+
 
 .react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend react-calendar__month-view__days__day--neighboringMonth {
     color: #000;
