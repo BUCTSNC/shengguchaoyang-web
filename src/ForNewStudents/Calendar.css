@@ -1,7 +1,7 @@
 .cldFrame {
-    position: relative;
-    width: 440px;
-    height: 420px;
+    position: fixed;
+    width: 50ex;
+    height: 60ex;
     margin: 50px auto;
 
     background-color: rgba(255, 255, 255, 0);
@@ -103,7 +103,7 @@ td {
     background-blend-mode: normal;
     mix-blend-mode: normal;
     color: rgba(239, 239, 239, 1);
-    font-size: 36px;
+    font-size: 3ex;
     font-weight: 700;
 }
 
@@ -115,7 +115,7 @@ td {
     background-blend-mode: normal;
     mix-blend-mode: normal;
     color: rgba(239, 239, 239, 1);
-    font-size: 36px;
+    font-size: 3ex;
     font-weight: 700;
 }
 
@@ -161,7 +161,7 @@ td {
 }
 
 .react-calendar {
-    width: 350px;
+    width: 370px;
     max-width: 100%;
     background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%);
     background-blend-mode: normal;
@@ -169,6 +169,11 @@ td {
     border: 1px solid #a0a096;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
+}
+
+.react-calendar__viewContainer {
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .react-calendar--doubleView {
@@ -205,18 +210,24 @@ td {
 }
 
 .react-calendar__navigation {
+    font-size: 10px;
+    position: relative;
     display: flex;
-    height: 44px;
+    height: 3em;
+    width: 16em;
     margin-bottom: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
 }
 
 .react-calendar__navigation button {
-    min-width: 44px;
-    background: none;
+    font-size: 1px;
+    min-width: 1ex;
+    background: rgba(239, 239, 239, 0.3);
 }
 
 .react-calendar__navigation button:disabled {
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
 }
 
 .react-calendar__navigation button:enabled:hover,
@@ -224,7 +235,13 @@ td {
     background-color: #e6e6e6;
 }
 
+.react-calendar__month-view__days {
+    width: 100%;
+    height: auto;
+}
+
 .react-calendar__month-view__weekdays {
+    width: 100%;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -232,7 +249,12 @@ td {
 }
 
 .react-calendar__month-view__weekdays__weekday {
-    padding: 0.5em;
+    color: rgba(239, 239, 239, 1);
+    padding: 1.125em;
+}
+
+.react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend react-calendar__month-view__days__day--neighboringMonth {
+    color: #000;
 }
 
 .react-calendar__month-view__weekNumbers .react-calendar__tile {
@@ -279,6 +301,7 @@ td {
 }
 
 .react-calendar__tile--now {
+    border-radius: 20px;
     background: #ffff76;
 }
 
