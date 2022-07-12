@@ -1,24 +1,25 @@
 import React from "react";
-import Calendar from "./Calendar";
+import MyCalendar from "./Calendar";
 
 export default function HeaderComponent() {
-    return <div id="new-students-header">
-        <HeaderImage />
-        <SearchBox />
-        <Timeline />
-        <Calendar />
-    </div>
+    return (
+        <div id="new-students-header">
+            <HeaderImage />
+            <SearchBox />
+            <Timeline />
+            <MyCalendar />
+        </div>
+    );
 }
 
 function HeaderImage() {
-    return null
+    return null;
 }
 
 function SearchBox() {
-    return null
+    return null;
 }
 
 function Timeline() {
-    return null
+    return null;
 }
-
