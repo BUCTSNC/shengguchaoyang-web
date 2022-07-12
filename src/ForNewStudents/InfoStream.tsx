@@ -3,7 +3,8 @@ import React from "react";
 import { useContext } from "react";
 import { CateTree } from "../App";
 import { getVisitedCount } from "../dm/hotList";
-// import { useNavigate} from 'react-router';
+// import { useNavigate} from 'react-router';//es6
+import { useHistory } from "react-router-dom";//es5
 // import "./bootstrap.min.css"
 
 export default function InfoStream() {
@@ -20,10 +21,12 @@ export default function InfoStream() {
 }
 
 function InfoCard(props: { post: PostProps }) {
+    const navi = useHistory()
     // const navi = useNavigate()
     const { post } = props;
-    return (
-        <div className="info-card" onClick={()=>{console.log("跳转具体界面")}}>
+    // console.log(post)
+    return (    
+        <div className="info-card" onClick={()=>{navi.push(`/post/${post.path}`);}}>
             <div className="info-card-title">
                 <span className="info-card-head-dot"></span>
                 <span className="info-card-head-text">{post.title}</span>
