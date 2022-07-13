@@ -13,6 +13,7 @@ function GetCurrentWeather() {
     } else {
         console.log(data.main.temp);
         return (
+            
             <div className="weather">
                 <span className="now-condition">
                     {moment(new Date()).format("HH:DD")}当前天气情况
@@ -20,7 +21,7 @@ function GetCurrentWeather() {
                 <span className="position">{"📍北京" + " " + "昌平区"}</span>
                 <br></br>
                 <span className="temperature">
-                    {"🌡" + data.main.temp + "℃"}
+                    { data.main.temp + "℃"}
                 </span>
                 <br></br>
                 <span className="sky-condition">
@@ -35,8 +36,9 @@ function GetCurrentWeather() {
                 <span className="humidity">
                     相对湿度: {data.main.humidity}%
                 </span>
-                <span className="PM2.5">PM2.5:61 优</span>
+                <span className="PM25">PM2.5:61 优</span>
             </div>
+           
         );
     }
 }

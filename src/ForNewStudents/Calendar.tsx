@@ -60,7 +60,9 @@ export default function MyCalendar() {
     const [value, onChange] = useState(new Date());
     return (
         <>
+        <div className="underside">
             <GetCurrentWeather />
+        <div className="studytime1">
             <span className="studytime">
                 <span className="semester">第3学期</span>
                 <br></br>
@@ -71,7 +73,9 @@ export default function MyCalendar() {
                     <span className="datatime">2022年7月1日</span>
                     <span className="right-Booktitle">{"<<"};</span>
                 </span> */}
+            
             </span>
+            </div>
             <div className="cldflame">
                 <Calendar
                     onChange={onChange}
@@ -89,6 +93,7 @@ export default function MyCalendar() {
                     minDetail={"month"}
                     onClickDay={undefined}
                 />
+            </div>
             </div>
         </>
     );
