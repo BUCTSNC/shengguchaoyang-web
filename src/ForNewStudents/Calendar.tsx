@@ -2,6 +2,7 @@ import Calendar from "react-calendar";
 import "./Calendar.css";
 import React, { useState } from "react";
 import moment from "moment";
+import GetCurrentWeather from "../components/getCurrentWeather";
 
 // 天气api doc https://openweathermap.org/current
 //返回昌平区json
@@ -59,6 +60,7 @@ export default function MyCalendar() {
     const [value, onChange] = useState(new Date());
     return (
         <>
+            <GetCurrentWeather />
             <span className="studytime">
                 <span className="semester">第3学期</span>
                 <br></br>
