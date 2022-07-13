@@ -87,7 +87,7 @@ function GetCurrentWeather() {
                 <br></br>
                 <span className="fly">南风: 3-4级</span>
                 <span className="atmospheric-pressure">
-                    大气压: {data.main.pressure}hpa
+                    大气压: {data.main.grnd_level}hpa
                 </span>
                 <br></br>
                 <span className="humidity">
