@@ -3,7 +3,7 @@
     width: 50ex;
     height: 60ex;
     margin: 50px auto;
-
+    max-width: 555px;
     background-color: rgba(255, 255, 255, 0);
 
 }
