@@ -11,7 +11,7 @@
 
 .underside {
     width: 450px;
-    height: 452px;
+    height: 550px;
     background-blend-mode: normal;
     mix-blend-mode: normal;
     background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%);
@@ -237,7 +237,7 @@ td {
 }
 
 .react-calendar__navigation button {
-    font-size: 1px;
+    font-size: 10px;
     min-width: 1ex;
     background: rgba(239, 239, 239, 0.3);
 }
@@ -293,7 +293,7 @@ td {
 
 .react-calendar__month-view__days__day--neighboringMonth {
     color: rgba(239, 239, 239, 1);
-
+    filter: opacity(50%);
 }
 
 .react-calendar__year-view .react-calendar__tile,
