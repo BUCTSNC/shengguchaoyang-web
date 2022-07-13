@@ -218,6 +218,7 @@ td {
     border: 0;
     outline: none;
     aspect-ratio: 1/1;
+    pointer-events: none;
 }
 
 .react-calendar button:enabled:hover {
@@ -422,7 +423,7 @@ td {
     color: rgba(255, 255, 255, 1);
     font-size: 14px;
     font-weight: 500;
-    margin-left: 70px;
+    margin-left: 50px;
 }
 
 .PM25 {
