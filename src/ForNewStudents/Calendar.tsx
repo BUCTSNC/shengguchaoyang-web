@@ -12,6 +12,9 @@ import GetCurrentWeather from "../components/getCurrentWeather";
 
 export default function MyCalendar() {
     const [value, onChange] = useState(new Date());
+    const theFirstDayOfSchool = moment("20220701", "YYYYMMDD");
+    //手动设置学期起点
+    console.log(moment().diff(moment("20220701", "YYYYMMDD"), "weeks"));
     return (
         <>
             <div className="underside">
@@ -24,7 +27,10 @@ export default function MyCalendar() {
                     <span className="studytime">
                         <span className="semester">第3学期</span>
                         <br></br>
-                        <span className="week">第1教学周</span>
+                        <span className="week">
+                            第{moment().diff(theFirstDayOfSchool, "weeks") + 1}
+                            教学周
+                        </span>
                         <br></br>
                         {/* <span className="timespan">
                     <span className="left-Booktitle"> &lt&lt </span>
