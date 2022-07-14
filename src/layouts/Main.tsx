@@ -6,15 +6,15 @@ import HomePage from "../HomePage";
 import NotFound from "../NotFoundPage";
 import Post from "../PostPage";
 import ForNewStudents from "../ForNewStudents";
+import SearchPage from "../SearchPage";
 import "./Main.css";
 
 export function Main() {
-    const history = useHistory();
     return (
         <div className="main">
-            <div onClick={() => history.push("for-new-students")}>我是新生</div>
             <Switch>
                 <Route path="/" exact component={HomePage} />
+                <Route path="/search" exact component={SearchPage} />
                 <Route path="/for-new-students" exact component={ForNewStudents} />
                 <Route path="/post/:postUrl*" component={Post} />
                 <Route path="/cate/:category*" component={CategoryPage} />
