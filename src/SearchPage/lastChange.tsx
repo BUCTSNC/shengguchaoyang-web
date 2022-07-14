@@ -19,7 +19,7 @@ export default function LastChange(){
                     title="浏览榜单"
                     icon={<Fire theme="outline" size="24" fill="#ddd" />}
                     iconpath="/hotIcon"
-                    PostListSea={posts
+                    posts={posts
                         .map((post) => {
                             return {
                                 ...post,

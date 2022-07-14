@@ -23,7 +23,7 @@ function HeaderImage() {
         <div>
             {isMobile() ? (
                 <img
-                    src="public\carouseImg\JXUl.png"
+                    src={Background}
                     style={{
                         width: "100%",
                     }}
