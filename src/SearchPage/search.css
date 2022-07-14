@@ -1,0 +1,278 @@
+
+@media screen and (min-width: 1000px) {
+
+    #left_self,
+    #right_self {
+        width: 230px;
+    }
+
+    #left_self {
+        float: left;
+        position: fixed;
+        top: 45px;
+        left: 50px;
+    }
+
+    #right_self {
+        float: right;
+        position: fixed;
+        top: 70px;
+        right: 40px;
+    }
+
+    #center_self {
+        margin: 0 270px;
+        background-color: #f5f6f7;
+        border-top: 1px solid #f5f6f7;
+        border-bottom: 1px solid #f5f6f7;
+    }
+    .searchInput {
+        height: 52px;
+    
+        margin: auto;
+        background-color: rgba(68, 112, 245, 0.2);
+        border-radius: 24px;
+        margin: 15px 120px;
+    }
+    .input {
+        margin: auto;
+        margin-left: 24px;
+        margin-right: 24px;
+        height: 52px;
+        outline: none;
+        border: none;
+        background-color: rgba(68, 112, 245, 0);
+        font-size: 20px;
+        color: rgba(112, 112, 112, 1);
+    
+    }
+    .spanMeta {
+       
+        
+        
+        margin: 0 120px;
+        
+    }
+    .postcards{
+        margin-right: 120px;
+        margin-left: 80px;
+
+    }
+    .postcard{
+        border: 1px solid rgba(21, 113, 194, 1);
+        border-radius: 7px;
+       margin-top: 13px;
+       padding: 10px;
+    }
+    .list{
+       list-style-type: none;
+    }
+    .parent{
+        list-style-type: none;
+        width: 100%;
+     
+     display:grid;
+        grid-template-columns: repeat(5,1fr );
+        gap: 8px;
+     /* flex-flow: row wrap;
+     align-content:center ;
+     justify-content: space-between; */
+     /* justify-items: ; */
+    }
+    .tagcard{
+        background-color: rgba(68, 112, 245, 0.39);
+        border-radius: 6px;
+       
+        padding:8px;
+        
+        text-align: center;
+    
+        /* box-sizing: border-box;
+     
+     flex: 0 0 16.5%;
+     height: 50px; */
+     
+     /* border: 1px solid rgba(68, 112, 245, 0);
+        background-color: rgba(68, 112, 245, 0.39); */
+    }
+    
+}
+
+@media screen and (max-width: 1000px) {
+
+
+
+    #left_self {
+        display: none
+    }
+
+    #right_self {
+        display: none;
+    }
+
+    #center_self {
+        margin: 0 60px;
+        background-color: #f5f6f7;
+        border-top: 1px solid #f5f6f7;
+        border-bottom: 1px solid #f5f6f7;
+    }
+    .searchInput {
+        height: 52px;
+    
+        margin: auto;
+        background-color: rgba(68, 112, 245, 0.2);
+        border-radius: 24px;
+        margin: 15px 50px;
+    }
+    .input {
+        margin: auto;
+        margin-left: 24px;
+        margin-right: 24px;
+        height: 52px;
+        outline: none;
+        border: none;
+        background-color: rgba(68, 112, 245, 0);
+        font-size: 20px;
+        color: rgba(112, 112, 112, 1);
+    
+    }
+    
+    .spanMeta {
+        
+        /* background-color: blue; */
+        margin: 15px 50px;
+    }
+    .postcards{
+        margin-right: 50px;
+        margin-left: 10px;
+
+    }
+    .postcard{
+        border: 1px solid rgba(21, 113, 194, 1);
+        border-radius: 7px;
+       margin-top: 13px;
+       padding: 10px;
+    }
+    .list{
+       list-style-type: none;
+    }
+    .parent{
+        list-style-type: none;
+        width: 100%;
+     
+     display:grid;
+        grid-template-columns: repeat(5,1fr );
+        gap: 8px;
+     /* flex-flow: row wrap;
+     align-content:center ;
+     justify-content: space-between; */
+     /* justify-items: ; */
+    }
+    .tagcard{
+        background-color: rgba(68, 112, 245, 0.39);
+        border-radius: 6px;
+       
+        padding:8px;
+        
+        text-align: center;
+    
+        /* box-sizing: border-box;
+     
+     flex: 0 0 16.5%;
+     height: 50px; */
+     
+     /* border: 1px solid rgba(68, 112, 245, 0);
+        background-color: rgba(68, 112, 245, 0.39); */
+    }
+    
+}
+@media screen and (max-width: 560px) {
+
+
+
+    #left_self {
+        display: none
+    }
+
+    #right_self {
+        display: none;
+    }
+
+    #center_self {
+        margin: 0 20px;
+        background-color: #f5f6f7;
+        border-top: 1px solid #f5f6f7;
+        border-bottom: 1px solid #f5f6f7;
+    }
+    .searchInput {
+        height: 52px;
+    
+        margin: auto;
+        background-color: rgba(68, 112, 245, 0.2);
+        border-radius: 24px;
+        margin: 15px 50px;
+    }
+    .input {
+        margin: auto;
+        margin-left: 24px;
+        margin-right: 24px;
+        height: 52px;
+        outline: none;
+        border: none;
+        background-color: rgba(68, 112, 245, 0);
+        font-size: 20px;
+        color: rgba(112, 112, 112, 1);
+    
+    }
+    
+    .spanMeta {
+        
+        /* background-color: blue; */
+        margin: 15px 50px;
+    }
+    .postcards{
+        margin-right: 50px;
+        margin-left: 10px;
+
+    }
+    .postcard{
+        border: 1px solid rgba(21, 113, 194, 1);
+        border-radius: 7px;
+       margin-top: 13px;
+       padding: 10px;
+    }
+    .list{
+       list-style-type: none;
+    }
+    
+    .parent{
+        list-style-type: none;
+        width: 100%;
+     
+     display:grid;
+        grid-template-columns: repeat(3,1fr );
+        gap: 8px;
+     /* flex-flow: row wrap;
+     align-content:center ;
+     justify-content: space-between; */
+     /* justify-items: ; */
+    }
+    .tagcard{
+        background-color: rgba(68, 112, 245, 0.39);
+        border-radius: 6px;
+       
+        padding:8px;
+        
+        text-align: center;
+    
+        /* box-sizing: border-box;
+     
+     flex: 0 0 16.5%;
+     height: 50px; */
+     
+     /* border: 1px solid rgba(68, 112, 245, 0);
+        background-color: rgba(68, 112, 245, 0.39); */
+    }
+}
+
+

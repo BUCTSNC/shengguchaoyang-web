@@ -204,7 +204,12 @@ function CategoryBar() {
                 title="首页"
                 actived={location.pathname === "/"}
             />
-            {categories.map((cate) => (
+            <CateItem
+                path="/for-new-students"
+                title="我是新生"
+                actived={location.pathname === "/for-new-students"}
+            />
+            {categories.filter((cate)=>cate.alias!=="我是新生").map((cate) => (
                 <CateItem
                     key={cate.path}
                     path={`/cate/${cate.path}`}
