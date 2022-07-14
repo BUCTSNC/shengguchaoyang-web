@@ -1,10 +1,7 @@
-import Item from "antd/lib/list/Item";
-import { identity, isNull, values } from "lodash";
+import { isNull } from "lodash";
 import moment from "moment";
 import React, { useState } from "react";
 import CurrentWeather from "./CurrentWeather";
-import { WeatherInfo } from "./CurrentWeather";
-
 function GetCurrentWeather() {
     const data = CurrentWeather();
     if (data === null) {
@@ -154,7 +151,8 @@ function GetCurrentWeather() {
         return (
             <div className="weather">
                 <span className="now-condition">
-                    {moment(new Date()).format("HH:DD")}当前天气情况
+                    {moment().format("HH:DD")}
+                    当前天气情况
                 </span>
                 <span className="position">{"📍北京" + " " + "昌平区"}</span>
                 <br></br>
@@ -175,11 +173,14 @@ function GetCurrentWeather() {
                     : 3-4级
                 </span>
                 <span className="atmospheric-pressure">
-                    大气压: {data.main.pressure}
+                    大气压:{" "}
+                    {isNull(data.main.grnd_level) ? "--" : data.main.grnd_level}
+                    hpa
                 </span>
                 <br></br>
                 <span className="humidity">
-                    相对湿度: {data.main.humidity}%
+                    相对湿度:{" "}
+                    {isNull(data.main.humidity) ? "--" : data.main.humidity}%
                 </span>
                 <span className="PM25">PM2.5:61 优</span>
             </div>
