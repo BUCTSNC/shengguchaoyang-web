@@ -1,3 +1,4 @@
+import { isNull } from "lodash";
 import moment from "moment";
 import React, { useState } from "react";
 import CurrentWeather from "./CurrentWeather";
@@ -139,7 +140,9 @@ function GetCurrentWeather() {
                 </span>
                 <span className="position">{"📍北京" + " " + "昌平区"}</span>
                 <br></br>
-                <span className="temperature">{data.main.temp + "℃"}</span>
+                <span className="temperature">
+                    {isNull(data.main.temp) ? "--" : data.main.temp + "℃"}
+                </span>
                 <br></br>
                 <span className="sky-condition">
                     <i className={WeatherIcon(data.weather[0].id)}></i>
@@ -149,11 +152,14 @@ function GetCurrentWeather() {
                 <br></br>
                 <span className="fly">南风: 3-4级</span>
                 <span className="atmospheric-pressure">
-                    大气压: {data.main.grnd_level}hpa
+                    大气压:{" "}
+                    {isNull(data.main.grnd_level) ? "--" : data.main.grnd_level}
+                    hpa
                 </span>
                 <br></br>
                 <span className="humidity">
-                    相对湿度: {data.main.humidity}%
+                    相对湿度:{" "}
+                    {isNull(data.main.humidity) ? "--" : data.main.humidity}%
                 </span>
                 <span className="PM25">PM2.5:61 优</span>
             </div>
