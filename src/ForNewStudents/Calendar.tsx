@@ -50,7 +50,7 @@ export default function MyCalendar() {
                         prev2Label={null}
                         nextLabel={">>"}
                         next2Label={null}
-                        navigationLabel={({}) =>
+                        navigationLabel={() =>
                             ` ${moment().format("YYYY年M月D日")}`
                         }
                         minDetail={"month"}
