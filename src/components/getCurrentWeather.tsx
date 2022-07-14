@@ -158,18 +158,16 @@ function GetCurrentWeather() {
                 </span>
                 <span className="position">{"📍北京" + " " + "昌平区"}</span>
                 <br></br>
-                <span className="temperature">
+                <p className="temperature">
                     {isNull(data.main.temp)
                         ? "--"
                         : data.main.temp.toFixed(1) + "℃"}
-                </span>
-                <br></br>
-                <span className="sky-condition">
+                </p>
+                <p className="sky-condition">
                     <i className={WeatherIcon(data.weather[0].id)}></i>
                     {/* {WeatherIcon(data.weather[0].id) + */}
                     {data.weather[0].description}
-                </span>
-                <br></br>
+                </p>
                 <span className="fly">
                     {isNull(data.wind.deg)
                         ? "--"
