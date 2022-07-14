@@ -172,8 +172,7 @@ td {
     max-width: 100%;
     margin-left: 13px;
     /* background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%); */
-    background-blend-mode: normal;
-    mix-blend-mode: normal;
+    
     /* background-image: linear-gradient(to right, #ccc 0%, #ccc 50%, transparent 50%);
     background-size: 20px 1px;
     background-repeat: repeat-x; */
@@ -231,7 +230,7 @@ td {
 }
 
 .react-calendar__navigation button {
-    font-size: 1px;
+    font-size: 13px;
     min-width: 1ex;
     background: rgba(239, 239, 239, 0.3);
 }
@@ -314,16 +313,19 @@ td {
 
 .react-calendar__tile:disabled {
     background-color: #f0f0f0;
+    
 }
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
     background-color: #e6e6e6;
+    
 }
 
 .react-calendar__tile--now {
     border-radius: 20px;
     background: #ffff76;
+    
 }
 
 .react-calendar__tile--now:enabled:hover,
@@ -373,6 +375,7 @@ color: rgba(239, 239, 239, 1);
 font-size: 14px;
 font-weight: 500;
 margin-left: 10px;
+align-items:center;
 }
 .temperature{
     left: 20px;
@@ -384,7 +387,8 @@ font-size: 32px;
 font-weight: 500;
 margin-left: 35px;
 align-items: center;
-
+margin:0px auto;
+text-align: center;
 }
 .sky-condition{
 
@@ -396,6 +400,8 @@ height: 16px;
 color: rgba(239, 239, 239, 1);
 font-size: 16px;
 font-weight: 500;
+align-items:center;
+text-align: center;
 }
 .fly{
     left: 33px;

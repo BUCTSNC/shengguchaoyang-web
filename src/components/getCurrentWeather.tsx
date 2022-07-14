@@ -20,14 +20,16 @@ function GetCurrentWeather() {
                 </span>
                 <span className="position">{"📍北京" + " " + "昌平区"}</span>
                 <br></br>
-                <span className="temperature">
+                
+                
+                    <p className="temperature">
                     { data.main.temp + "℃"}
-                </span>
-                <br></br>
-                <span className="sky-condition">
+                    </p >
+                    
+                    <p className="sky-condition">
                     {data.weather[0].description}
-                </span>
-                <br></br>
+                    </p>
+                    
                 <span className="fly">南风: 3-4级</span>
                 <span className="atmospheric-pressure">
                     大气压: {data.main.pressure}
