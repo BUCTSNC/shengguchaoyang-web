@@ -2,7 +2,6 @@
     position: relative;
     margin-top: 100px;
     width: 424px;
-    height: 290px;
     max-width: 100%;
     margin-left: 13px;
     background-color: rgba(255, 255, 255, 0);
@@ -11,8 +10,8 @@
 
 .underside {
     width: 450px;
-    height: 550px;
     background-blend-mode: normal;
+    padding-top: 5px;
     mix-blend-mode: normal;
     background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%);
     background-blend-mode: normal;
@@ -171,8 +170,6 @@ td {
 
 .react-calendar {
     margin-top: 20px;
-    width: 424px;
-    height: 290px;
     max-width: 100%;
     margin-left: 13px;
     /* background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%); */
@@ -218,7 +215,7 @@ td {
     border: 0;
     outline: none;
     aspect-ratio: 1/1;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .react-calendar button:enabled:hover {
@@ -237,7 +234,7 @@ td {
 }
 
 .react-calendar__navigation button {
-    font-size: 10px;
+    font-size: 12px;
     min-width: 1ex;
     background: rgba(239, 239, 239, 0.3);
 }
@@ -386,14 +383,14 @@ td {
     color: rgba(239, 239, 239, 1);
     font-size: 32px;
     font-weight: 500;
-    margin-left: 35px;
+    margin-left: 60px;
     align-items: center;
 
 }
 
 .sky-condition {
 
-    margin-left: 110px;
+    margin-left: 70px;
     left: 44px;
     top: 3px;
     width: 39px;

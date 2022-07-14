@@ -68,7 +68,7 @@ function GetCurrentWeather() {
             ];
             const [emoji] = useState(iconList);
             //console.log(emoji.filter((e) => e.icon == id));
-            return emoji.filter((e) => e.icon == id)[0].emoji;
+            return emoji.find((e) => e.icon == id)?.emoji ?? "☀";
         }
         return (
             <div className="weather">
