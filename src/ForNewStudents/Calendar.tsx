@@ -15,6 +15,10 @@ export default function MyCalendar() {
     return (
         <>
             <div className="underside">
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/qweather-icons@1.1.1/font/qweather-icons.css"
+                ></link>
                 <GetCurrentWeather />
                 <div className="studytime1">
                     <span className="studytime">
