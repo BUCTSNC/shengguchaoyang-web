@@ -1,14 +1,19 @@
+.info-stream-column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .info-card {
     background-color: white;
-    min-width: 256px;
-    max-width: 20vw;
-    /* margin: 20px; */
+    width: 100%;
     padding-top: 8px;
     padding-bottom: 8px;
     margin-bottom: 16px;
     border-radius: 12px;
     box-shadow: 0 0 16px #888888;
 }
+
 .info-card-head-dot{
     display:inline-block;
     border-radius: 50%;
@@ -72,54 +77,25 @@ a{
     #info-stream {
         padding-top: 3rem;
         padding-bottom: 3rem;
-        width: 1200px;
-        margin: 0 auto;
-        column-count:3;
-        -moz-column-count:3; /* Firefox */
-        -webkit-column-count:3; /* Safari and Chrome */
-        column-gap: 5rem;/* 设置左右间距 */
-        /* display: grid;
-        grid-template-columns: repeat(3, 24vw);
-        justify-content: center; */
+        margin: 0 64px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 64px;
     }
-    .info-card{
-        /* 处理column-count内容被截断 */
-        height: 100%;
-        overflow: auto;
-        /* 设置margin可能会导致顶部不对齐 */
-    }
-
 }
-/* 处理缩小页面后部分界面被覆盖 */
-/* @media only screen and (max-width: 1200px){
-    #info-stream{
-        column-gap: 2rem;
-    }
-} */
+
 @media only screen and (max-width: 767px) {
     #info-stream {
-        width: 360px;
         margin: 0 auto;
         padding-top: 1rem;
         padding-bottom: 1rem;
-        column-count:2;
-        -moz-column-count:2; /* Firefox */
-        -webkit-column-count:2; /* Safari and Chrome */
-        column-gap: 1.4rem;/* 设置左右间距 */
+        margin: 0 16px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
     .info-card {
-        background-color: white;
-        min-width: 168px;
-        max-width: 20vw;
-        /* margin: 20px; */
-        padding-top: 8px;
-        padding-bottom: 8px;
         border-radius: 4px;
-        box-shadow: 0 0 16px #888888;
-        /* 处理column-count内容被截断 */
-        height: 100%;
-        overflow: auto;
-        /* 设置margin可能会导致顶部不对齐 */
     }
     .info-card-head-dot{
         display:inline-block;
