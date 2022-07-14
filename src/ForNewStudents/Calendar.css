@@ -254,6 +254,8 @@ td {
 
 .react-calendar__month-view__weekdays {
     width: 100%;
+    margin-top: 3px;
+    margin-bottom: 2px;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -392,10 +394,10 @@ td {
 
 .sky-condition {
 
-    margin-left: 110px;
+    margin-left: 20px;
     left: 44px;
     top: 3px;
-    width: 39px;
+    width: 200px;
     height: 16px;
     color: rgba(239, 239, 239, 1);
     font-size: 16px;
@@ -412,7 +414,7 @@ td {
     color: rgba(255, 255, 255, 1);
     font-size: 14px;
     font-weight: 500;
-    margin-left: 10px;
+    margin-left: 5px;
 
 }
 
@@ -424,7 +426,7 @@ td {
     color: rgba(255, 255, 255, 1);
     font-size: 14px;
     font-weight: 500;
-    margin-left: 70px;
+    margin-left: 35px;
 }
 
 .PM25 {
@@ -435,7 +437,7 @@ td {
     color: rgba(255, 255, 255, 1);
     font-size: 14px;
     font-weight: 500;
-    margin-left: 48px;
+    margin-left: 25px;
 }
 
 .humidity {
@@ -446,7 +448,7 @@ td {
     color: rgba(255, 255, 255, 1);
     font-size: 14px;
     font-weight: 500;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .weather {

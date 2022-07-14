@@ -167,6 +167,7 @@ function GetCurrentWeather() {
                     {data.weather[0].description}
                 </p>
                 <span className="fly">
+                    <i className="qi-coastal-event"></i>
                     {isNull(data.wind.deg)
                         ? "--"
                         : windDirection(data.wind.deg)}
@@ -179,10 +180,12 @@ function GetCurrentWeather() {
                 </span>
                 <br></br>
                 <span className="humidity">
-                    相对湿度:{" "}
+                    <i className="qi-low-humidity"></i>相对湿度:{" "}
                     {isNull(data.main.humidity) ? "--" : data.main.humidity}%
                 </span>
-                <span className="PM25">PM2.5:61 优</span>
+                <span className="PM25">
+                    <i className="qi-spring-dust"></i>PM2.5:61 优
+                </span>
             </div>
         );
     }
