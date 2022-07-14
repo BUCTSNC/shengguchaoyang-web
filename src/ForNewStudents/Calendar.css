@@ -258,6 +258,8 @@ td {
 
 .react-calendar__month-view__weekdays {
     width: 100%;
+    margin-top: 3px;
+    margin-bottom: 2px;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -428,7 +430,7 @@ td {
     color: rgba(255, 255, 255, 1);
     font-size: 14px;
     font-weight: 500;
-    margin-left: 70px;
+    margin-left: 45px;
 }
 
 .PM25 {
