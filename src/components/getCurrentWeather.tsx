@@ -26,10 +26,11 @@ function GetCurrentWeather() {
                     { data.main.temp + "℃"}
                     </p >
                     
+
                     <p className="sky-condition">
                     {data.weather[0].description}
                     </p>
-                    
+                
                 <span className="fly">南风: 3-4级</span>
                 <span className="atmospheric-pressure">
                     大气压: {data.main.pressure}

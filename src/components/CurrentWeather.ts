@@ -25,7 +25,7 @@ type main = {
     pressure: number|null;
     humidity: number|null;
     sea_level: number;
-    grnd_level: number;
+    grnd_level: number|null;
 };
 
 type wind = {
@@ -88,7 +88,7 @@ export default function CurrentWeather(): WeatherInfo {
             pressure: null,
             humidity: null,
             sea_level: 1005,
-            grnd_level: 997,
+            grnd_level: null,
         },
         visibility: 10000,
         wind: {
