@@ -1,0 +1,466 @@
+.cldFrame {
+    position: relative;
+    margin-top: 100px;
+    width: 424px;
+    height: 290px;
+    max-width: 100%;
+    margin-left: 13px;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+
+.underside {
+    width: 450px;
+    height: 452px;
+    background-blend-mode: normal;
+    mix-blend-mode: normal;
+    background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%);
+    background-blend-mode: normal;
+    mix-blend-mode: normal;
+    border-radius: 10px
+}
+
+
+
+.cldBody {
+    margin: 10px;
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#top {
+    position: relative;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+
+#topDate {
+    font-size: 30px;
+}
+
+.curDate {
+    color: rgb(255, 249, 249);
+    font-weight: bold;
+}
+
+.table {
+    height: 420px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#week td {
+    font-size: 15px;
+}
+
+td {
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    font-family: Simsun;
+    font-size: 20px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px dashed #ddd;
+    padding: 5px 15px;
+}
+
+#left,
+#right {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+
+#left {
+    left: 0px;
+}
+
+#right {
+    right: 0px;
+}
+
+#left:hover,
+#right:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.v {
+    border-collapse: collapse
+}
+
+.v td {
+    border: 1px dashed #000;
+    width: 100;
+    height: 25
+}
+
+
+.studytime1 {
+    margin-top: -140px;
+
+}
+
+.studytime {
+    width: 80px;
+    height: 50px;
+    margin-top: -66px;
+}
+
+.semester {
+    margin-top: 10px;
+    margin-left: 16px;
+    width: 138px;
+    height: 53px;
+    background-blend-mode: normal;
+    mix-blend-mode: normal;
+    color: rgba(239, 239, 239, 1);
+    font-size: 31px;
+    font-weight: 700;
+}
+
+.week {
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 100px;
+    height: 53px;
+    background-blend-mode: normal;
+    mix-blend-mode: normal;
+    color: rgba(239, 239, 239, 1);
+    font-size: 31px;
+    font-weight: 700;
+}
+
+.timespan {
+    margin-top: 20px;
+    margin-left: 14px;
+    width: 192px;
+    height: 37px;
+    background: rgba(239, 239, 239, 0.3);
+}
+
+.left-Booktitle {
+    margin-top: 20px;
+    margin-left: 14px;
+    width: 25px;
+    height: 25px;
+    background: rgba(239, 239, 239, 0.01);
+    color: aliceblue
+}
+
+.right-Booktitle {
+    margin-top: 20px;
+    margin-left: 14px;
+    width: 25px;
+    height: 25px;
+    background: rgba(239, 239, 239, 0.01);
+    color: aliceblue
+}
+
+.datatime {
+    margin-top: 20px;
+    margin-left: 14px;
+    width: 116px;
+    height: 37px;
+    color: rgba(239, 239, 239, 1);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.react-calendar {
+    margin-top: 20px;
+    width: 424px;
+    height: 290px;
+    max-width: 100%;
+    margin-left: 13px;
+    /* background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%); */
+
+    /* background-image: linear-gradient(to right, #ccc 0%, #ccc 50%, transparent 50%);
+    background-size: 20px 1px;
+    background-repeat: repeat-x; */
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+}
+
+.react-calendar__viewContainer {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.react-calendar--doubleView {
+    width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer>* {
+    width: 50%;
+    margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+}
+
+.react-calendar button:enabled:hover {
+    cursor: pointer;
+}
+
+.react-calendar__navigation {
+    font-size: 10px;
+    position: relative;
+    display: flex;
+    height: 3em;
+    width: 16em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.react-calendar__navigation button {
+    font-size: 13px;
+    min-width: 1ex;
+    background: rgba(239, 239, 239, 0.3);
+}
+
+.react-calendar__navigation button:disabled {
+    /* background-color: #f0f0f0; */
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background-color: #e6e6e6;
+}
+
+.react-calendar__month-view__days {
+    width: 100%;
+    color: rgba(239, 239, 239, 1);
+    height: auto;
+
+}
+
+.react-calendar__month-view__weekdays {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75em;
+
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    color: rgba(239, 239, 239, 1);
+    padding: 1.125em;
+}
+
+
+.react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend react-calendar__month-view__days__day--neighboringMonth {
+    color: #000;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: bold;
+
+}
+
+.react-calendar__tile react-calendar__month-view__days__day {
+    color: rgba(239, 239, 239, 1);
+
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: rgba(239, 239, 239, 1);
+
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    color: rgba(239, 239, 239, 1);
+
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+    max-width: 100%;
+    padding: 10px 6.6667px;
+    background: none;
+    text-align: center;
+    line-height: 16px;
+    background-image: linear-gradient(to right, #ccc 0%, #ccc 50%, transparent 50%);
+    background-size: 20px 1px;
+    background-repeat: repeat-x;
+}
+
+.react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #e6e6e6;
+
+}
+
+.react-calendar__tile--now {
+    border-radius: 20px;
+    background: #ffff76;
+
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+    background: #ffffa9;
+}
+
+.react-calendar__tile--hasActive {
+    background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+    background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+    border-radius: 20px;
+    background: rgba(255, 163, 75, 1);
+    color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background: rgba(255, 163, 75, 1);
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+}
+
+.now-condition {
+    left: 0px;
+    top: -1px;
+    width: 121px;
+    height: 21px;
+    color: rgba(239, 239, 239, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.position {
+    left: 24px;
+    top: 0px;
+    width: 80px;
+    height: 21px;
+    color: rgba(239, 239, 239, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.temperature {
+    left: 20px;
+    top: 0px;
+    width: 93px;
+    height: 46px;
+    color: rgba(239, 239, 239, 1);
+    font-size: 32px;
+    font-weight: 500;
+    margin-left: 35px;
+    align-items: center;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.sky-condition {
+
+    margin-left: 110px;
+    left: 44px;
+    top: 3px;
+    width: 39px;
+    height: 16px;
+    color: rgba(239, 239, 239, 1);
+    font-size: 16px;
+    font-weight: 500;
+    align-items: center;
+    text-align: center;
+}
+
+.fly {
+    left: 33px;
+    top: 2px;
+    width: 87px;
+    height: 16px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+
+}
+
+.atmospheric-pressure {
+    left: 33px;
+    top: 2px;
+    width: 87px;
+    height: 16px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 70px;
+}
+
+.PM25 {
+    left: 33px;
+    top: 2px;
+    width: 87px;
+    height: 16px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 48px;
+}
+
+.humidity {
+    left: 33px;
+    top: 2px;
+    width: 87px;
+    height: 16px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.weather {
+    width: 240px;
+    height: 150px;
+    margin-left: 200px;
+    border-radius: 10px;
+    border: 2px dotted #ddd;
+}

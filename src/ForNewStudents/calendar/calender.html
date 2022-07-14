@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="untitled.css">
+    <style>
+        .cldFrame {
+            position: relative ;
+            width: 440px;
+            margin-bottom: 50px ;
+            margin-left: 50px;
+            background-color: rgba(255, 255, 255, 0);
+
+        }
+
+        .cldBody {
+            margin: 10px;
+            position: absolute;
+            width: 420px;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        #top {
+            position: relative;
+            height: 40px;
+            text-align: center;
+            line-height: 60px;
+        }
+        .curDate {
+            width: 30px;
+            height: 40px;
+            border-radius: 100%;
+            background-color: rgba(255, 163, 75, 1);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+        #topDate {
+            font-size: 30px;
+        }
+
+        .curDate {
+            color: rgba(239, 239, 239, 1);
+            font-weight: bold;
+        }
+
+        .table {
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        #week td {
+            font-size: 15px;
+        }
+
+        td {
+            height: 40px;
+            width: 60px;
+            text-align: center;
+            font-family: Simsun;
+            font-size: 16px;
+            background-image: linear-gradient(to right, #ccc 0%, #ccc 50%, transparent 50%);
+            background-size: 20px 1px;
+            background-repeat: repeat-x;
+            padding: 5px 15px;
+            color: rgba(239, 239, 239, 1);
+        }
+
+        #left,
+        #right {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+        }
+
+        #left {
+            left: 0px;
+        }
+
+        #right {
+            right: 0px;
+        }
+
+        #left:hover,
+        #right:hover {
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .v {
+            border-collapse: collapse
+        }
+
+        .v td {
+            border: 1px dashed #000;
+            width: 100;
+            height: 25
+        }
+
+        .underside {
+            width: 568px;
+            height: 568px;
+            background: linear-gradient(225deg, rgba(65, 84, 184, 1) 0%, rgba(47, 102, 201, 1) 61.42%, rgba(0, 84, 255, 1) 100%);
+            background-blend-mode: normal;
+            mix-blend-mode: normal;
+            border-radius: 10px
+        }
+
+        .time {
+            width: 300px;
+            height: 100px;
+            margin-top: 5px;
+        }
+
+        .studytime {
+            width: 80px;
+            height: 50px;
+        }
+
+        .semester {
+            margin-top: 16px;
+            margin-left: 16px;
+            width: 138px;
+            height: 53px;
+            background-blend-mode: normal;
+            mix-blend-mode: normal;
+            color: rgba(239, 239, 239, 1);
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .week {
+            margin-top: 5px;
+            margin-left: 63px;
+            width: 100px;
+            height: 53px;
+            background-blend-mode: normal;
+            mix-blend-mode: normal;
+            color: rgba(239, 239, 239, 1);
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .timespan {
+            margin-top: 20px;
+            margin-left: 14px;
+            width: 192px;
+            height: 37px;
+            background: rgba(239, 239, 239, 0.3);
+        }
+
+        .left-Booktitle {
+            margin-top: 20px;
+            margin-left: 14px;
+            width: 25px;
+            height: 25px;
+            background: rgba(239, 239, 239, 0.01);
+            color: aliceblue
+        }
+
+        .right-Booktitle {
+            margin-top: 20px;
+            margin-left: 14px;
+            width: 25px;
+            height: 25px;
+            background: rgba(239, 239, 239, 0.01);
+            color: aliceblue
+        }
+
+        .datatime {
+            margin-top: 20px;
+            margin-left: 14px;
+            width: 116px;
+            height: 37px;
+            color: rgba(239, 239, 239, 1);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .weather {
+            border: 1em dashed ;
+            border-width:thin medium thick 10px;
+            border-radius: 15%;
+            color:aliceblue;
+            border-width:5px;
+            width: 287px;
+            height: 168px;
+            margin-top: -95px;
+            margin-left: 250px;
+        }
+        .now-condition{
+            width:120px;
+            height:21px;
+            color: aliceblue;
+        }
+        .position{
+            margin-left: 20px;
+            width:120px;
+            height:20px;
+            color: aliceblue;
+        }
+        .temperature{
+            width:93px;
+            height: 46px;
+            color: aliceblue;
+            margin-left: 90px;
+        }
+        .sky-condition{
+            color: aliceblue;
+            margin-left: 90px;
+            width:39px;
+            height: 16px;
+        }
+        .fly{
+            width: 87px;
+            height: 16px;
+            color: aliceblue;
+        }
+        .atmospheric-pressure{
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="underside">
+        <div class="time">
+            <span class="studytime">
+                <span class="semester">
+                    第3学期
+                </span><br>
+                <span class="week">
+                    第1教学周
+                </span><br>
+                <span class="timespan">
+                    <span class="left-Booktitle"> &lt&lt </span>
+                    <span class="datatime">2022年7月1日</span>
+                    <span class="right-Booktitle">>></span>
+                </span>
+            </span>
+        </div>
+        <div class="weather">
+            <span class="now-condition">
+                18:00当前天气情况
+            </span>
+            <span class="position">
+                北京市昌平区
+            </span><br>
+            <span class="temperature">
+                25℃
+            </span><br>
+            <span class="sky-condition">多云 </span><br>
+            <span class="fly">
+                南风: 3-4级
+            </span class="atmospheric-pressure">
+            <span>大气压: 101.1</span><br>
+            <span class="humidity">
+                相对湿度: 30%
+            </span>
+            <span clas="PM2.5">
+                PM2.5:61 优
+            </span>
+        </div>
+        <!--setInterval实时显示时间-->
+
+        <div class="cldFrame">
+            <div class="cldBody">
+                <table class="table">
+                    <thead>
+                        <tr id="week">
+                            <td class="v">日</td>
+                            <td class="v">一</td>
+                            <td class="v">二</td>
+                            <td class="v">三</td>
+                            <td class="v">四</td>
+                            <td class="v">五</td>
+                            <td class="v">六</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+
+<script>
+    function mytime() {
+        var a = new Date();
+        var b = a.toLocaleTimeString();
+        var c = a.toLocaleDateString();
+        document.getElementById("time").innerHTML = c + "&nbsp" + b;
+    }
+    setInterval(function () { mytime() }, 1000);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    /*判断某年是否是闰年*/
+    function isLeap(year) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    var monthDay = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    /*判断某年某月某日是星期几，默认日为1号*/
+    function whatDay(year, month, day = 1) {
+        var sum = 0;
+        sum += (year - 1) * 365 + Math.floor((year - 1) / 4) - Math.floor((year - 1) / 100) + Math.floor((year - 1) / 400) + day;
+        for (var i = 0; i < month - 1; i++) {
+            sum += monthDay[i];
+        }
+        if (month > 2) {
+            if (isLeap(year)) {
+                sum += 29;
+            }
+            else {
+                sum += 28;
+            }
+        }
+        return sum % 7;      //余数为0代表那天是周日，为1代表是周一，以此类推
+    }
+    /*显示日历*/
+    function showCld(year, month, firstDay) {
+        var i;
+        var tagClass = "";
+        var nowDate = new Date();
+
+        var days;//从数组里取出该月的天数
+        if (month == 2) {
+            if (isLeap(year)) {
+                days = 29;
+            }
+            else {
+                days = 28;
+            }
+        }
+        else {
+            days = monthDay[month - 1];
+        }
+
+        /*当前显示月份添加至顶部*/
+        var topdateHtml = year + "年" + month + "月";
+        /*添加日期部分*/
+        var tbodyHtml = '<tr>';
+        for (i = 0; i < firstDay; i++) {//对1号前空白格的填充
+            tbodyHtml += "<td></td>";
+        }
+        var changLine = firstDay;
+        for (i = 1; i <= days; i++) {//每一个日期的填充
+            if (year == nowDate.getFullYear() && month == nowDate.getMonth() + 1 && i == nowDate.getDate()) {
+                tagClass = "curDate";//当前日期对应格子
+            }
+            else {
+                tagClass = "isDate";//普通日期对应格子，设置class便于与空白格子区分开来
+            }
+            tbodyHtml += "<td class=" + tagClass + ">" + i + "</td>";
+            changLine = (changLine + 1) % 7;
+            if (changLine == 0 && i != days) {//是否换行填充的判断
+                tbodyHtml += "</tr><tr>";
+            }
+        }
+        if (changLine != 0) {//添加结束，对该行剩余位置的空白填充
+            for (i = changLine; i < 7; i++) {
+                tbodyHtml += "<td></td>";
+            }
+        }//实际上不需要填充后方，但强迫症必须整整齐齐！   
+        tbodyHtml += "</tr>";
+        var tbody = document.getElementById('tbody');
+        tbody.innerHTML = tbodyHtml;
+    }
+    var curDate = new Date();
+    var curYear = curDate.getFullYear();
+    var curMonth = curDate.getMonth() + 1;
+    showCld(curYear, curMonth, whatDay(curYear, curMonth));
+    function nextMonth() {
+        var topStr = document.getElementById("topDate").innerHTML;
+        var pattern = /\d+/g;
+        var listTemp = topStr.match(pattern);
+        var year = Number(listTemp[0]);
+        var month = Number(listTemp[1]);
+        var nextMonth = month + 1;
+        if (nextMonth > 12) {
+            nextMonth = 1;
+            year++;
+        }
+        document.getElementById('topDate').innerHTML = '';
+        showCld(year, nextMonth, whatDay(year, nextMonth));
+    }
+    function preMonth() {
+        var topStr = document.getElementById("topDate").innerHTML;
+        var pattern = /\d+/g;
+        var listTemp = topStr.match(pattern);
+        var year = Number(listTemp[0]);
+        var month = Number(listTemp[1]);
+        var preMonth = month - 1;
+        if (preMonth < 1) {
+            preMonth = 12;
+            year--;
+        }
+        document.getElementById('topDate').innerHTML = '';
+        showCld(year, preMonth, whatDay(year, preMonth));
+    }
+    document.getElementById('right').onclick = function () {
+        nextMonth();
+    }
+    document.getElementById('left').onclick = function () {
+        preMonth();
+    }
+</script>
