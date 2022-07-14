@@ -132,6 +132,27 @@ function GetCurrentWeather() {
             //console.log(emoji.filter((e) => e.icon == id));
             return emoji.find((e) => e.icon == id)?.emoji ?? "☀";
         }
+        function windDirection(deg: number) {
+            if (deg < 22.5) {
+                return "北风";
+            } else if (deg < 47.5) {
+                return "东北风";
+            } else if (deg < 112.5) {
+                return "东风";
+            } else if (deg < 157.5) {
+                return "东南风";
+            } else if (deg < 202.5) {
+                return "南风";
+            } else if (deg < 247.5) {
+                return "西南风";
+            } else if (deg < 292.5) {
+                return "西风";
+            } else if (deg < 337.5) {
+                return "西北风";
+            } else {
+                return "北风";
+            }
+        }
         return (
             <div className="weather">
                 <span className="now-condition">
@@ -141,7 +162,9 @@ function GetCurrentWeather() {
                 <span className="position">{"📍北京" + " " + "昌平区"}</span>
                 <br></br>
                 <span className="temperature">
-                    {isNull(data.main.temp) ? "--" : data.main.temp + "℃"}
+                    {isNull(data.main.temp)
+                        ? "--"
+                        : data.main.temp.toFixed(1) + "℃"}
                 </span>
                 <br></br>
                 <span className="sky-condition">
@@ -150,7 +173,12 @@ function GetCurrentWeather() {
                     {data.weather[0].description}
                 </span>
                 <br></br>
-                <span className="fly">南风: 3-4级</span>
+                <span className="fly">
+                    {isNull(data.wind.deg)
+                        ? "--"
+                        : windDirection(data.wind.deg)}
+                    : 3-4级
+                </span>
                 <span className="atmospheric-pressure">
                     大气压:{" "}
                     {isNull(data.main.grnd_level) ? "--" : data.main.grnd_level}
