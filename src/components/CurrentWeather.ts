@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect, ComponentSpec } from "react";
 import Ajv, { JSONSchemaType } from "ajv";
+import { type } from "os";
+import { json } from "stream/consumers";
 const ajv = new Ajv({
     int32range: false,
 });
@@ -13,24 +14,24 @@ type coord = {
 type weather = {
     id: number;
     main: string;
-    description: string|null;
+    description: string | null;
     icon: string;
 };
 
 type main = {
-    temp: number|null;
+    temp: number | null;
     feels_like: number;
     temp_min: number;
     temp_max: number;
-    pressure: number|null;
-    humidity: number|null;
+    pressure: number | null;
+    humidity: number | null;
     sea_level: number;
-    grnd_level: number|null;
+    grnd_level: number | null;
 };
 
 type wind = {
-    speed: number;
-    deg: number;
+    speed: number | null;
+    deg: number | null;
     gust: number;
 };
 
@@ -46,7 +47,7 @@ type sys = {
     sunset: number;
 };
 
-export type WeatherInfo = {
+type WeatherInfo = {
     coord: coord;
     weather: Array<weather>;
     base: string;
@@ -92,8 +93,8 @@ export default function CurrentWeather(): WeatherInfo {
         },
         visibility: 10000,
         wind: {
-            speed: 1.65,
-            deg: 325,
+            speed: null,
+            deg: null,
             gust: 2.61,
         },
         clouds: {
@@ -235,4 +236,121 @@ export default function CurrentWeather(): WeatherInfo {
     }, []);
 
     return WeatherInfo;
+}
+
+type aqimain = {
+    aqi: number | null;
+};
+
+type components = {
+    co: number;
+    no: number;
+    no2: number;
+    o3: number;
+    so2: number;
+    pm2_5: number | null;
+    pm10: number;
+    nh3: number;
+};
+
+type list = {
+    main: aqimain;
+    components: components;
+    dt: number;
+};
+
+type AirQualityInfo = {
+    coord: coord;
+    list: Array<list>;
+};
+export function CurrentAirQualityInfo() {
+    const url =
+        "http://api.openweathermap.org/data/2.5/air_pollution?lat=40.22&lon=116.23&appid=f1f7c3b827c8a53c5d6b7ab5ccc36123";
+    const [AirQualityInfo, setAirQualityInfo] = useState<AirQualityInfo>({
+        coord: {
+            lon: 116.23,
+            lat: 40.22,
+        },
+        list: [
+            {
+                main: {
+                    aqi: null,
+                },
+                components: {
+                    co: 310.42,
+                    no: 0.07,
+                    no2: 44.55,
+                    o3: 13.59,
+                    so2: 2.06,
+                    pm2_5: null,
+                    pm10: 31.59,
+                    nh3: 23.81,
+                },
+                dt: 1657805729,
+            },
+        ],
+    });
+    useEffect(() => {
+        fetch(url, {
+            method: "GET",
+        })
+            .then((res) => res.json())
+            .then((json) => {
+                //验证法则
+                type getAQI = AirQualityInfo;
+                const getAQISchema: JSONSchemaType<getAQI> = {
+                    type: "object",
+                    properties: {
+                        coord: {
+                            type: "object",
+                            properties: {
+                                lon: { type: "number" },
+                                lat: { type: "number" },
+                            },
+                            required: ["lon", "lat"],
+                        },
+                        list: {
+                            type: "array",
+                            items: {
+                                type: "object",
+                                properties: {
+                                    main: {
+                                        type: "object",
+                                        properties: {
+                                            aqi: { type: "integer" },
+                                        },
+                                        required: ["aqi"],
+                                    },
+                                    components: {
+                                        type: "object",
+                                        properties: {
+                                            co: { type: "number" },
+                                            no: { type: "number" },
+                                            no2:{type:"number"},
+                                            o3:{type:"number"},
+                                            so2:{type:"number"},
+                                            pm2_5:{type:"number"},
+                                            pm10:{type:"number"},
+                                            nh3:{type:"number"},
+                                        },
+                                        required:["co","no","no2","o3","so2","pm2_5","pm10","nh3"],
+                                    },
+                                    dt:{type:"integer"},
+                                },
+                                required:["main","components","dt"],
+                            },
+                        },
+                    },
+                    required:["coord","list"],
+                };
+                const validator = ajv.compile(getAQISchema);
+                if(validator(json)) return json;
+                else throw new Error("Invalid AQI Structure!");
+            })
+            .then((aqiInfo)=>{
+                setAirQualityInfo(aqiInfo);
+            })
+            .catch((err)=>console.log(err));
+    },[]);
+    return AirQualityInfo;
 }
