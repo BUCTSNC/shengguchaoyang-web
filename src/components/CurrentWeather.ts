@@ -1,7 +1,5 @@
-import { useState, useEffect, ComponentSpec } from "react";
+import { useState, useEffect } from "react";
 import Ajv, { JSONSchemaType } from "ajv";
-import { type } from "os";
-import { json } from "stream/consumers";
 const ajv = new Ajv({
     int32range: false,
 });
@@ -60,7 +58,7 @@ type WeatherInfo = {
     timezone: number;
     id: number;
     name: string;
-    cod: number;
+    cod: number|null;
 };
 
 export default function CurrentWeather(): WeatherInfo {
@@ -111,7 +109,7 @@ export default function CurrentWeather(): WeatherInfo {
         timezone: 28800,
         id: 2038154,
         name: "Changping",
-        cod: 200,
+        cod: null,
     });
     useEffect(() => {
         fetch(url, {
