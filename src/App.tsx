@@ -53,7 +53,7 @@ function App() {
                     <Navibar />
                     <div
                         style={
-                            mobileMode
+                            mobileMode || location.pathname !== "/"
                                 ? {
                                       backgroundColor: BackgroundGrey,
                                   }
