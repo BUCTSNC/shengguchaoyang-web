@@ -268,14 +268,9 @@
     .parent {
         list-style-type: none;
         width: 100%;
-
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
-        /* flex-flow: row wrap;
-     align-content:center ;
-     justify-content: space-between; */
-        /* justify-items: ; */
     }
 
     .tagcard {
