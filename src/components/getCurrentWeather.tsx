@@ -162,6 +162,48 @@ function GetCurrentWeather() {
                 return "重度污染";
             } else return null;
         }
+        function beaufortScale(wind: number) {
+            // wind 单位为m/s
+            if (wind < 0.2) {
+                return 0;
+            } else if (wind < 1.5) {
+                return 1;
+            } else if (wind < 3.3) {
+                return 2;
+            } else if (wind < 5.4) {
+                return 3;
+            } else if (wind < 7.9) {
+                return 4;
+            } else if (wind < 10.7) {
+                return 5;
+            } else if (wind < 13.8) {
+                return 6;
+            } else if (wind < 17.1) {
+                return 7;
+            } else if (wind < 20.7) {
+                return 8;
+            } else if (wind < 24.4) {
+                return 9;
+            } else if (wind < 28.4) {
+                return 10;
+            } else if (wind < 32.6) {
+                return 11;
+            } else if (wind < 36.9) {
+                return 12;
+            } else if (wind < 41.4) {
+                return 13;
+            } else if (wind < 46.1) {
+                return 14;
+            } else if (wind < 50.9) {
+                return 15;
+            } else if (wind < 56.0) {
+                return 16;
+            } else if (wind < 61.2) {
+                return 17;
+            } else {
+                return null;
+            }
+        }
         return (
             <div className="weather">
                 <span className="now-condition">
@@ -208,7 +250,15 @@ function GetCurrentWeather() {
                     {isNull(data.wind.deg)
                         ? "--"
                         : windDirection(data.wind.deg)}
-                    : 3-4级
+                    :{" "}
+                    {isNull(data.wind.speed)
+                        ? "-"
+                        : beaufortScale(data.wind.speed)}
+                    -
+                    {isNull(data.wind.gust)
+                        ? ""
+                        : beaufortScale(data.wind.gust)}
+                    级
                 </span>
                 <span className="atmospheric-pressure">
                     <svg

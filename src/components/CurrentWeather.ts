@@ -32,7 +32,7 @@ type main = {
 type wind = {
     speed: number | null;
     deg: number | null;
-    gust: number;
+    gust: number| null;
 };
 
 type clouds = {
@@ -95,7 +95,7 @@ export default function CurrentWeather(): WeatherInfo {
         wind: {
             speed: null,
             deg: null,
-            gust: 2.61,
+            gust: null,
         },
         clouds: {
             all: 86,
