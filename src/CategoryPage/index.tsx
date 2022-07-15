@@ -148,7 +148,26 @@ function cateNavibarMobile() {
                 boxShadow: "0 0px 12px #707070",
             }}
         >
-            {categories.map((category) => {
+            <div
+                        onClick={() => {
+                            history.push(`/for-new-students`);
+                        }}
+                        className={
+                            location.pathname === `/for-new-students`
+                                ? "activeCateItem"
+                                : "inactiveCateItem"
+                        }
+                    >
+                        我是新生
+                        <div
+                            className={
+                                location.pathname === `/for-new-students`
+                                    ? "activeCateItemBorder"
+                                    : "inactiveCateItemBorder"
+                            }
+                        ></div>
+                    </div>
+            {categories.filter((categories)=>categories.alias!="我是新生").map((category) => {
                 return (
                     <div
                         key={category.path}
