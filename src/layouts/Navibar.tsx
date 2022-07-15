@@ -5,7 +5,7 @@ import { createUseStyles } from "react-jss";
 import { useHistory, useLocation } from "react-router-dom";
 import Logo from "../../src/logo/sgcy.png";
 import { CateTree, SearchViewCtx } from "../App";
-import { LightBlue, PurpleBlue, White } from "../ColorCard";
+import { LightBlue, White } from "../ColorCard";
 import { ContainerNG } from "../components/Container";
 import Display from "../components/Display";
 import Parallelogram from "../components/Parallelogram";
@@ -164,7 +164,7 @@ function HomeLogo() {
     const { flexRowCenter, clickable } = useStyles();
     return (
         <Parallelogram
-            angle={30}
+            angle={0}
             outerProps={{
                 className: `${flexRowCenter} ${clickable} ${"logoBoxoutProps"}`,
                 onClick: () => navigate("/"),
