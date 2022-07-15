@@ -458,3 +458,76 @@ td {
     border-radius: 10px;
     border: 2px dotted #ddd;
 }
+
+.phoneweather {
+
+    width: 50%;
+    height: 49px;
+    background: rgba(0, 174, 255, 1);
+
+}
+
+.phonedate {
+    margin-left: 16px;
+    margin-top: 3px;
+    width: 90px;
+    height: 18px;
+    color: rgba(255, 255, 255, 1);
+    font-size: px;
+    font-weight: 400;
+}
+
+.phonestudy {
+    width: 80px;
+    height: 15px;
+    background-blend-mode: normal;
+    mix-blend-mode: normal;
+    color: rgba(239, 239, 239, 1);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+.phone-place {
+    left: 17px;
+    top: -2px;
+    width: 110px;
+    height: 18px;
+    color: rgba(239, 239, 239, 1);
+    font-size: 14px;
+    font-weight: 500;
+
+}
+
+.phone-p {
+    margin-left: 120px;
+    margin-top: -38px;
+}
+
+.phone-sky-condition {
+    margin-left: 0px;
+    margin-top: 7px;
+    width: 70px;
+    height: 18px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    font-weight: 500;
+
+}
+
+.phone-temperature {
+    margin-left: 53px;
+    margin-top: -22px;
+    top: 0px;
+    width: 35px;
+    height: 24px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-weight: 500;
+}
+.more{
+    margin-top: -40px;
+    margin-left: 55px;
+    font-size:30px
+}
