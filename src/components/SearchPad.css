@@ -17,7 +17,7 @@
 }
 
 .search-input:focus::placeholder {
-    border-bottom: solid 0.15rem #1890ff;
+    border-bottom: solid 0.15rem rgb(24, 144, 255);
     color: #e6f4f8;
 }
 

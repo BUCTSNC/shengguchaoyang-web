@@ -5,7 +5,7 @@ import { createUseStyles } from "react-jss";
 import { useHistory, useLocation } from "react-router-dom";
 import Logo from "../../src/logo/sgcy.png";
 import { CateTree, SearchViewCtx } from "../App";
-import { LightBlue, PurpleBlue, White } from "../ColorCard";
+import { LightBlue, White } from "../ColorCard";
 import { ContainerNG } from "../components/Container";
 import Display from "../components/Display";
 import Parallelogram from "../components/Parallelogram";
@@ -15,9 +15,9 @@ const useStyles = createUseStyles({
     categoryOuter: {
         //导航栏小项外框
         "&:nth-child(1)": {
-            borderLeft: ["solid", "0.2vw", "white"],
+            // borderLeft: ["solid", "0.2vw", "white"],
         },
-        borderRight: ["solid", "0.2vw", "white"],
+        // borderRight: ["solid", "0.2vw", "white"],
     },
     categoryInner: {
         //导航栏小项内框
@@ -108,7 +108,20 @@ function BurgerMenu(props: { expanded: boolean; switcher: () => void }) {
             >
                 首页
             </div>
-            {categories.map((category) => {
+            <div
+                className={
+                    location.pathname === `/for-new-students`
+                        ? "activeMenuItem"
+                        : "inactiveMenuItem"
+                }
+                onClick={() => {
+                    props.switcher();
+                    history.push(`/for-new-students`);
+                }}
+            >
+                我是新生
+            </div>
+            {categories.filter((category)=>category.alias!="我是新生").map((category) => {
                 return (
                     <div
                         key={category.path}
@@ -133,7 +146,7 @@ function BurgerMenu(props: { expanded: boolean; switcher: () => void }) {
 function NavibarPC() {
     const { flexRowAround } = useStyles();
     return (
-        <div style={{ backgroundColor: PurpleBlue }}>
+        <div style={{ backgroundColor: "rgba(0, 84, 255, 1)" }}>
             <ContainerNG>
                 <div className={flexRowAround}>
                     <HomeLogo />
@@ -151,7 +164,7 @@ function HomeLogo() {
     const { flexRowCenter, clickable } = useStyles();
     return (
         <Parallelogram
-            angle={30}
+            angle={0}
             outerProps={{
                 className: `${flexRowCenter} ${clickable} ${"logoBoxoutProps"}`,
                 onClick: () => navigate("/"),
@@ -230,7 +243,7 @@ function SearchInput() {
             style={{ borderRadius: "0.9vw", overflow: "hidden" }}
             onClick={() => searchViewSwitch(true)}
         >
-            <div className="searchSpace">点击搜索</div>
+            <div className="searchSpace">搜索</div>
             <div
                 className={`${flexRowCenter} ${clickable} ${"searchIconSpace"}`}
             >

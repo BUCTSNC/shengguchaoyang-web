@@ -23,7 +23,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-color: #2189e3;
+        background-color: rgba(0, 84, 255, 1);
         color: white;
         flex-wrap: wrap;
         width: 100vw;
@@ -50,7 +50,7 @@
         /* flex-direction: row; */
         /* justify-content: space-between; */
         /* align-items: center; */
-        background-color: #2189e3;
+        background-color: rgba(0, 84, 255, 1);
         color: white;
         flex-wrap: wrap;
         width: 100vw;

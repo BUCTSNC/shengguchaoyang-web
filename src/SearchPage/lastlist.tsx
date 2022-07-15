@@ -6,7 +6,7 @@ import { getVisitedCount } from "../dm/hotList";
 import { Eyes, Fire, UpdateRotation } from "@icon-park/react";
 import { useMobileView } from "../components/Display";
 
-export default function PostListSea(props: {
+export default function aPostListSea(props: {
     titleColor: string;
     firstColor: string;
     secondColor: string;
@@ -30,7 +30,7 @@ function PostListSeaPC(props: {
     const history = useHistory();
     const { title, posts } = props;
     return (
-        <div style={{ width: "214px", marginTop: 32, marginBottom: 32 }}>
+        <div style={{ width: "214px", marginTop: 32, marginBottom: 32 ,}}>
             <div
                 style={{
                     backgroundColor: "rgb(68, 112, 245)",
@@ -51,6 +51,8 @@ function PostListSeaPC(props: {
                     justifyContent: "center",
                     padding: "8px",
                     backgroundColor: "white",
+                    cursor: "pointer",
+                    pointerEvents: "auto"
                 }}
             >
                 {posts.map((post) => (
