@@ -30,7 +30,7 @@ function PostListSeaPC(props: {
     const history = useHistory();
     const { title, posts } = props;
     return (
-        <div style={{ width: "214px", marginTop: 32, marginBottom: 32 ,}}>
+        <div style={{ width: "214px", marginTop: 32, marginBottom: 32 }}>
             <div
                 style={{
                     backgroundColor: "rgb(68, 112, 245)",
@@ -52,7 +52,7 @@ function PostListSeaPC(props: {
                     padding: "8px",
                     backgroundColor: "white",
                     cursor: "pointer",
-                    pointerEvents: "auto"
+                    pointerEvents: "auto",
                 }}
             >
                 {posts.map((post) => (
@@ -60,15 +60,31 @@ function PostListSeaPC(props: {
                         key={post.path}
                         onClick={() => history.push(`post/${post.path}`)}
                     >
-                        <div style={{
-                            display: "flex", flexDirection: "row", justifyContent: "space-between"
-                        }}>
-                            <div>{post.title.length <= 10 ? post.title : `${post.title.slice(0, 8)}...`}</div>
-                            <div style={{
-                                display: "flex", flexDirection: "row", alignContent: "center"
-                            }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                            }}
+                        >
+                            <div>
+                                {post.title.length <= 10
+                                    ? post.title
+                                    : `${post.title.slice(0, 8)}...`}
+                            </div>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignContent: "center",
+                                }}
+                            >
                                 <span>
-                                    <Fire theme="outline" size="24" fill="#E00"/>
+                                    <Fire
+                                        theme="outline"
+                                        size="24"
+                                        fill="#E00"
+                                    />
                                 </span>
                                 <span
                                 // style={{

@@ -44,11 +44,23 @@ export default function Links() {
             });
     }, []);
     return (
-        <div style={{ marginBottom:24 ,backgroundColor:'white',borderRadius:'16px'}}>
-            <div >
-                <div style={{display:'flex',justifyContent:"center",alignItems:"center"}}>
-                <Earth theme="outline" size="24" fill="#000"></Earth>
-                <div className="indexTitle">校内网站导航</div>
+        <div
+            style={{
+                marginBottom: 24,
+                backgroundColor: "white",
+                borderRadius: "16px",
+            }}
+        >
+            <div>
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <Earth theme="outline" size="24" fill="#000"></Earth>
+                    <div className="indexTitle">校内网站导航</div>
                 </div>
                 <div
                     style={{

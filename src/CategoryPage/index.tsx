@@ -149,48 +149,51 @@ function cateNavibarMobile() {
             }}
         >
             <div
-                        onClick={() => {
-                            history.push(`/for-new-students`);
-                        }}
-                        className={
-                            location.pathname === `/for-new-students`
-                                ? "activeCateItem"
-                                : "inactiveCateItem"
-                        }
-                    >
-                        我是新生
+                onClick={() => {
+                    history.push(`/for-new-students`);
+                }}
+                className={
+                    location.pathname === `/for-new-students`
+                        ? "activeCateItem"
+                        : "inactiveCateItem"
+                }
+            >
+                我是新生
+                <div
+                    className={
+                        location.pathname === `/for-new-students`
+                            ? "activeCateItemBorder"
+                            : "inactiveCateItemBorder"
+                    }
+                ></div>
+            </div>
+            {categories
+                .filter((categories) => categories.alias != "我是新生")
+                .map((category) => {
+                    return (
                         <div
-                            className={
-                                location.pathname === `/for-new-students`
-                                    ? "activeCateItemBorder"
-                                    : "inactiveCateItemBorder"
-                            }
-                        ></div>
-                    </div>
-            {categories.filter((categories)=>categories.alias!="我是新生").map((category) => {
-                return (
-                    <div
-                        key={category.path}
-                        onClick={() => {
-                            history.push(`/cate/${category.path}`);
-                        }}
-                        className={
-                            location.pathname === `/cate/${category.path}`
-                                ? "activeCateItem"
-                                : "inactiveCateItem"
-                        }
-                    >
-                        {category.alias}
-                        <div
+                            key={category.path}
+                            onClick={() => {
+                                history.push(`/cate/${category.path}`);
+                            }}
                             className={
                                 location.pathname === `/cate/${category.path}`
-                                    ? "activeCateItemBorder"
-                                    : "inactiveCateItemBorder"
+                                    ? "activeCateItem"
+                                    : "inactiveCateItem"
                             }
-                        ></div>
-                    </div>
-                );
-            })}
+                        >
+                            {category.alias}
+                            <div
+                                className={
+                                    location.pathname ===
+                                    `/cate/${category.path}`
+                                        ? "activeCateItemBorder"
+                                        : "inactiveCateItemBorder"
+                                }
+                            ></div>
+                        </div>
+                    );
+                })}
         </div>
     );
 }

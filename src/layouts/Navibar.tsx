@@ -121,24 +121,26 @@ function BurgerMenu(props: { expanded: boolean; switcher: () => void }) {
             >
                 我是新生
             </div>
-            {categories.filter((category)=>category.alias!="我是新生").map((category) => {
-                return (
-                    <div
-                        key={category.path}
-                        onClick={() => {
-                            props.switcher();
-                            history.push(`/cate/${category.path}`);
-                        }}
-                        className={
-                            location.pathname === `/cate/${category.path}`
-                                ? "activeMenuItem"
-                                : "inactiveMenuItem"
-                        }
-                    >
-                        {category.alias}
-                    </div>
-                );
-            })}
+            {categories
+                .filter((category) => category.alias != "我是新生")
+                .map((category) => {
+                    return (
+                        <div
+                            key={category.path}
+                            onClick={() => {
+                                props.switcher();
+                                history.push(`/cate/${category.path}`);
+                            }}
+                            className={
+                                location.pathname === `/cate/${category.path}`
+                                    ? "activeMenuItem"
+                                    : "inactiveMenuItem"
+                            }
+                        >
+                            {category.alias}
+                        </div>
+                    );
+                })}
         </div>
     );
 }
@@ -222,14 +224,16 @@ function CategoryBar() {
                 title="我是新生"
                 actived={location.pathname === "/for-new-students"}
             />
-            {categories.filter((cate)=>cate.alias!=="我是新生").map((cate) => (
-                <CateItem
-                    key={cate.path}
-                    path={`/cate/${cate.path}`}
-                    title={cate.alias}
-                    actived={location.pathname === `/cate/${cate.path}`}
-                />
-            ))}
+            {categories
+                .filter((cate) => cate.alias !== "我是新生")
+                .map((cate) => (
+                    <CateItem
+                        key={cate.path}
+                        path={`/cate/${cate.path}`}
+                        title={cate.alias}
+                        actived={location.pathname === `/cate/${cate.path}`}
+                    />
+                ))}
         </div>
     );
 }

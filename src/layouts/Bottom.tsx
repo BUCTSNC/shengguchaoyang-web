@@ -27,7 +27,8 @@ export default function Bottom() {
     return (
         <div className="bottomBox">
             <div className="bottomContentBox">
-                <div className="bottomLeftLogos"
+                <div
+                    className="bottomLeftLogos"
                     style={{
                         display: "flex",
                         flexDirection: "row",
@@ -44,10 +45,13 @@ export default function Bottom() {
                         <img src={SNClogo} width="150em" />
                     </div>
                 </div>
-                <div className="bottomMediumText" style={{ textAlign: "center", minWidth: "40%" }}>
+                <div
+                    className="bottomMediumText"
+                    style={{ textAlign: "center", minWidth: "40%" }}
+                >
                     <div>
-                        Copyright &copy; {new Date().getFullYear()} SNC All Right
-                        Reversed
+                        Copyright &copy; {new Date().getFullYear()} SNC All
+                        Right Reversed
                     </div>
                     <div className="text">
                         地址：北京市朝阳区北三环东路15号北京化工大学
@@ -55,19 +59,18 @@ export default function Bottom() {
                     {/* <div className='text'>邮编：100029 联系我们|010-88888888</div> */}
                 </div>
                 {size.height / size.width >= 1 ? null : (
-                <div className="wechatMap">
-                    <div className="wechatIcon">
-                        <img src={wechat} height="25rem"></img>
-                        <div className="text">更多内容</div>
-                        <div className="text">关注公众号</div>
+                    <div className="wechatMap">
+                        <div className="wechatIcon">
+                            <img src={wechat} height="25rem"></img>
+                            <div className="text">更多内容</div>
+                            <div className="text">关注公众号</div>
+                        </div>
+                        <div>
+                            <img src={SNCQR} height="60rem" width="60rem"></img>
+                        </div>
                     </div>
-                    <div>
-                        <img src={SNCQR} height="60rem" width="60rem"></img>
-                    </div>
-                </div>
                 )}
             </div>
-            
         </div>
     );
 }

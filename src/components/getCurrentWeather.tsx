@@ -7,9 +7,9 @@ import { Spin } from "antd";
 export function useSmall(): boolean {
     const [size, setSize] = useState(window.innerWidth);
     useEffect(() => {
-        const handler = () => setSize(window.innerWidth)
+        const handler = () => setSize(window.innerWidth);
         window.addEventListener("resize", handler);
-        return () => window.removeEventListener("resize", handler)
+        return () => window.removeEventListener("resize", handler);
     });
     return size <= 1150;
 }

@@ -30,7 +30,7 @@ type main = {
 type wind = {
     speed: number | null;
     deg: number | null;
-    gust: number| null;
+    gust: number | null;
 };
 
 type clouds = {
@@ -58,7 +58,7 @@ type WeatherInfo = {
     timezone: number;
     id: number;
     name: string;
-    cod: number|null;
+    cod: number | null;
 };
 
 export default function CurrentWeather(): WeatherInfo {
@@ -324,31 +324,40 @@ export function CurrentAirQualityInfo() {
                                         properties: {
                                             co: { type: "number" },
                                             no: { type: "number" },
-                                            no2:{type:"number"},
-                                            o3:{type:"number"},
-                                            so2:{type:"number"},
-                                            pm2_5:{type:"number"},
-                                            pm10:{type:"number"},
-                                            nh3:{type:"number"},
+                                            no2: { type: "number" },
+                                            o3: { type: "number" },
+                                            so2: { type: "number" },
+                                            pm2_5: { type: "number" },
+                                            pm10: { type: "number" },
+                                            nh3: { type: "number" },
                                         },
-                                        required:["co","no","no2","o3","so2","pm2_5","pm10","nh3"],
+                                        required: [
+                                            "co",
+                                            "no",
+                                            "no2",
+                                            "o3",
+                                            "so2",
+                                            "pm2_5",
+                                            "pm10",
+                                            "nh3",
+                                        ],
                                     },
-                                    dt:{type:"integer"},
+                                    dt: { type: "integer" },
                                 },
-                                required:["main","components","dt"],
+                                required: ["main", "components", "dt"],
                             },
                         },
                     },
-                    required:["coord","list"],
+                    required: ["coord", "list"],
                 };
                 const validator = ajv.compile(getAQISchema);
-                if(validator(json)) return json;
+                if (validator(json)) return json;
                 else throw new Error("Invalid AQI Structure!");
             })
-            .then((aqiInfo)=>{
+            .then((aqiInfo) => {
                 setAirQualityInfo(aqiInfo);
             })
-            .catch((err)=>console.log(err));
-    },[]);
+            .catch((err) => console.log(err));
+    }, []);
     return AirQualityInfo;
 }

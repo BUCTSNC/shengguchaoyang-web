@@ -1,5 +1,4 @@
 @media screen and (min-width: 1000px) {
-
     #left_self,
     #right_self {
         width: 230px;
@@ -45,15 +44,10 @@
         background-color: rgba(68, 112, 245, 0);
         font-size: 20px;
         color: rgba(112, 112, 112, 1);
-
     }
 
     .spanMeta {
-
-
-
         margin: 0 120px;
-
     }
 
     .postcards {
@@ -101,15 +95,11 @@
         /* border: 1px solid rgba(68, 112, 245, 0);
         background-color: rgba(68, 112, 245, 0.39); */
     }
-
 }
 
 @media screen and (max-width: 1000px) {
-
-
-
     #left_self {
-        display: none
+        display: none;
     }
 
     #right_self {
@@ -142,11 +132,9 @@
         background-color: rgba(68, 112, 245, 0);
         font-size: 20px;
         color: rgba(112, 112, 112, 1);
-
     }
 
     .spanMeta {
-
         /* background-color: blue; */
         margin: 15px 50px;
     }
@@ -197,15 +185,11 @@
         /* border: 1px solid rgba(68, 112, 245, 0);
         background-color: rgba(68, 112, 245, 0.39); */
     }
-
 }
 
 @media screen and (max-width: 560px) {
-
-
-
     #left_self {
-        display: none
+        display: none;
     }
 
     #right_self {
@@ -238,11 +222,9 @@
         background-color: rgba(68, 112, 245, 0);
         font-size: 20px;
         color: rgba(112, 112, 112, 1);
-
     }
 
     .spanMeta {
-
         /* background-color: blue; */
         margin: 15px 50px;
     }

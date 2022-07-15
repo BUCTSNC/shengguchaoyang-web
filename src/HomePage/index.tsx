@@ -30,7 +30,10 @@ export const HomePage = () => {
         {
             backgroundImage: JXL,
             content: (
-                <div onClick={() => history.push("/")} style={{width:'100%',height:'100%',cursor:'pointer'}}>
+                <div
+                    onClick={() => history.push("/")}
+                    style={{ width: "100%", height: "100%", cursor: "pointer" }}
+                >
                     {/* <h1>胜古朝阳</h1> */}
                 </div>
             ),
@@ -38,16 +41,23 @@ export const HomePage = () => {
         {
             backgroundImage: YHSY,
             content: (
-                <div onClick={() => window.open(httpUrl('http://2022.yhsy.buctsnc.cn/'))} style={{width:'100%',height:'100%',cursor:'pointer'}}>
+                <div
+                    onClick={() =>
+                        window.open(httpUrl("http://2022.yhsy.buctsnc.cn/"))
+                    }
+                    style={{ width: "100%", height: "100%", cursor: "pointer" }}
+                >
                     {/* <h1>胜古朝阳</h1> */}
                 </div>
             ),
-
         },
         {
             backgroundImage: internetWeek,
             content: (
-                <div onClick={() => history.push("/")} style={{width:'100%',height:'100%',cursor:'pointer'}}>
+                <div
+                    onClick={() => history.push("/")}
+                    style={{ width: "100%", height: "100%", cursor: "pointer" }}
+                >
                     {/* <h1>胜古朝阳</h1> */}
                 </div>
             ),
@@ -59,7 +69,7 @@ export const HomePage = () => {
             <ContainerNG>
                 <Carousel autoplay>
                     {carouselCards.map(
-                        ({ backgroundImage, content}, index) => (
+                        ({ backgroundImage, content }, index) => (
                             <CaroselCard
                                 key={index}
                                 backgroundImage={backgroundImage}

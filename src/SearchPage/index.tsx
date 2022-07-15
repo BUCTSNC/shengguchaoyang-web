@@ -8,11 +8,7 @@ import { useHistory } from "react-router-dom";
 import { Definitions } from "octa";
 
 import { CateTree } from "../App";
-import {
-    MetaSearchResult,
-    searchByMeta,
-    sortByDate,
-} from "../dm/searchPost";
+import { MetaSearchResult, searchByMeta, sortByDate } from "../dm/searchPost";
 import { getSupCategory, traceToRoot } from "../dm/cateParse";
 
 import { climbTree } from "../dm/climbTree";
@@ -21,8 +17,6 @@ import { compact, random, uniq } from "lodash";
 
 //文字设置为思源黑体
 //颜色不一致
-
-
 
 function SearchRes(props: {
     postMeta: Definitions.PostProps;
@@ -52,10 +46,14 @@ function SearchRes(props: {
             <ul className="list ">
                 <div className="postcard">
                     <div>{categoryPath}</div>
-                    <div style={{
-                        fontSize:"17px",
-                        fontWeight:550
-                    }}>{postMeta.title}</div>
+                    <div
+                        style={{
+                            fontSize: "17px",
+                            fontWeight: 550,
+                        }}
+                    >
+                        {postMeta.title}
+                    </div>
                     {postMeta.intro ? <div>{postMeta.intro}</div> : null}
                 </div>
             </ul>
@@ -75,7 +73,7 @@ export default function SearchPage(props: { onRouting: () => void }) {
             ...cates.map((cate) => cate.alias),
         ])
     );
-  
+
     const [userInput, setUserInput] = useState("");
     const [resultByMeta, setResultByMeta] = useState({
         byTitle: [],
@@ -127,24 +125,27 @@ export default function SearchPage(props: { onRouting: () => void }) {
                     ></input>
                 </div>
                 {userInput === "" ? (
-                <div className="spanMeta">
-                    <div className="parent">
-                    {keywordsRecommend.filter(()=>{
-                        const rand=random()
-                        return rand<=1/3
-                    }).map((keyword) => (
-                        <div
-                            className="tagcard"
-                            key={keyword}
-                            onClick={() => setUserInput(keyword)}
-                        >
-                            
-                            {keyword.length <= 4 ? keyword : `${keyword.slice(0, 3)}…`}
+                    <div className="spanMeta">
+                        <div className="parent">
+                            {keywordsRecommend
+                                .filter(() => {
+                                    const rand = random();
+                                    return rand <= 1 / 3;
+                                })
+                                .map((keyword) => (
+                                    <div
+                                        className="tagcard"
+                                        key={keyword}
+                                        onClick={() => setUserInput(keyword)}
+                                    >
+                                        {keyword.length <= 4
+                                            ? keyword
+                                            : `${keyword.slice(0, 3)}…`}
+                                    </div>
+                                ))}
                         </div>
-                    ))}
-                </div>
-                </div>
-            ) : null}
+                    </div>
+                ) : null}
                 {/* 标签 */}
 
                 <div className="spanMeta">
@@ -221,5 +222,3 @@ export default function SearchPage(props: { onRouting: () => void }) {
         </div>
     );
 }
-
-
