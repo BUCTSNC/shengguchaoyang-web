@@ -10,10 +10,10 @@ import GetCurrentWeather from "../components/getCurrentWeather";
 //返回昌平区html
 //https://api.openweathermap.org/data/2.5/weather?lat=40.22&lon=116.23&appid=f1f7c3b827c8a53c5d6b7ab5ccc36123&units=metric&lang=zh_cn&mode=html
 
+export const theFirstDayOfSchool = moment("20220701", "YYYYMMDD");
+//手动设置学期起点
 export default function MyCalendar() {
     const [value, onChange] = useState(new Date());
-    const theFirstDayOfSchool = moment("20220701", "YYYYMMDD");
-    //手动设置学期起点
     console.log(moment().diff(moment("20220701", "YYYYMMDD"), "weeks"));
     return (
         <>
