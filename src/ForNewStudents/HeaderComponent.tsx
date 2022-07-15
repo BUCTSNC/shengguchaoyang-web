@@ -50,65 +50,7 @@ function HeaderImage() {
 
 function SearchBox() {
     const history = useHistory();
-    const [value, onChange] = useState(new Date());
     const data = CurrentWeather();
-    const iconList = [
-        { icon: 800, emoji: "qi-sunny-fill" },
-        { icon: 801, emoji: "qi-few-clouds-fill" },
-        { icon: 802, emoji: "qi-partly-cloudy-fill" },
-        { icon: 803, emoji: "qi-cloudy-fill" },
-        { icon: 804, emoji: "qi-overcast-fill" },
-        { icon: 600, emoji: "qi-light-snow-fill" },
-        { icon: 601, emoji: "qi-moderate-snow-fill" },
-        { icon: 602, emoji: "qi-heavy-snow-fill" },
-        { icon: 611, emoji: "qi-sleet-fill" },
-        { icon: 612, emoji: "qi-sleet-fill" },
-        { icon: 613, emoji: "qi-sleet-fill" },
-        { icon: 615, emoji: "qi-rain-and-snow-fill" },
-        { icon: 616, emoji: "qi-rain-and-snow-fill" },
-        { icon: 620, emoji: "qi-shower-snow-fill" },
-        { icon: 621, emoji: "qi-shower-snow-fill" },
-        { icon: 622, emoji: "qi-shower-snow-fill" },
-        { icon: 701, emoji: "qi-mist-fill" },
-        { icon: 711, emoji: "qi-spring-dust" },
-        { icno: 721, emoji: "qi-haze-fill" },
-        { icon: 731, emoji: "qi-sand-dust" },
-        { icon: 741, emoji: "qi-heavy-fog-fill" },
-        { icon: 751, emoji: "qi-sand-fill" },
-        { icon: 761, emoji: "qi-dust-fill" },
-        { icon: 762, emoji: "qi-mudflow" },
-        { icon: 771, emoji: "qi-typhoon" },
-        { icon: 781, emoji: "qi-tornado" },
-        { icon: 500, emoji: "qi-light-rain-fill" },
-        { icon: 501, emoji: "qi-moderate-rain-fill" },
-        { icon: 502, emoji: "qi-heavy-rain-fill" },
-        { icon: 503, emoji: "qi-extreme-rain-fill" },
-        { icon: 504, emoji: "qi-storm-fill" },
-        { icon: 511, emoji: "qi-freezing-rain-fill" },
-        { icon: 520, emoji: "qi-shower-rain-fill" },
-        { icon: 521, emoji: "qi-heavy-shower-rain-fill" },
-        { icon: 522, emoji: "qi-heavy-shower-rain-fill" },
-        { icon: 300, emoji: "qi-drizzle-rain-fill" },
-        { icon: 301, emoji: "qi-moderate-rain-fill" },
-        { icon: 302, emoji: "qi-heavy-rain-fill" },
-        { icon: 310, emoji: "qi-shower-rain-fill" },
-        { icon: 311, emoji: "qi-shower-rain-fill" },
-        { icon: 312, emoji: "qi-heavy-shower-rain-fill" },
-        { icon: 313, emoji: "qi-heavy-shower-rain-fill" },
-        { icon: 314, emoji: "qi-heavy-shower-rain-fill" },
-        { icon: 321, emoji: "qi-heavy-shower-rain-fill" },
-        { icon: 200, emoji: "qi-thundershower-fill" },
-        { icon: 201, emoji: "qi-heavy-thunderstorm-fill" },
-        { icon: 202, emoji: "qi-thunderstorm" },
-        { icon: 210, emoji: "qi-thundershower-fill" },
-        { icon: 211, emoji: "qi-heavy-thunderstorm-fill" },
-        { icon: 212, emoji: "qi-thunderstorm" },
-        { icon: 221, emoji: "qi-thunder-rain" },
-        { icon: 230, emoji: "qi-thundershower-fill" },
-        { icon: 231, emoji: "qi-heavy-thunderstorm-fill" },
-        { icon: 232, emoji: "qi-thunder-rain" },
-    ];
-    const [emoji] = useState(iconList);
     return (
         <div>
             {isMobile() ? (
@@ -119,7 +61,7 @@ function SearchBox() {
                     }}
                 >
                     <>
-                        <div className="phoneweather">
+                        <div className="phoneweather" onClick={null}>
                             <div className="phonedate">
                                 {moment().format("YYYY/M/D")}
                             </div>
@@ -154,7 +96,7 @@ function SearchBox() {
                                             p-id="2619"
                                         ></path>
                                     </svg>
-                                    {"北京" + " " + " " + "昌平区"}
+                                    {"北京" + " " + "昌平区"}
                                 </div>
                                 <div className="phone-sky-condition">
                                     {/**{emoji.find((e) => e.icon == data.weather[0].id)?.emoji ?? "☀"}**/}
