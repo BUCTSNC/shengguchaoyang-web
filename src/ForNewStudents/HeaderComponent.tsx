@@ -28,7 +28,7 @@ export default function HeaderComponent() {
             <HeaderImage />
             <SearchBox />
             <Timeline />
-            <MyCalendar />
+            {isMobile() ? null : <MyCalendar />}
         </div>
     );
 }
