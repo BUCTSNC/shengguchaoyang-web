@@ -61,6 +61,9 @@ function SearchRes(props: {
     );
 }
 export default function SearchPage(props: { onRouting: () => void }) {
+    useEffect(() => {
+        document.title = "搜索 - 胜古朝阳";
+    }, []);
     const cateTree = useContext(CateTree);
     const { cates, posts } = climbTree(cateTree);
     const history = useHistory();

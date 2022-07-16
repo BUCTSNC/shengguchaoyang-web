@@ -76,17 +76,43 @@ function SearchBox() {
                             <WeatherMobile />
                         </div>
                         <div
+                            onClick={() => history.push("/search")}
                             style={{
                                 height: "49px",
                                 backgroundColor: "rgba(0, 84, 255, 1)",
                                 width: "50%",
-
                                 justifyContent: "center",
                                 display: "flex",
                                 alignItems: "center",
                             }}
                         >
-                            <input
+                            <div
+                                style={{
+                                    // height: 16,
+                                    borderRadius: 16,
+                                    // margin: 4,
+                                    backgroundColor: "rgba(255,255,255,0.4)",
+                                    height: 32,
+                                    width: "90%",
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    alignItems: "center",
+                                    padding: "0 8px",
+                                }}
+                            >
+                                <i>点击此处搜索</i>
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${Search})`,
+                                        backgroundSize: "16px 16px",
+                                        backgroundPosition: "center",
+                                        backgroundRepeat: "no-repeat",
+                                        height: 32,
+                                        width: 32,
+                                    }}
+                                ></div>
+                            </div>
+                            {/* <input
                                 type="text"
                                 onClick={() => history.push("/search")}
                                 style={{
@@ -110,7 +136,7 @@ function SearchBox() {
                                     backgroundPosition: "1px 3.5px",
                                 }}
                                 onClick={() => history.push("/search")}
-                            ></button>
+                            ></button> */}
                         </div>
                     </div>
                     <div

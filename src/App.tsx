@@ -60,33 +60,33 @@ function App() {
         <div id="App">
             <CateTree.Provider value={tree}>
                 {/* <SearchViewCtx.Provider value={searchViewSwitch}> */}
-                    <Navibar />
+                <Navibar />
+                <div
+                    style={
+                        mobileMode || location.pathname !== "/"
+                            ? {
+                                  backgroundColor: BackgroundGrey,
+                              }
+                            : {
+                                  backgroundImage: `url(${BackgroundIMG})`,
+                                  backgroundPosition: "center",
+                                  backgroundSize: "cover",
+                              }
+                    }
+                >
                     <div
-                        style={
-                            mobileMode || location.pathname !== "/"
-                                ? {
-                                      backgroundColor: BackgroundGrey,
-                                  }
-                                : {
-                                      backgroundImage: `url(${BackgroundIMG})`,
-                                      backgroundPosition: "center",
-                                      backgroundSize: "cover",
-                                  }
-                        }
+                        className={mobileMode ? "viewboxMobile" : "viewbox"}
+                        ref={viewbox}
                     >
-                        <div
-                            className={mobileMode ? "viewboxMobile" : "viewbox"}
-                            ref={viewbox}
-                        >
-                            <ScrollCtx.Provider value={viewbox.current}>
-                                <Main />
-                                <Bottom />
-                            </ScrollCtx.Provider>
-                        </div>
+                        <ScrollCtx.Provider value={viewbox.current}>
+                            <Main />
+                            <Bottom />
+                        </ScrollCtx.Provider>
                     </div>
-                    <SearchBtn onClick={() => history.push("/search")} />
-                    <ScrollToTopBtn target={viewbox} />
-                    {/* <Modal
+                </div>
+                <SearchBtn onClick={() => history.push("/search")} />
+                <ScrollToTopBtn target={viewbox} />
+                {/* <Modal
                         style={{ top: 0 }}
                         visible={searchView}
                         title={null}

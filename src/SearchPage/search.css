@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1150px) {
     #left_self,
     #right_self {
         width: 230px;
@@ -97,7 +97,7 @@
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1150px) {
     #left_self {
         display: none;
     }

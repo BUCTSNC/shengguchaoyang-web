@@ -1,11 +1,13 @@
 /* eslint-disable prefer-const */
-import { Definitions } from "octa";
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { LightOrange, White } from "../ColorCard";
-import { getVisitedCount } from "../dm/hotList";
 import { Eyes, Fire, UpdateRotation } from "@icon-park/react";
+import { Definitions } from "octa";
+import { climbTree } from "octa/lib/ClimbTree";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { CateTree } from "../App";
+import { LightOrange, White } from "../ColorCard";
 import { useMobileView } from "../components/Display";
+import { getVisitedCount } from "../dm/hotList";
 
 export default function PostList(props: {
     titleColor: string;
@@ -212,11 +214,10 @@ function PostListMobile(props: {
     );
 }
 function getCate(path: string) {
-    const cates = ["校园生活", "学习资源", "校园风光", "服务指南"];
-    const catesIndex = ["XYSH", "XXZY", "XYFG", "FWZN"];
-    for (let index of catesIndex) {
-        if (path.indexOf(index) != -1) {
-            return cates[catesIndex.indexOf(index)];
-        }
-    }
+    const cateTree = useContext(CateTree);
+    const { cates } = climbTree(cateTree);
+    return (
+        cates.find((cate) => cate.childPosts.find((post) => post.path === path))
+            ?.alias ?? "其他"
+    );
 }
