@@ -19,6 +19,7 @@ export default function MyCalendar() {
         return (
             <>
                 <div className="small-underside">
+                    <div className="small-background2022">2022</div>
                     <link
                         rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/qweather-icons@1.1.1/font/qweather-icons.css"
@@ -38,6 +39,7 @@ export default function MyCalendar() {
 
                     <div className="cldflame">
                         <Calendar
+                            className={"small"}
                             onChange={onChange}
                             value={value}
                             calendarType={"US"}
@@ -63,6 +65,7 @@ export default function MyCalendar() {
         return (
             <>
                 <div className="underside">
+                    <div className="background2022">2022</div>
                     <link
                         rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/qweather-icons@1.1.1/font/qweather-icons.css"
