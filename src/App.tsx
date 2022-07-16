@@ -7,13 +7,13 @@ import { useLocation } from "react-router-dom";
 import "./App.css";
 import { BackgroundGrey } from "./ColorCard";
 import { useMobileView } from "./components/Display";
-import BackgroundIMG from "./logo/backgroundimg.webp";
 import SearchPad from "./components/SearchPad";
 import Bottom from "./layouts/Bottom";
 import { Main } from "./layouts/Main";
 import Navibar from "./layouts/Navibar";
 import ScrollToTopBtn, { scrollToSmoothly } from "./layouts/ScrollToTopBtn";
 import SearchBtn from "./layouts/SearchBtn";
+import BackgroundIMG from "./logo/backgroundimg.webp";
 
 export const CateTree = createContext<Definitions.CategoryProps>({
     alias: "root",
@@ -44,8 +44,12 @@ function App() {
     useEffect(() => {
         fetch("/posts/tree.json")
             .then((res) => res.json() as Promise<Definitions.CategoryProps>)
+            .then(data => {
+                return {...data, childCates: data.childCates.filter(cate => cate.alias !== ".workflow")}
+            })
             .then(setTree);
     }, []);
+    // console.log(climbTree(tree))
     return (
         <div id="App">
             <CateTree.Provider value={tree}>
