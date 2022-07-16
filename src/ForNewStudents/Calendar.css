@@ -14,25 +14,29 @@
     padding-top: 5px;
     background-blend-mode: normal;
     mix-blend-mode: normal;
-    background: linear-gradient(225deg,
-            rgba(65, 84, 184, 1) 0%,
-            rgba(47, 102, 201, 1) 61.42%,
-            rgba(0, 84, 255, 1) 100%);
+    background: linear-gradient(
+        225deg,
+        rgba(65, 84, 184, 1) 0%,
+        rgba(47, 102, 201, 1) 61.42%,
+        rgba(0, 84, 255, 1) 100%
+    );
     background-blend-mode: normal;
     mix-blend-mode: normal;
     border-radius: 10px;
 }
 
 .small-underside {
-    min-width: 30%;
-    max-width: 45%;
+    /* min-width: 30%; */
+    /* max-width: 45%; */
     padding-top: 5px;
     background-blend-mode: normal;
     mix-blend-mode: normal;
-    background: linear-gradient(225deg,
-            rgba(65, 84, 184, 1) 0%,
-            rgba(47, 102, 201, 1) 61.42%,
-            rgba(0, 84, 255, 1) 100%);
+    background: linear-gradient(
+        225deg,
+        rgba(65, 84, 184, 1) 0%,
+        rgba(47, 102, 201, 1) 61.42%,
+        rgba(0, 84, 255, 1) 100%
+    );
     background-blend-mode: normal;
     mix-blend-mode: normal;
     border-radius: 10px;
@@ -228,7 +232,7 @@ td {
     margin: -0.5em;
 }
 
-.react-calendar--doubleView .react-calendar__viewContainer>* {
+.react-calendar--doubleView .react-calendar__viewContainer > * {
     width: 50%;
     margin: 0.5em;
 }
@@ -247,7 +251,7 @@ td {
     border: 0;
     outline: none;
     aspect-ratio: 1/1;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     /* pointer-events: none; */
 }
 
@@ -266,7 +270,7 @@ td {
     margin-left: 1em;
 }
 
-.react-calendar.small>.react-calendar__navigation {
+.react-calendar.small > .react-calendar__navigation {
     font-size: 10px;
     position: relative;
     left: 40%;
@@ -344,10 +348,12 @@ td {
     background: none;
     text-align: center;
     line-height: 16px;
-    background-image: linear-gradient(to right,
-            #ccc 0%,
-            #ccc 50%,
-            transparent 50%);
+    background-image: linear-gradient(
+        to right,
+        #ccc 0%,
+        #ccc 50%,
+        transparent 50%
+    );
     background-size: 20px 1px;
     background-repeat: repeat-x;
 }
@@ -429,7 +435,7 @@ td {
     align-items: center;
     margin: 0px auto;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .sky-condition {
@@ -576,7 +582,7 @@ td {
     color: rgba(239, 239, 239, 0.05);
     font-size: 800%;
     font-weight: 700;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     text-align: center;
 }
 
@@ -588,6 +594,6 @@ td {
     color: rgba(239, 239, 239, 0.05);
     font-size: 800%;
     font-weight: 700;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     text-align: center;
 }

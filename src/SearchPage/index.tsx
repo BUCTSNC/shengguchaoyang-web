@@ -65,7 +65,9 @@ export default function SearchPage(props: { onRouting: () => void }) {
     const { cates, posts } = climbTree(cateTree);
     const history = useHistory();
     const location = useLocation();
-    const keywords = new URL(`http://localhost/${location.pathname}${location.search}`).searchParams.getAll("keywords")
+    const keywords = new URL(
+        `http://localhost/${location.pathname}${location.search}`
+    ).searchParams.getAll("keywords");
     // const [searchDB, setSearchDB] = useState([] as Definitions.FlatPost[]);
     const keywordsRecommend = uniq(
         compact([
@@ -77,7 +79,9 @@ export default function SearchPage(props: { onRouting: () => void }) {
         ])
     );
 
-    const [userInput, setUserInput] = useState(keywords.length === 0 ? "" : keywords.join(" "));
+    const [userInput, setUserInput] = useState(
+        keywords.length === 0 ? "" : keywords.join(" ")
+    );
     const [resultByMeta, setResultByMeta] = useState({
         byTitle: [],
         byIntro: [],
@@ -85,8 +89,13 @@ export default function SearchPage(props: { onRouting: () => void }) {
         byCate: [],
     } as MetaSearchResult);
     useEffect(() => {
-        history.replace(`${location.pathname}?${userInput.split(" ").map(keyword => `keywords=${keyword}`).join("&")}`)
-    }, [userInput])
+        history.replace(
+            `${location.pathname}?${userInput
+                .split(" ")
+                .map((keyword) => `keywords=${keyword}`)
+                .join("&")}`
+        );
+    }, [userInput]);
     useEffect(() => {
         const keywords = userInput
             .split(" ")

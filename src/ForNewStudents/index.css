@@ -38,15 +38,15 @@
     height: 40px;
 }
 .info-card-head-text {
-    position: relative;
-    left: -8px;
-    top: -10px;
-    margin: 16px;
+    margin: 8px;
     font-size: 24px;
     font-weight: bold;
-    line-height: 40px;
+    /* line-height: 40px; */
 }
 .info-card-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-weight: bolder;
     font-size: 1.2em;
     padding-left: 8px;
@@ -89,7 +89,7 @@ a {
     color: #000;
 }
 /* media */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1150px) {
     .info-stream {
         padding-top: 3rem;
         padding-bottom: 3rem;
@@ -100,7 +100,7 @@ a {
     }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1149px) {
     .info-stream {
         margin: 0 auto;
         padding-top: 1rem;

@@ -2,9 +2,10 @@
 //import MyCalendar from "./Calendar";
 import { isNull } from "lodash";
 import moment from "moment";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import CurrentWeather from "../components/CurrentWeather";
+import { isMobile, useMobileView } from "../components/Display";
 import "./c-searchbox.css";
 import MyCalendar, { theFirstDayOfSchool } from "./Calendar";
 import "./Calendar.css";
@@ -12,7 +13,6 @@ import Background from "./img/background.png";
 import Circle from "./img/circle.png";
 import Line from "./img/line.png";
 import Search from "./search.png";
-import { isMobile, useMobileView } from "../components/Display";
 export default function HeaderComponent() {
     const isMobileView = useMobileView();
     return (
@@ -27,7 +27,7 @@ export default function HeaderComponent() {
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
-                        padding: "16px 64px"
+                        padding: "16px 64px",
                     }}
                 >
                     <Timeline />
@@ -56,60 +56,78 @@ function HeaderImage() {
 function SearchBox() {
     const history = useHistory();
     const isMobile = useMobileView();
+    const [collapse, setCollapse] = useState(true);
     return (
         <div>
             {isMobile ? (
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                    }}
-                >
+                <>
                     <div
                         style={{
-                            width: "50%",
-                        }}
-                    >
-                        <WeatherMobile />
-                    </div>
-                    <div
-                        style={{
-                            height: "49px",
-                            backgroundColor: "rgba(0, 84, 255, 1)",
-                            width: "50%",
-
-                            justifyContent: "center",
                             display: "flex",
-                            alignItems: "center",
+                            flexDirection: "row",
                         }}
                     >
-                        <input
-                            type="text"
-                            onClick={() => history.push("/search")}
+                        <div
                             style={{
-                                width: "170px",
-                                height: "25px",
-                                backgroundColor: "#5E93FF",
-                                border: "1px solid #5E93FF",
-                                borderRadius: "16px 0px  0px 16px",
+                                width: "50%",
                             }}
-                        ></input>
-                        <button
+                            onClick={() => setCollapse(!collapse)}
+                        >
+                            <WeatherMobile />
+                        </div>
+                        <div
                             style={{
-                                width: "25px",
-                                height: "25px",
-                                backgroundColor: "#5E93FF",
-                                border: "1px solid #5E93FF",
-                                borderRadius: " 0px 16px 16px 0px",
-                                backgroundImage: `url(${Search})`,
-                                backgroundSize: "16px 16px",
-                                backgroundRepeat: "no-repeat",
-                                backgroundPosition: "1px 3.5px",
+                                height: "49px",
+                                backgroundColor: "rgba(0, 84, 255, 1)",
+                                width: "50%",
+
+                                justifyContent: "center",
+                                display: "flex",
+                                alignItems: "center",
                             }}
-                            onClick={() => history.push("/search")}
-                        ></button>
+                        >
+                            <input
+                                type="text"
+                                onClick={() => history.push("/search")}
+                                style={{
+                                    width: "170px",
+                                    height: "25px",
+                                    backgroundColor: "#5E93FF",
+                                    border: "1px solid #5E93FF",
+                                    borderRadius: "16px 0px  0px 16px",
+                                }}
+                            ></input>
+                            <button
+                                style={{
+                                    width: "25px",
+                                    height: "25px",
+                                    backgroundColor: "#5E93FF",
+                                    border: "1px solid #5E93FF",
+                                    borderRadius: " 0px 16px 16px 0px",
+                                    backgroundImage: `url(${Search})`,
+                                    backgroundSize: "16px 16px",
+                                    backgroundRepeat: "no-repeat",
+                                    backgroundPosition: "1px 3.5px",
+                                }}
+                                onClick={() => history.push("/search")}
+                            ></button>
+                        </div>
                     </div>
-                </div>
+                    <div
+                        style={
+                            collapse
+                                ? {
+                                      maxHeight: 0,
+                                      overflow: "hidden",
+                                  }
+                                : {
+                                      maxHeight: window.innerHeight,
+                                  }
+                        }
+                    >
+                        <MyCalendar />
+                    </div>
+                </>
             ) : (
                 <div>
                     <div

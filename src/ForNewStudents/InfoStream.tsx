@@ -88,8 +88,10 @@ function InfoCard(props: { post: PostProps }) {
             }}
         >
             <div className="info-card-title">
-                <span className="info-card-head-dot"></span>
-                <span className="info-card-head-text">{cutOff(post.title, 11)}</span>
+                <div className="info-card-head-dot"></div>
+                <div className="info-card-head-text">
+                    {cutOff(post.title, 20)}
+                </div>
             </div>
             {post.headerImage === undefined ? null : (
                 <div

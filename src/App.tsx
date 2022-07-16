@@ -44,8 +44,13 @@ function App() {
     useEffect(() => {
         fetch("/posts/tree.json")
             .then((res) => res.json() as Promise<Definitions.CategoryProps>)
-            .then(data => {
-                return {...data, childCates: data.childCates.filter(cate => cate.alias !== ".workflow")}
+            .then((data) => {
+                return {
+                    ...data,
+                    childCates: data.childCates.filter(
+                        (cate) => cate.alias !== ".workflow"
+                    ),
+                };
             })
             .then(setTree);
     }, []);

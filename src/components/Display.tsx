@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 
 export function isMobile(): boolean {
     // console.log(window.innerWidth <= window.innerHeight)
-    return window.innerWidth <= window.innerHeight;
+
+    return window.innerWidth <= 1150;
 }
 
 export function useMobileView() {
