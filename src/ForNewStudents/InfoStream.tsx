@@ -7,6 +7,7 @@ import { getVisitedCount } from "../dm/hotList";
 import { useHistory } from "react-router-dom"; //es5
 import { useMobileView } from "../components/Display";
 import { climbTree } from "octa/lib/ClimbTree";
+import cutOff from "../utils/cutOff";
 // import "./bootstrap.min.css"
 
 export default function InfoStream() {
@@ -88,7 +89,7 @@ function InfoCard(props: { post: PostProps }) {
         >
             <div className="info-card-title">
                 <span className="info-card-head-dot"></span>
-                <span className="info-card-head-text">{post.title}</span>
+                <span className="info-card-head-text">{cutOff(post.title, 11)}</span>
             </div>
             {post.headerImage === undefined ? null : (
                 <div
