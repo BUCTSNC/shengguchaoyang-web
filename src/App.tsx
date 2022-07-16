@@ -1,13 +1,13 @@
 import "@icon-park/react/styles/index.css";
-import { Modal } from "antd";
+// import { Modal } from "antd";
 import "antd/dist/antd.css";
 import { Definitions } from "octa";
 import React, { createContext, useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import "./App.css";
 import { BackgroundGrey } from "./ColorCard";
 import { useMobileView } from "./components/Display";
-import SearchPad from "./components/SearchPad";
+// import SearchPad from "./components/SearchPad";
 import Bottom from "./layouts/Bottom";
 import { Main } from "./layouts/Main";
 import Navibar from "./layouts/Navibar";
@@ -34,8 +34,9 @@ function App() {
         childCates: [],
         childPosts: [],
     });
+    const history = useHistory();
     const viewbox = useRef<HTMLDivElement>(null);
-    const [searchView, searchViewSwitch] = useState(false);
+    // const [searchView, searchViewSwitch] = useState(false);
     const mobileMode = useMobileView();
     const location = useLocation();
     useEffect(() => {
@@ -58,7 +59,7 @@ function App() {
     return (
         <div id="App">
             <CateTree.Provider value={tree}>
-                <SearchViewCtx.Provider value={searchViewSwitch}>
+                {/* <SearchViewCtx.Provider value={searchViewSwitch}> */}
                     <Navibar />
                     <div
                         style={
@@ -83,9 +84,9 @@ function App() {
                             </ScrollCtx.Provider>
                         </div>
                     </div>
-                    <SearchBtn onClick={() => searchViewSwitch(true)} />
+                    <SearchBtn onClick={() => history.push("/search")} />
                     <ScrollToTopBtn target={viewbox} />
-                    <Modal
+                    {/* <Modal
                         style={{ top: 0 }}
                         visible={searchView}
                         title={null}
@@ -96,7 +97,7 @@ function App() {
                     >
                         <SearchPad onRouting={() => searchViewSwitch(false)} />
                     </Modal>
-                </SearchViewCtx.Provider>
+                </SearchViewCtx.Provider> */}
             </CateTree.Provider>
         </div>
     );

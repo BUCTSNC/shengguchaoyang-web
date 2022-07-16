@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useHistory, useLocation } from "react-router-dom";
 import Logo from "../../src/logo/sgcy.png";
-import { CateTree, SearchViewCtx } from "../App";
+import { CateTree } from "../App";
 import { LightBlue, White } from "../ColorCard";
 import { ContainerNG } from "../components/Container";
 import Display from "../components/Display";
@@ -239,13 +239,14 @@ function CategoryBar() {
 }
 
 function SearchInput() {
-    const searchViewSwitch = useContext(SearchViewCtx);
+    // const searchViewSwitch = useContext(SearchViewCtx);
+    const history = useHistory();
     const { flexRowCenter, clickable } = useStyles();
     return (
         <div
             className={flexRowCenter}
             style={{ borderRadius: "0.9vw", overflow: "hidden" }}
-            onClick={() => searchViewSwitch(true)}
+            onClick={() => history.push("/search")}
         >
             <div className="searchSpace">搜索</div>
             <div
