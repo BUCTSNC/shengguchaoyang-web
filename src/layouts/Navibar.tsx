@@ -225,7 +225,7 @@ function CategoryBar() {
                 actived={location.pathname === "/for-new-students"}
             />
             {categories
-                .filter((cate) => cate.alias !== "我是新生")
+                .filter((cate) => (["FWZN","XYSH","XXZY","XYFG"]).includes(cate.path))
                 .map((cate) => (
                     <CateItem
                         key={cate.path}

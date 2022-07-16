@@ -48,9 +48,8 @@ function App() {
             .then((data) => {
                 return {
                     ...data,
-                    childCates: data.childCates.filter(
-                        (cate) => cate.alias !== ".workflow"
-                    ),
+                    childCates: data.childCates
+                        .filter((cate) => cate.alias !== ".workflow")
                 };
             })
             .then(setTree);
