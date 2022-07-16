@@ -6,14 +6,30 @@ import { getVisitedCount } from "../dm/hotList";
 // import { useNavigate} from 'react-router';//es6
 import { useHistory } from "react-router-dom"; //es5
 import { useMobileView } from "../components/Display";
+import { climbTree } from "octa/lib/ClimbTree";
 // import "./bootstrap.min.css"
 
 export default function InfoStream() {
     const cateTree = useContext(CateTree);
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const list =
-        cateTree.childCates.find((cate) => cate.alias === "我是新生")
-            ?.childPosts ?? [];
+    const list = climbTree(cateTree).posts;
+    return (
+        <div>
+            {cateTree.childCates
+                .find((cate) => cate.alias === "我是新生")
+                ?.childCates.map((cate) => cate.alias)
+                .map((cate) => {
+                    const cateList = list.filter((post) =>
+                        post.path.match(new RegExp(`^(我是新生)/${cate}`))
+                    );
+                    return <InfoStreamCate list={cateList} cate={cate} />;
+                })}
+        </div>
+    );
+}
+
+function InfoStreamCate(props: { list: PostProps[]; cate: string }) {
+    const { list, cate } = props;
     const isMobile = useMobileView();
     const columns = list.reduce((current, next, index) => {
         if (isMobile) {
@@ -43,15 +59,18 @@ export default function InfoStream() {
         }
     }, [] as PostProps[][]);
     return (
-        <div id="info-stream">
-            {columns.map((column, index) => (
-                <div className="info-stream-column" key={index}>
-                    {column.map((post) => (
-                        <InfoCard key={post.path} post={post} />
-                    ))}
-                </div>
-            ))}
-        </div>
+        <>
+            <div className="info-stream-cate-title">⌊{cate}⌉</div>
+            <div className="info-stream">
+                {columns.map((column, index) => (
+                    <div className="info-stream-column" key={index}>
+                        {column.map((post) => (
+                            <InfoCard key={post.path} post={post} />
+                        ))}
+                    </div>
+                ))}
+            </div>
+        </>
     );
 }
 

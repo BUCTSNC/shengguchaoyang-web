@@ -27,6 +27,7 @@ export default function HeaderComponent() {
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
+                        padding: "16px 64px"
                     }}
                 >
                     <Timeline />

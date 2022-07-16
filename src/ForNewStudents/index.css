@@ -1,5 +1,17 @@
-#new-students-header {
+#for-new-students {
     background-color: white;
+}
+
+.info-stream-cate-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #0054ff;
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-top: 16px;
 }
 
 .info-stream-column {
@@ -78,7 +90,7 @@ a {
 }
 /* media */
 @media only screen and (min-width: 768px) {
-    #info-stream {
+    .info-stream {
         padding-top: 3rem;
         padding-bottom: 3rem;
         margin: 0 64px;
@@ -89,7 +101,7 @@ a {
 }
 
 @media only screen and (max-width: 767px) {
-    #info-stream {
+    .info-stream {
         margin: 0 auto;
         padding-top: 1rem;
         padding-bottom: 1rem;
