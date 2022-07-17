@@ -2,6 +2,8 @@
     min-height: 100vh;
 } */
 .activeCateItem {
+    margin: 0 8px;
+    white-space: nowrap;
     width: 25%;
     height: 36px;
     color: #2189e3;
@@ -13,6 +15,8 @@
 }
 
 .inactiveCateItem {
+    margin: 0 8px;
+    white-space: nowrap;
     width: 25%;
     height: 36px;
     top: auto;

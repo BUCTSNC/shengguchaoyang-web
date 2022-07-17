@@ -48,7 +48,7 @@ export function CategoryPage() {
 
     return (
         <>
-            <Display desktop={null} mobile={cateNavibarMobile()} />
+            <Display desktop={null} mobile={CateNaviBarMobile()} />
 
             <ContainerNG>
                 <Container
@@ -127,7 +127,7 @@ export function CategoryPage() {
         </>
     );
 }
-function cateNavibarMobile() {
+function CateNaviBarMobile() {
     const history = useHistory();
     const { cates } = climbTree(useContext(CateTree));
     const location = useLocation();
@@ -136,14 +136,18 @@ function cateNavibarMobile() {
         <div
             style={{
                 display: "flex",
+                flexWrap: "nowrap",
+                flexShrink: 0,
                 flexDirection: "row",
-                justifyContent: "center",
+                overflowX: "scroll",
                 backgroundColor: "#FFFFFF",
                 // borderBottom:"solid #707070 1px",
                 marginBottom: "12px",
                 // paddingBottom:'8px'
                 position: "sticky",
-                top: "0",
+                // width: "120%",
+                top: 0,
+                padding: "0 8px",
                 zIndex: 100,
                 boxShadow: "0 0px 12px #707070",
             }}
