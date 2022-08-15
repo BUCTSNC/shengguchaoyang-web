@@ -7,12 +7,14 @@ import { useHistory } from "react-router-dom";
 import CurrentWeather from "../components/CurrentWeather";
 import { isMobile, useMobileView } from "../components/Display";
 import "./c-searchbox.css";
-import MyCalendar, { theFirstDayOfSchool } from "./Calendar";
+import MyCalendar from "./Calendar";
 import "./Calendar.css";
 import Background from "./img/background.png";
 import Circle from "./img/circle.png";
 import Line from "./img/line.png";
 import Search from "./search.png";
+import { theFirstDayOfSchool } from "./Settings";
+import { CaculateNumOfWeek } from "./Calendar";
 export default function HeaderComponent() {
     const isMobileView = useMobileView();
     return (
@@ -191,9 +193,7 @@ function WeatherMobile() {
             {/* <div className="phoneweather"> */}
             <div className="phonedate">{moment().format("YYYY/M/D")}</div>
 
-            <div className="phonestudy">
-                第 {moment().diff(theFirstDayOfSchool, "weeks") + 1} 教学周
-            </div>
+            <div className="phonestudy">{CaculateNumOfWeek()}</div>
 
             {/* <div className="phone-p"> */}
             <div className="phone-place">
