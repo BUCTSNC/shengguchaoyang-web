@@ -13,7 +13,6 @@ import Background from "./img/background.png";
 import Circle from "./img/circle.png";
 import Line from "./img/line.png";
 import Search from "./search.png";
-import { theFirstDayOfSchool } from "./Settings";
 import { CaculateNumOfWeek } from "./Calendar";
 export default function HeaderComponent() {
     const isMobileView = useMobileView();

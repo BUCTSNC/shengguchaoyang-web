@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Ajv, { JSONSchemaType } from "ajv";
+import { WeatherApiKey } from "../ForNewStudents/Settings";
 const ajv = new Ajv({
     int32range: false,
 });
@@ -64,7 +65,7 @@ type WeatherInfo = {
 export default function CurrentWeather(): WeatherInfo {
     //如果需要解决1秒钟60次以上的高并发问题可以多注册几个apikey轮流调用
     const url =
-        "https://api.openweathermap.org/data/2.5/weather?lat=40.22&lon=116.23&appid=f1f7c3b827c8a53c5d6b7ab5ccc36123&units=metric&lang=zh_cn";
+        `https://api.openweathermap.org/data/2.5/weather?lat=40.22&lon=116.23&appid=${WeatherApiKey}&units=metric&lang=zh_cn`;
     const [WeatherInfo, setItems] = useState<WeatherInfo>({
         coord: {
             lon: 116.23,
@@ -263,7 +264,7 @@ type AirQualityInfo = {
 };
 export function CurrentAirQualityInfo() {
     const url =
-        "http://api.openweathermap.org/data/2.5/air_pollution?lat=40.22&lon=116.23&appid=f1f7c3b827c8a53c5d6b7ab5ccc36123";
+        `http://api.openweathermap.org/data/2.5/air_pollution?lat=40.22&lon=116.23&appid=${WeatherApiKey}`;
     const [AirQualityInfo, setAirQualityInfo] = useState<AirQualityInfo>({
         coord: {
             lon: 116.23,
