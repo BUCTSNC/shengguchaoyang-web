@@ -14,12 +14,10 @@
     padding-top: 5px;
     background-blend-mode: normal;
     mix-blend-mode: normal;
-    background: linear-gradient(
-        225deg,
-        rgba(65, 84, 184, 1) 0%,
-        rgba(47, 102, 201, 1) 61.42%,
-        rgba(0, 84, 255, 1) 100%
-    );
+    background: linear-gradient(225deg,
+            rgba(65, 84, 184, 1) 0%,
+            rgba(47, 102, 201, 1) 61.42%,
+            rgba(0, 84, 255, 1) 100%);
     background-blend-mode: normal;
     mix-blend-mode: normal;
     border-radius: 10px;
@@ -31,12 +29,10 @@
     padding-top: 5px;
     background-blend-mode: normal;
     mix-blend-mode: normal;
-    background: linear-gradient(
-        225deg,
-        rgba(65, 84, 184, 1) 0%,
-        rgba(47, 102, 201, 1) 61.42%,
-        rgba(0, 84, 255, 1) 100%
-    );
+    background: linear-gradient(225deg,
+            rgba(65, 84, 184, 1) 0%,
+            rgba(47, 102, 201, 1) 61.42%,
+            rgba(0, 84, 255, 1) 100%);
     background-blend-mode: normal;
     mix-blend-mode: normal;
     border-radius: 10px;
@@ -232,7 +228,7 @@ td {
     margin: -0.5em;
 }
 
-.react-calendar--doubleView .react-calendar__viewContainer > * {
+.react-calendar--doubleView .react-calendar__viewContainer>* {
     width: 50%;
     margin: 0.5em;
 }
@@ -270,7 +266,7 @@ td {
     margin-left: 1em;
 }
 
-.react-calendar.small > .react-calendar__navigation {
+.react-calendar.small>.react-calendar__navigation {
     font-size: 10px;
     position: relative;
     left: 40%;
@@ -348,12 +344,10 @@ td {
     background: none;
     text-align: center;
     line-height: 16px;
-    background-image: linear-gradient(
-        to right,
-        #ccc 0%,
-        #ccc 50%,
-        transparent 50%
-    );
+    background-image: linear-gradient(to right,
+            #ccc 0%,
+            #ccc 50%,
+            transparent 50%);
     background-size: 20px 1px;
     background-repeat: repeat-x;
 }
@@ -509,13 +503,13 @@ td {
 
 .mobile-info {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(2,.5fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, .5fr);
     background: rgba(0, 174, 255, 1);
     height: 49px;
 }
 
-.mobile-info > div {
+.mobile-info>div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -584,7 +578,6 @@ td {
     position: absolute;
     left: 7.5%;
     width: 85%;
-    height: 60%;
     color: rgba(239, 239, 239, 0.05);
     font-size: 800%;
     font-weight: 700;
@@ -596,7 +589,6 @@ td {
     position: absolute;
     left: 7.5%;
     width: 85%;
-    height: 60%;
     color: rgba(239, 239, 239, 0.05);
     font-size: 800%;
     font-weight: 700;
