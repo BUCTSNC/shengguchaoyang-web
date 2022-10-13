@@ -8,7 +8,9 @@ jobs:
   build:
     name: Build and deploy main
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [16]
     steps:
       - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2.0.1
@@ -26,6 +28,7 @@ jobs:
         run: |
           pnpm install
           pnpm run build -- --base=/${{ github.event.repository.name }}/
+          
       - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
