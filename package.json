@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc ./tools/generateCateTree.ts && node ./tools/generateCateTree.js && tsc && vite build",
     "serve": "vite preview",
     "octa": "node ./tools/generateCateTree.js",
     "makeOcta": "tsc ./tools/generateCateTree.ts",
