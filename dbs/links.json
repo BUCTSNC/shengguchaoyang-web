@@ -1,0 +1,394 @@
+[
+    {
+        "linkType": "部门网站",
+        "department": "北京化工大学首页",
+        "url": "www.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "校长办公室",
+        "url": "https://xb.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "学生工作办公室（学工办）",
+        "url": "http://xgb.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "北校区工作办公室（北区办）",
+        "url": "https://bq.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "信息中心",
+        "url": "https://cit.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "图书馆",
+        "url": "http://tsg.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "保卫处",
+        "url": "https://security.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "财务处",
+        "url": "https://cwc.buct.edu.cn/"
+    },
+
+    {
+        "linkType": "部门网站",
+        "department": "后勤服务集团",
+        "url": "https://houqin.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "招生办",
+        "url": "https://goto.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "就业中心",
+        "url": "https://job.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "人事处",
+        "url": "https://rsc.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "科技处",
+        "url": "https://research.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "工会",
+        "url": "https://gh.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "武装部",
+        "url": "https://wzb.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "团委",
+        "url": "https://youth.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "党委办公室",
+        "url": "https://dangban.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "纪委办公室",
+        "url": "https://jwjc.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "党委统战部",
+        "url": "https://tzb.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "党委教师工作部",
+        "url": "https://jsgzb.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "教师发展中心",
+        "url": "https://ctld.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "教育基金会",
+        "url": "https://ef.buct.edu.cn/"
+    },
+    {
+        "linkType": "部门网站",
+        "department": "人工智能交叉研究中心",
+        "url": "https://ai.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "化学工程学院",
+        "url": "https://chem.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "材料科学与工程学院",
+        "url": "https://cmse.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "机电工程学院",
+        "url": "http://mech.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "信息科学与技术学院",
+        "url": "https://cist.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "经济管理学院",
+        "url": "https://sem.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "化学学院",
+        "url": "http://chemistry.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "数理学院",
+        "url": "http://cmp.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "文法学院",
+        "url": "http://wfxy.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "生命科学与技术学院",
+        "url": "http://life.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "国际教育学院",
+        "url": "http://sie.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "巴黎居里工程师学院",
+        "url": "http://engineer.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "研究生院",
+        "url": "http://graduate.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "马克思主义学院",
+        "url": "http://marxism.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "继续教育学院",
+        "url": "http://cel.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "教师主页",
+        "url": "https://faculty.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "化工资源有效利用国家重点实验室",
+        "url": "https://gzs.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "有机无机复合材料国家重点实验室",
+        "url": "http://www.oic.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "轮胎设计与制造工艺国家工程实验室",
+        "url": "http://www.tdmt.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "膜分离过程与技术北京市重点实验室",
+        "url": "https://bmst.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "能源环境催化北京市重点实验室",
+        "url": "http://eec.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "北京市生物加工过程重点实验室",
+        "url": "https://bioprocess.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "北京市新型高分子材料制备与加工重点实验室",
+        "url": "https://ppnp.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "高端机械装备健康监控与自愈化北京重点实验室",
+        "url": "https://hms.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "环境有害化学物质分析北京市重点实验室",
+        "url": "https://ehca.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "材料电化学过程与技术北京市重点实验室",
+        "url": "https://electrochem-lab.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "生物医用材料北京实验室",
+        "url": "https://bjbiomed.buct.edu.cn/"
+    },
+    {
+        "linkType": "学院网站",
+        "department": "新危险化学品评估及事故鉴定基础研究实验室",
+        "url": "http://nhca3.buct.edu.cn/"
+    },
+
+    {
+        "linkType": "应用系统",
+        "department": "教务管理系统",
+        "url": "http://jwglxt.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "数字校园",
+        "url": "http://portal.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "办事大厅",
+        "url": "https://service.buct.edu.cn/v2/site/m_index"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "学生资助办公室",
+        "url": "https://zizhu.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "奖学金网站",
+        "url": "http://x.tcub.xyz/scholarship2/public/index.php/index/login.html"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "勤工助学网站",
+        "url": "http://x.tcub.xyz/workstudy/public/index.php/index/login.html"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "国际学生在线服务系统",
+        "url": "http://study.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "北化新闻",
+        "url": "https://news.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "北化邮箱",
+        "url": "http://mail.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "校园卡移动服务平台",
+        "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc8e22211eca8a743&redirect_uri=http%3A%2F%2Fmcard.buct.edu.cn%2Fhome%2FopenHomePage&response_type=code&scope=snsapi_base&state=STATE&connect_redirect=1#wechat_redirect"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "学生公寓",
+        "url": "http://repair.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "VPN",
+        "url": "https://vpn.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "webVPN",
+        "url": "https://w.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "心理咨询",
+        "url": "https://xinli.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "校内IPTV",
+        "url": "https://iptv.buct.edu.cn/"
+    },
+    {
+        "linkType": "应用系统",
+        "department": "正版软件",
+        "url": "http://software.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "图书馆",
+        "url": "http://tsg.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "北化在线",
+        "url": "https://course-proxy2.buct.edu.cn/meol/index.do"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "外语教学平台",
+        "url": "10.16.254.12"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "外语测试与训练系统",
+        "url": "https://itest.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "BUCTOJ",
+        "url": "http://39.106.31.26/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "高性能计算平台",
+        "url": "https://hpc.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "实践教学综合服务平台",
+        "url": "http://sjcx.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "校务信息",
+        "url": "https://xxgk.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "学报（自然科学版）",
+        "url": "https://journal.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "学报（社会科学版）",
+        "url": "https://bhgs.cbpt.cnki.net/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "校内IPTV",
+        "url": "https://iptv.buct.edu.cn/"
+    },
+    {
+        "linkType": "平台资源",
+        "department": "正版软件",
+        "url": "http://software.buct.edu.cn/"
+    }
+]
