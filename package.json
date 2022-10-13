@@ -17,6 +17,7 @@
     "lodash": "^4.17.21",
     "marked": "^4.0.14",
     "md5": "^2.3.0",
+    "moment": "^2.29.4",
     "qweather-icons": "^1.1.1",
     "react": "^17.0.0",
     "react-calendar": "^3.7.0",
