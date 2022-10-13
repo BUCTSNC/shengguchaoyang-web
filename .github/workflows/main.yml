@@ -40,8 +40,8 @@ jobs:
           branch: gh-pages
           folder: dist
 
-      - name: Publish deployed code 
-        uses: actions/upload-artifact@v2
-        with:
-          name: published
-          path: dist
+      #- name: Publish deployed code 
+      #  uses: actions/upload-artifact@v2
+      #  with:
+      #    name: published
+      #    path: dist
