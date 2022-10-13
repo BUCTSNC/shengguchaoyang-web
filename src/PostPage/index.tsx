@@ -34,6 +34,7 @@ export function Post(props: RouteComponentProps) {
             const id = decodeURI(location.hash.replace(/^#/, ""));
             let targetEle = document.getElementById(id);
             let currentScrollHeight = 0;
+            //@ts-ignore
             interval = setInterval(() => {
                 if (
                     targetEle === null ||

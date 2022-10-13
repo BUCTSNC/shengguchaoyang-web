@@ -5,6 +5,7 @@ specifiers:
   '@types/lodash': ^4.14.170
   '@types/marked': ^4.0.3
   '@types/md5': ^2.3.2
+  '@types/node': ^18.8.5
   '@types/react': ^17.0.0
   '@types/react-calendar': ^3.5.1
   '@types/react-dom': ^17.0.0
@@ -51,6 +52,7 @@ devDependencies:
   '@types/lodash': 4.14.181
   '@types/marked': 4.0.3
   '@types/md5': 2.3.2
+  '@types/node': 18.8.5
   '@types/react': 17.0.44
   '@types/react-calendar': 3.5.3
   '@types/react-dom': 17.0.15
@@ -454,6 +456,10 @@ packages:
 
   /@types/md5/2.3.2:
     resolution: {integrity: sha512-v+JFDu96+UYJ3/UWzB0mEglIS//MZXgRaJ4ubUPwOM0gvLc/kcQ3TWNYwENEK7/EcXGQVrW8h/XqednSjBd/Og==}
+    dev: true
+
+  /@types/node/18.8.5:
+    resolution: {integrity: sha512-Bq7G3AErwe5A/Zki5fdD3O6+0zDChhg671NfPjtIcbtzDNZTv4NPKMRFr7gtYPG7y+B8uTiNK4Ngd9T0FTar6Q==}
     dev: true
 
   /@types/prop-types/15.7.5:
