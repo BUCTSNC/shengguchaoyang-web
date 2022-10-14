@@ -44,7 +44,7 @@
     "vite": "^2.3.7"
   },
   "name": "shengguchaoyang_web",
-  "repository": "git@gitee.com:buctsnc/shenggu-chaoyang_web.git",
+  "repository": "git@github.com:buctsnc/shenggu-chaoyang_web.git",
   "author": "lianghchan <lianghchan@163.com>",
   "license": "MIT",
   "pnpm": {

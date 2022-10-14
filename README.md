@@ -10,34 +10,71 @@
 
 因此，要获取完整的开发环境，需要进行如下操作：
 
-> 以下假设你已经配置好了自己的Gitee账户的SSH密钥
+> 以下假设你已经配置好了自己的GitHub账户的SSH密钥
 
 ```sh
-git clone git@gitee.com:buctsnc/shenggu-chaoyang_web.git
+git clone git@github.com:buctsnc/shenggu-chaoyang_web.git
 cd shenggu-chaoyang_web 
 git submodule init # 初始化子模块目录
 git submodule update # 更新子模块目录下的内容
-code . # 或者用你的其他编辑器打开这个目录
+code . # 这是用VS Code 打开这个目录，也可以用你的其他编辑器打开
 ```
 
 在编辑器中，你可以检查 `public/posts`目录下是否有文件。
 
-成功之后准备开发环境。开发环境要求安装Node.js，包管理器可以使用npm（一般是Node.js默认安装的）、yarn（推荐，因为已经将 `yarn.lock`文件推送到仓库了）、pnpm。
+成功之后准备开发环境。开发环境要求安装Node.js，包管理器推荐使用pnpm. npm和yarn的lockfile不是最新，可能会出现问题。
 
-> 安装yarn的方式为：`npm install yarn -g`，注意如果使用Windows Powershell作为执行环境的话，请首先使用管理员权限运行Powershell并执行 `Set-ExecutionPolicy RemoteSigned`。
+教程如下，请根据自己的情况选择：
 
-随后在Code的集成终端中执行：
+<details>
+  <summary>PNPM</summary>
+  
+  > 安装pnpm的方法可以参考 [pnpm 官网](https://pnpm.io/zh/installation)，或者使用 `npm install -g pnpm`。
 
-```sh
-# 安装依赖项目和开发工具
-yarn # 若使用npm，则运行npm install
-# 将内容元数据生成脚本编译为JavaScript
-yarn makeOcta # npm run makeOcta
-# 生成元数据文件
-yarn octa # npm run octa
-# 启动开发环境
-yarn dev # npm run dev
-```
+  随后在Code的集成终端中执行：
+  
+    ```sh
+    pnpm install # 安装依赖
+    pnpm makeOcta && pnpm octa # 生成元数据文件
+    pnpm dev # 启动开发服务器
+    ```
+
+</details>
+
+<details>
+  <summary>PNPM</summary>
+
+  > 安装npm的方法应该不用教……吧……
+
+  随后在Code的集成终端中执行：
+  
+    ```sh
+    npm install # 安装依赖
+    npm makeOcta && pnpm octa # 生成元数据文件
+    npm dev # 启动开发服务器
+    ```
+
+</details>
+
+<details>
+  <summary>yarn</summary>
+  
+  > 安装yarn的方式为：`npm install yarn -g`，注意如果使用Windows Powershell作为执行环境的话，请首先使用管理员权限运行Powershell并执行 `Set-ExecutionPolicy RemoteSigned`。
+
+  随后在Code的集成终端中执行：
+  
+    ```sh
+    # 安装依赖项目和开发工具
+    yarn # 若使用npm，则运行npm install
+    # 将内容元数据生成脚本编译为JavaScript
+    yarn makeOcta # npm run makeOcta
+    # 生成元数据文件
+    yarn octa # npm run octa
+    # 启动开发环境
+    yarn dev # npm run dev
+    ```
+
+</details>
 
 第一次启动开发环境的时间会稍微长一些，它会将依赖的外部库编译打包，启动成功之后，可以在 `http://localhost:3000/`访问到页面。如果3000端口已经占用，开发环境会使用其他端口，应该在终端输出中寻找。
 
@@ -103,7 +140,7 @@ git commit -m "实现导航按钮动画"
 
 依旧以 `navi_anim`分支为例，要将这个分支的内容推送到服务器上，应该在使用 `git push origin navi_anim`，其中 `origin`是克隆仓库后，对远程仓库的默认代称。
 
-对于Gitee来说，仓库管理员可以在网页端进行合并，也可以单独获取分支后在本地合并然后推送。
+对于Gitee和Github来说，仓库管理员可以在网页端进行合并，也可以单独获取分支后在本地合并然后推送。
 
 对于为了功能创建的分支来说，一般功能开发完成后就不再使用，因此不用考虑 `rebase`之类的操作，此处也不再介绍。一般的后续操作是：
 
