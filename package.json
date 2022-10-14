@@ -46,5 +46,10 @@
   "name": "shengguchaoyang_web",
   "repository": "git@gitee.com:buctsnc/shenggu-chaoyang_web.git",
   "author": "lianghchan <lianghchan@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "pnpm": {
+    "overrides": {
+      "vite@<2.9.13": ">=2.9.13"
+    }
+  }
 }
