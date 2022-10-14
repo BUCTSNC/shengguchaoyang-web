@@ -42,7 +42,7 @@ code . # 这是用VS Code 打开这个目录，也可以用你的其他编辑器
 </details>
 
 <details>
-  <summary>PNPM</summary>
+  <summary>npm</summary>
 
   > 安装npm的方法应该不用教……吧……
 
