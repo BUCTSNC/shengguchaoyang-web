@@ -1,0 +1,24 @@
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 2 * * *"
+name: gitee-sync
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v2.5.0
+    - name: Mirror Github to Gitee
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/BUCTSNC
+        dst: gitee/buctsnc
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
+        static_list: "shenggu-chaoyang_post,shenggu-chaoyang_web"
+        account_type: org
+        force_update: true
+        debug: true
