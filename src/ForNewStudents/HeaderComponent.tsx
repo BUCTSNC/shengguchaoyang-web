@@ -618,14 +618,6 @@ function TimeLineCard(props: { date: Date; title: string; info: string }) {
                 boxShadow: "8px 8px 16px #646464",
             }}
         >
-            <span
-                style={{
-                    color: "#0054ff",
-                    fontSize: "1.2em",
-                }}
-            >
-                {date.getMonth() + 1}月{date.getDate()}日
-            </span>
             <br />
             <span
                 style={{
